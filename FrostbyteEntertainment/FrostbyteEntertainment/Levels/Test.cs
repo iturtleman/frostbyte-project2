@@ -48,7 +48,7 @@ namespace Frostbyte.Levels
             l.HUD.LoadCommon();
 
             Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage.Pos = new Microsoft.Xna.Framework.Vector2(16000, 16000);
+            mage.Pos = new Microsoft.Xna.Framework.Vector2(269*64, 250*64);
             l.HUD.AddPlayer(mage);
             /*Sprite a = new Sprite("box1", new Actor(new Animation("boxen.anim")),2);
 
