@@ -42,7 +42,7 @@ namespace Frostbyte.Enemies
             GroundPos = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new CowardlyPersonality(this);
-            AttackRange = 20; //in pixels
+            AttackRange = 10; //in pixels
         }
 
         protected override void updateMovement()

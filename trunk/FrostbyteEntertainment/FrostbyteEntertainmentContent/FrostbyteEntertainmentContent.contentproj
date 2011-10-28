@@ -155,33 +155,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\golem-idle-diagdown.png">
-      <Name>golem-idle-diagdown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\golem-idle-diagup.png">
-      <Name>golem-idle-diagup</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\golem-idle-down.png">
-      <Name>golem-idle-down</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\golem-idle-right.png">
-      <Name>golem-idle-right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\golem-idle-up.png">
-      <Name>golem-idle-up</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\wasp-attack.png">
       <Name>wasp-attack</Name>
       <Importer>TextureImporter</Importer>

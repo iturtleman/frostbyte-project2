@@ -103,7 +103,7 @@ namespace Frostbyte
         /// <summary>
         /// Check for collision with background and move enemy out of collision with background until no collisions exist
         /// </summary>
-        protected void checkBackgroundCollisions()
+        internal void checkBackgroundCollisions()
         {
             Vector2 positiveInfinity = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(positiveInfinity, positiveInfinity);
@@ -182,7 +182,7 @@ namespace Frostbyte
                 this.GroundPos = footPos;
         }
 
-        private void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
+        internal void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
         {
             float collisionRadius = 18f;    //change this later to correct value***************************************************************************************
             List<Tuple<Vector2, Vector2>> boundaryLineSegments = new List<Tuple<Vector2, Vector2>>();   //line segments to check collision with sprite
