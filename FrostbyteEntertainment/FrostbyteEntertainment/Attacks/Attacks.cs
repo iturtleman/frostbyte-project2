@@ -116,6 +116,8 @@ namespace Frostbyte
             int FrameCount = setAttackAnimation(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             Vector2 direction = new Vector2();
+            Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2,Vector2>(new Vector2(), new Vector2());
+            Vector2 closestIntersection = new Vector2();
             #endregion Variables (Do not Change)
 
             #region Variables (Change)
@@ -153,12 +155,19 @@ namespace Frostbyte
                     target.Health -= baseDamage;
                     break;
                 }
-
+                
+                //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 2)
                     attacker.isMovingAllowed = true;
 
-                
+                //make sure magic cannot go through walls
+                Vector2 previousPosition = attacker.particleEmitter.CenterPos;
                 attacker.particleEmitter.CenterPos += direction * projectileSpeed;
+                attacker.detectBackgroundCollisions(attacker.particleEmitter.CenterPos, previousPosition, out closestObject, out closestIntersection);
+                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, attacker.CenterPos))
+                {
+                    break;
+                }
 
 
                 attacker.particleEmitter.Update();
