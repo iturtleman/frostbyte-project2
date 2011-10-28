@@ -634,8 +634,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,166" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,166" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,166" />
-  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="173,167" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="174,167" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="174,167" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="175,167" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="176,167" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="177,167" />
@@ -747,8 +746,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,167" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,167" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,167" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,168" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,168" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,168" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,168" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,168" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,168" />
@@ -860,8 +858,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,168" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,168" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,168" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,169" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,169" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,169" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,169" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,169" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,169" />
@@ -973,8 +970,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,169" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,169" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,169" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,170" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,170" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,170" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,170" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,170" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,170" />
@@ -1086,19 +1082,18 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,170" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,170" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,170" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,171" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,171" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,171" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,171" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,171" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,171" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="179,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,171" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,171" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,171" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,171" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,171" />
@@ -1199,20 +1194,19 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,171" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,171" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,171" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,172" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,172" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,172" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,172" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="179,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,172" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,172" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,172" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="185,172" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="186,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,172" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,172" />
@@ -1280,20 +1274,19 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,172" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,172" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,172" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,173" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,173" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,173" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="178,173" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="179,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,173" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,173" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,173" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,173" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="186,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,173" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,173" />
@@ -1361,8 +1354,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="298,173" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="299,173" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="300,173" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,174" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,174" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,174" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,174" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,174" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,174" />
@@ -1442,8 +1434,7 @@
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="298,174" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="299,174" />
   <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="300,174" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,175" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,175" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,175" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,175" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,175" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,175" />
@@ -1491,19 +1482,18 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,175" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,175" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,175" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,176" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,176" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,176" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,176" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,176" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,176" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="179,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,176" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,176" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,176" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,176" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,176" />
@@ -1540,20 +1530,19 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,176" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,176" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,176" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,177" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,177" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,177" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,177" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="179,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,177" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,177" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,177" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="185,177" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="186,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,177" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,177" />
@@ -1589,20 +1578,19 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,177" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,177" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,177" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,178" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,178" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,178" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="178,178" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="179,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,178" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,178" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,178" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,178" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="186,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,178" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,178" />
@@ -1638,8 +1626,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,178" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,178" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,178" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,179" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,179" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,179" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,179" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,179" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,179" />
@@ -1687,8 +1674,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,179" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,179" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,179" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,180" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,180" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,180" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,180" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,180" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,180" />
@@ -1736,23 +1722,22 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,180" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,180" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,180" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,181" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,181" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,181" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,181" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,181" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,181" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="179,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,181" />
   <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,181" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="185,181" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="186,181" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="187,181" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="188,181" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="189,181" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,181" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,181" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,181" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,181" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,181" />
   <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="194,181" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="195,181" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="196,181" />
@@ -1813,18 +1798,22 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,181" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,181" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,181" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,182" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,182" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,182" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,182" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,182" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,182" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,182" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="178,182" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="179,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,182" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,182" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="185,182" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="186,182" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,182" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,182" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,182" />
   <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="194,182" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="195,182" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="196,182" />
@@ -1885,18 +1874,22 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,182" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,182" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,182" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,183" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,183" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,183" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,183" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="178,183" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="179,183" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="177,183" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="178,183" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="179,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="180,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,183" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,183" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,183" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="185,183" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="186,183" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,183" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,183" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,183" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="194,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,183" />
@@ -1957,8 +1950,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="282,183" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="283,183" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="284,183" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,184" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,184" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,184" />
@@ -1968,7 +1960,12 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,184" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,184" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,184" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,184" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,184" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,184" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,184" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,184" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="194,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,184" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,184" />
@@ -2029,8 +2026,7 @@
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="282,184" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="283,184" />
   <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="284,184" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="173,185" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="174,185" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="174,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="175,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="176,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="177,185" />
@@ -2040,7 +2036,12 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,185" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,185" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="184,185" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="185,185" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="186,185" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="187,185" />
+  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="188,185" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="189,185" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="194,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,185" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,185" />
@@ -2067,8 +2068,7 @@
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="222,185" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="223,185" />
   <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="224,185" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="173,186" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="174,186" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="174,186" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="175,186" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="176,186" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="177,186" />
@@ -2078,7 +2078,12 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="181,186" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="182,186" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,186" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,186" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="184,186" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="185,186" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="186,186" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="187,186" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="188,186" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="189,186" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="194,186" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,186" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,186" />
@@ -2112,14 +2117,13 @@
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="233,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="234,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="235,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="236,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="237,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="236,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="237,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="238,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="239,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="240,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="241,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="242,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="243,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="241,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="243,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="244,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="245,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="246,186" />
@@ -2130,8 +2134,8 @@
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="251,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="252,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="253,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="254,186" />
-  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="255,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,186" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="255,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="256,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="257,186" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="258,186" />
@@ -2180,14 +2184,13 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,187" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,187" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,187" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="241,187" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="243,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,187" />
@@ -2198,8 +2201,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,187" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,187" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="254,187" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,187" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,187" />
@@ -2253,14 +2256,13 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,188" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,188" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,188" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="241,188" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="243,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,188" />
@@ -2271,8 +2273,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,188" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,188" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="254,188" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,188" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,188" />
@@ -2326,26 +2328,25 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,189" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,189" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,189" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="241,189" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="243,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,189" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,189" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="246,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="247,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="248,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="249,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="250,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="251,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="252,189" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="253,189" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,189" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,189" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,189" />
@@ -2399,35 +2400,34 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,190" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,190" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,190" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="241,190" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="243,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,190" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="246,190" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="247,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="248,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="249,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="250,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="251,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="252,190" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="253,190" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,190" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,190" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,190" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,190" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,190" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="259,190" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="260,190" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="261,190" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="262,190" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="263,190" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="264,190" />
   <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="267,190" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="268,190" />
   <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="269,190" />
@@ -2478,38 +2478,38 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,191" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="233,191" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="234,191" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="235,191" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="236,191" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,191" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="241,191" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="242,191" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="243,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,191" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="246,191" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="247,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,191" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="254,191" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,191" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,191" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,191" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="259,191" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="260,191" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="261,191" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="262,191" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="263,191" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="264,191" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="267,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="268,191" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="269,191" />
@@ -2564,11 +2564,11 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,192" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="233,192" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="234,192" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="235,192" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="236,192" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,192" />
@@ -2577,21 +2577,21 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,192" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="246,192" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="247,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,192" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="254,192" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="255,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,192" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,192" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="259,192" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="260,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,192" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,192" />
@@ -2643,8 +2643,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,193" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,193" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="237,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,193" />
@@ -2653,21 +2653,21 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,193" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="246,193" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="247,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,193" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="250,193" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="251,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,193" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,193" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="255,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,193" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,193" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="259,193" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="260,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,193" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,193" />
@@ -2719,22 +2719,22 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,194" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="236,194" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="237,194" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="238,194" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="239,194" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="240,194" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="241,194" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="242,194" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="243,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,194" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="246,194" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="247,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,194" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="250,194" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,194" />
@@ -2742,8 +2742,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,194" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,194" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="259,194" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="260,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,194" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,194" />
@@ -2796,26 +2796,26 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="229,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,195" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="232,195" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="233,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,195" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="236,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="237,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="238,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="239,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="240,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="241,195" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="242,195" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="243,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,195" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="246,195" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="247,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,195" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="250,195" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,195" />
@@ -2823,8 +2823,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,195" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,195" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="259,195" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="260,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,195" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,195" />
@@ -2877,8 +2877,8 @@
   <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="229,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,196" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="232,196" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="233,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,196" />
@@ -2895,21 +2895,21 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,196" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="250,196" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,196" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,196" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,196" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="255,196" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="256,196" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="257,196" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="258,196" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="259,196" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="260,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,196" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,196" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="264,196" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="264,196" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="265,196" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="266,196" />
   <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="267,196" />
@@ -2984,21 +2984,21 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,197" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="250,197" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,197" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,197" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="254,197" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="255,197" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="256,197" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="257,197" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="258,197" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="259,197" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="260,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,197" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,197" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="264,197" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="267,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="268,197" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="269,197" />
@@ -3064,15 +3064,15 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,198" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,198" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,198" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,198" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="243,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="244,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="245,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="246,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="247,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="248,198" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="249,198" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="250,198" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,198" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,198" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,198" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,198" />
@@ -3143,23 +3143,23 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,199" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="235,199" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="236,199" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="237,199" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="238,199" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="239,199" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="240,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,199" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,199" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="243,199" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="244,199" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="245,199" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="246,199" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="247,199" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="248,199" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="249,199" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="250,199" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="251,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,199" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,199" />
@@ -3219,33 +3219,33 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,200" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="235,200" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="236,200" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="237,200" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="238,200" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="239,200" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="240,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,200" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="243,200" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="244,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="248,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="249,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="250,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="251,200" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="250,200" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="251,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,200" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="255,200" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="256,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,200" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,200" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="260,200" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="261,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,200" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,200" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,200" />
@@ -3297,16 +3297,16 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,201" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="235,201" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="236,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,201" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="243,201" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="244,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,201" />
@@ -3317,13 +3317,13 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,201" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="255,201" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="256,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,201" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,201" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="260,201" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="261,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,201" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,201" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,201" />
@@ -3370,16 +3370,16 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,202" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="235,202" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="236,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="237,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="238,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="239,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="240,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="241,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="242,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="243,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="244,202" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="243,202" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="244,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="245,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="246,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="247,202" />
@@ -3390,13 +3390,13 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="252,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="253,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="254,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="255,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="256,202" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="255,202" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="256,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="257,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="258,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="259,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="260,202" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="261,202" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="260,202" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="261,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="262,202" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="263,202" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="264,202" />
@@ -3443,16 +3443,16 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,203" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,203" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,203" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="235,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="236,203" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="235,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="236,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="237,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="238,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="239,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="240,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="241,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="242,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="243,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="244,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="243,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="244,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="245,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="246,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="247,203" />
@@ -3463,13 +3463,13 @@
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="252,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="253,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="254,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="255,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="256,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="255,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="256,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="257,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="258,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="259,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="260,203" />
-  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="261,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="260,203" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="261,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="262,203" />
   <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="263,203" />
   <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="264,203" />
@@ -3637,18 +3637,18 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,210" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,210" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="191,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="192,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="193,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="194,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="192,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="193,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="194,210" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="195,210" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,210" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="197,210" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="198,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="199,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="200,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,210" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,210" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,210" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="199,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="200,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="201,210" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="202,210" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="203,210" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="229,210" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,210" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,210" />
@@ -3665,18 +3665,18 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="183,211" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="184,211" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="191,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="192,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="193,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="194,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,211" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="192,211" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="193,211" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="194,211" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="195,211" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,211" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="197,211" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="198,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="199,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="200,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,211" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,211" />
-  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,211" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="199,211" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="200,211" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="201,211" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="202,211" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Right" GridCell="203,211" />
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="229,211" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,211" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,211" />
@@ -3695,13 +3695,13 @@
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="191,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="192,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="193,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="194,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,212" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="194,212" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="195,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="197,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="198,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="199,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="200,212" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="199,212" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="200,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,212" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,212" />
@@ -3709,8 +3709,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,212" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,212" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="233,212" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="234,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,212" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,212" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="237,212" />
@@ -3723,13 +3723,13 @@
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="191,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="192,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="193,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="194,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,213" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="194,213" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="195,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="197,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="198,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="199,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="200,213" />
+  <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="199,213" />
+  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="200,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,213" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,213" />
@@ -3737,8 +3737,8 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,213" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,213" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="233,213" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="234,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,213" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,213" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="237,213" />
@@ -3751,13 +3751,13 @@
   <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="191,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="192,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="193,214" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="194,214" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="195,214" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="194,214" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="195,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="196,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="197,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="198,214" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="199,214" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="200,214" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Right" GridCell="199,214" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="200,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,214" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,214" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,214" />
@@ -3891,11 +3891,11 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,218" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,218" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,218" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="229,218" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,218" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,218" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,218" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,218" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="229,218" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="230,218" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="231,218" />
+  <Tile Type="Bottom" Collision="false" Theme="Earth" Orientation="Right" GridCell="232,218" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Earth" Orientation="Left" GridCell="233,218" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,218" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,218" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,218" />
@@ -3925,11 +3925,11 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="201,219" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="202,219" />
   <Tile Type="SideWall" Collision="true" Theme="Earth" Orientation="Up_Left" GridCell="203,219" />
-  <Tile Type="SideWall" Collision="false" Theme="Earth" Orientation="Down" GridCell="229,219" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="230,219" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="231,219" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="232,219" />
-  <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="233,219" />
+  <Tile Type="Corner" Collision="true" Theme="Earth" Orientation="Left" GridCell="229,219" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="230,219" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="231,219" />
+  <Tile Type="Wall" Collision="true" Theme="Earth" Orientation="Left" GridCell="232,219" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Earth" Orientation="Down" GridCell="233,219" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="234,219" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="235,219" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="236,219" />
@@ -5117,41 +5117,67 @@
   <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="14944,10848" />
   <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="15328,10848" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="15520,10848" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11424,11104" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11552,11104" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11360,10976" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11936,10976" />
+  <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="12704,11104" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="13792,11104" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="14176,11104" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="14560,11104" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="14944,11104" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="15328,11104" />
-  <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="11424,11232" />
-  <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="11552,11232" />
+  <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="12640,11168" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11360,11296" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11936,11296" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11360,11616" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11936,11616" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12512,11744" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12768,11744" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12640,11808" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12512,11872" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="13344,11936" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15392,12000" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15392,12064" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16160,12064" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16224,12064" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16864,12128" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14944,12192" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15008,12192" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="13920,12256" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16416,12256" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="17184,12256" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="17568,12256" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="13344,12384" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14944,12384" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15264,12384" />
   <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="16928,12448" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16160,12512" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="13344,12576" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11488,12640" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="13920,12640" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="17184,12640" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="17568,12640" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15520,12704" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11232,12832" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11360,12832" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15712,12832" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15840,12832" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15968,12832" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15200,12896" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15200,12960" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16480,12960" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16608,12960" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="16800,12960" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="11488,13024" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="13344,13024" />
-  <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="12576,13728" />
-  <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="12704,13728" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14880,13728" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14944,13536" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12384,13600" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12896,13600" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12384,13664" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12896,13664" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12384,13728" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="12896,13728" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="15008,13728" />
+  <Enemy Type="Frostbyte.Enemies.Golem" Name="Golem" Pos="12640,13792" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14816,13920" />
+  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="14944,13920" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15712,14624" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="15840,14624" />
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="16032,15136" />
