@@ -105,6 +105,12 @@ namespace Frostbyte
         /// </summary>
         internal void checkBackgroundCollisions()
         {
+            if (Vector2.DistanceSquared(previousFootPos, GroundPos) <= 1)
+            {
+                GroundPos = previousFootPos;
+                return;
+            }
+
             Vector2 positiveInfinity = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(positiveInfinity, positiveInfinity);
             Vector2 closestIntersection = positiveInfinity;
@@ -112,7 +118,7 @@ namespace Frostbyte
             Vector2 originalFootPos = previousFootPos;
             bool isMoved = false;
 
-            while (Vector2.DistanceSquared(footPos,previousFootPos) > 0.1f)
+            while (Vector2.DistanceSquared(footPos,previousFootPos) > 1f)
             {
                 detectBackgroundCollisions(footPos, previousFootPos, out closestObject, out closestIntersection);
 
@@ -174,10 +180,12 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 0.1f)
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1.8f)
                 this.GroundPos = footPos;
             else if (isMoved)
+            {
                 this.GroundPos = originalFootPos;
+            }
         }
 
         internal void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
@@ -237,7 +245,7 @@ namespace Frostbyte
                         case TileTypes.BottomConvexCorner: //bottom convex corner wall
                             boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX, tileStartPosY + This.CellSize / 2 - collisionRadius), //add top side of tile
                                                                                  new Vector2(tileStartPosX + This.CellSize, tileStartPosY + This.CellSize / 2 - collisionRadius)));
-                            if (tile.Hflip) //right bottom convex corner
+                            if (tile.Orientation == Orientations.Right) //right bottom convex corner
                             {
                                 boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize), //add left side of tile
                                                                                      new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize / 2)));
