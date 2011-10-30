@@ -127,7 +127,7 @@ namespace Frostbyte
             float projectileSpeed = 6f;
             #endregion Variables (Change)
 
-            attacker.particleEmitter.CenterPos = attacker.CenterPos;
+            attacker.particleEmitter.CenterPos = attacker.GroundPos;
             
             attacker.Rewind();
 
