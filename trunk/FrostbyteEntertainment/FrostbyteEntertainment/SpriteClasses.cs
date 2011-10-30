@@ -109,16 +109,10 @@ namespace Frostbyte
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(positiveInfinity, positiveInfinity);
             Vector2 closestIntersection = positiveInfinity;
             Vector2 footPos = this.GroundPos;
+            Vector2 originalFootPos = previousFootPos;
             bool isMoved = false;
 
-            //This takes care of the controller moving too slow
-            if (Vector2.DistanceSquared(footPos, previousFootPos) <= 0.1f)
-            {
-                footPos = previousFootPos;
-                isMoved = true;
-            }
-
-            while (Vector2.DistanceSquared(footPos,previousFootPos) > 0.1f)//(footPos != previousFootPos)
+            while (Vector2.DistanceSquared(footPos,previousFootPos) > 0.1f)
             {
                 detectBackgroundCollisions(footPos, previousFootPos, out closestObject, out closestIntersection);
 
@@ -178,8 +172,12 @@ namespace Frostbyte
                 }
             }
 
-            if (isMoved)
+
+            //This takes care of the sprite moving too slow and updates position
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 0.1f)
                 this.GroundPos = footPos;
+            else if (isMoved)
+                this.GroundPos = originalFootPos;
         }
 
         internal void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
