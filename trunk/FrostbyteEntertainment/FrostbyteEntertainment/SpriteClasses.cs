@@ -235,7 +235,7 @@ namespace Frostbyte
                                                                                  new Vector2(tileStartPosX + This.CellSize, tileStartPosY + This.CellSize / 2 - collisionRadius)));
                             break;
                         case TileTypes.SideWall: //side wall
-                            if (tile.Hflip) //right side wall
+                            if (tile.Orientation == Orientations.Up_Left) //right side wall
                                 boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize), //add left side of tile
                                                                                      new Vector2(tileStartPosX - collisionRadius, tileStartPosY)));
                             else //left side wall
@@ -261,7 +261,7 @@ namespace Frostbyte
                         case TileTypes.ConvexCorner: //top convex corner wall
                             boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX + This.CellSize, tileStartPosY + This.CellSize + collisionRadius), //add bottom side of tile
                                                                                  new Vector2(tileStartPosX, tileStartPosY + This.CellSize + collisionRadius)));
-                            if (tile.Hflip) //right top convex corner |_
+                            if (tile.Orientation == Orientations.Right) //right top convex corner |_
                             {
                                 boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize), //add left side of tile
                                                                                      new Vector2(tileStartPosX - collisionRadius, tileStartPosY)));
@@ -275,7 +275,7 @@ namespace Frostbyte
                             }
                             break;
                         case TileTypes.BottomCorner: //bottom concave corner wall
-                            if (tile.Hflip) //right bottom concave corner _|
+                            if (tile.Orientation == Orientations.Right) //right bottom concave corner _|
                             {
                                 boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize / 2), //add left side of tile
                                                                                      new Vector2(tileStartPosX - collisionRadius, tileStartPosY)));
