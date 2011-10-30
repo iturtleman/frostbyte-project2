@@ -122,12 +122,13 @@ namespace Frostbyte
 
             #region Variables (Change)
             //Adjust These
-            TimeSpan attackEndTime = new TimeSpan(0,0,0,1,750);
+            TimeSpan attackEndTime = new TimeSpan(0, 0, 0, 1, 750);
+            TimeSpan minAttackTime = new TimeSpan(0, 0, 0, 0, 750);
             int hitDistance = 20;  //distance in pixels from target that is considered a hit
             float projectileSpeed = 6f;
             #endregion Variables (Change)
 
-            attacker.particleEmitter.CenterPos = attacker.GroundPos;
+            attacker.particleEmitter.GroundPos = attacker.GroundPos;
             
             attacker.Rewind();
 
@@ -139,7 +140,7 @@ namespace Frostbyte
                 if (attacker.Frame == attackFrame)
                 {
                     attackStartTime = This.gameTime.TotalGameTime;
-                    direction = target.GroundPos - attacker.particleEmitter.CenterPos;
+                    direction = target.GroundPos - attacker.particleEmitter.GroundPos;
                     direction.Normalize();
                     break;
                 }
@@ -150,7 +151,7 @@ namespace Frostbyte
             //emmit particles until particle hits target or time to live runs out
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
-                if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.CenterPos) < hitDistance * hitDistance)
+                if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.GroundPos) < hitDistance * hitDistance)
                 {
                     target.Health -= baseDamage;
                     break;
@@ -161,17 +162,17 @@ namespace Frostbyte
                     attacker.isMovingAllowed = true;
 
                 //make sure magic cannot go through walls
-                Vector2 previousPosition = attacker.particleEmitter.CenterPos;
-                attacker.particleEmitter.CenterPos += direction * projectileSpeed;
-                attacker.detectBackgroundCollisions(attacker.particleEmitter.CenterPos, previousPosition, out closestObject, out closestIntersection);
-                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, attacker.CenterPos))
+                Vector2 previousPosition = attacker.particleEmitter.GroundPos;
+                attacker.particleEmitter.GroundPos += direction * projectileSpeed;
+                attacker.detectBackgroundCollisions(attacker.particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
+                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, attacker.particleEmitter.GroundPos))
                 {
                     break;
                 }
 
 
                 attacker.particleEmitter.Update();
-                attacker.particleEmitter.createParticles(direction*projectileSpeed, Vector2.Zero, attacker.particleEmitter.CenterPos, 10, 10);
+                attacker.particleEmitter.createParticles(direction*projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
 
                 yield return false;
             }
@@ -186,10 +187,14 @@ namespace Frostbyte
             }
 
             attacker.State = SpriteState.Idle;
+
+            while ((This.gameTime.TotalGameTime - attackStartTime) < minAttackTime)
+            {
+                yield return false;
+            }
+
             yield return true;
         }
-
-
 
 
     }
