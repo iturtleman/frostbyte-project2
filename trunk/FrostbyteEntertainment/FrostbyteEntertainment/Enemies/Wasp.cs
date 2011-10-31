@@ -63,7 +63,7 @@ namespace Frostbyte.Enemies
                 isAttacking = !mAttack.Current;
                 particleEmitter.Update();
             }
-            else if (isAttackingAllowed)
+            else
             {
                 float range = 400.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));

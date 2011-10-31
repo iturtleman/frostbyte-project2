@@ -28,8 +28,8 @@ namespace Frostbyte.Characters
         internal Mage(string name, Actor actor, PlayerIndex input)
             : base(name, actor)
         {
-            //controller = new GamePadController(input);
-            controller = new KeyboardController();
+            controller = new GamePadController(input);
+            //controller = new KeyboardController();
             currentTargetAlignment = TargetAlignment.None;
             target = new Levels.Target("target", Color.Red);
             target.Visible = false;
@@ -37,6 +37,7 @@ namespace Frostbyte.Characters
 
             UpdateBehavior = mUpdate;
             CollidesWithBackground = true;
+            AttackRange = 50;
         }
         #endregion
 
@@ -91,51 +92,74 @@ namespace Frostbyte.Characters
         /// </summary>
         private void attack()
         {
-            if (Mana >= spellManaCost)
+            if (isAttacking)
             {
-                if (controller.Earth == ReleasableButtonState.Clicked)
-                {
-                    Mana -= spellManaCost;
-                    return;
-                }
-                else if (controller.Fire == ReleasableButtonState.Clicked)
-                {
-                    Mana -= spellManaCost;
-                    return;
-                }
-                else if (controller.Lightning == ReleasableButtonState.Clicked)
-                {
-                    Mana -= spellManaCost;
-                    return;
-                }
-                else if (controller.Water == ReleasableButtonState.Clicked)
-                {
-                    (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText(
-                        "There was a general clapping of hands at this: it was the first really clever " +
-                            "thing the King had said that day. `That proves his guilt,' said the Queen. " +
-                            "`It proves nothing of the sort!' said Alice. `Why, you don't even know what " +
-                            "they're about!' `Read them,' said the King. The White Rabbit put on his spectacles. "+
-                            "`Where shall I begin, please your Majesty?' he asked. `Begin at the beginning,' "+
-                            "the King said gravely, `and go on till you come to the end: then stop.'");
-                    //Mana -= spellManaCost;
-                    return;
-                }
+                mAttack.MoveNext();
+                isAttacking = !mAttack.Current;
             }
-            if (controller.Sword > 0)
+            else if (isAttackingAllowed)
             {
-                if (ItemBag.Count > 0)
+                if (Mana >= spellManaCost)
                 {
-                    ItemBag.RemoveAt(0);
+                    if (controller.Earth == ReleasableButtonState.Clicked)
+                    {
+                        Mana -= spellManaCost;
+                        return;
+                    }
+                    else if (controller.Fire == ReleasableButtonState.Clicked)
+                    {
+                        Mana -= spellManaCost;
+                        return;
+                    }
+                    else if (controller.Lightning == ReleasableButtonState.Clicked)
+                    {
+                        Mana -= spellManaCost;
+                        return;
+                    }
+                    else if (controller.Water == ReleasableButtonState.Clicked)
+                    {
+                        (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText(
+                            "There was a general clapping of hands at this: it was the first really clever " +
+                                "thing the King had said that day. `That proves his guilt,' said the Queen. " +
+                                "`It proves nothing of the sort!' said Alice. `Why, you don't even know what " +
+                                "they're about!' `Read them,' said the King. The White Rabbit put on his spectacles. " +
+                                "`Where shall I begin, please your Majesty?' he asked. `Begin at the beginning,' " +
+                                "the King said gravely, `and go on till you come to the end: then stop.'");
+                        //Mana -= spellManaCost;
+                        return;
+                    }
                 }
-                return;
-            }
-            if (controller.Interact == ReleasableButtonState.Clicked)
-            {
-                Item i = new Item("i",
-                    new Actor(This.Game.CurrentLevel.GetAnimation("antibody.anim")),
-                    new Actor(new DummyAnimation()));
-                PickUpItem(i);
-                return;
+                if (controller.Sword > 0)
+                {
+                    if (ItemBag.Count > 0)
+                    {
+                        ItemBag.RemoveAt(0);
+                    }
+
+                    #region Start Melee Attack
+                    float range = 150.0f;
+                    List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Enemy));
+                    Sprite target = GetClosestTarget(targets, range);
+                    if (target != null)
+                    {
+                        if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.AttackRange * this.AttackRange)
+                        {
+                            isAttacking = true;
+                            isMovingAllowed = false;
+                            mAttack = Attacks.Melee(target, this, 25, 0).GetEnumerator();
+                        }
+                    }
+                    #endregion Start Melee Attack
+                    return;
+                }
+                if (controller.Interact == ReleasableButtonState.Clicked)
+                {
+                    Item i = new Item("i",
+                        new Actor(This.Game.CurrentLevel.GetAnimation("antibody.anim")),
+                        new Actor(new DummyAnimation()));
+                    PickUpItem(i);
+                    return;
+                }
             }
         }
 
@@ -197,10 +221,11 @@ namespace Frostbyte.Characters
                 #endregion Targeting
 
                 #region Movement
-
-                Pos.X += controller.Movement.X * 3;
-                Pos.Y -= controller.Movement.Y * 3;
-
+                if (isMovingAllowed)
+                {
+                    Pos.X += controller.Movement.X * 3;
+                    Pos.Y -= controller.Movement.Y * 3;
+                }
                 #endregion Movement
 
                 //perform collision detection with background

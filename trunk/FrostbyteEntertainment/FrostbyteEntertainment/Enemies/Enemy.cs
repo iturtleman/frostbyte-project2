@@ -23,8 +23,6 @@ namespace Frostbyte
         internal IPersonality Personality;
         internal SoundEffectInstance MovementAudio = null;
         protected Vector2 mDirection = new Vector2();
-        protected bool isAttacking;
-        protected IEnumerator<bool> mAttack;
         #endregion Variables
 
         #region Properties
@@ -88,9 +86,15 @@ namespace Frostbyte
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
             (This.Game.CurrentLevel as FrostbyteLevel).enemies.Add(this);
+            EndBehavior = die;
             Speed = speed;
             Health = _health;
             CollidesWithBackground = true;
+        }
+
+        private void die()
+        {
+            This.Game.CurrentLevel.RemoveSprite(this);
         }
 
         public void update()
@@ -144,6 +148,12 @@ namespace Frostbyte
             }
 
             updateAttack();
+
+            if (Health <= 0)
+            {
+                this.EndBehavior();
+                return;
+            }
         }
 
         /// \todo what is this for?
@@ -153,37 +163,6 @@ namespace Frostbyte
         //}
         protected abstract void updateMovement();
         protected abstract void updateAttack();
-
-        internal Sprite GetClosestTarget(List<Sprite> targets)
-        {
-            return GetClosestTarget(targets, float.PositiveInfinity);
-        }
-
-        /// <summary>
-        /// Returns a sprite in targets that is closest to the enemy's current position
-        /// and within aggroDistance distance from the current position.
-        /// </summary>
-        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance)
-        {
-            Sprite min = null;
-            foreach (Sprite target in targets)
-            {
-                if (target == this)
-                {
-                    continue;
-                }
-                if (min == null ||
-                    Vector2.DistanceSquared(target.GroundPos, GroundPos) <
-                    Vector2.DistanceSquared(min.GroundPos, GroundPos))
-                {
-                    if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
-                    {
-                        min = target;
-                    }
-                }
-            }
-            return min;
-        }
 
         /// \todo create projectile class (projectiles modify health of enemies/players) 
         /// \todo complete checkBackgroundCollisions
