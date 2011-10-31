@@ -1,47 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1536,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1664,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1792,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1920,1408" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1536,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1664,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1792,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1920,1536" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1664" AnimationPeg="0,0" />
-  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1664" AnimationPeg="0,0" />
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1536,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1664,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1792,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1920,1408" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1536,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1664,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1792,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1920,1536" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="0,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="128,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="256,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="384,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="512,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="640,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="768,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="896,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1024,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1152,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1280,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
+  <Frame SpriteSheet="beetle-walk" FrameDelay="20" Width="128" Height="128" TLPos="1408,1664" AnimationPeg="0,0" ><Collision Type="Circle" Pos="64,38" Radius="4"/></Frame>
 </Animation>
