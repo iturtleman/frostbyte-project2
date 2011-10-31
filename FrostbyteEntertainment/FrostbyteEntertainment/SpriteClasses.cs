@@ -80,7 +80,7 @@ namespace Frostbyte
         #region Attacking Variables
         public bool isAttackingAllowed = true;
         public bool isMovingAllowed = true;
-        public int AttackRange = 0;
+        public int startAttackDistance = 0;
         protected bool isAttacking = false;
         protected IEnumerator<bool> mAttack;
         #endregion Attacking Variables
@@ -208,7 +208,7 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1.8f)
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1.9f)
                 this.GroundPos = footPos;
             else if (isMoved)
             {

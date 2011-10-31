@@ -110,13 +110,13 @@ namespace Frostbyte
         }
     }
 
-    internal class DontGetNearMePersonality : IPersonality
+    internal class SentinelPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
         private Enemy master;
         private IEnumerator mStates;
 
-        internal DontGetNearMePersonality(Enemy master)
+        internal SentinelPersonality(Enemy master)
         {
             this.master = master;
             mStates = States().GetEnumerator();
