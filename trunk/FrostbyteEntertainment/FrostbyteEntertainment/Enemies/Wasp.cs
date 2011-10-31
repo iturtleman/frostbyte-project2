@@ -61,11 +61,10 @@ namespace Frostbyte.Enemies
             {
                 mAttack.MoveNext();
                 isAttacking = !mAttack.Current;
-                particleEmitter.Update();
             }
             else
             {
-                float range = 400.0f;
+                float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
@@ -75,14 +74,21 @@ namespace Frostbyte.Enemies
                     //Create Particle Emmiter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D boulder = This.Game.Content.Load<Texture2D>("Textures/boulder");
-                    particleEmitter = new ParticleEmitter(1, particleEffect, boulder);
+                    particleEmitter = new ParticleEmitter(1000, particleEffect, boulder);
                     particleEmitter.effectTechnique = "NoSpecialEffect";
                     particleEmitter.blendState = BlendState.AlphaBlend;
 
                     //set orientation
                     this.Direction = target.GroundPos - this.GroundPos;
 
-                    mAttack = Attacks.EarthT1(target, this, 5, 30, Element.Lightning).GetEnumerator();
+                    mAttack = Attacks.EarthT1(target,
+                                              this, 
+                                              5, 
+                                              30, 
+                                              new TimeSpan(0, 0, 0, 1, 750), 
+                                              new TimeSpan(0, 0, 0, 0, 750),
+                                              20,
+                                              6f).GetEnumerator();
                 }
             }
         }

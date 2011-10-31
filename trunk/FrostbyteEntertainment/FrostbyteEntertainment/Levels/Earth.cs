@@ -19,7 +19,7 @@ namespace Frostbyte.Levels
 
             Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.Pos = new Microsoft.Xna.Framework.Vector2(269 * 64, 250 * 64);
-            mage.Speed = 3;
+            mage.Speed = 1;
             l.HUD.AddPlayer(mage);
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
         }

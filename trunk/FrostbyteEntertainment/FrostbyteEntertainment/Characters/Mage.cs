@@ -43,7 +43,6 @@ namespace Frostbyte.Characters
 
             UpdateBehavior = mUpdate;
             CollidesWithBackground = true;
-            AttackRange = 50;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
         }
@@ -138,12 +137,9 @@ namespace Frostbyte.Characters
                     Sprite target = GetClosestTarget(targets, range);
                     if (target != null)
                     {
-                        if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.AttackRange * this.AttackRange)
-                        {
-                            isAttacking = true;
-                            isMovingAllowed = false;
-                            mAttack = Attacks.Melee(target, this, 25, 0).GetEnumerator();
-                        }
+                        isAttacking = true;
+                        isMovingAllowed = false;
+                        mAttack = Attacks.Melee(target, this, 25, 0, 50,TimeSpan.Zero).GetEnumerator();
                     }
                     #endregion Start Melee Attack
                     return;
@@ -226,7 +222,7 @@ namespace Frostbyte.Characters
 
                 //perform collision detection with background
                 if (this.CollidesWithBackground)
-                    checkBackgroundCollisions();    
+                    checkBackgroundCollisions();
 
                 attack();
             }

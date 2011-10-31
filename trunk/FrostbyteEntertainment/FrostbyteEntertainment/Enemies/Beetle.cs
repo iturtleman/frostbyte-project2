@@ -42,7 +42,7 @@ namespace Frostbyte.Enemies
             GroundPos = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new CowardlyPersonality(this);
-            AttackRange = 10; //in pixels
+            startAttackDistance = 10; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
             MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Beetle_Move");
         }
@@ -70,11 +70,11 @@ namespace Frostbyte.Enemies
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
-                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.AttackRange * this.AttackRange)
+                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
                     {
                         isAttacking = true;
                         isAttackingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 5, 18).GetEnumerator();
+                        mAttack = Attacks.Melee(target, this, 5, 18, 40, TimeSpan.Zero).GetEnumerator();
                     }
                 }
             }

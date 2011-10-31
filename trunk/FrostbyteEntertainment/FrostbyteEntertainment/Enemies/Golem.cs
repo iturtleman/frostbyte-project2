@@ -38,10 +38,10 @@ namespace Frostbyte.Enemies
             : base(name, new Actor(Animations), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
-            Personality = new DontGetNearMePersonality(this);
+            Personality = new SentinelPersonality(this);
             ElementType = Element.Normal;
             GroundPos = initialPos;
-            AttackRange = 35; //in pixels
+            startAttackDistance = 40; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/golem_attack");
         }
 
@@ -70,11 +70,12 @@ namespace Frostbyte.Enemies
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
-                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.AttackRange * this.AttackRange)
+                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
                     {
                         isAttacking = true;
                         isAttackingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 20, 18).GetEnumerator();
+                        isMovingAllowed = false;
+                        mAttack = Attacks.Melee(target, this, 20, 18, 25,new TimeSpan(0,0,0,1,500)).GetEnumerator();
                         This.Game.AudioManager.PlaySoundEffect("Effects/golem_attack");
                     }
                 }
