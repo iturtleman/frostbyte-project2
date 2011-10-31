@@ -22,6 +22,14 @@ namespace Frostbyte.Levels
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
+
+            #region loadeffects etc
+            l.GetEffect("ParticleSystem");
+            #endregion loadeffects etc
+
+            #region load textures
+            l.GetTexture("boulder");
+            #endregion load textures
         }
     }
 }

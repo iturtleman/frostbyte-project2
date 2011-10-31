@@ -214,8 +214,8 @@ namespace Frostbyte
                         new Rectangle((int)ImageStartPos.X, (int)ImageStartPos.Y, Width, Height),
                         Microsoft.Xna.Framework.Color.White,
                         0,
-                        new Vector2(),
-                        Scale,
+                        new Vector2(0,0),
+                        Scale * ( Width + 1 ) / (float)Width,
                         Hflip ?
                             Vflip ?
                                 SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically

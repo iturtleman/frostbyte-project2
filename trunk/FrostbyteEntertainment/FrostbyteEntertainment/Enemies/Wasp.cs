@@ -42,7 +42,14 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new DartPersonality(this);
             ElementType = Element.Normal;
-            
+
+
+            //Create Particle Emmiter
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+            particleEmitter = new ParticleEmitter(1000, particleEffect, boulder);
+            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.blendState = BlendState.AlphaBlend;
         }
 
         protected override void updateMovement()
@@ -71,12 +78,7 @@ namespace Frostbyte.Enemies
                 {
                     isAttacking = true;
 
-                    //Create Particle Emmiter
-                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                    Texture2D boulder = This.Game.Content.Load<Texture2D>("Textures/boulder");
-                    particleEmitter = new ParticleEmitter(1000, particleEffect, boulder);
-                    particleEmitter.effectTechnique = "NoSpecialEffect";
-                    particleEmitter.blendState = BlendState.AlphaBlend;
+                    //particle emitter is created in constructor
 
                     //set orientation
                     this.Direction = target.GroundPos - this.GroundPos;
