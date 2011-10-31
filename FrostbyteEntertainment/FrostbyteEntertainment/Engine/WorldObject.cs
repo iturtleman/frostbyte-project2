@@ -151,11 +151,25 @@ namespace Frostbyte
         {
             get
             {
-                return new Vector2(Center.X, Center.Y * 2) + Pos;
+                if (GetCollision().Count > 0)
+                {
+                    return (this.GetCollision()[0] as Collision_BoundingCircle).Center + Pos;
+                }
+                else
+                {
+                    return new Vector2(Center.X, Center.Y * 2) + Pos;
+                }
             }
             set
             {
-                Pos = value - new Vector2(Center.X, Center.Y * 2);
+                if (GetCollision().Count > 0)
+                {
+                    Pos = value - (this.GetCollision()[0] as Collision_BoundingCircle).Center;
+                }
+                else
+                {
+                    Pos = value - new Vector2(Center.X, Center.Y * 2);
+                }
             }
         }
         #endregion Properties
