@@ -39,10 +39,9 @@ namespace Frostbyte.Enemies
         {
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new DontGetNearMePersonality(this);
-            //Personality = new CowardlyPersonality(this);
             ElementType = Element.Normal;
             GroundPos = initialPos;
-            AttackRange = 50; //in pixels
+            AttackRange = 35; //in pixels
         }
 
 

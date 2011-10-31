@@ -133,11 +133,11 @@ namespace Frostbyte
             Vector2 guardPosition = master.GroundPos;
             while (true)
             {
-                if ( !master.charge(targets, 50.0f, 3.0f) )
+                if ( !master.charge(targets, 100.0f, 3.0f) )
                 {
                     yield return null;
                 }
-                else if ( !master.charge(targets, 100.0f, 0.5f) ) 
+                else if ( !master.charge(targets, 200.0f, 1f) ) 
                 {
                     yield return null;
                 }

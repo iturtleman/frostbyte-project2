@@ -76,6 +76,9 @@ namespace Frostbyte
             bool isLoopOne = false;
             while (attacker.Frame < FrameCount)
             {
+                attacker.Direction = target.GroundPos - attacker.GroundPos;
+                setAttackAnimation(attacker);
+
                 if (attacker.Frame == 0)
                     isLoopOne = !isLoopOne;
 
@@ -132,13 +135,15 @@ namespace Frostbyte
             attacker.isMovingAllowed = false;
 
             //shoot Earth tier 1
-            while (attacker.Frame <= FrameCount - 2)
+            while (attacker.Frame < FrameCount)
             {
+                attacker.Direction = target.GroundPos - attacker.particleEmitter.GroundPos;
+                setAttackAnimation(attacker);
+
                 if (attacker.Frame == attackFrame)
                 {
+                    direction = attacker.Direction;
                     attackStartTime = This.gameTime.TotalGameTime;
-                    direction = target.GroundPos - attacker.particleEmitter.GroundPos;
-                    direction.Normalize();
                     break;
                 }
 
@@ -155,7 +160,7 @@ namespace Frostbyte
                 }
                 
                 //if the attack frame has passed then allow the attacker to move
-                if (attacker.Frame >= FrameCount - 2)
+                if (attacker.Frame >= FrameCount - 1)
                     attacker.isMovingAllowed = true;
 
                 //make sure magic cannot go through walls
