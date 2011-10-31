@@ -215,6 +215,11 @@ namespace Frostbyte.Characters
                     target.Visible = true;
                     target.CenterOn(currentTarget);
                 }
+
+                if (!(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(currentTarget))
+                {
+                    cancelTarget();
+                }
                 #endregion Targeting
 
                 #region Movement

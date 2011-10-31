@@ -25,7 +25,7 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
             GroundPos = initialPos;
-            Personality = new WanderingMinstrelPersonality(this);
+            Personality = new PseudoWanderPersonality(this);
         }
 
         protected override void updateMovement()
