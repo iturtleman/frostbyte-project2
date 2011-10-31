@@ -9,7 +9,7 @@ namespace Frostbyte
     internal class Target : Polygon
     {
         internal Target(string name, Color c)
-            : this(name, c, 15)
+            : this(name, c, 200)
         {
         }
 

@@ -37,7 +37,8 @@ namespace Frostbyte.Characters
                 controller = new KeyboardController();
             }
             currentTargetAlignment = TargetAlignment.None;
-            target = new Target("target", Color.Red);
+            This.Game.LoadingLevel.AddAnimation(new Animation("target.anim"));
+            target = new Sprite("target", new Actor(new Animation("target.anim")));//new Target("target", Color.Red);
             target.Visible = false;
             sortType = new DistanceSort(this);
 
@@ -178,7 +179,9 @@ namespace Frostbyte.Characters
                         currentTarget = null;
                     }
 
-                    currentTarget = findMinimum((This.Game.CurrentLevel as FrostbyteLevel).enemies);
+                    currentTarget = findMinimum(GetTargetsInRange(
+                        (This.Game.CurrentLevel as FrostbyteLevel).enemies,
+                        This.Game.GraphicsDevice.Viewport.Width));
 
                     if (currentTarget != null)
                     {
@@ -192,8 +195,10 @@ namespace Frostbyte.Characters
                         currentTarget = null;
                     }
 
-                    currentTarget = findMinimum((This.Game.CurrentLevel as FrostbyteLevel).allies.Concat(
-                        (This.Game.CurrentLevel as FrostbyteLevel).obstacles).ToList());
+                    currentTarget = findMinimum(GetTargetsInRange(
+                        (This.Game.CurrentLevel as FrostbyteLevel).allies.Concat(
+                        (This.Game.CurrentLevel as FrostbyteLevel).obstacles).ToList(),
+                        This.Game.GraphicsDevice.Viewport.Width));
                     if (currentTarget != null)
                     {
                         currentTargetAlignment = TargetAlignment.Ally;

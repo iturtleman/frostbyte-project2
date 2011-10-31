@@ -16,7 +16,7 @@ namespace Frostbyte
         internal Player(string name, Actor actor)
             : base(name, actor)
         {
-            (This.Game.CurrentLevel as FrostbyteLevel).allies.Add(this);
+            (This.Game.LoadingLevel as FrostbyteLevel).allies.Add(this);
             Mana = MaxMana;
 
             MaxHealth = 100;
@@ -71,7 +71,7 @@ namespace Frostbyte
         internal Obstacle(string name, Actor actor)
             : base(name, actor)
         {
-            (This.Game.CurrentLevel as FrostbyteLevel).obstacles.Add(this);
+            (This.Game.LoadingLevel as FrostbyteLevel).obstacles.Add(this);
         }
     }
 
@@ -102,7 +102,7 @@ namespace Frostbyte
         /// Returns a sprite in targets that is closest to the sprite's current position
         /// and within aggroDistance distance from the current position.
         /// </summary>
-        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance = float.PositiveInfinity)
+        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance=float.PositiveInfinity)
         {
             Sprite min = null;
             foreach (Sprite target in targets)
@@ -122,6 +122,26 @@ namespace Frostbyte
                 }
             }
             return min;
+        }
+
+        /// <summary>
+        /// Returns a list of sprites within aggroDistance distance from the current position.
+        /// </summary>
+        internal List<Sprite> GetTargetsInRange(List<Sprite> targets, float aggroDistance = float.PositiveInfinity)
+        {
+            List<Sprite> range = new List<Sprite>();
+            foreach (Sprite target in targets)
+            {
+                if (target == this)
+                {
+                    continue;
+                }
+                if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
+                {
+                    range.Add(target);
+                }
+            }
+            return range;
         }
 
         #region Collision

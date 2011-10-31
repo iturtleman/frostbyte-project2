@@ -24,7 +24,7 @@ namespace Frostbyte
             {
                 Visible = false;
                 ZOrder = int.MaxValue;
-                This.Game.CurrentLevel.RemoveSprite(this);
+                This.Game.LoadingLevel.RemoveSprite(this);
             }
 
             internal override void Draw(Microsoft.Xna.Framework.GameTime gameTime)

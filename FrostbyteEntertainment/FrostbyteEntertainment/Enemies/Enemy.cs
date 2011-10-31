@@ -35,7 +35,7 @@ namespace Frostbyte
         {
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
-            (This.Game.CurrentLevel as FrostbyteLevel).enemies.Add(this);
+            (This.Game.LoadingLevel as FrostbyteLevel).enemies.Add(this);
             EndBehavior = die;
             Speed = speed;
             Health = _health;

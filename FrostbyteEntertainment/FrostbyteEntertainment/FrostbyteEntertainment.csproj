@@ -145,6 +145,7 @@
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Nemec.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
+    <Compile Include="Obstacles\Rock.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Shared\Beetle.cs" />
     <Compile Include="Shared\ElectricBat.cs" />
@@ -410,8 +411,16 @@
       <Link>Content\Sprites\golem-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\rock.anim">
+      <Link>Content\Sprites\rock.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\shield_opaque.anim">
       <Link>Content\Sprites\shield_opaque.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\target.anim">
+      <Link>Content\Sprites\target.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wasp-attack-diagdown.anim">

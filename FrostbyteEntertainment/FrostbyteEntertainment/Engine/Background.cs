@@ -52,7 +52,7 @@ namespace Frostbyte
 
             mName = name;
 
-            (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel).Background = this;
+            This.Game.LoadingLevel.Background = this;
             LoadAnimation(animfile, "Backgrounds");
 
             mLastUpdate = new GameTime();

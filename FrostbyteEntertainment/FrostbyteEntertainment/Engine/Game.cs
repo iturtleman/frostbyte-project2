@@ -53,7 +53,19 @@ namespace Frostbyte
         }
 
         /// <summary>
-        /// Gets the next level to be played (the one loading)
+        /// Gets the level that we should be loading to.
+        /// Horrible hack because Sprites "automagically" add themselves to the CurrentLevel.
+        /// </summary>
+        internal Level LoadingLevel
+        {
+            get
+            {
+                return CurrentLevel != NextLevel && NextLevel != null ? NextLevel : CurrentLevel;
+            }
+        }
+
+        /// <summary>
+        /// Gets the next level to be played (the one loading).
         /// </summary>
         internal Level NextLevel
         {

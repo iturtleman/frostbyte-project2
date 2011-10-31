@@ -21,6 +21,11 @@ namespace Frostbyte.Levels
             mage.Pos = new Microsoft.Xna.Framework.Vector2(269 * 64, 250 * 64);
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
+
+            Obstacle rock = new Obstacles.Rock("rock");
+            rock.Pos = mage.Pos;
+            rock.Pos.Y += 50;
+
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
 
             #region loadeffects etc
