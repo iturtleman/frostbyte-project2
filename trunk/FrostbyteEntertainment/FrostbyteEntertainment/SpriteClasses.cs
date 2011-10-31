@@ -468,7 +468,7 @@ namespace Frostbyte
         #endregion Collision
 
 
-        protected Vector2 mDirection = new Vector2();
+        protected Vector2 mDirection = new Vector2(0, 1);
         internal Vector2 Direction
         {
             get
