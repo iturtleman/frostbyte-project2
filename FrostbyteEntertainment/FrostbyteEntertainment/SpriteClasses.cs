@@ -430,5 +430,56 @@ namespace Frostbyte
             }
             return min;
         }
+
+
+        protected Vector2 mDirection = new Vector2();
+        internal Vector2 Direction
+        {
+            get
+            {
+                return mDirection;
+            }
+            set
+            {
+                State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
+
+                mDirection = value;
+                if (mDirection != Vector2.Zero)
+                    mDirection.Normalize();
+                double angle = Math.Atan2(mDirection.Y, mDirection.X);
+                if (-Math.PI / 8 < angle && angle < Math.PI / 8)
+                {
+                    Orientation = Orientations.Right;
+                }
+                else if (Math.PI / 8 < angle && angle < 3 * Math.PI / 8)
+                {
+                    Orientation = Orientations.Down_Right;
+                }
+                else if (3 * Math.PI / 8 < angle && angle < 5 * Math.PI / 8)
+                {
+                    Orientation = Orientations.Down;
+                }
+                else if (5 * Math.PI / 8 < angle && angle < 7 * Math.PI / 8)
+                {
+                    Orientation = Orientations.Down_Left;
+                }
+                else if (-3 * Math.PI / 8 < angle && angle < -Math.PI / 8)
+                {
+                    Orientation = Orientations.Up_Right;
+                }
+                else if (-5 * Math.PI / 8 < angle && angle < -3 * Math.PI / 8)
+                {
+                    Orientation = Orientations.Up;
+                }
+                else if (-7 * Math.PI / 8 < angle && angle < -5 * Math.PI / 8)
+                {
+                    Orientation = Orientations.Up_Left;
+                }
+                else
+                {
+                    Orientation = Orientations.Left;
+                }
+            }
+        }
     }
 }
