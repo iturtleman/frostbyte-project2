@@ -55,9 +55,9 @@ namespace Frostbyte
         /// <summary>
         /// Returns the total number of frames in a particular animation
         /// </summary>
-        internal int FrameCount(int AnimationIndex)
+        internal int FrameCount()
         {
-            return mActor.Animations[AnimationIndex].NumFrames;
+            return mActor.Animations[mActor.CurrentAnimation].NumFrames;
         }
 
         /// <summary>

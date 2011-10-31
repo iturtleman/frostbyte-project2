@@ -18,51 +18,41 @@ namespace Frostbyte
         {
             attacker.State = SpriteState.Attacking;
 
-            int FrameCount = 0;
-
             switch (attacker.Orientation)
             {
                 case Orientations.Down:
-                    FrameCount = attacker.FrameCount(0 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(0 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Down_Right:
                     attacker.Hflip = false;
-                    FrameCount = attacker.FrameCount(1 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Down_Left:
                     attacker.Hflip = true;
-                    FrameCount = attacker.FrameCount(1 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Right:
                     attacker.Hflip = false;
-                    FrameCount = attacker.FrameCount(2 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Left:
                     attacker.Hflip = true;
-                    FrameCount = attacker.FrameCount(2 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Up_Right:
                     attacker.Hflip = false;
-                    FrameCount = attacker.FrameCount(3 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Up_Left:
                     attacker.Hflip = true;
-                    FrameCount = attacker.FrameCount(3 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
                     break;
                 case Orientations.Up:
-                    FrameCount = attacker.FrameCount(4 + 5 * attacker.State.GetHashCode());
                     attacker.SetAnimation(4 + 5 * attacker.State.GetHashCode());
                     break;
             }
 
-            return FrameCount;
+            return attacker.FrameCount();
         }
 
 
@@ -83,8 +73,15 @@ namespace Frostbyte
 
             attacker.isMovingAllowed = false;
 
-            while (attacker.Frame <= FrameCount - 2)
+            bool isLoopOne = false;
+            while (attacker.Frame < FrameCount)
             {
+                if (attacker.Frame == 0)
+                    isLoopOne = !isLoopOne;
+
+                if (!isLoopOne)
+                    break;
+
                 if (attacker.Frame == attackFrame && Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attacker.AttackRange * attacker.AttackRange + 50*50 && !hasAttacked)
                 {
                     target.Health -= baseDamage;
@@ -195,6 +192,7 @@ namespace Frostbyte
 
             yield return true;
         }
+
 
 
     }

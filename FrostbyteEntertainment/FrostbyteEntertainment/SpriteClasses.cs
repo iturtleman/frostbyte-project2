@@ -81,6 +81,8 @@ namespace Frostbyte
         public bool isAttackingAllowed = true;
         public bool isMovingAllowed = true;
         public int AttackRange = 0;
+        protected bool isAttacking = false;
+        protected IEnumerator<bool> mAttack;
         #endregion Attacking Variables
 
 
@@ -397,5 +399,36 @@ namespace Frostbyte
             closestIntersectionOut = closestIntersection;
         }
         #endregion Collision
+
+        internal Sprite GetClosestTarget(List<Sprite> targets)
+        {
+            return GetClosestTarget(targets, float.PositiveInfinity);
+        }
+
+        /// <summary>
+        /// Returns a sprite in targets that is closest to the enemy's current position
+        /// and within aggroDistance distance from the current position.
+        /// </summary>
+        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance)
+        {
+            Sprite min = null;
+            foreach (Sprite target in targets)
+            {
+                if (target == this)
+                {
+                    continue;
+                }
+                if (min == null ||
+                    Vector2.DistanceSquared(target.GroundPos, GroundPos) <
+                    Vector2.DistanceSquared(min.GroundPos, GroundPos))
+                {
+                    if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
+                    {
+                        min = target;
+                    }
+                }
+            }
+            return min;
+        }
     }
 }
