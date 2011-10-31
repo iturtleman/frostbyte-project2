@@ -258,7 +258,7 @@ namespace Frostbyte
                     TileMap.TryGetValue(x, y, out toDraw);
                     
                     //toDraw.Draw();
-                    if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner))
+                    if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner || toDraw.Type == TileTypes.DEFAULT || toDraw.Type == TileTypes.TopArea))
                         toDraw.Draw();
                     else
                     {
