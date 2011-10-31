@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
 
 namespace Frostbyte.Levels
 {
@@ -17,6 +18,7 @@ namespace Frostbyte.Levels
 
             l.HUD.LoadCommon();
 
+            //Frostbyte.Enemies.ElectricBat ebat = new Frostbyte.Enemies.ElectricBat("EB", new Vector2(269 * 64, 250 * 64));
             Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.Pos = new Microsoft.Xna.Framework.Vector2(269 * 64, 250 * 64);
             mage.Speed = 1;
