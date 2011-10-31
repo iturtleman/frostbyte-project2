@@ -75,6 +75,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
+            //"Intro",
             "Earth",
             "Wind",
             "Lightning",
@@ -111,7 +112,7 @@ namespace Frostbyte
             new Vector2(60, 50)
         };
 
-        internal FrostbyteLevel(string n, Behavior loadBehavior, Behavior updateBehavior,
+        internal FrostbyteLevel(string n, LoadBehavior loadBehavior, Behavior updateBehavior,
             Behavior endBehavior, Condition winCondition)
             : base(n, loadBehavior, updateBehavior, endBehavior, winCondition)
         {

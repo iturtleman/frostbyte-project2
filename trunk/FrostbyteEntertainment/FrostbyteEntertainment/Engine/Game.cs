@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Frostbyte
 {
+    internal delegate void LoadBehavior(Level context);
     internal delegate void Behavior();
     internal delegate bool Condition();
 
@@ -294,11 +295,11 @@ namespace Frostbyte
                         //reset next level so we don't do something stupid
                         mNextLevel = -1;
                         mCurrentLevel = i;
-                        mLevels[mCurrentLevel].Load();
+                        mLevels[mCurrentLevel].Load(mLevels[mCurrentLevel]);
                         return;
                     }
                 }
-                Console.WriteLine(string.Format("Level {0} does not exist", name));
+                throw new Exception(string.Format("Level {0} does not exist", name));
             }
         }
 
@@ -313,7 +314,7 @@ namespace Frostbyte
                 if (mLevels[i].Name == name)
                 {
                     mNextLevel = i;
-                    mLevels[mNextLevel].Load();
+                    mLevels[mNextLevel].Load(mLevels[mNextLevel]);
                     return;
                 }
             }

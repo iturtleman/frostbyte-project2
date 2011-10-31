@@ -151,100 +151,6 @@ namespace Frostbyte
             #endregion
         }
 
-        private class TextScroller : Sprite
-        {
-            internal TextScroller(string name, HUDTheme theme)
-                : base(name, new Actor(new DummyAnimation(name,
-                    This.Game.GraphicsDevice.Viewport.Width - FrostbyteLevel.BORDER_WIDTH,
-                    This.Game.GraphicsDevice.Viewport.Height - 2 * FrostbyteLevel.BORDER_HEIGHT)))
-            {
-                ZOrder = 100;
-                UpdateBehavior = update;
-                this.theme = theme;
-                background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
-                Color transp = Color.Black;
-                transp.A = alpha;
-                background.SetData(new Color[] { transp });
-            }
-
-            internal int MaxCharactersPerLine = 72;
-            internal int TextSpacing = 2;
-            internal bool SplitOnWhitespace = true;
-            private byte alpha = 90;
-            private HUDTheme theme;
-            private List<char> buffer = new List<char>();
-            private List<Text> onScreen = new List<Text>();
-            private Texture2D background;
-
-            private int tickCount = 0;
-            internal int TicksPerScroll = 2;
-
-            internal void ScrollText(string s)
-            {
-                buffer.AddRange(s);
-                buffer.AddRange("\n\n");
-            }
-
-            internal void update(){
-                tickCount = (tickCount + 1) % TicksPerScroll;
-                if (onScreen.Count > 0 && tickCount == 0)
-                {
-                    foreach (Text t in onScreen)
-                    {
-                        t.Pos.Y -= 1;
-                    }
-
-                    Sprite fst = onScreen.First();
-                    if (fst.Pos.Y < Pos.Y)
-                    {
-                        This.Game.CurrentLevel.RemoveSprite(fst);
-                        onScreen.RemoveAt(0);
-                    }
-                }
-                if (buffer.Count != 0)
-                {
-                    // We have room to scroll another line of text
-                    if (onScreen.Count == 0 ||
-                        onScreen.Last().Pos.Y + onScreen.Last().GetAnimation().Height + TextSpacing < 
-                            Pos.Y + GetAnimation().Height)
-                    {
-                        buffer = buffer.SkipWhile(x => char.IsWhiteSpace(x)).ToList();
-                        IEnumerable<char> pendingDisplay = buffer.Take(MaxCharactersPerLine + 1).
-                            Reverse();
-                        if (SplitOnWhitespace)
-                        {
-                            // Find first instance of whitespace at end
-                            pendingDisplay = pendingDisplay.SkipWhile(x => !char.IsWhiteSpace(x));
-                        }
-
-                        string toDisplay = pendingDisplay.Reverse().
-                            Aggregate("", (s, c) => s + c).Trim(); // Convert to string and trim whitespace
-                        buffer.RemoveRange(0, pendingDisplay.Count());
-
-                        Text line = new Text("text", "Text", toDisplay);
-                        line.DisplayColor = theme.TextColor;
-                        line.Pos = new Vector2(Pos.X, Pos.Y + GetAnimation().Height);
-                        line.Static = true;
-                        line.ZOrder = 101;
-                        onScreen.Add(line);
-                    }
-                }
-            }
-
-            internal override void Draw(GameTime gameTime)
-            {
-                base.Draw(gameTime);
-                if (onScreen.Count > 0)
-                {
-                    This.Game.spriteBatch.Draw(background, new Rectangle(
-                            (int)Pos.X,
-                            (int)Pos.Y,
-                            (int)GetAnimation().Width,
-                            (int)GetAnimation().Height), Color.White);
-                }
-            }
-        }
-
         private class ItemArea : Sprite
         {
             internal ItemArea(string name, HUDTheme theme, List<Item> ItemBag)
@@ -295,5 +201,119 @@ namespace Frostbyte
                 }
             }
         }
+    }
+
+    internal class TextScroller : Sprite
+    {
+        internal TextScroller(string name, HUDTheme theme)
+            : this(name, theme, This.Game.GraphicsDevice.Viewport.Width - FrostbyteLevel.BORDER_WIDTH,
+                This.Game.GraphicsDevice.Viewport.Height - 2 * FrostbyteLevel.BORDER_HEIGHT)
+        {
+        }
+
+        internal TextScroller(string name, int width, int height)
+            : this(name, new GenericTheme(), width, height)
+        {
+        }
+
+        internal TextScroller(string name, HUDTheme theme, int width, int height)
+            : base(name, new Actor(new DummyAnimation(name,width, height)))
+        {
+            ZOrder = 100;
+            UpdateBehavior = update;
+            this.theme = theme;
+            background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
+            Color transp = Color.Black;
+            transp.A = alpha;
+            background.SetData(new Color[] { transp });
+        }
+
+        internal int MaxCharactersPerLine = 72;
+        internal int TextSpacing = 2;
+        internal bool SplitOnWhitespace = true;
+        private byte alpha = 90;
+        private HUDTheme theme;
+        private List<char> buffer = new List<char>();
+        private List<Text> onScreen = new List<Text>();
+        private Texture2D background;
+
+        private int tickCount = 0;
+        internal int TicksPerScroll = 2;
+
+        #region Methods
+        internal void ScrollText(string s)
+        {
+            buffer.AddRange(s);
+            buffer.AddRange("\n\n");
+        }
+        #endregion
+
+        #region Properties
+        internal bool Scrolling { get { return buffer.Count > 0 || onScreen.Count > 0; } }
+        #endregion
+
+        #region Update
+        internal void update()
+        {
+            tickCount = (tickCount + 1) % TicksPerScroll;
+            if (onScreen.Count > 0 && tickCount == 0)
+            {
+                foreach (Text t in onScreen)
+                {
+                    t.Pos.Y -= 1;
+                }
+
+                Sprite fst = onScreen.First();
+                if (fst.Pos.Y < Pos.Y)
+                {
+                    This.Game.CurrentLevel.RemoveSprite(fst);
+                    onScreen.RemoveAt(0);
+                }
+            }
+            if (buffer.Count != 0)
+            {
+                // We have room to scroll another line of text
+                if (onScreen.Count == 0 ||
+                    onScreen.Last().Pos.Y + onScreen.Last().GetAnimation().Height + TextSpacing <
+                        Pos.Y + GetAnimation().Height - onScreen.Last().GetAnimation().Height)
+                {
+                    buffer = buffer.SkipWhile(x => char.IsWhiteSpace(x)).ToList();
+                    IEnumerable<char> pendingDisplay = buffer.Take(MaxCharactersPerLine + 1).
+                        Reverse();
+                    if (SplitOnWhitespace)
+                    {
+                        // Find first instance of whitespace at end
+                        pendingDisplay = pendingDisplay.SkipWhile(x => !char.IsWhiteSpace(x));
+                    }
+
+                    string toDisplay = pendingDisplay.Reverse().
+                        Aggregate("", (s, c) => s + c).Trim(); // Convert to string and trim whitespace
+                    buffer.RemoveRange(0, pendingDisplay.Count());
+
+                    Text line = new Text("text", "Text", toDisplay);
+                    line.DisplayColor = theme.TextColor;
+                    line.Pos = new Vector2(Pos.X, Pos.Y + GetAnimation().Height - line.GetAnimation().Height);
+                    line.Static = true;
+                    line.ZOrder = 101;
+                    onScreen.Add(line);
+                }
+            }
+        }
+        #endregion
+
+        #region Draw
+        internal override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+            if (onScreen.Count > 0)
+            {
+                This.Game.spriteBatch.Draw(background, new Rectangle(
+                        (int)Pos.X,
+                        (int)Pos.Y,
+                        (int)GetAnimation().Width,
+                        (int)GetAnimation().Height), Color.White);
+            }
+        }
+        #endregion
     }
 }

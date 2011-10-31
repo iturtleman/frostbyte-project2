@@ -140,7 +140,11 @@
     <Compile Include="Enums.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Levels\Credits.cs" />
+    <Compile Include="Levels\Earth.cs" />
+    <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Nemec.cs" />
+    <Compile Include="Levels\TitleScreen.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Shared\Beetle.cs" />
     <Compile Include="Shared\ElectricBat.cs" />
@@ -191,10 +195,44 @@
     <Compile Include="Shared\Tile.cs" />
     <Compile Include="Shared\TileHelper.cs" />
     <Compile Include="Shared\TileList.cs" />
+    <Compile Include="Target.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Bat_Move.wav">
+      <Link>Content\Audio\Effects\Bat_Move.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Beetle_Move.mp3">
+      <Link>Content\Audio\Effects\Beetle_Move.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Door_Open.wav">
+      <Link>Content\Audio\Effects\Door_Open.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Golem_Attack.mp3">
+      <Link>Content\Audio\Effects\Golem_Attack.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Sword_Attack.wav">
+      <Link>Content\Audio\Effects\Sword_Attack.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\EarthBoss.mp3">
+      <Link>Content\Audio\Music\EarthBoss.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\GenericBoss.mp3">
+      <Link>Content\Audio\Music\GenericBoss.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\LightningBG.mp3">
+      <Link>Content\Audio\Music\LightningBG.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\WaterBG.mp3">
+      <Link>Content\Audio\Music\WaterBG.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Level1.xml">
       <Link>Content\Level1.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -427,13 +465,6 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Earth.spsh">
       <Link>Content\Textures\Earth.spsh</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Sprites\boxen.anim">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Content\Sprites\boxen2.anim">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -42,6 +42,7 @@ namespace Frostbyte.Enemies
             ElementType = Element.Normal;
             GroundPos = initialPos;
             AttackRange = 35; //in pixels
+            This.Game.AudioManager.AddSoundEffect("Effects/golem_attack");
         }
 
 
@@ -74,6 +75,7 @@ namespace Frostbyte.Enemies
                         isAttacking = true;
                         isAttackingAllowed = false;
                         mAttack = Attacks.Melee(target, this, 20, 18).GetEnumerator();
+                        This.Game.AudioManager.PlaySoundEffect("Effects/golem_attack");
                     }
                 }
             }

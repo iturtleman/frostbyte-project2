@@ -40,9 +40,15 @@ namespace Frostbyte
             }
         }
 
-        internal void BackgroundMusicVolume(float volume)
+        internal float BackgroundMusicVolume
         {
-            MediaPlayer.Volume = volume;
+            get{
+                return MediaPlayer.Volume;
+            }
+            set
+            {
+                MediaPlayer.Volume = value;
+            }
         }
 
         internal void AddSoundEffect(string name)
@@ -57,12 +63,7 @@ namespace Frostbyte
             }
         }
 
-        internal void PlaySoundEffect(string name)
-        {
-            PlaySoundEffect(name, 1f);
-        }
-
-        internal void PlaySoundEffect(string name, float volume)
+        internal void PlaySoundEffect(string name, float volume=1f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name,out se))
@@ -73,7 +74,7 @@ namespace Frostbyte
             }
         }
 
-        internal SoundEffectInstance PlayLoopingSoundEffect(string name, float volume)
+        internal SoundEffectInstance InitializeLoopingSoundEffect(string name, float volume=1f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name, out se))
@@ -81,7 +82,6 @@ namespace Frostbyte
                 var sound = se.CreateInstance();
                 sound.Volume = volume;
                 sound.IsLooped = true;
-                sound.Play();
 
                 return sound;
             }
