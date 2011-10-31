@@ -45,6 +45,10 @@ namespace Frostbyte
         private void die()
         {
             This.Game.CurrentLevel.RemoveSprite(this);
+            if (MovementAudio != null)
+            {
+                MovementAudio.Stop();
+            }
         }
 
         public void update()
