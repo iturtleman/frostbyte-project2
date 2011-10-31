@@ -44,11 +44,18 @@ namespace Frostbyte
 
         private void die()
         {
+            // Remove Sprite
             This.Game.CurrentLevel.RemoveSprite(this);
+
+            // Stop Audio
             if (MovementAudio != null)
             {
                 MovementAudio.Stop();
             }
+
+            // Remove enemy from target list so that we don't target blank space where an enemy died
+            (This.Game.CurrentLevel as FrostbyteLevel).enemies.Remove(this);
+
         }
 
         public void update()
