@@ -98,6 +98,32 @@ namespace Frostbyte
             Health = MaxHealth;
         }
 
+        /// <summary>
+        /// Returns a sprite in targets that is closest to the sprite's current position
+        /// and within aggroDistance distance from the current position.
+        /// </summary>
+        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance = float.PositiveInfinity)
+        {
+            Sprite min = null;
+            foreach (Sprite target in targets)
+            {
+                if (target == this)
+                {
+                    continue;
+                }
+                if (min == null ||
+                    Vector2.DistanceSquared(target.GroundPos, GroundPos) <
+                    Vector2.DistanceSquared(min.GroundPos, GroundPos))
+                {
+                    if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
+                    {
+                        min = target;
+                    }
+                }
+            }
+            return min;
+        }
+
         #region Collision
         internal float groundCollisionRadius = 18f;
         protected Vector2 previousFootPos = Vector2.Zero;
@@ -399,37 +425,6 @@ namespace Frostbyte
             closestIntersectionOut = closestIntersection;
         }
         #endregion Collision
-
-        internal Sprite GetClosestTarget(List<Sprite> targets)
-        {
-            return GetClosestTarget(targets, float.PositiveInfinity);
-        }
-
-        /// <summary>
-        /// Returns a sprite in targets that is closest to the enemy's current position
-        /// and within aggroDistance distance from the current position.
-        /// </summary>
-        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance)
-        {
-            Sprite min = null;
-            foreach (Sprite target in targets)
-            {
-                if (target == this)
-                {
-                    continue;
-                }
-                if (min == null ||
-                    Vector2.DistanceSquared(target.GroundPos, GroundPos) <
-                    Vector2.DistanceSquared(min.GroundPos, GroundPos))
-                {
-                    if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
-                    {
-                        min = target;
-                    }
-                }
-            }
-            return min;
-        }
 
 
         protected Vector2 mDirection = new Vector2();

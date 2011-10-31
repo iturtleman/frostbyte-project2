@@ -45,11 +45,11 @@ namespace Frostbyte
         #region Constructor
         internal Level()
         {
-            LoadBehavior = () => { };
+            LoadBehavior = (Level) => { };
             UpdateBehavior = () => { };
             EndBehavior = () => { };
         }
-        internal Level(string n, Behavior loadBehavior, Behavior updateBehavior, Behavior endBehavior, Condition winCondition)
+        internal Level(string n, LoadBehavior loadBehavior, Behavior updateBehavior, Behavior endBehavior, Condition winCondition)
         {
             mName = n;
             LoadBehavior = loadBehavior;
@@ -63,7 +63,7 @@ namespace Frostbyte
         /// <summary>
         /// Level's load action
         /// </summary>
-        internal Behavior LoadBehavior { get; set; }
+        internal LoadBehavior LoadBehavior { get; set; }
         /// <summary>
         /// Level's update Behavior
         /// </summary>
@@ -143,13 +143,13 @@ namespace Frostbyte
         #endregion Variables
 
 
-        internal void Load()
+        internal void Load(Level context)
         {
             This.Game.AudioManager.Stop();
             mWorldObjects.Clear();
             mActors.Clear();
             mAnims.Clear();
-            LoadBehavior();
+            LoadBehavior(context);
             Loaded = true;
         }
 

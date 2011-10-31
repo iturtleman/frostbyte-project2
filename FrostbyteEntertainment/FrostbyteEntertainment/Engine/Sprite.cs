@@ -20,8 +20,9 @@ namespace Frostbyte
             EndBehavior = () => { };
 
             //adds the sprite to the level
-            (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel).AddSprite(this);
-            Speed = 3;
+            (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ?
+                This.Game.NextLevel : This.Game.CurrentLevel).AddSprite(this);
+            Speed = 1;
 
             if (mActor != null)
             {

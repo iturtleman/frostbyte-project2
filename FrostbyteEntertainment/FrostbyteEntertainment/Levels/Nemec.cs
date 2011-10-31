@@ -16,7 +16,7 @@ namespace Frostbyte.Levels
         {
             Collision.Lists.Add(new KeyValuePair<int, int>(0, 1));
 
-            FrostbyteLevel l = (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel) as FrostbyteLevel;
+            FrostbyteLevel l =This.Game.CurrentLevel as FrostbyteLevel;
 
             l.TileMap = new TileList(XDocument.Load(@"Content/Level1.xml"));
 

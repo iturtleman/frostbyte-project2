@@ -13,14 +13,23 @@ namespace Frostbyte
 
         internal static readonly Random rand = new Random();
 
-        internal static void DoNothing(GameTime gameTime) { }
+        internal static void DoNothing() { }
 
         /// <summary>
         /// A behavior that sends the player to the Stage Clear screen once the level is over.
         /// </summary>
         internal static void ToStageClear()
         {
-            This.Game.SetCurrentLevel("stageclear");
+            This.Game.SetCurrentLevel("StageClear");
+        }
+
+        internal static string LoadNextLevel()
+        {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            int ix = FrostbyteLevel.LevelProgression.IndexOf(l.Name);
+            string nextlevel = FrostbyteLevel.LevelProgression[(ix + 1) % FrostbyteLevel.LevelProgression.Count];
+            This.Game.LoadLevel(nextlevel);
+            return nextlevel;
         }
 
         internal static void GoToGameOver()
@@ -47,7 +56,7 @@ namespace Frostbyte
         {
             if (!This.Cheats.SpawnEnemies.Enabled)
             {
-                FrostbyteLevel l = (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel) as FrostbyteLevel;
+                Level l = This.Game.CurrentLevel;
                 for (int i = 0; i < numEnemies; i++)
                 {
                     Sprite virus = constructEnemy();

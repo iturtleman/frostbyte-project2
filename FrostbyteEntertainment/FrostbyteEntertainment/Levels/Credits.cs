@@ -4,26 +4,17 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using BodilyInfection.Engine;
+using Frostbyte;
 
-namespace BodilyInfection.Levels
+namespace Forstbyte.Levels
 {
     internal static class Credits
     {
         static bool levelCompleted = false;
 
-        internal static void Load()
+        internal static void Load(Level context)
         {
             levelCompleted = false;
-
-            Level l = This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel;
-            l.AddAnimation(new BackgroundAnimation("credits.anim"));
-            l.Background = new Background("credits", "credits.anim");
-
-            LevelFunctions.MakeHUD();
-
-            //GameData.Score = 0;
-            GameData.NumberOfLives = 0;
         }
 
         internal static void Update()
@@ -34,7 +25,8 @@ namespace BodilyInfection.Levels
             GamePadState currentState = GamePad.GetState(PlayerIndex.One);
             if (currentState.IsConnected)
             {
-                if (This.Game.mLastPadState.Buttons.Start == ButtonState.Released && currentState.Buttons.Start == ButtonState.Pressed)
+                if (This.Game.mLastPadState.Buttons.Start == ButtonState.Released &&
+                    currentState.Buttons.Start == ButtonState.Pressed)
                 {
                     // Go to next
                     // Make awesome sound

@@ -25,7 +25,6 @@ namespace Frostbyte
         #endregion Variables
 
         #region Properties
-
         //Elemental Properties
         protected Element ElementType { get; set; }
         #endregion
@@ -56,13 +55,15 @@ namespace Frostbyte
 
             if (isMovingAllowed)
             {
+                PreviousPos = Pos;
                 updateMovement();
+                State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
 
                 //perform collision detection with background
                 if (this.CollidesWithBackground)
                     checkBackgroundCollisions();
 
-                //update animation facing direction
+                #region update animation facing direction
                 switch (Orientation)
                 {
                     case Orientations.Down:
@@ -96,14 +97,35 @@ namespace Frostbyte
                         SetAnimation(4 + 5 * State.GetHashCode());
                         break;
                 }
+                #endregion
             }
 
             updateAttack();
+
 
             if (Health <= 0)
             {
                 this.EndBehavior();
                 return;
+            }
+            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            if (MovementAudio != null)
+            {
+                if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)
+                {
+                    if (State == SpriteState.Moving)
+                    {
+                        MovementAudio.Play();
+                    }
+                    else if (State == SpriteState.Idle)
+                    {
+                        MovementAudio.Stop();
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
 

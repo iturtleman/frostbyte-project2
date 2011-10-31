@@ -60,6 +60,11 @@ namespace Frostbyte
         ReleasableButtonState Interact { get; }
 
         /// <summary>
+        /// The state of the "start" button
+        /// </summary>
+        ReleasableButtonState Start { get; }
+
+        /// <summary>
         /// Provides a float representing how far down the sword trigger is pressed.
         /// </summary>
         float Sword { get; }
@@ -220,6 +225,25 @@ namespace Frostbyte
                 }
 
                 return ReleasableButtonState.Released;
+            }
+        }
+
+        public ReleasableButtonState Start
+        {
+            get
+            {
+                if (CurrentButtons.Start == ButtonState.Pressed)
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (LastButtons.Start == ButtonState.Pressed && CurrentButtons.Start == ButtonState.Released)
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+                else
+                {
+                    return ReleasableButtonState.Released;
+                }
             }
         }
 
@@ -384,6 +408,23 @@ namespace Frostbyte
                     return ReleasableButtonState.Pressed;
                 }
                 else if (mLastControllerState.IsKeyDown(Keys.Z) && mCurrentControllerState.IsKeyUp(Keys.Z))
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+
+                return ReleasableButtonState.Released;
+            }
+        }
+
+        public ReleasableButtonState Start
+        {
+            get
+            {
+                if (mCurrentControllerState.IsKeyDown(Keys.Enter))
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (mLastControllerState.IsKeyDown(Keys.Enter) && mCurrentControllerState.IsKeyUp(Keys.Enter))
                 {
                     return ReleasableButtonState.Clicked;
                 }

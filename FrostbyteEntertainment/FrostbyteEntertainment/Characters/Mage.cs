@@ -28,16 +28,24 @@ namespace Frostbyte.Characters
         internal Mage(string name, Actor actor, PlayerIndex input)
             : base(name, actor)
         {
-            controller = new GamePadController(input);
-            //controller = new KeyboardController();
+            if (GamePad.GetState(input).IsConnected)
+            {
+                controller = new GamePadController(input);
+            }
+            else
+            {
+                controller = new KeyboardController();
+            }
             currentTargetAlignment = TargetAlignment.None;
-            target = new Levels.Target("target", Color.Red);
+            target = new Target("target", Color.Red);
             target.Visible = false;
             sortType = new DistanceSort(this);
 
             UpdateBehavior = mUpdate;
             CollidesWithBackground = true;
             AttackRange = 50;
+
+            This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
         }
         #endregion
 
@@ -118,24 +126,12 @@ namespace Frostbyte.Characters
                     }
                     else if (controller.Water == ReleasableButtonState.Clicked)
                     {
-                        (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText(
-                            "There was a general clapping of hands at this: it was the first really clever " +
-                                "thing the King had said that day. `That proves his guilt,' said the Queen. " +
-                                "`It proves nothing of the sort!' said Alice. `Why, you don't even know what " +
-                                "they're about!' `Read them,' said the King. The White Rabbit put on his spectacles. " +
-                                "`Where shall I begin, please your Majesty?' he asked. `Begin at the beginning,' " +
-                                "the King said gravely, `and go on till you come to the end: then stop.'");
-                        //Mana -= spellManaCost;
+                        Mana -= spellManaCost;
                         return;
                     }
                 }
                 if (controller.Sword > 0)
                 {
-                    if (ItemBag.Count > 0)
-                    {
-                        ItemBag.RemoveAt(0);
-                    }
-
                     #region Start Melee Attack
                     float range = 150.0f;
                     List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Enemy));
@@ -152,14 +148,14 @@ namespace Frostbyte.Characters
                     #endregion Start Melee Attack
                     return;
                 }
-                if (controller.Interact == ReleasableButtonState.Clicked)
-                {
-                    Item i = new Item("i",
-                        new Actor(This.Game.CurrentLevel.GetAnimation("antibody.anim")),
-                        new Actor(new DummyAnimation()));
-                    PickUpItem(i);
-                    return;
-                }
+            }
+            if (controller.Interact == ReleasableButtonState.Clicked)
+            {
+                Item i = new Item("i",
+                    new Actor(This.Game.CurrentLevel.GetAnimation("antibody.anim")),
+                    new Actor(new DummyAnimation()));
+                PickUpItem(i);
+                return;
             }
         }
 
@@ -223,8 +219,8 @@ namespace Frostbyte.Characters
                 #region Movement
                 if (isMovingAllowed)
                 {
-                    Pos.X += controller.Movement.X * 3;
-                    Pos.Y -= controller.Movement.Y * 3;
+                    Pos.X += controller.Movement.X * 3 * Speed;
+                    Pos.Y -= controller.Movement.Y * 3 * Speed;
                 }
                 #endregion Movement
 

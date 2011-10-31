@@ -43,6 +43,8 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new CowardlyPersonality(this);
             AttackRange = 10; //in pixels
+            This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
+            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Beetle_Move");
         }
 
         protected override void updateMovement()
@@ -51,7 +53,6 @@ namespace Frostbyte.Enemies
             {
                 movementStartTime = TimeSpan.MaxValue;
             }
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
             Personality.Update();
         }
 

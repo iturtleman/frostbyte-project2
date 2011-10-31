@@ -14,9 +14,23 @@ namespace Frostbyte.Levels
     {
         internal static void Load()
         {
+            /**********************************************************************************************
+             * THIS LEVEL LEFT HERE FOR REFERENCE.
+             * ADD ALL ACTUAL CONTENT TO Earth.cs
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             *********************************************************************************************/
             Collision.Lists.Add(new KeyValuePair<int, int>(0, 1));
 
-            FrostbyteLevel l = (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel) as FrostbyteLevel;
+            FrostbyteLevel l =This.Game.CurrentLevel as FrostbyteLevel;
 
             //load the level
             XDocument doc = XDocument.Load(@"Content/Level1.xml");
@@ -104,137 +118,5 @@ namespace Frostbyte.Levels
         }
     }
 
-    internal class Target : Polygon
-    {
-        internal Target(string name, Color c)
-            : this(name, c, 15)
-        {
-        }
-
-        internal Target(string name, Color color, int size)
-            : base(name, new Actor(new DummyAnimation(name, size, size)), color,
-                new Vector3(0, 0, 0),
-                new Vector3(size, 0, 0),
-                new Vector3(size, size, 0),
-                new Vector3(0, size, 0),
-                new Vector3(0, 0, 0))
-        {
-        }
-    }
-
-    internal class TestAlly : Player
-    {
-        internal TestAlly(string name, Actor actor)
-            : base(name, actor)
-        {
-            float height = This.Game.GraphicsDevice.Viewport.Height;
-            float width = This.Game.GraphicsDevice.Viewport.Width;
-            /*basicEffect.View = Matrix.CreateLookAt(new Vector3(This.Game.GraphicsDevice.Viewport.X + width / 2, This.Game.GraphicsDevice.Viewport.Y + height / 2, -10),
-                                                   new Vector3(This.Game.GraphicsDevice.Viewport.X + width / 2, This.Game.GraphicsDevice.Viewport.Y + height / 2, 0), new Vector3(0, -1, 0));
-            basicEffect.Projection = Matrix.CreateOrthographic(This.Game.GraphicsDevice.Viewport.Width, This.Game.GraphicsDevice.Viewport.Height, 1, 20);
-            basicEffect.VertexColorEnabled = true;*/
-        }
-
-        /*BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
-        VertexPositionColor[] points;
-
-        internal override void Draw(GameTime gameTime)
-        {
-            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-            {
-                int size = 10;
-                points = new VertexPositionColor[5]{
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y, 0), Color.Green),
-                new VertexPositionColor(new Vector3(Pos.X + size, Pos.Y, 0), Color.Green),
-                new VertexPositionColor(new Vector3(Pos.X + size, Pos.Y + size, 0), Color.Green),
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y + size, 0), Color.Green),
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y, 0), Color.Green)};
-                pass.Apply();
-                basicEffect.World = Matrix.CreateTranslation(new Vector3(Pos, 0)) * This.Game.CurrentLevel.Camera.GetTransformation(This.Game.GraphicsDevice);
-                This.Game.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineStrip, points, 0, points.Length - 1);
-            }
-        }*/
-    }
-
-    internal class TestObstacle : Obstacle
-    {
-        internal TestObstacle(string name, Actor actor)
-            : base(name, actor)
-        {
-            float height = This.Game.GraphicsDevice.Viewport.Height;
-            float width = This.Game.GraphicsDevice.Viewport.Width;
-            basicEffect.View = Matrix.CreateLookAt(new Vector3(This.Game.GraphicsDevice.Viewport.X + width / 2, This.Game.GraphicsDevice.Viewport.Y + height / 2, -10),
-                                                   new Vector3(This.Game.GraphicsDevice.Viewport.X + width / 2, This.Game.GraphicsDevice.Viewport.Y + height / 2, 0), new Vector3(0, -1, 0));
-            basicEffect.Projection = Matrix.CreateOrthographic(This.Game.GraphicsDevice.Viewport.Width, This.Game.GraphicsDevice.Viewport.Height, 1, 20);
-            basicEffect.VertexColorEnabled = true;
-        }
-
-        BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
-        VertexPositionColor[] points;
-
-        internal override void Draw(GameTime gameTime)
-        {
-            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-            {
-                int size = 10;
-                points = new VertexPositionColor[5]{
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y, 0), Color.LightCyan),
-                new VertexPositionColor(new Vector3(Pos.X + size, Pos.Y, 0), Color.LightCyan),
-                new VertexPositionColor(new Vector3(Pos.X + size, Pos.Y + size, 0), Color.LightCyan),
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y + size, 0), Color.LightCyan),
-                new VertexPositionColor(new Vector3(Pos.X, Pos.Y, 0), Color.LightCyan)};
-                pass.Apply();
-                basicEffect.World = Matrix.Identity;
-                This.Game.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineStrip, points, 0, points.Length - 1);
-            }
-        }
-    }
-
-    internal class FerociousEnemy : Frostbyte.Enemy
-    {
-        #region Variables
-
-        bool changeState = false;
-        TimeSpan idleTime = new TimeSpan(0, 0, 2);
-
-
-        #endregion Variables
-
-        internal FerociousEnemy(string name, Actor actor, float speed, int _health)
-            : base(name, actor, speed, _health)
-        {
-            movementStartTime = new TimeSpan(0, 0, 1);
-        }
-
-        protected override void updateMovement()
-        {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
-            Personality.Update();
-        }
-
-        protected override void updateAttack()
-        {
-            float range = 10f;
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
-            Sprite target = GetClosestTarget(targets, range);
-            if (target != null)
-            {
-                // Attack!
-            }
-        }
-
-        internal override XElement ToXML()
-        {
-            XElement e = new XElement("Enemy");
-            e.SetAttributeValue("Type", this.GetType().ToString());
-            e.SetAttributeValue("Name", Name);
-            e.SetAttributeValue("Speed", Speed);
-            e.SetAttributeValue("Health", Health);
-            //add other data about this type of enemy here
-            return e;
-        }
-    }
+    
 }

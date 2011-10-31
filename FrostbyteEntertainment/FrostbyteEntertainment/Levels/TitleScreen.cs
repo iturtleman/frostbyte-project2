@@ -4,32 +4,39 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using BodilyInfection.Engine;
+using Frostbyte;
 
-namespace BodilyInfection.Levels
+namespace Frostbyte.Levels
 {
     internal static class TitleScreen
     {
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
         private static bool levelCompleted = false;
+        private static IController controller;
 
-        internal static void Load()
+        internal static void Load(Level context)
         {
             LevelInitTime = TimeSpan.MinValue;
             levelCompleted = false;
 
-            Level l = This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel;
-            l.AddAnimation(new BackgroundAnimation("title.anim"));
-
-            l.Background = new Background("title", "title.anim");
-
             /** load music */
-            This.Game.AudioManager.AddBackgroundMusic("title");
-            This.Game.AudioManager.PlayBackgroundMusic("title");
+            //This.Game.AudioManager.AddBackgroundMusic("title");
+            //This.Game.AudioManager.PlayBackgroundMusic("title");
 
-            GameData.Score = 0;
-            GameData.NumberOfLives = GameData.DefaultNumberOfLives;
+            Text title = new Text("titletext", "text", "Welcome. Please Press Enter/Start.");
+            title.Pos = new Vector2(400, 50);
+            title.Static = true;
+            title.DisplayColor = Color.Chartreuse;
+
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+            {
+                controller = new GamePadController(PlayerIndex.One);
+            }
+            else
+            {
+                controller = new KeyboardController();
+            }
         }
 
         internal static void Update()
@@ -39,27 +46,12 @@ namespace BodilyInfection.Levels
             {
                 LevelInitTime = gameTime.TotalGameTime;
             }
-            Level l = This.Game.CurrentLevel;
 
-            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
-            if (currentState.IsConnected)
+            controller.Update();
+            if (controller.Start == ReleasableButtonState.Clicked)
             {
-                if (This.Game.mLastPadState.Buttons.Start == ButtonState.Released && currentState.Buttons.Start == ButtonState.Pressed )
-                {
-                    // Go to next
-                    // Make awesome sound
-                    levelCompleted = true;
-                }
-            }
-            else /* Move with arrow keys */
-            {
-                KeyboardState keys = Keyboard.GetState();
-                if (keys.IsKeyDown(Keys.Enter))
-                {
-                    // Go to next
-                    // Make awesome sound
-                    levelCompleted = true;
-                }
+                // Go to next
+                levelCompleted = true;
             }
         }
 
@@ -70,12 +62,8 @@ namespace BodilyInfection.Levels
 
         internal static void Unload()
         {
-            string levelname = BodilyInfectionLevel.LevelProgression[0];
+            string levelname = FrostbyteLevel.LevelProgression[0];
             This.Game.LoadLevel(levelname);
-
-            /// \todo display some stuff here about loading probably put it in a shared space
-
-
             This.Game.SetCurrentLevel(levelname);
         }
     }
