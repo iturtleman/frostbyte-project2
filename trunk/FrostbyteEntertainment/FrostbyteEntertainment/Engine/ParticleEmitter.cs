@@ -144,7 +144,7 @@ namespace Frostbyte
             :base("particleEmitter", new Actor(new DummyAnimation()))
         {
             //adds partice to current level
-            (This.Game.CurrentLevel != This.Game.NextLevel && This.Game.NextLevel != null ? This.Game.NextLevel : This.Game.CurrentLevel).AddParticleEmitter(this);
+            This.Game.LoadingLevel.AddParticleEmitter(this);
 
             //sets max number of particles 
             this.maxNumOfParticles = maxNumOfParticles;
