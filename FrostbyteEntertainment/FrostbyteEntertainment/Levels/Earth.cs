@@ -20,7 +20,7 @@ namespace Frostbyte.Levels
 
             Frostbyte.Enemies.ElectricBat ebat = new Frostbyte.Enemies.ElectricBat("EB", new Vector2(269 * 64, 250 * 64));
             Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage.Pos = new Microsoft.Xna.Framework.Vector2(269 * 64, 250 * 64);
+            mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 119 * 64);
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
 
