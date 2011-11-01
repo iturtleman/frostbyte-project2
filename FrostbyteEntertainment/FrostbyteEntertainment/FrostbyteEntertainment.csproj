@@ -130,6 +130,7 @@
     <Compile Include="Enemies\ManInCrystalBoss.cs" />
     <Compile Include="Enemies\RockGolem.cs" />
     <Compile Include="Enemies\Sparky.cs" />
+    <Compile Include="Enemies\Spider.cs" />
     <Compile Include="Enemies\Wasp.cs" />
     <Compile Include="Enemies\WaterBlobBoss.cs" />
     <Compile Include="Enemies\Worm.cs" />
