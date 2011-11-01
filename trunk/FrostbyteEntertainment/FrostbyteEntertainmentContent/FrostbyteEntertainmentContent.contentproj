@@ -42,12 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Level1.xml">
-      <Name>Level1</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Compile Include="Text.spritefont">
       <Name>Text</Name>
       <Importer>FontDescriptionImporter</Importer>
