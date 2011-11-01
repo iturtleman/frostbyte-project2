@@ -30,13 +30,17 @@ namespace Frostbyte
 
         internal TriggerCondition TriggerCondition = () => { return null; };
         internal event TriggerHandler TriggerEffect = (Object, TriggerSingleTargetEventArgs) => { };
+        internal bool Enabled = true;
         
 
         private new void Update(){
-            TriggerEventArgs args = TriggerCondition();
-            if (args != null)
+            if (Enabled)
             {
-                TriggerEffect(this, args);
+                TriggerEventArgs args = TriggerCondition();
+                if (args != null)
+                {
+                    TriggerEffect(this, args);
+                }
             }
         }
     }

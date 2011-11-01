@@ -49,9 +49,10 @@ namespace Frostbyte.Levels
                 ((args as TriggerSingleTargetEventArgs).Target as Player).Health -= 10;
 
                 This.Game.AudioManager.PlayBackgroundMusic("Music/GenericBoss");
+                t.Enabled = false;
             };
 
-            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
