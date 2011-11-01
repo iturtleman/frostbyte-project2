@@ -117,7 +117,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="Enemies\Beetle.cs" />
     <Compile Include="Enemies\ElectricBat.cs" />
-    <Compile Include="Enemies\ElectricGolem.cs" />
+    <Compile Include="Enemies\CrystalGolem.cs" />
     <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="Enemies\FinalBoss.cs" />
     <Compile Include="Enemies\FireAnt.cs" />
@@ -150,7 +150,7 @@
     <Compile Include="Personality.cs" />
     <Compile Include="Shared\Beetle.cs" />
     <Compile Include="Shared\ElectricBat.cs" />
-    <Compile Include="Shared\ElectricGolem.cs" />
+    <Compile Include="Shared\CrystalGolem.cs" />
     <Compile Include="Shared\Enemy.cs" />
     <Compile Include="Shared\Enums.cs" />
     <Compile Include="FrostbyteLevel.cs" />
@@ -354,6 +354,51 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\beetle-walk-up.anim">
       <Link>Content\Sprites\beetle-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagdown.anim">
+      <Link>Content\Sprites\crystalgolem-attack-diagdown.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagup.anim">
+      <Link>Content\Sprites\crystalgolem-attack-diagup.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-down.anim">
+      <Link>Content\Sprites\crystalgolem-attack-down.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-right.anim">
+      <Link>Content\Sprites\crystalgolem-attack-right.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-up.anim">
+      <Link>Content\Sprites\crystalgolem-attack-up.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-diagdown.anim">
+      <Link>Content\Sprites\crystalgolem-idle-diagdown.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-diagup.anim">
+      <Link>Content\Sprites\crystalgolem-idle-diagup.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-down.anim">
+      <Link>Content\Sprites\crystalgolem-idle-down.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-right.anim">
+      <Link>Content\Sprites\crystalgolem-idle-right.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-up.anim">
+      <Link>Content\Sprites\crystalgolem-idle-up.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-diagdown.anim">
+      <Link>Content\Sprites\crystalgolem-walk-diagdown.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-diagup.anim">
+      <Link>Content\Sprites\crystalgolem-walk-diagup.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-down.anim">
+      <Link>Content\Sprites\crystalgolem-walk-down.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-right.anim">
+      <Link>Content\Sprites\crystalgolem-walk-right.anim</Link>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-up.anim">
+      <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-diagdown.anim">
       <Link>Content\Sprites\golem-attack-diagdown.anim</Link>

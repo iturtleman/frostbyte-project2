@@ -118,7 +118,7 @@ namespace Frostbyte
         {
         }
         #endregion
-                
+
 
         /// <summary>
         /// Retains progress through our levels
@@ -256,7 +256,7 @@ namespace Frostbyte
                 {
                     Tile toDraw;
                     TileMap.TryGetValue(x, y, out toDraw);
-                    
+
                     //toDraw.Draw();
                     if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner || toDraw.Type == TileTypes.DEFAULT || toDraw.Type == TileTypes.TopArea))
                         toDraw.Draw();
@@ -376,9 +376,9 @@ namespace Frostbyte
             foreach (XElement elem in doc.Descendants("Enemy"))
             {
                 string type = elem.Attribute("Type").Value;
-                if (type == "Frostbyte.Enemies.Golem")
+                if (type == "Frostbyte.Enemies.RockGolem")
                 {
-                    new Golem(elem.Attribute("Name").Value,Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                    new RockGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
                 }
                 else if (type == "Frostbyte.Enemies.Beetle")
                 {
@@ -387,6 +387,10 @@ namespace Frostbyte
                 else if (type == "Frostbyte.Enemies.Wasp")
                 {
                     new Wasp(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                }
+                else if (type == "Frostbyte.Enemies.CrystalGolem")
+                {
+                    new CrystalGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
                 }
             }
         }
