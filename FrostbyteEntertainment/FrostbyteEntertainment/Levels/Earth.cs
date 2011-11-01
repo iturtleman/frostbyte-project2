@@ -13,12 +13,11 @@ namespace Frostbyte.Levels
         {
             FrostbyteLevel l = context as FrostbyteLevel;
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
-            XDocument doc = XDocument.Load(@"Content/Level1.xml");
+            XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
 
             l.HUD.LoadCommon();
 
-            Frostbyte.Enemies.ElectricBat ebat = new Frostbyte.Enemies.ElectricBat("EB", new Vector2(269 * 64, 250 * 64));
             Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 119 * 64);
             mage.Speed = 1;

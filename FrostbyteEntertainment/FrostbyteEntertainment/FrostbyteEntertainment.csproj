@@ -234,8 +234,8 @@
       <Link>Content\Audio\Music\WaterBG.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\FrostbyteEntertainmentContent\Level1.xml">
-      <Link>Content\Level1.xml</Link>
+    <Content Include="..\FrostbyteEntertainmentContent\EarthLevel.xml">
+      <Link>Content\EarthLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Game.ico" />
