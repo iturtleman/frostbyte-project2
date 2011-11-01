@@ -31,11 +31,10 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("golem-attack-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("golem-attack-up.anim"),
         };
-
         #endregion Variables
 
-        internal Golem(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 1000)
+        internal Golem(string name, Vector2 initialPos, List<Animation> anims = null)
+            : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new SentinelPersonality(this);
@@ -75,7 +74,7 @@ namespace Frostbyte.Enemies
                         isAttacking = true;
                         isAttackingAllowed = false;
                         isMovingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 20, 18, 25,new TimeSpan(0,0,0,1,500)).GetEnumerator();
+                        mAttack = Attacks.Melee(target, this, 20, 18, 25, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator();
                         This.Game.AudioManager.PlaySoundEffect("Effects/golem_attack");
                     }
                 }

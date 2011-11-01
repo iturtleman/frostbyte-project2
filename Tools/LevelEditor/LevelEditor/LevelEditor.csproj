@@ -59,11 +59,11 @@
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\Beetle.cs">
       <Link>EnemyStuff\Beetle.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\CrystalGolem.cs">
+      <Link>EnemyStuff\CrystalGolem.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\ElectricBat.cs">
       <Link>EnemyStuff\ElectricBat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\ElectricGolem.cs">
-      <Link>EnemyStuff\ElectricGolem.cs</Link>
     </Compile>
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\Enemy.cs">
       <Link>EnemyStuff\Enemy.cs</Link>
