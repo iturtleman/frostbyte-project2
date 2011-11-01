@@ -23,9 +23,33 @@ namespace Frostbyte.Levels
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
 
-            Obstacle rock = new Obstacles.Rock("rock");
-            rock.Pos = mage.Pos;
-            rock.Pos.Y += 50;
+            Trigger t = new Trigger("trap", 64, 64);
+            t.CenterOn(mage);
+            t.Pos.Y -= 128;
+
+            t.TriggerCondition = delegate()
+            {
+                Sprite target = t.GetClosestTarget(l.allies, 10);
+                if (target as Player!= null)
+                {
+                    return new TriggerSingleTargetEventArgs(target);
+                }
+                return null;
+            };
+
+            This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
+            t.TriggerEffect += delegate(object ths, TriggerEventArgs args)
+            {
+                for (int x = -1; x <= 1; x += 2)
+                {
+                    Obstacle rockX = new Obstacles.Rock("rock");
+                    rockX.CenterOn(t);
+                    rockX.Pos.X += x * t.GetAnimation().Width;
+                }
+                ((args as TriggerSingleTargetEventArgs).Target as Player).Health -= 10;
+
+                This.Game.AudioManager.PlayBackgroundMusic("Music/GenericBoss");
+            };
 
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
 

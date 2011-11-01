@@ -200,6 +200,7 @@
     <Compile Include="Target.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileHelper.cs" />
+    <Compile Include="Trigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Bat_Move.wav">
@@ -410,6 +411,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-walk-up.anim">
       <Link>Content\Sprites\golem-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\key.anim">
+      <Link>Content\Sprites\key.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\rock.anim">
