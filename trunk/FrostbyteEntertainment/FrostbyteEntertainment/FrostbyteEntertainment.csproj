@@ -220,6 +220,9 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Sword_Attack.wav">
       <Link>Content\Audio\Effects\Sword_Attack.wav</Link>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\EarthBG.mp3">
+      <Link>Content\Audio\Music\EarthBG.mp3</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\EarthBoss.mp3">
       <Link>Content\Audio\Music\EarthBoss.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
