@@ -21,7 +21,7 @@ namespace Frostbyte
 
         public override string ToString()
         {
-            return String.Format("Animation {0} has not been loaded.", name);
+            return String.Format("Animation {0} does not exist has not been loaded.", name);
         }
     }
 
