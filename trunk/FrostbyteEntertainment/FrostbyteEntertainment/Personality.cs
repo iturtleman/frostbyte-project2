@@ -304,6 +304,39 @@ namespace Frostbyte
         }
     }
 
+    internal class PulseChargePersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal PulseChargePersonality(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            while (true)
+            {
+                TimeSpan snapshot = This.gameTime.TotalGameTime;
+                while (!master.pulseCharge(targets, float.MaxValue, 3) )
+                {
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
+    }
+
     internal static class EnemyAI
     {
         //These are only to update position of enemy
@@ -342,7 +375,7 @@ namespace Frostbyte
         /// </summary>
         internal static bool pulseCharge(this Enemy ths, List<Sprite> targets, float aggroDistance, float speedMultiplier)
         {
-            speedMultiplier = (float)Math.Sin((2 * This.gameTime.TotalGameTime.Milliseconds / 1000.0) * (2 * Math.PI)) + 1.5f;
+            speedMultiplier = (float)Math.Sin((2 * This.gameTime.TotalGameTime.Milliseconds / 1000.0) * (2 * Math.PI)) + 2.5f;
 
             return ths.charge(targets, aggroDistance, speedMultiplier);
         }
