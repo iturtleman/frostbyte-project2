@@ -192,9 +192,9 @@ namespace Frostbyte
                     {
                         Sprite icon = ItemBag[x].Icon;
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
-                            (x % itemsPerRow) * (ItemBag[x].GetAnimation().Width + itemSpacing.X);
+                            (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
-                            (x / itemsPerRow) * (ItemBag[x].GetAnimation().Height + itemSpacing.Y);
+                            (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
                         icon.Visible = true;
                         icon.Draw(gameTime);
                     }

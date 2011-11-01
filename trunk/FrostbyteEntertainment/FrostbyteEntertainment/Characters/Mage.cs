@@ -148,9 +148,7 @@ namespace Frostbyte.Characters
             }
             if (controller.Interact == ReleasableButtonState.Clicked)
             {
-                Item i = new Item("i",
-                    new Actor(This.Game.CurrentLevel.GetAnimation("antibody.anim")),
-                    new Actor(new DummyAnimation()));
+                Item i = new Key("key");
                 PickUpItem(i);
                 return;
             }

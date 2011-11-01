@@ -26,6 +26,9 @@ namespace Frostbyte.Enemies
             ElementType = Element.Lightning;
             GroundPos = initialPos;
             Personality = new PseudoWanderPersonality(this);
+
+            This.Game.AudioManager.AddSoundEffect("Effects/Bat_Move");
+            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Bat_Move");
         }
 
         protected override void updateMovement()

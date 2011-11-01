@@ -27,7 +27,7 @@ namespace Frostbyte
                 This.Game.LoadingLevel.RemoveSprite(this);
             }
 
-            internal override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+            /*internal override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
             {
                 if (Visible)
                 {
@@ -40,8 +40,16 @@ namespace Frostbyte
                         (int)16,
                         (int)16), Color.White);
                 }
-            }
+            }*/
         }
+    }
 
+    internal class Key : Item
+    {
+        internal Key(string name)
+            : base(name, new Actor(new DummyAnimation()),
+                new Actor(This.Game.LoadingLevel.GetAnimation("key.anim")))
+        {
+        }
     }
 }
