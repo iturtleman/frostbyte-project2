@@ -14,7 +14,21 @@ namespace Frostbyte.Enemies
 
         #region Variables
         static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("antibody.anim")
+            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
         };
 
         #endregion Variables
