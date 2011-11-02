@@ -345,23 +345,20 @@ namespace Frostbyte
 
             foreach (Sprite obstacle in (This.Game.CurrentLevel as FrostbyteLevel).obstacles)
             {
-                if (Vector2.DistanceSquared(GroundPos, CenterPos) < collisionRadius * collisionRadius)
-                {
-                    float obstacleStartX = obstacle.Pos.X;
-                    float obstacleStartY = obstacle.Pos.Y;
-                    boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY + This.CellSize + collisionRadius), //add bottom side of tile
-                                                                                     new Vector2(obstacleStartX, obstacleStartY + This.CellSize + collisionRadius)));
-                    boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY - collisionRadius), //add top side of tile
-                                                                                     new Vector2(obstacleStartX + This.CellSize, obstacleStartY - collisionRadius)));
-                    boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX - collisionRadius, obstacleStartY + This.CellSize), //add left side of tile
-                                                         new Vector2(obstacleStartX - collisionRadius, obstacleStartY)));
-                    boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize + collisionRadius, obstacleStartY), //add right side of tile
-                                                                                         new Vector2(obstacleStartX + This.CellSize + collisionRadius, obstacleStartY + This.CellSize)));
-                    boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY + This.CellSize), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add bottom right point of tile
-                    boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY + This.CellSize), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add bottom left point of tile
-                    boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add top right point of tile
-                    boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add top left point of tile
-                }
+                float obstacleStartX = obstacle.Pos.X;
+                float obstacleStartY = obstacle.Pos.Y;
+                boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY + This.CellSize + collisionRadius), //add bottom side of tile
+                                                                                    new Vector2(obstacleStartX, obstacleStartY + This.CellSize + collisionRadius)));
+                boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY - collisionRadius), //add top side of tile
+                                                                                    new Vector2(obstacleStartX + This.CellSize, obstacleStartY - collisionRadius)));
+                boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX - collisionRadius, obstacleStartY + This.CellSize), //add left side of tile
+                                                        new Vector2(obstacleStartX - collisionRadius, obstacleStartY)));
+                boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize + collisionRadius, obstacleStartY), //add right side of tile
+                                                                                        new Vector2(obstacleStartX + This.CellSize + collisionRadius, obstacleStartY + This.CellSize)));
+                boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY + This.CellSize), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add bottom right point of tile
+                boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY + This.CellSize), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add bottom left point of tile
+                boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX + This.CellSize, obstacleStartY), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add top right point of tile
+                boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(obstacleStartX, obstacleStartY), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add top left point of tile
             }
 
             //If there are no line segments or circle then there are no possible collisions

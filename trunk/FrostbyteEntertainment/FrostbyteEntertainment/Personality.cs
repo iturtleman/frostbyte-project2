@@ -166,22 +166,27 @@ namespace Frostbyte
             Vector2 guardPosition = master.GroundPos;
             while (true)
             {
-                if ( !master.charge(targets, 100.0f, 3.0f) )
+                Sprite closestTarget = master.GetClosestTarget(targets, 300.0f);
+
+
+                if (closestTarget != null && Vector2.DistanceSquared(closestTarget.GroundPos, master.GroundPos) > 200 * 200)
                 {
-                    yield return null;
+                    master.charge(closestTarget.GroundPos, 1.0f);
                 }
-                else if ( !master.charge(targets, 200.0f, 1f) ) 
+                else if (closestTarget != null)
                 {
-                    yield return null;
+                    master.charge(closestTarget.GroundPos, 3.0f);
                 }
-                else if (Vector2.DistanceSquared(guardPosition, master.GroundPos) > 20 * 20)
+                else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) > 20 * 20)
+                {
                     master.charge(guardPosition, 3.0f);
-                else if (Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
+                }
+                else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
                 {
                     master.State = SpriteState.Idle;
                 }
 
-                
+
 
                 master.isAttackingAllowed = true;
 
@@ -250,7 +255,7 @@ namespace Frostbyte
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
                 //master.Personality.Status = EnemyStatus.Wander;
                 while (!master.dart(targets, 8.0f, 400) && Vector2.Distance(this.master.GroundPos, this.master.GetClosestTarget(targets).GroundPos) < 500)
-                {   
+                {
                     yield return null;
                 }
 
@@ -294,7 +299,7 @@ namespace Frostbyte
                 {
                     yield return null;
                 }
-                while (!master.retreat(targets, new TimeSpan(0, 0, 0, 2) , 250f, 15.0f))
+                while (!master.retreat(targets, new TimeSpan(0, 0, 0, 2), 250f, 15.0f))
                 {
                     yield return null;
                 }
@@ -327,7 +332,7 @@ namespace Frostbyte
             while (true)
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
-                while (!master.pulseCharge(targets, float.MaxValue, 3) )
+                while (!master.pulseCharge(targets, float.MaxValue, 3))
                 {
                     yield return null;
                 }
@@ -477,9 +482,10 @@ namespace Frostbyte
             {
                 target = ths.GetClosestTarget(targets);
                 if (target != null && (Vector2.DistanceSquared(target.GroundPos, ths.GroundPos) >
-                    (ignoreDistance * ignoreDistance))){
-                        ths.Personality.Status = EnemyStatus.Wander;
-                        return true;
+                    (ignoreDistance * ignoreDistance)))
+                {
+                    ths.Personality.Status = EnemyStatus.Wander;
+                    return true;
                 }
 
                 ths.Personality.Status = EnemyStatus.Frozen;
@@ -700,7 +706,7 @@ namespace Frostbyte
             //    ths.Direction = nextHoverPoint - ths.GroundPos;
             //}
 
-            
+
 
             //if (ths.Personality.Status == EnemyStatus.Charge)
             //{
@@ -711,7 +717,7 @@ namespace Frostbyte
 
             //    else return true;
             //}
-            
+
             #endregion crap!
 
             Sprite target = ths.GetClosestTarget(targets);
@@ -719,7 +725,7 @@ namespace Frostbyte
             if (target == null) return false;
 
             float dartSpeed = ths.Speed * dartSpeedMultiplier;
-            
+
 
             if (ths.Personality.Status != EnemyStatus.Charge)
             {
@@ -735,14 +741,14 @@ namespace Frostbyte
                 ths.movementStartTime = This.gameTime.TotalGameTime;
             }
 
-            
+
             //if we choose a nextHoverPoint thats beyond a wall, we get stuck...
             else if (Vector2.Distance(ths.GroundPos, nextHoverPoint) > 3f && nextHoverPoint != Vector2.Zero && This.gameTime.TotalGameTime < ths.movementStartTime + dartTimeout)
             {
                 ths.GroundPos += ths.Direction * dartSpeed;
             }
 
-            else 
+            else
             {
                 ths.Personality.Status = EnemyStatus.Wander;
                 nextHoverPoint = new Vector2(
