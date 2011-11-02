@@ -487,6 +487,66 @@
       <Link>Content\Sprites\shield_opaque.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-attack-diagdown.anim">
+      <Link>Content\Sprites\spider-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-attack-diagup.anim">
+      <Link>Content\Sprites\spider-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-attack-down.anim">
+      <Link>Content\Sprites\spider-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-attack-right.anim">
+      <Link>Content\Sprites\spider-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-attack-up.anim">
+      <Link>Content\Sprites\spider-attack-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-idle-diagdown.anim">
+      <Link>Content\Sprites\spider-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-idle-diagup.anim">
+      <Link>Content\Sprites\spider-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-idle-down.anim">
+      <Link>Content\Sprites\spider-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-idle-right.anim">
+      <Link>Content\Sprites\spider-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-idle-up.anim">
+      <Link>Content\Sprites\spider-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-walk-diagdown.anim">
+      <Link>Content\Sprites\spider-walk-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-walk-diagup.anim">
+      <Link>Content\Sprites\spider-walk-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-walk-down.anim">
+      <Link>Content\Sprites\spider-walk-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-walk-right.anim">
+      <Link>Content\Sprites\spider-walk-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\spider-walk-up.anim">
+      <Link>Content\Sprites\spider-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\target.anim">
       <Link>Content\Sprites\target.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
