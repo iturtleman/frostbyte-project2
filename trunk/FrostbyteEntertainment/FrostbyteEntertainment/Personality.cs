@@ -334,7 +334,7 @@ namespace Frostbyte
             while (true)
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
-                while (!master.pulseCharge(targets, 500, 2.5f))
+                while (!master.pulseCharge(targets, 500, 3.2f))
                 {
                     yield return null;
                 }
@@ -382,7 +382,7 @@ namespace Frostbyte
         /// </summary>
         internal static bool pulseCharge(this Enemy ths, List<Sprite> targets, float aggroDistance, float speedMultiplier)
         {
-            speedMultiplier = (float)Math.Sin((2 * This.gameTime.TotalGameTime.Milliseconds / 1000.0) * (2 * Math.PI)) + 2.5f;
+            speedMultiplier = 2*(float)Math.Sin((2 * This.gameTime.TotalGameTime.Milliseconds / 1000.0) * (2 * Math.PI)) + 2.5f;
 
             return ths.charge(targets, aggroDistance, speedMultiplier);
         }
