@@ -145,7 +145,7 @@ namespace Frostbyte
             //give us the best one we can
             mActor.CurrentAnimation = mActor.Animations.Count > animation ? animation : mActor.Animations.Count - 1;
             //continue on same frame uncomment to start anim from beginning
-            mActor.Frame = mActor.Frame%mActor.Animations[mActor.CurrentAnimation].Frames.Count; 
+            mActor.Frame = mActor.Frame % mActor.Animations[mActor.CurrentAnimation].Frames.Count;
         }
 
         /// <summary>
@@ -222,15 +222,9 @@ namespace Frostbyte
                 //used to update the animation. Occurs once the frame's pause * sprite's speed occurs.
                 if (mLastUpdate.TotalGameTime.TotalMilliseconds + frame.Pause * Speed < gameTime.TotalGameTime.TotalMilliseconds)
                 {
-                    //obtain current peg 
-                    Vector2 ppos = frame.AnimationPeg;
                     mActor.Frame = (mActor.Frame + 1) % mActor.Animations[mActor.CurrentAnimation].NumFrames;
                     //update frame so we don't need to worry
                     frame = mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame];
-                    //obtain next peg
-                    Vector2 npos = frame.AnimationPeg;
-                    //move current position to difference of two
-                    Pos += (ppos - npos);
                     mLastUpdate = new GameTime(gameTime.TotalGameTime, gameTime.ElapsedGameTime);
                 }
             }
@@ -238,11 +232,20 @@ namespace Frostbyte
             {
                 This.Game.spriteBatch.Draw(
                         frame.Image,
-                        Pos + frame.AnimationPeg,
+                        Pos +
+                            (Hflip ?
+                                Vflip ?
+                                    new Vector2(GetAnimation().AnimationPeg.X, GetAnimation().AnimationPeg.Y)
+                                    : new Vector2(GetAnimation().AnimationPeg.X, -GetAnimation().AnimationPeg.Y)
+                                :
+                                Vflip ?
+                                     new Vector2(-GetAnimation().AnimationPeg.X,GetAnimation().AnimationPeg.Y)
+                                    : new Vector2(-GetAnimation().AnimationPeg.X,-GetAnimation().AnimationPeg.Y)
+                                    ),
                         new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frame.Width, frame.Height),
                         Color.White,
                         Angle,
-                        GetAnimation().AnimationPeg,
+                        Vector2.Zero,
                         Scale,
                         Hflip ?
                             Vflip ?
