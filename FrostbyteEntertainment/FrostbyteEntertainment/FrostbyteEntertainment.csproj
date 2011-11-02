@@ -218,6 +218,15 @@
       <Link>Content\Audio\Effects\Golem_Attack.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Golem_Move.wav">
+      <Link>Content\Audio\Effects\Golem_Move.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning.wav">
+      <Link>Content\Audio\Effects\Lightning.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Circle.mp3">
+      <Link>Content\Audio\Effects\Lightning_Circle.mp3</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Sword_Attack.wav">
       <Link>Content\Audio\Effects\Sword_Attack.wav</Link>
     </Content>

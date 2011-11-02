@@ -13,7 +13,6 @@ namespace Frostbyte.Levels
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
         private static bool levelCompleted = false;
-        private static IController controller;
 
         internal static void Load(Level context)
         {
@@ -28,15 +27,6 @@ namespace Frostbyte.Levels
             title.Pos = new Vector2(400, 50);
             title.Static = true;
             title.DisplayColor = Color.Chartreuse;
-
-            if (GamePad.GetState(PlayerIndex.One).IsConnected)
-            {
-                controller = new GamePadController(PlayerIndex.One);
-            }
-            else
-            {
-                controller = new KeyboardController();
-            }
         }
 
         internal static void Update()
@@ -47,8 +37,7 @@ namespace Frostbyte.Levels
                 LevelInitTime = gameTime.TotalGameTime;
             }
 
-            controller.Update();
-            if (controller.Start == ReleasableButtonState.Clicked)
+            if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
             {
                 // Go to next
                 levelCompleted = true;

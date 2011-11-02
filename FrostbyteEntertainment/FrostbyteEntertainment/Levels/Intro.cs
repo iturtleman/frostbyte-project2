@@ -22,7 +22,8 @@ namespace Frostbyte.Levels
 
         internal static bool CompletionCondition()
         {
-            return !scroller.Scrolling;
+            return !scroller.Scrolling ||
+                (This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked;
         }
 
         internal static void Unload()

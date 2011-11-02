@@ -10,7 +10,7 @@ namespace Frostbyte
         /// </summary>
         static void Main(string[] args)
         {
-            This.Game = new Game();
+            This.Game = new FrostbyteGame();
             This.Game.Run();
         }
     }
