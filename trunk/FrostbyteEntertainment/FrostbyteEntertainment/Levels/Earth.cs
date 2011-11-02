@@ -19,10 +19,16 @@ namespace Frostbyte.Levels
 
             l.HUD.LoadCommon();
 
-            Characters.Mage mage = new Characters.Mage("mage", new Actor(l.GetAnimation("shield_opaque.anim")));
+            Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 119 * 64);
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
+
+            Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
+            mage2.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 117 * 64);
+            mage2.Speed = 1;
+            l.HUD.AddPlayer(mage2);
+            mage2.controller = new KeyboardController();
 
             This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");

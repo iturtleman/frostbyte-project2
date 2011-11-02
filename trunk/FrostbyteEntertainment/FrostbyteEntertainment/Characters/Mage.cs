@@ -52,7 +52,7 @@ namespace Frostbyte.Characters
         #region Variables
         private Sprite currentTarget = null;
         private TargetAlignment currentTargetAlignment;
-        private IController controller;
+        internal IController controller;
         private Sprite target;
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
