@@ -15,6 +15,7 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
             XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
+            l.Theme = Element.Earth;
 
             l.HUD.LoadCommon();
 

@@ -41,6 +41,9 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new PulseChargePersonality(this);
             ElementType = Element.Normal;
+            Scale = .4f;
+
+            startAttackDistance = 20;
         }
 
         protected override void updateMovement()
@@ -55,7 +58,26 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-                
+            if (isAttacking)
+            {
+                mAttack.MoveNext();
+                isAttacking = !mAttack.Current;
+            }
+            else
+            {
+                float range = 150.0f;
+                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                Sprite target = GetClosestTarget(targets, range);
+                if (target != null)
+                {
+                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
+                    {
+                        isAttacking = true;
+                        isAttackingAllowed = false;
+                        mAttack = Attacks.Melee(target, this, 5, 18, 20, new TimeSpan(0,0,0,0,250)).GetEnumerator();
+                    }
+                }
+            }     
         }
 
     }

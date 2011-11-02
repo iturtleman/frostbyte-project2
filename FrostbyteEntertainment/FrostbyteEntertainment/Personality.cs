@@ -92,9 +92,11 @@ namespace Frostbyte
             float[] transitionDistances = new float[1] { 0f };
             while (true)
             {
-                while (!EnemyAI.rangeWander(master, targets, TimeSpan.MaxValue, (float)Math.PI / 8, 200f))
+                Sprite closestTarget = master.GetClosestTarget(targets, 500.0f);
+                
+                if(closestTarget != null && Vector2.DistanceSquared(master.GroundPos, closestTarget.GroundPos) <= 500*500)
                 {
-                    yield return null;
+                    EnemyAI.rangeWander(master, targets, TimeSpan.MaxValue, (float)Math.PI / 8, 400f);
                 }
 
                 yield return null;
@@ -332,7 +334,7 @@ namespace Frostbyte
             while (true)
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
-                while (!master.pulseCharge(targets, float.MaxValue, 3))
+                while (!master.pulseCharge(targets, 500, 2.5f))
                 {
                     yield return null;
                 }

@@ -116,11 +116,6 @@ namespace Frostbyte
         /// <summary>
         /// Performs Magic Earth Tier 1 Attack
         /// </summary>
-        /// <returns>returns true when finished</returns>
-
-        /// <summary>
-        /// Performs Magic Earth Tier 1 Attack
-        /// </summary>
         /// <param name="_target">The target for the projectile to attack</param>
         /// <param name="_attacker">The sprite initiating the attack</param>
         /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
@@ -130,7 +125,7 @@ namespace Frostbyte
         /// <param name="_attackRange">The distance from the target that the projectile must come within to be considered a hit</param>
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> EarthT1(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, bool _isHoming)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -147,6 +142,7 @@ namespace Frostbyte
             TimeSpan minAttackTime = _minAttackTime;
             int attackRange = _attackRange;  //distance in pixels from target that is considered a hit
             float projectileSpeed = _projectileSpeed;
+            bool isHoming = _isHoming;
             #endregion Variables
 
             attacker.particleEmitter.GroundPos = attacker.GroundPos;
@@ -176,6 +172,12 @@ namespace Frostbyte
             //emmit particles until particle hits target or time to live runs out
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
+                if (isHoming)
+                {
+                    direction = target.GroundPos - attacker.particleEmitter.GroundPos;
+                    direction.Normalize();
+                }
+
                 if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.GroundPos) < attackRange * attackRange)
                 {
                     target.Health -= baseDamage;
@@ -230,8 +232,6 @@ namespace Frostbyte
 
             yield return true;
         }
-
-
 
     }
 }

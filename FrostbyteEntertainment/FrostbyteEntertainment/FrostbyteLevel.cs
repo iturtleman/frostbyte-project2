@@ -95,7 +95,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            //"Intro",
+            "Intro",
             //"Earth",
             "Lightning",
             "Water",
@@ -275,7 +275,6 @@ namespace Frostbyte
                 {
                     Tile toDraw;
                     TileMap.TryGetValue(x, y, out toDraw);
-                    toDraw.Theme = (This.Game.CurrentLevel as FrostbyteLevel).Theme;
 
                     //toDraw.Draw();
                     if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner || toDraw.Type == TileTypes.DEFAULT || toDraw.Type == TileTypes.TopArea))
@@ -292,7 +291,6 @@ namespace Frostbyte
                                 FloorType = TileTypes.Floor,
                                 Orientation = Orientations.Down,
                                 GridCell = toDraw.GridCell,
-                                Theme=(This.Game.CurrentLevel as FrostbyteLevel).Theme,
                             };
                             t.Draw();
                         }

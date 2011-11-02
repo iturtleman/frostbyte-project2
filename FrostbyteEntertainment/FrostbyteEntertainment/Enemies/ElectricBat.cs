@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Enemies
 {
@@ -40,9 +41,18 @@ namespace Frostbyte.Enemies
             ElementType = Element.Lightning;
             GroundPos = initialPos;
             Personality = new PseudoWanderPersonality(this);
+            Scale = .5f;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Bat_Move");
             MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Bat_Move");
+
+
+            //Create Particle Emmiter
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
+            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.blendState = BlendState.Additive;
         }
 
         protected override void updateMovement()
@@ -56,7 +66,36 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            //throw new NotImplementedException();
+            if (isAttacking)
+            {
+                mAttack.MoveNext();
+                isAttacking = !mAttack.Current;
+            }
+            else
+            {
+                float range = 400.0f;
+                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                Sprite target = GetClosestTarget(targets, range);
+                if (target != null)
+                {
+                    isAttacking = true;
+
+                    //particle emitter is created in constructor
+
+                    //set orientation
+                    this.Direction = target.GroundPos - this.GroundPos;
+
+                    mAttack = Attacks.T1Projectile(target,
+                                              this,
+                                              5,
+                                              10,
+                                              new TimeSpan(0, 0, 0, 1, 750),
+                                              new TimeSpan(0, 0, 0, 1, 250),
+                                              20,
+                                              6f,
+                                              true).GetEnumerator();
+                }
+            }
         }
     }
 }
