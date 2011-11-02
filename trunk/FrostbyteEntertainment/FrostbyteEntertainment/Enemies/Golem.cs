@@ -40,7 +40,7 @@ namespace Frostbyte.Enemies
             Personality = new SentinelPersonality(this);
             ElementType = Element.Normal;
             GroundPos = initialPos;
-            startAttackDistance = 40; //in pixels
+            startAttackDistance = 100; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/golem_attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
             MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Golem_Move");
@@ -76,7 +76,7 @@ namespace Frostbyte.Enemies
                         isAttacking = true;
                         isAttackingAllowed = false;
                         isMovingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 20, 18, 25, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator();
+                        mAttack = Attacks.Melee(target, this, 20, 18, 130, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator();
                         This.Game.AudioManager.PlaySoundEffect("Effects/golem_attack");
                     }
                 }
