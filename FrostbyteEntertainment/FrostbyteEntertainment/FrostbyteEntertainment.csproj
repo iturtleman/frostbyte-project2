@@ -144,6 +144,7 @@
     <Compile Include="Levels\Credits.cs" />
     <Compile Include="Levels\Earth.cs" />
     <Compile Include="Levels\Intro.cs" />
+    <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\Nemec.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
     <Compile Include="Obstacles\Rock.cs" />
@@ -241,6 +242,10 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\EarthLevel.xml">
       <Link>Content\EarthLevel.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\LightningLevel.xml">
+      <Link>Content\LightningLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Game.ico" />
@@ -528,6 +533,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Earth.spsh">
       <Link>Content\Textures\Earth.spsh</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Textures\Lightning.spsh">
+      <Link>Content\Textures\Lightning.spsh</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

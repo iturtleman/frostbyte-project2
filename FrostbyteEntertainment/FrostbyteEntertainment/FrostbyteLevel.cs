@@ -77,10 +77,9 @@ namespace Frostbyte
         {
             //"Intro",
             "Earth",
-            "Wind",
             "Lightning",
-            "Fire",
-            "Heart"
+            "Water",
+            "Fire"
         };
         #endregion
 
