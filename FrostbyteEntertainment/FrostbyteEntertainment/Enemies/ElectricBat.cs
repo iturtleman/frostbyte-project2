@@ -14,21 +14,21 @@ namespace Frostbyte.Enemies
 
         #region Variables
         static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
         };
 
         #endregion Variables
