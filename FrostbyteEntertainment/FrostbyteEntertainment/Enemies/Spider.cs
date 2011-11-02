@@ -15,7 +15,21 @@ namespace Frostbyte.Enemies
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<Animation> Animations = new List<Animation>(){
-        This.Game.CurrentLevel.GetAnimation("antibody.anim")
+            This.Game.CurrentLevel.GetAnimation("spider-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-attack-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-attack-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-attack-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-attack-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("spider-attack-up.anim"),
         };
 
         #endregion Variables

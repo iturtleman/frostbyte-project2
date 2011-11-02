@@ -411,6 +411,15 @@ namespace Frostbyte
                 {
                     new CrystalGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
                 }
+                else if (type == "Frostbyte.Enemies.ElectricBat")
+                {
+                    new ElectricBat(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                }
+                else if (type == "Frostbyte.Enemies.Spider")
+                {
+                    new Spider(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                }
+
             }
         }
     }
