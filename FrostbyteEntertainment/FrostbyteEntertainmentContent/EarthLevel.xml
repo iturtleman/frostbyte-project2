@@ -5347,6 +5347,4 @@
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="6112,8224" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="8608,8544" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="7776,8608" />
-  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="6912,7016" />
-  <Enemy Type="Frostbyte.Enemies.RockGolem" Name="RockGolem" Pos="6912,7016" />
 </Level>
