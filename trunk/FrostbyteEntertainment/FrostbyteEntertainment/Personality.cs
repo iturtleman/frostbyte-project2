@@ -173,7 +173,7 @@ namespace Frostbyte
 
                 if (closestTarget != null && Vector2.DistanceSquared(closestTarget.GroundPos, master.GroundPos) > 200 * 200)
                 {
-                    master.charge(closestTarget.GroundPos, 1.0f);
+                    master.charge(closestTarget.GroundPos, 1.4f);
                 }
                 else if (closestTarget != null)
                 {

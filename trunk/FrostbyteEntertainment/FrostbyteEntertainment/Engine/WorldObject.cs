@@ -172,6 +172,20 @@ namespace Frostbyte
                 }
             }
         }
+        internal float GroundPosRadius
+        {
+            get
+            {
+                if (GetCollision().Count > 0)
+                {
+                    return (this.GetCollision()[0] as Collision_BoundingCircle).Radius;
+                }
+                else
+                {
+                    return 18f;
+                }
+            }
+        }
         #endregion Properties
 
         #region Variables

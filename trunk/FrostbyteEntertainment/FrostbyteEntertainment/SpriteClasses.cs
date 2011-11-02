@@ -238,7 +238,7 @@ namespace Frostbyte
 
         internal void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
         {
-            float collisionRadius = 18f;    //change this later to correct value***************************************************************************************
+            float collisionRadius = GroundPosRadius;    //change this later to correct value***************************************************************************************
             List<Tuple<Vector2, Vector2>> boundaryLineSegments = new List<Tuple<Vector2, Vector2>>();   //line segments to check collision with sprite
             List<Tuple<Vector2, Vector2>> boundaryCircles = new List<Tuple<Vector2, Vector2>>();        //circles to check collision with sprite
 
