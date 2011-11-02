@@ -83,14 +83,15 @@ namespace Frostbyte.Enemies
                     //set orientation
                     this.Direction = target.GroundPos - this.GroundPos;
 
-                    mAttack = Attacks.EarthT1(target,
+                    mAttack = Attacks.T1Projectile(target,
                                               this, 
                                               5, 
                                               30, 
                                               new TimeSpan(0, 0, 0, 1, 750), 
                                               new TimeSpan(0, 0, 0, 0, 750),
                                               20,
-                                              6f).GetEnumerator();
+                                              6f,
+                                              true).GetEnumerator();
                 }
             }
         }
