@@ -125,7 +125,7 @@ namespace Frostbyte
         /// <param name="_attackRange">The distance from the target that the projectile must come within to be considered a hit</param>
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, bool _isHoming)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, bool _isHoming, float _scale)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -143,6 +143,7 @@ namespace Frostbyte
             int attackRange = _attackRange;  //distance in pixels from target that is considered a hit
             float projectileSpeed = _projectileSpeed;
             bool isHoming = _isHoming;
+            float scale = _scale;
             #endregion Variables
 
             attacker.particleEmitter.GroundPos = attacker.GroundPos;
@@ -199,14 +200,14 @@ namespace Frostbyte
 
 
                 attacker.particleEmitter.Update();
-                attacker.particleEmitter.createParticles(direction*projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
+                attacker.particleEmitter.createParticles(direction*projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10 * scale, 10);
                 Vector2 tangent = new Vector2(-direction.Y, direction.X);
                 for (int i = -5; i < 6; i++)
                 {
                     attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                              tangent * -i * 40,
                                                              attacker.particleEmitter.GroundPos + tangent*i*1.7f,// + -direction*i*2,
-                                                             1.5f,
+                                                             1.5f * scale,
                                                              300);
                 }
 

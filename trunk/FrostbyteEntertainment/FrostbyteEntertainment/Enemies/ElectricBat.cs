@@ -93,7 +93,8 @@ namespace Frostbyte.Enemies
                                               new TimeSpan(0, 0, 0, 1, 250),
                                               20,
                                               6f,
-                                              true).GetEnumerator();
+                                              true,
+                                              2).GetEnumerator();
                 }
             }
         }
