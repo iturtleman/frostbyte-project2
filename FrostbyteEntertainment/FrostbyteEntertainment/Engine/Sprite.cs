@@ -76,7 +76,7 @@ namespace Frostbyte
 
         #region Variables
 
-        protected Vector2 PreviousPos = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
+        internal Vector2 PreviousPos = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
 
         /// <summary>
         /// Tells whether to animate or not

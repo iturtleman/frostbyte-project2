@@ -14,7 +14,6 @@ namespace Frostbyte
             mLevels.Add(new FrostbyteLevel("Intro", Levels.Intro.Load, LevelFunctions.DoNothing, Levels.Intro.Unload, Levels.Intro.CompletionCondition));
             mLevels.Add(new FrostbyteLevel("Earth", Levels.Earth.Load, LevelFunctions.DoNothing, LevelFunctions.DoNothing, delegate() { return false; }));
             mLevels.Add(new FrostbyteLevel("Lightning", Levels.Lightning.Load, LevelFunctions.DoNothing, LevelFunctions.DoNothing, delegate() { return false; }));
-            //mLevels.Add(new FrostbyteLevel("TitleScreen", Levels.Nemec.Load, Levels.Nemec.Update, delegate() { }, delegate() { return false; }));
         }
     }
 }

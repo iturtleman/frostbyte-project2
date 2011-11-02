@@ -514,5 +514,39 @@ namespace Frostbyte
                 }
             }
         }
+
+        internal new Orientations Orientation
+        {
+            get { return base.Orientation; }
+            set
+            {
+                switch (value)
+                {
+                    case Orientations.Down:
+                        mDirection = new Vector2(0, 1); break;
+                    case Orientations.Down_Left:
+                        mDirection = new Vector2(-1, 1); break;
+                    case Orientations.Down_Right:
+                        mDirection = new Vector2(1, 1); break;
+                    case Orientations.Left:
+                        mDirection = new Vector2(-1, 0); break;
+                    case Orientations.Right:
+                        mDirection = new Vector2(1, 0); break;
+                    case Orientations.Up:
+                        mDirection = new Vector2(0, -1); break;
+                    case Orientations.Up_Left:
+                        mDirection = new Vector2(-1, -1); break;
+                    case Orientations.Up_Right:
+                        mDirection = new Vector2(1, -1); break;
+                    default:
+                        throw new Exception("Need to add Orientation to switch statement, "+
+                            "otherwise Direction will not be set.");
+                    
+                }
+                if (mDirection != Vector2.Zero)
+                    mDirection.Normalize();
+                base.Orientation = value;
+            }
+        }
     }
 }

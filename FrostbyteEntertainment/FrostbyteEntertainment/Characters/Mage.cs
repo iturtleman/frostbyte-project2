@@ -223,8 +223,12 @@ namespace Frostbyte.Characters
                 #region Movement
                 if (isMovingAllowed)
                 {
+                    PreviousPos = Pos;
+                    
                     Pos.X += controller.Movement.X * 3 * Speed;
                     Pos.Y -= controller.Movement.Y * 3 * Speed;
+
+                    State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
                 }
                 #endregion Movement
 

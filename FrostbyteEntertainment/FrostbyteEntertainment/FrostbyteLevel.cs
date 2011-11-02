@@ -85,7 +85,7 @@ namespace Frostbyte
 
         internal TileList TileMap = new TileList();
 
-        private Polygon viewportPolygon = null;
+        //private Polygon viewportPolygon = null;
         internal bool AutoZoom = true;
 
         internal HUD HUD = new HUD();
@@ -151,8 +151,9 @@ namespace Frostbyte
         /// </summary>
         internal void RealignViewport()
         {
+            
             #region Create Viewport
-            if (viewportPolygon == null)
+            /*if (viewportPolygon == null)
             {
                 Viewport viewport = This.Game.GraphicsDevice.Viewport;
                 viewportPolygon = new Polygon("viewport", Color.DarkRed, new Vector3[5]{
@@ -164,6 +165,7 @@ namespace Frostbyte
                 });
                 viewportPolygon.Static = true;
             }
+            */
             #endregion
 
             List<Sprite> players = GetSpritesByType(typeof(Player));

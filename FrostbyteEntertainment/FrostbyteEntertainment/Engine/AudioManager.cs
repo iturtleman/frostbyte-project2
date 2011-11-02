@@ -12,6 +12,11 @@ namespace Frostbyte
         internal Dictionary<string, SoundEffect> soundEffects = new Dictionary<string, SoundEffect>();
         internal Dictionary<string, Song> backgroundMusic = new Dictionary<string, Song>();
 
+        ~AudioManager()
+        {
+            MediaPlayer.Stop();
+        }
+
         internal void AddBackgroundMusic(string name)
         {
             try{

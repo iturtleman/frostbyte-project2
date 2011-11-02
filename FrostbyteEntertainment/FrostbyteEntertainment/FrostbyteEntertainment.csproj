@@ -146,7 +146,6 @@
     <Compile Include="Levels\Earth.cs" />
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
-    <Compile Include="Levels\Nemec.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
     <Compile Include="Obstacles\Rock.cs" />
     <Compile Include="Personality.cs" />
