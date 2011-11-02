@@ -105,7 +105,7 @@ namespace Frostbyte
                 float pegY = float.Parse(point.Last());
 
                 /** Set the animation Peg*/
-                sf.AnimationPeg = new Vector2(pegX + (float)sf.Width / 2, pegY + (float)sf.Height / 2);
+                sf.AnimationPeg = new Vector2(pegX /*+ (float)sf.Width / 2*/, pegY /*+ (float)sf.Height / 2*/);
 
                 int idCount = 0;
                 foreach (var collision in frame.Descendants("Collision"))

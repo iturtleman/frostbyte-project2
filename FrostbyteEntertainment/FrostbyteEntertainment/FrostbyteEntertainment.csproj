@@ -141,6 +141,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Items\Diary.cs" />
     <Compile Include="Levels\Credits.cs" />
     <Compile Include="Levels\Earth.cs" />
     <Compile Include="Levels\Intro.cs" />
@@ -252,6 +253,7 @@
     <Content Include="..\FrostbyteEntertainmentContent\EarthLevel.xml">
       <Link>Content\EarthLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\LightningLevel.xml">
       <Link>Content\LightningLevel.xml</Link>
@@ -371,48 +373,63 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagdown.anim">
       <Link>Content\Sprites\crystalgolem-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagup.anim">
       <Link>Content\Sprites\crystalgolem-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-down.anim">
       <Link>Content\Sprites\crystalgolem-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-right.anim">
       <Link>Content\Sprites\crystalgolem-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-up.anim">
       <Link>Content\Sprites\crystalgolem-attack-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-diagdown.anim">
       <Link>Content\Sprites\crystalgolem-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-diagup.anim">
       <Link>Content\Sprites\crystalgolem-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-down.anim">
       <Link>Content\Sprites\crystalgolem-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-right.anim">
       <Link>Content\Sprites\crystalgolem-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-idle-up.anim">
       <Link>Content\Sprites\crystalgolem-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-diagdown.anim">
       <Link>Content\Sprites\crystalgolem-walk-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-diagup.anim">
       <Link>Content\Sprites\crystalgolem-walk-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-down.anim">
       <Link>Content\Sprites\crystalgolem-walk-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-right.anim">
       <Link>Content\Sprites\crystalgolem-walk-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-up.anim">
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-diagdown.anim">
       <Link>Content\Sprites\golem-attack-diagdown.anim</Link>
@@ -430,6 +447,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-right.anim">
       <Link>Content\Sprites\golem-attack-right.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-up.anim">
       <Link>Content\Sprites\golem-attack-up.anim</Link>

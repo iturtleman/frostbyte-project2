@@ -228,7 +228,7 @@ namespace Frostbyte
             background.SetData(new Color[] { transp });
         }
 
-        internal int MaxCharactersPerLine = 72;
+        internal int MaxCharactersPerLine = 62;
         internal int TextSpacing = 2;
         internal bool SplitOnWhitespace = true;
         private byte alpha = 90;
@@ -238,7 +238,7 @@ namespace Frostbyte
         private Texture2D background;
 
         private int tickCount = 0;
-        internal int TicksPerScroll = 2;
+        internal int TicksPerScroll = 1;
 
         #region Methods
         internal void ScrollText(string s)
