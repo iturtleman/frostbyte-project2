@@ -141,6 +141,7 @@ namespace Frostbyte.Characters
                         isAttacking = true;
                         isMovingAllowed = false;
                         mAttack = Attacks.Melee(target, this, 25, 0, 50,TimeSpan.Zero).GetEnumerator();
+                        This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     }
                     #endregion Start Melee Attack
                     return;

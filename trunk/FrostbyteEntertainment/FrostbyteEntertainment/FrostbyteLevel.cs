@@ -262,6 +262,11 @@ namespace Frostbyte
             StartDraw = (cameraPosition + new Vector3(viewport.X, viewport.Y, 0)) / Tile.TileSize;
             EndDraw = (cameraPosition + new Vector3(viewport.X + viewport.Width / zoom,
                                                 viewport.Y + viewport.Height / zoom, 0)) / Tile.TileSize;
+
+            if ((This.Game as FrostbyteGame).GlobalController.NextLevel == ReleasableButtonState.Clicked)
+            {
+                Unload();
+            }
         }
 
         internal override void Draw(GameTime gameTime, bool drawAfter = false)
