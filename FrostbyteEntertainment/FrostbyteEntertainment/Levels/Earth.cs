@@ -130,7 +130,8 @@ namespace Frostbyte.Levels
             };*/
             #endregion
 
-            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
+            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
@@ -139,6 +140,12 @@ namespace Frostbyte.Levels
             #region load textures
             l.GetTexture("boulder");
             #endregion load textures
+        }
+
+        internal static void Unload()
+        {
+            string nextlevel = LevelFunctions.LoadNextLevel();
+            This.Game.SetCurrentLevel(nextlevel);
         }
     }
 }

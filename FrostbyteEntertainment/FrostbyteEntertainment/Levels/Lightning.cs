@@ -12,7 +12,7 @@ namespace Frostbyte.Levels
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
-            This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
+            This.Game.AudioManager.AddBackgroundMusic("Music/LightningBG");
             XDocument doc = XDocument.Load(@"Content/LightningLevel.xml");
             l.Load(doc);
             l.Theme = Element.Lightning;
@@ -33,33 +33,7 @@ namespace Frostbyte.Levels
             Trigger t = new Trigger("trap", 64, 64);
             t.CenterOn(mage);
             t.Pos.Y -= 128;
-
-            t.TriggerCondition = delegate()
-            {
-                Sprite target = t.GetClosestTarget(l.allies, 10);
-                if (target as Player != null)
-                {
-                    return new TriggerSingleTargetEventArgs(target);
-                }
-                return null;
-            };
-
-            This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
-            t.TriggerEffect += delegate(object ths, TriggerEventArgs args)
-            {
-                for (int x = -1; x <= 1; x += 2)
-                {
-                    Obstacle rockX = new Obstacles.Rock("rock");
-                    rockX.CenterOn(t);
-                    rockX.Pos.X += x * t.GetAnimation().Width;
-                }
-                ((args as TriggerSingleTargetEventArgs).Target as Player).Health -= 10;
-
-                This.Game.AudioManager.PlayBackgroundMusic("Music/GenericBoss");
-                t.Enabled = false;
-            };
-
-            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

@@ -50,6 +50,10 @@ namespace Frostbyte.Enemies
             particleEmitter = new ParticleEmitter(1000, particleEffect, boulder);
             particleEmitter.effectTechnique = "NoSpecialEffect";
             particleEmitter.blendState = BlendState.AlphaBlend;
+
+            This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Move");
+            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Wasp_Move");
         }
 
         protected override void updateMovement()
@@ -93,6 +97,7 @@ namespace Frostbyte.Enemies
                                               6f,
                                               false,
                                               1).GetEnumerator();
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
                 }
             }
         }

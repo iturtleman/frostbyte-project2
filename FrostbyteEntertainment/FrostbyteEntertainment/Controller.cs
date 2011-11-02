@@ -83,6 +83,8 @@ namespace Frostbyte
         /// Returns the value of the left joystick
         /// </summary>
         Vector2 Movement { get; }
+
+        ReleasableButtonState NextLevel { get; }
     }
 
     class GamePadController : IController
@@ -302,6 +304,25 @@ namespace Frostbyte
             }
         }
 
+        public ReleasableButtonState NextLevel
+        {
+            get
+            {
+                if (CurrentButtons.BigButton == ButtonState.Pressed)
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (LastButtons.BigButton == ButtonState.Pressed && CurrentButtons.BigButton == ButtonState.Released)
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+                else
+                {
+                    return ReleasableButtonState.Released;
+                }
+            }
+        }
+
         #endregion
     }
 
@@ -501,6 +522,24 @@ namespace Frostbyte
                 return move;
             }
         }
+
+        public ReleasableButtonState NextLevel
+        {
+            get
+            {
+                if (mCurrentControllerState.IsKeyDown(Keys.F12))
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (mLastControllerState.IsKeyDown(Keys.F12) && mCurrentControllerState.IsKeyUp(Keys.F12))
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+
+                return ReleasableButtonState.Released;
+            }
+        }
+
         #endregion
     }
 }

@@ -41,7 +41,7 @@ namespace Frostbyte.Enemies
             ElementType = Element.Normal;
             GroundPos = initialPos;
             startAttackDistance = 70; //in pixels
-            This.Game.AudioManager.AddSoundEffect("Effects/golem_attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
             MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Golem_Move");
         }
@@ -77,7 +77,7 @@ namespace Frostbyte.Enemies
                         isAttackingAllowed = false;
                         isMovingAllowed = false;
                         mAttack = Attacks.Melee(target, this, 20, 18, 100, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator();
-                        This.Game.AudioManager.PlaySoundEffect("Effects/golem_attack");
+                        This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
                     }
                 }
             }

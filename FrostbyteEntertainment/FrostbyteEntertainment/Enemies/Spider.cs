@@ -44,6 +44,9 @@ namespace Frostbyte.Enemies
             Scale = .4f;
 
             startAttackDistance = 20;
+
+            This.Game.AudioManager.AddSoundEffect("Effects/Spider_Move");
+            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Spider_Move");
         }
 
         protected override void updateMovement()
