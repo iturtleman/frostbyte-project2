@@ -15,8 +15,28 @@ namespace Frostbyte
     /// Do anything required for Game-specific code here
     /// to avoid cluttering up the Engine
     /// </summary>
-    static class GameData
+    internal class FrostbyteGame : Game
     {
+        internal IController GlobalController;
+
+        public FrostbyteGame()
+            : base()
+        {
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+            {
+                GlobalController = new GamePadController(PlayerIndex.One);
+            }
+            else
+            {
+                GlobalController = new KeyboardController();
+            }
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+            GlobalController.Update();
+            base.Update(gameTime);
+        }
     }
 
     /// <summary>
@@ -75,7 +95,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            //"Intro",
+            "Intro",
             "Earth",
             "Lightning",
             "Water",

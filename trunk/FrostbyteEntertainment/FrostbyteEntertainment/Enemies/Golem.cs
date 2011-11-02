@@ -42,6 +42,8 @@ namespace Frostbyte.Enemies
             GroundPos = initialPos;
             startAttackDistance = 40; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/golem_attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
+            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Golem_Move");
         }
 
 

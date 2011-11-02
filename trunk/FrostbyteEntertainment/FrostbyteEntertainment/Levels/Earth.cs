@@ -23,11 +23,14 @@ namespace Frostbyte.Levels
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
 
+            This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
+            This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
+
             Trigger t = new Trigger("trap", 64, 64);
             t.CenterOn(mage);
             t.Pos.Y -= 128;
 
-            t.TriggerCondition = delegate()
+            /*t.TriggerCondition = delegate()
             {
                 Sprite target = t.GetClosestTarget(l.allies, 10);
                 if (target as Player!= null)
@@ -37,7 +40,6 @@ namespace Frostbyte.Levels
                 return null;
             };
 
-            This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             t.TriggerEffect += delegate(object ths, TriggerEventArgs args)
             {
                 for (int x = -1; x <= 1; x += 2)
@@ -50,7 +52,20 @@ namespace Frostbyte.Levels
 
                 This.Game.AudioManager.PlayBackgroundMusic("Music/GenericBoss");
                 t.Enabled = false;
-            };
+            };*/
+
+            /*Dictionary<Sprite, bool> triggered = new Dictionary<Sprite,bool>();
+            foreach (Sprite s in l.allies)
+            {
+                triggered.Add(s, false);
+                triggered.Values.All(t => t);
+            }
+
+            t.TriggerCondition = delegate()
+            {
+
+                return null;
+            };*/
 
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
 
