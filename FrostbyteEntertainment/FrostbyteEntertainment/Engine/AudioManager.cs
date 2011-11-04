@@ -10,6 +10,7 @@ namespace Frostbyte
     class AudioManager
     {
         internal Dictionary<string, SoundEffect> soundEffects = new Dictionary<string, SoundEffect>();
+        internal Dictionary<string, SoundEffectInstance> loopingSoundEffects = new Dictionary<string, SoundEffectInstance>();
         internal Dictionary<string, Song> backgroundMusic = new Dictionary<string, Song>();
 
         ~AudioManager()
@@ -19,12 +20,16 @@ namespace Frostbyte
 
         internal void AddBackgroundMusic(string name)
         {
-            try{
-                backgroundMusic[name] = This.Game.Content.Load<Song>("Audio/" + name);
-            }
-            catch (NoAudioHardwareException)
+            if (!backgroundMusic.ContainsKey(name))
             {
-                // Ignore it...
+                try
+                {
+                    backgroundMusic[name] = This.Game.Content.Load<Song>("Audio/" + name);
+                }
+                catch (NoAudioHardwareException)
+                {
+                    // Ignore it...
+                }
             }
         }
 
@@ -58,13 +63,16 @@ namespace Frostbyte
 
         internal void AddSoundEffect(string name)
         {
-            try
+            if (!soundEffects.ContainsKey(name))
             {
-                soundEffects[name] = This.Game.Content.Load<SoundEffect>("Audio/" + name);
-            }
-            catch (NoAudioHardwareException)
-            {
-                // Ignore it...
+                try
+                {
+                    soundEffects[name] = This.Game.Content.Load<SoundEffect>("Audio/" + name);
+                }
+                catch (NoAudioHardwareException)
+                {
+                    // Ignore it...
+                }
             }
         }
 
@@ -79,7 +87,7 @@ namespace Frostbyte
             }
         }
 
-        internal SoundEffectInstance InitializeLoopingSoundEffect(string name, float volume=1f)
+        internal void InitializeLoopingSoundEffect(string name, float volume=1f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name, out se))
@@ -88,9 +96,33 @@ namespace Frostbyte
                 sound.Volume = volume;
                 sound.IsLooped = true;
 
-                return sound;
+                loopingSoundEffects[name] = sound;
             }
-            return null;
+        }
+
+        internal void StopAllLoopingSoundEffects()
+        {
+            foreach (SoundEffectInstance i in loopingSoundEffects.Values)
+            {
+                i.Pause();
+            }
+        }
+
+        internal void StopLoopingSoundEffect(string MovementAudioName)
+        {
+            if (loopingSoundEffects.ContainsKey(MovementAudioName))
+            {
+                loopingSoundEffects[MovementAudioName].Pause();
+            }
+        }
+
+        internal void PlayLoopingSoundEffect(string MovementAudioName)
+        {
+            if (loopingSoundEffects.ContainsKey(MovementAudioName) &&
+                loopingSoundEffects[MovementAudioName].State != SoundState.Playing)
+            {
+                loopingSoundEffects[MovementAudioName].Play();
+            }
         }
 
         internal void Pause()

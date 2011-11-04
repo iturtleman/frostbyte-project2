@@ -21,7 +21,7 @@ namespace Frostbyte
 
         //protected EnemyStatus Status = EnemyStatus.Wander;
         internal IPersonality Personality;
-        internal SoundEffectInstance MovementAudio = null;
+        internal string MovementAudioName;
         #endregion Variables
 
         #region Properties
@@ -47,12 +47,6 @@ namespace Frostbyte
             // Remove Sprite
             This.Game.CurrentLevel.RemoveSprite(this);
 
-            // Stop Audio
-            if (MovementAudio != null)
-            {
-                MovementAudio.Stop();
-            }
-
             // Remove enemy from target list so that we don't target blank space where an enemy died
             (This.Game.CurrentLevel as FrostbyteLevel).enemies.Remove(this);
 
@@ -68,7 +62,6 @@ namespace Frostbyte
             {
                 PreviousPos = Pos;
                 updateMovement();
-                State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
 
                 //perform collision detection with background
                 if (this.CollidesWithBackground)
@@ -120,24 +113,17 @@ namespace Frostbyte
                 return;
             }
             List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
-            if (MovementAudio != null)
+            if (MovementAudioName != null)
             {
                 if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)
                 {
-                    if (State == SpriteState.Moving)
+                    if (PreviousPos != Pos)
                     {
-                        MovementAudio.Play();
+                        This.Game.AudioManager.PlayLoopingSoundEffect(MovementAudioName);
                     }
-                    else if (State == SpriteState.Idle)
-                    {
-                        MovementAudio.Stop();
-                    }
-                }
-                else
-                {
-
                 }
             }
+            State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
         }
 
         /// \todo what is this for?

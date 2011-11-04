@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Frostbyte.Enemies
 {
@@ -44,7 +45,11 @@ namespace Frostbyte.Enemies
             Scale = .5f;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Bat_Move");
-            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Bat_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Bat_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
 
 
             //Create Particle Emmiter

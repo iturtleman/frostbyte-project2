@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 
 namespace Frostbyte.Enemies
@@ -33,7 +34,6 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("beetle-attack-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("beetle-attack-up.anim"),
         };
-
         #endregion Variables
 
         internal Beetle(string name, Vector2 initialPos)
@@ -44,7 +44,11 @@ namespace Frostbyte.Enemies
             Personality = new CowardlyPersonality(this);
             startAttackDistance = 10; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
-            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Beetle_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Beetle_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
         }
 
         protected override void updateMovement()

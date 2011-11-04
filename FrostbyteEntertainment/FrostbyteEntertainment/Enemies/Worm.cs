@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Frostbyte.Enemies
 {
@@ -13,7 +14,6 @@ namespace Frostbyte.Enemies
         static List<Animation> Animations = new List<Animation>(){
             This.Game.CurrentLevel.GetAnimation("antibody.anim")
         };
-
         #endregion Variables
 
         internal Worm(string name, float speed, int health)
