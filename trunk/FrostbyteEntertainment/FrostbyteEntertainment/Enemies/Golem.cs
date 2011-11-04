@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Frostbyte.Enemies
 {
@@ -31,6 +32,7 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("golem-attack-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("golem-attack-up.anim"),
         };
+
         #endregion Variables
 
         internal Golem(string name, Vector2 initialPos, List<Animation> anims = null)
@@ -43,7 +45,8 @@ namespace Frostbyte.Enemies
             startAttackDistance = 70; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
-            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Golem_Move");
+            MovementAudioName = "Effects/Golem_Move";
+            This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
         }
 
 

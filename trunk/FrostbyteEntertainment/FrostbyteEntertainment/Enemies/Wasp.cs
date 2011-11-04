@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Frostbyte.Enemies
 {
@@ -53,7 +54,11 @@ namespace Frostbyte.Enemies
 
             This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Move");
-            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Wasp_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Wasp_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
         }
 
         protected override void updateMovement()

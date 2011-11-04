@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Frostbyte.Enemies
 {
@@ -46,7 +47,11 @@ namespace Frostbyte.Enemies
             startAttackDistance = 20;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Spider_Move");
-            MovementAudio = This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Spider_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Spider_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
         }
 
         protected override void updateMovement()

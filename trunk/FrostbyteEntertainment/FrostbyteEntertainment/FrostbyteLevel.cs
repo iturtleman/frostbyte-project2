@@ -251,6 +251,7 @@ namespace Frostbyte
 
         internal override void Update()
         {
+            This.Game.AudioManager.StopAllLoopingSoundEffects();
             base.Update();
 
             RealignViewport();
@@ -263,7 +264,7 @@ namespace Frostbyte
             EndDraw = (cameraPosition + new Vector3(viewport.X + viewport.Width / zoom,
                                                 viewport.Y + viewport.Height / zoom, 0)) / Tile.TileSize;
 
-            if ((This.Game as FrostbyteGame).GlobalController.NextLevel == ReleasableButtonState.Clicked)
+            if((This.Game as FrostbyteGame).GlobalController.NextLevel == ReleasableButtonState.Clicked)
             {
                 Unload();
             }
