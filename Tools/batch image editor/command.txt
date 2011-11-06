@@ -1,0 +1,21 @@
+C:\Users\Ivan Lloyd\Desktop\temp\All-Down>convert *.png[335x440+10+5] cropped%03d.png
+
+from dir of pics run 
+convert *.png[widthxheight+10+5] cropped%03d.png
+
+so, from the boss dir you can do 
+
+cd All-DiagDown
+convert *.png[widthxheight+10+5] cropped%03d.png
+cd ..\All-DiagUp
+convert *.png[widthxheight+10+5] cropped%03d.png
+cd ..\All-Down
+convert *.png[widthxheight+10+5] cropped%03d.png
+cd ..\All-Right
+convert *.png[widthxheight+10+5] cropped%03d.png
+cd ..\All-Up
+convert *.png[widthxheight+10+5] cropped%03d.png
+
+or run the cmd file: e.g. 
+"C:\Users\Ivan Lloyd\Dropbox\GameDesign\frostbyte-project2\Tools\batch image editor\resize[35x440+10+5].cmd"
+from the dir
