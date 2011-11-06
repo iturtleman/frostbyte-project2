@@ -112,7 +112,7 @@ namespace AnimationEditor
                         }
 
                         //make sure it tiles across before going down
-                        horizTileCount = pow / max;
+                        horizTileCount = pow / maxWidth;
 
                         //create Xdoc to store data about frames
                         doc = new XDocument();
