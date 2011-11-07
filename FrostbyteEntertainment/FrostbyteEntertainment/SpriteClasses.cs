@@ -480,37 +480,37 @@ namespace Frostbyte
                 if (mDirection != Vector2.Zero)
                     mDirection.Normalize();
                 double angle = Math.Atan2(mDirection.Y, mDirection.X);
-                if (-Math.PI / 8 < angle && angle < Math.PI / 8)
+                if (-Math.PI / 8 <= angle && angle < Math.PI / 8)
                 {
-                    Orientation = Orientations.Right;
+                    base.Orientation = Orientations.Right;
                 }
-                else if (Math.PI / 8 < angle && angle < 3 * Math.PI / 8)
+                else if (Math.PI / 8 <= angle && angle < 3 * Math.PI / 8)
                 {
-                    Orientation = Orientations.Down_Right;
+                    base.Orientation = Orientations.Down_Right;
                 }
-                else if (3 * Math.PI / 8 < angle && angle < 5 * Math.PI / 8)
+                else if (3 * Math.PI / 8 <= angle && angle < 5 * Math.PI / 8)
                 {
-                    Orientation = Orientations.Down;
+                    base.Orientation = Orientations.Down;
                 }
-                else if (5 * Math.PI / 8 < angle && angle < 7 * Math.PI / 8)
+                else if (5 * Math.PI / 8 <= angle && angle < 7 * Math.PI / 8)
                 {
-                    Orientation = Orientations.Down_Left;
+                    base.Orientation = Orientations.Down_Left;
                 }
-                else if (-3 * Math.PI / 8 < angle && angle < -Math.PI / 8)
+                else if (-3 * Math.PI / 8 <= angle && angle < -Math.PI / 8)
                 {
-                    Orientation = Orientations.Up_Right;
+                    base.Orientation = Orientations.Up_Right;
                 }
-                else if (-5 * Math.PI / 8 < angle && angle < -3 * Math.PI / 8)
+                else if (-5 * Math.PI / 8 <= angle && angle < -3 * Math.PI / 8)
                 {
-                    Orientation = Orientations.Up;
+                    base.Orientation = Orientations.Up;
                 }
-                else if (-7 * Math.PI / 8 < angle && angle < -5 * Math.PI / 8)
+                else if (-7 * Math.PI / 8 <= angle && angle < -5 * Math.PI / 8)
                 {
-                    Orientation = Orientations.Up_Left;
+                    base.Orientation = Orientations.Up_Left;
                 }
                 else
                 {
-                    Orientation = Orientations.Left;
+                    base.Orientation = Orientations.Left;
                 }
             }
         }

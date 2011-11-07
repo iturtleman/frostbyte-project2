@@ -100,6 +100,7 @@ namespace Frostbyte.Enemies
                                               new TimeSpan(0, 0, 0, 0, 750),
                                               20,
                                               6f,
+                                              1.5f,
                                               false,
                                               1).GetEnumerator();
                     This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
