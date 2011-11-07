@@ -24,7 +24,7 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("worm-spew-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-up.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-submerge.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-surface.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-surface-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-vomit.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-die.anim"),
         };
