@@ -147,6 +147,8 @@
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
+    <Compile Include="Obstacles\Chest.cs" />
+    <Compile Include="Obstacles\Door.cs" />
     <Compile Include="Obstacles\Rock.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Shared\Beetle.cs" />
@@ -211,6 +213,9 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Beetle_Move.mp3">
       <Link>Content\Audio\Effects\Beetle_Move.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Chest_Open.wav">
+      <Link>Content\Audio\Effects\Chest_Open.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Door_Open.wav">
       <Link>Content\Audio\Effects\Door_Open.wav</Link>
@@ -407,6 +412,10 @@
       <Link>Content\Sprites\beetle-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\chest.anim">
+      <Link>Content\Sprites\chest.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagdown.anim">
       <Link>Content\Sprites\crystalgolem-attack-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -465,6 +474,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-walk-up.anim">
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\door.anim">
+      <Link>Content\Sprites\door.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-diagdown.anim">

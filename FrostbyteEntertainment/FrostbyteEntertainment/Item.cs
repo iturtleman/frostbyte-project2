@@ -26,21 +26,6 @@ namespace Frostbyte
                 ZOrder = int.MaxValue;
                 This.Game.LoadingLevel.RemoveSprite(this);
             }
-
-            /*internal override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
-            {
-                if (Visible)
-                {
-                    Texture2D fill = new Texture2D(This.Game.GraphicsDevice, 1, 1);
-                    fill.SetData<Color>(new Color[] { Color.Pink });
-
-                    This.Game.spriteBatch.Draw(fill, new Rectangle(
-                        (int)Pos.X,
-                        (int)Pos.Y,
-                        (int)16,
-                        (int)16), Color.White);
-                }
-            }*/
         }
     }
 

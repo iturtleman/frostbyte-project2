@@ -126,6 +126,8 @@ namespace Frostbyte.Characters
                     }
                     else if (controller.Water == ReleasableButtonState.Clicked)
                     {
+                        Item i = new Key("key");
+                        PickUpItem(i);
                         Mana -= spellManaCost;
                         return;
                     }
@@ -147,11 +149,34 @@ namespace Frostbyte.Characters
                     return;
                 }
             }
-            if (controller.Interact == ReleasableButtonState.Clicked)
-            {
-                Item i = new Key("key");
-                PickUpItem(i);
-                return;
+        }
+
+        private void interact()
+        {
+            List<Sprite> obstacles = (This.Game.CurrentLevel as FrostbyteLevel).obstacles;
+            float distance = Math.Max(GetAnimation().Height, GetAnimation().Width) * 1.5f;
+            if(obstacles != null){
+                List<Sprite> targets = GetTargetsInRange(obstacles, distance);
+                foreach (Sprite target in targets)
+                {
+                    if (target is Obstacles.Door)
+                    {
+                        for (int x = 0; x < ItemBag.Count; x++)
+                        {
+                            if (ItemBag[x] is Key)
+                            {
+                                ItemBag.RemoveAt(x);
+                                (target as Obstacles.Door).Open();
+                                return;
+                            }
+                        }
+                    }
+                    else if (target is Obstacles.Chest)
+                    {
+                        Item i = (target as Obstacles.Chest).Open();
+                        PickUpItem(i);
+                    }
+                }
             }
         }
 
@@ -238,6 +263,11 @@ namespace Frostbyte.Characters
                     checkBackgroundCollisions();
 
                 attack();
+
+                if (controller.Interact == ReleasableButtonState.Clicked)
+                {
+                    interact();
+                }
             }
         }
         #endregion
