@@ -33,11 +33,6 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
 
-            Trigger t = new PartyCrossTrigger("trap", 64, 64, l.allies);
-            t.Orientation = Orientations.Up;
-            t.CenterOn(mage);
-            t.Pos.Y -= 128;
-
             This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
 
@@ -48,8 +43,6 @@ namespace Frostbyte.Levels
             #region load textures
             l.GetTexture("boulder");
             #endregion load textures
-
-            //new Enemies.Worm("boss", new Vector2());
         }
 
         internal static void Unload()
