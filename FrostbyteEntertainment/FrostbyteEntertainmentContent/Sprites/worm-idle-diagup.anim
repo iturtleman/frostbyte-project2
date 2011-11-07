@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="0,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="410,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="820,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1230,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1640,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2050,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2460,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2870,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="3280,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="0,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="410,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="820,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1230,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1640,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2050,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2460,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2870,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="3280,435" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="0,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="410,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="820,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1230,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1640,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2050,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2460,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2870,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="3280,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="0,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="410,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="820,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1230,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="1640,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2050,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2460,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-idle-diagup" FrameDelay="20" Width="410" Height="435" TLPos="2870,1305" AnimationPeg="0,0" />
+</Animation>
