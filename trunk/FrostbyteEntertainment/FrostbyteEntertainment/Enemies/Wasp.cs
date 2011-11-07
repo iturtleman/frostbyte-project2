@@ -93,16 +93,28 @@ namespace Frostbyte.Enemies
                     this.Direction = target.GroundPos - this.GroundPos;
 
                     mAttack = Attacks.T1Projectile(target,
-                                              this, 
-                                              5, 
-                                              30, 
-                                              new TimeSpan(0, 0, 0, 1, 750), 
+                                              this,
+                                              5,
+                                              30,
+                                              new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 0, 750),
                                               20,
                                               6f,
-                                              1.5f,
                                               false,
-                                              1).GetEnumerator();
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              {
+                                                  attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
+                                                  Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                  for (int i = -5; i < 6; i++)
+                                                  {
+                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                               tangent * -i * 40,
+                                                                                               attacker.particleEmitter.GroundPos + tangent * i * 1.7f,
+                                                                                               1.5f,
+                                                                                               300);
+                                                  }
+                                              }
+                                              ).GetEnumerator();
                     This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
                 }
             }
