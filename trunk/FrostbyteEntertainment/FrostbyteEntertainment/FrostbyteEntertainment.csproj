@@ -646,6 +646,62 @@
       <Link>Content\Sprites\wasp-idle-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-die.anim">
+      <Link>Content\Sprites\worm-die.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-diagdown.anim">
+      <Link>Content\Sprites\worm-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-diagup.anim">
+      <Link>Content\Sprites\worm-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-down.anim">
+      <Link>Content\Sprites\worm-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-right.anim">
+      <Link>Content\Sprites\worm-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-up.anim">
+      <Link>Content\Sprites\worm-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-diagdown.anim">
+      <Link>Content\Sprites\worm-spew-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-diagup.anim">
+      <Link>Content\Sprites\worm-spew-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-down.anim">
+      <Link>Content\Sprites\worm-spew-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-right.anim">
+      <Link>Content\Sprites\worm-spew-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-up.anim">
+      <Link>Content\Sprites\worm-spew-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-submerge.anim">
+      <Link>Content\Sprites\worm-submerge.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-surface-down.anim">
+      <Link>Content\Sprites\worm-surface-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-vomit.anim">
+      <Link>Content\Sprites\worm-vomit.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Earth.spsh">
       <Link>Content\Textures\Earth.spsh</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

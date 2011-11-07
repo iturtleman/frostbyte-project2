@@ -427,7 +427,10 @@ namespace Frostbyte
                 {
                     new Spider(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
                 }
-
+                else if (type == "Frostbyte.Enemies.Worm")
+                {
+                    new Worm(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                }
             }
         }
     }
