@@ -35,7 +35,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-         internal ElectricBat(string name, Vector2 initialPos)
+        internal ElectricBat(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 20, 100)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -98,9 +98,20 @@ namespace Frostbyte.Enemies
                                               new TimeSpan(0, 0, 0, 1, 250),
                                               20,
                                               6f,
-                                              1f,
                                               true,
-                                              2).GetEnumerator();
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              {
+                                                  //attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
+                                                  Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                  for (int i = -5; i < 6; i++)
+                                                  {
+                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                                  tangent * -i * 40,
+                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - direction*(Math.Abs(i) - 30),
+                                                                                                  4,
+                                                                                                  300);
+                                                  }
+                                              }).GetEnumerator();
                 }
             }
         }
