@@ -5347,5 +5347,5 @@
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="6112,8224" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="8608,8544" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="7776,8608" />
-  <Enemy Type="Frostbyte.Enemies.Worm" Name="Boss" Pos="6912,7616" />
+  <!--<Enemy Type="Frostbyte.Enemies.Worm" Name="Boss" Pos="6912,7616" />-->
 </Level>
