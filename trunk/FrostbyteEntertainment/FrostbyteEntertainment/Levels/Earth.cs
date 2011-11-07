@@ -49,7 +49,7 @@ namespace Frostbyte.Levels
             l.GetTexture("boulder");
             #endregion load textures
 
-            new Enemies.Worm("boss", new Vector2());
+            //new Enemies.Worm("boss", new Vector2());
         }
 
         internal static void Unload()

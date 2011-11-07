@@ -114,7 +114,7 @@ namespace Frostbyte
 
 
         /// <summary>
-        /// Performs Magic Earth Tier 1 Attack
+        /// Performs Magic Tier 1 Attack
         /// </summary>
         /// <param name="_target">The target for the projectile to attack</param>
         /// <param name="_attacker">The sprite initiating the attack</param>
@@ -124,8 +124,9 @@ namespace Frostbyte
         /// <param name="_minAttackTime">The minimum time that the attack can take</param>
         /// <param name="_attackRange">The distance from the target that the projectile must come within to be considered a hit</param>
         /// <param name="_projectileSpeed">The speed of the projectile</param>
+        /// <param name="_trailLength">The length of the trailing particles as a function of the projectile speed</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, bool _isHoming, float _scale)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, float _trailLength, bool _isHoming, float _scale)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -144,6 +145,7 @@ namespace Frostbyte
             float projectileSpeed = _projectileSpeed;
             bool isHoming = _isHoming;
             float scale = _scale;
+            float trailLength = _trailLength;
             #endregion Variables
 
             attacker.particleEmitter.GroundPos = attacker.GroundPos;
@@ -152,7 +154,7 @@ namespace Frostbyte
 
             attacker.isMovingAllowed = false;
 
-            //shoot Earth tier 1
+            #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
             {
                 attacker.Direction = target.GroundPos - attacker.particleEmitter.GroundPos;
@@ -169,8 +171,9 @@ namespace Frostbyte
 
                 yield return false;
             }
+            #endregion Shoot Tier 1 at attackFrame
 
-            //emmit particles until particle hits target or time to live runs out
+            #region Emit Particles until particle hits target or wall or time to live runs out
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
                 if (isHoming)
@@ -204,7 +207,7 @@ namespace Frostbyte
                 Vector2 tangent = new Vector2(-direction.Y, direction.X);
                 for (int i = -5; i < 6; i++)
                 {
-                    attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                    attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5 * trailLength,
                                                              tangent * -i * 40,
                                                              attacker.particleEmitter.GroundPos + tangent*i*1.7f,// + -direction*i*2,
                                                              1.5f * scale,
@@ -213,15 +216,17 @@ namespace Frostbyte
 
                 yield return false;
             }
+            #endregion Emit Particles until particle hits target or wall or time to live runs out
 
             attacker.isMovingAllowed = true;
 
-            //finished attacking after all particles are dead
+            #region Finish attacking after all particles are dead
             while (attacker.particleEmitter.ActiveParticleCount > 0)
             {
                 attacker.particleEmitter.Update();
                 yield return false;
             }
+            #endregion Finish attacking after all particles are dead
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
