@@ -73,10 +73,25 @@ namespace Frostbyte
             {
                 triggered.Add(s, false);
             }
+
+            triggerRect = new Rectangle(
+                0, 
+                0,
+                (int)(GetAnimation().Width * triggerRectScale),
+                (int)(GetAnimation().Height * triggerRectScale));
+        }
+
+        internal PartyCrossTrigger(string name, Vector2 initialPosition)
+            : this(name, Tile.TileSize * 3, Tile.TileSize, (This.Game.CurrentLevel as FrostbyteLevel).allies)
+        {
+            Orientation = Orientations.Up;
+            Pos = initialPosition;
         }
 
         private List<Sprite> party;
         private Dictionary<Sprite, bool> triggered;
+        private float triggerRectScale = 0.6f;
+        private Rectangle triggerRect;
 
         private float cross(Vector3 v, Vector3 w)
         {
@@ -85,8 +100,9 @@ namespace Frostbyte
 
         private new void TriggerUpdate()
         {
-            foreach (Sprite target in this.GetTargetsInRange(party,
-                    Math.Max(this.GetAnimation().Height, this.GetAnimation().Width) / 2))
+            triggerRect.X = (int)(Pos.X + GetAnimation().Width * (1 - triggerRectScale));
+            triggerRect.Y = (int)(Pos.Y + GetAnimation().Height * (1 - triggerRectScale));
+            foreach (Sprite target in this.GetTargetsInRectangle(party, triggerRect))
             {
                 // http://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect/565282#565282
                 Vector3 normalDir = Vector3.Cross(new Vector3(this.Direction, 0), new Vector3(0, 0, -1));
@@ -137,9 +153,24 @@ namespace Frostbyte
 
         private new void TriggerEffect(object ths, TriggerEventArgs args)
         {
-            Obstacle rockX = new Obstacles.Rock("rock");
-            rockX.CenterOn(this);
-            rockX.Pos.Y += this.GetAnimation().Height;
+            Obstacle rockM = new Obstacles.Rock("rockM");
+            Obstacle rockL = new Obstacles.PartialRock("rockL");
+            Obstacle rockR = new Obstacles.PartialRock("rockR");
+            rockL.Orientation = Orientations.Left;
+            rockL.Orientation = Orientations.Right;
+
+            rockM.CenterOn(this);
+            rockL.CenterOn(this);
+            rockR.CenterOn(this);
+
+            rockM.Pos.Y += Tile.TileSize * Math.Sign(-Direction.Y);
+            rockL.Pos.Y += Tile.TileSize * Math.Sign(-Direction.Y);
+            rockR.Pos.Y += Tile.TileSize * Math.Sign(-Direction.Y);
+
+            Vector3 normalDir = Vector3.Cross(new Vector3(this.Direction, 0), new Vector3(0, 0, -1));
+
+            rockL.Pos.X -= Tile.TileSize * Math.Sign(-normalDir.X);
+            rockR.Pos.X += Tile.TileSize * Math.Sign(-normalDir.X);
 
             this.Enabled = false;
         }

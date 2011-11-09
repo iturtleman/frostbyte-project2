@@ -20,15 +20,20 @@ namespace Frostbyte.Levels
             l.HUD.LoadCommon();
 
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 119 * 64);
+            mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage2.Pos = new Microsoft.Xna.Framework.Vector2(108 * 64, 121 * 64);
+            mage2.Pos = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
             mage2.Speed = 1;
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
+
+            PartyCrossTrigger t = new PartyCrossTrigger("trigger", Tile.TileSize * 3, Tile.TileSize, l.allies);
+            t.Orientation = Orientations.Up;
+            t.CenterOn(mage);
+            t.Pos.Y -= Tile.TileSize * 5;
 
             This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
