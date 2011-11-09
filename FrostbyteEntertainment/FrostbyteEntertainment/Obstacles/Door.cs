@@ -15,10 +15,17 @@ namespace Frostbyte.Obstacles
             This.Game.AudioManager.AddSoundEffect("Effects/Door_Open");
         }
 
-        internal Door(string name, Vector2 initialPos)
+        /// <summary>
+        /// Constructor for the Level Editor
+        /// </summary>
+        /// <param name="name">Sprite name of Door</param>
+        /// <param name="initialPos">Position of door</param>
+        /// <param name="orientation">Door's orientation/direction</param>
+        internal Door(string name, Vector2 initialPos, Orientations orientation=Orientations.Up)
             : this(name)
         {
             Pos = initialPos;
+            this.Orientation = orientation;
         }
 
         internal void Open()

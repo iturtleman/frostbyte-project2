@@ -189,6 +189,16 @@ namespace Frostbyte.Characters
                 cancelTarget();
             }
 
+            /*if (State == SpriteState.Dead)
+            {
+                FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+                if (l.allies.Count > 0)
+                {
+
+                }
+                return;
+            }*/
+
             if (controller.IsConnected)
             {
                 //necessary for collision

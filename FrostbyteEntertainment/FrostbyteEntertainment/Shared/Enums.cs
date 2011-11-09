@@ -130,6 +130,7 @@ namespace Frostbyte
     {
         Idle=0,
         Moving,
-        Attacking
+        Attacking,
+        Dead  // Dead, but able to "come back to life".
     }
 }

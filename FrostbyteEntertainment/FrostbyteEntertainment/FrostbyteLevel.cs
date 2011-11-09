@@ -168,7 +168,7 @@ namespace Frostbyte
             */
             #endregion
 
-            List<Sprite> players = GetSpritesByType(typeof(Player));
+            List<Sprite> players = GetSpritesByType(typeof(Player)).SkipWhile(x => x.State == SpriteState.Dead).ToList();
             if (players != null && players.Count > 0)
             {
                 Vector2 min = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
@@ -252,6 +252,14 @@ namespace Frostbyte
         internal override void Update()
         {
             This.Game.AudioManager.StopAllLoopingSoundEffects();
+
+            List<Sprite> livingPlayers = GetSpritesByType(typeof(Player)).
+                SkipWhile(x => x.State == SpriteState.Dead).ToList();
+            if (livingPlayers.Count == 0)
+            {
+                // RESET PLAYERS
+            }
+
             base.Update();
 
             RealignViewport();

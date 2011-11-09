@@ -7,20 +7,52 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte
 {
+    #region HUD Themes
     interface HUDTheme
     {
         Color TextColor { get; }
+        Color TransparentBackgroundColor { get; }
     }
 
     internal class GenericTheme : HUDTheme
     {
+        protected byte Alpha = 90;
         public Color TextColor { get { return Color.White; } }
+        public Color TransparentBackgroundColor
+        {
+            get
+            {
+                Color transp = Color.Black;
+                transp.A = Alpha;
+                return transp;
+            }
+        }
     }
 
-    internal class EarthTheme : HUDTheme
+    internal class EarthTheme : GenericTheme
     {
         public Color TextColor { get { return Color.BurlyWood; } }
+
     }
+
+    internal class LightningTheme : GenericTheme
+    {
+        public Color TextColor { get { return Color.Lavender; } }
+    }
+
+    internal class WaterTheme : GenericTheme
+    {
+        public Color TextColor { get { return Color.LightSkyBlue; } }
+    }
+
+    internal class FireTheme : GenericTheme
+    {
+    }
+
+    internal class FinalTheme : GenericTheme
+    {
+    }
+    #endregion Themes
 
     internal class HUD
     {
@@ -89,6 +121,14 @@ namespace Frostbyte
                 p.HealthChanged += delegate(object obj, int value)
                 {
                     healthBar.Value = value;
+                    if (value == 0)
+                    {
+                        name.DisplayColor = Color.Tomato;
+                    }
+                    else
+                    {
+                        name.DisplayColor = theme.TextColor;
+                    }
                 };
                 #endregion
 
@@ -160,14 +200,11 @@ namespace Frostbyte
                 ZOrder = 100;
                 this.theme = theme;
                 background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
-                Color transp = Color.Black;
-                transp.A = alpha;
-                background.SetData(new Color[] { transp });
+                background.SetData(new Color[] { theme.TransparentBackgroundColor });
 
                 this.ItemBag = ItemBag;
             }
 
-            private byte alpha = 90;
             private HUDTheme theme;
             private Texture2D background;
 
@@ -223,9 +260,7 @@ namespace Frostbyte
             UpdateBehavior = update;
             this.theme = theme;
             background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
-            Color transp = Color.Black;
-            transp.A = alpha;
-            background.SetData(new Color[] { transp });
+            background.SetData(new Color[] { theme.TransparentBackgroundColor });
         }
 
         internal int MaxCharactersPerLine = 62;
