@@ -205,7 +205,7 @@
     <Compile Include="Target.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileHelper.cs" />
-    <Compile Include="Trigger.cs" />
+    <Compile Include="Obstacles\Trigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Bat_Move.wav">

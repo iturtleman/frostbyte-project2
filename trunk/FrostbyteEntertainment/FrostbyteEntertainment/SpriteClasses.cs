@@ -25,7 +25,11 @@ namespace Frostbyte
             ItemBag = new List<Item>();
         }
 
+        #region Mana
         internal int MaxMana { get { return 100; } }
+        internal TimeSpan ManaRegenRate = new TimeSpan(0, 0, 2);
+        internal float ManaRegenScale = 0.1f;
+        private TimeSpan ElapsedManaRegenTime;
 
         /// <summary>
         /// Player's Mana value
@@ -45,7 +49,9 @@ namespace Frostbyte
                 ManaChanged(this, mMana);
             }
         }
+        #endregion
 
+        #region Items
         internal int ItemBagCapacity { get { return 10; } }
         internal List<Item> ItemBag;
 
@@ -63,6 +69,18 @@ namespace Frostbyte
                 return true;
             }
             return false;
+        }
+        #endregion
+
+        internal override void Update()
+        {
+            ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
+            if (ElapsedManaRegenTime > ManaRegenRate)
+            {
+                Mana += (int)(ManaRegenScale * MaxMana);
+                ElapsedManaRegenTime = new TimeSpan();
+            }
+            base.Update();
         }
     }
 
@@ -107,7 +125,7 @@ namespace Frostbyte
             Sprite min = null;
             foreach (Sprite target in targets)
             {
-                if (target == this)
+                if (target == this || target.State == SpriteState.Dead)
                 {
                     continue;
                 }
@@ -132,7 +150,7 @@ namespace Frostbyte
             List<Sprite> range = new List<Sprite>();
             foreach (Sprite target in targets)
             {
-                if (target == this)
+                if (target == this || target.State == SpriteState.Dead)
                 {
                     continue;
                 }
@@ -152,7 +170,7 @@ namespace Frostbyte
             List<Sprite> range = new List<Sprite>();
             foreach (Sprite target in targets)
             {
-                if (target == this)
+                if (target == this || target.State == SpriteState.Dead)
                 {
                     continue;
                 }
