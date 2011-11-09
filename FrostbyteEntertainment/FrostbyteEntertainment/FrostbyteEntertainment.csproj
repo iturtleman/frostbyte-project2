@@ -128,6 +128,7 @@
     <Compile Include="Enemies\Golem.cs" />
     <Compile Include="Enemies\IceGolem.cs" />
     <Compile Include="Enemies\ManInCrystalBoss.cs" />
+    <Compile Include="Enemies\Owl.cs" />
     <Compile Include="Enemies\RockGolem.cs" />
     <Compile Include="Enemies\Sparky.cs" />
     <Compile Include="Enemies\Spider.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Shared\Golem.cs" />
     <Compile Include="Shared\IceGolem.cs" />
     <Compile Include="Shared\ManInCrystalBoss.cs" />
+    <Compile Include="Shared\Owl.cs" />
     <Compile Include="Shared\RockGolem.cs" />
     <Compile Include="Shared\Sparky.cs" />
     <Compile Include="Shared\SpriteClasses.cs" />

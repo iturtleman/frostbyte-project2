@@ -36,7 +36,7 @@ namespace Frostbyte.Enemies
         };
         #endregion Variables
 
-        internal Beetle(string name, Vector2 initialPos)
+        public Beetle(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 100)
         {
             GroundPos = initialPos;

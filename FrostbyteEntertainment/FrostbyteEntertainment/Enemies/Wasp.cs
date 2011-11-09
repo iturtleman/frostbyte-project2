@@ -36,7 +36,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal Wasp(string name, Vector2 initialPos)
+        public Wasp(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 100)
         {
             GroundPos = initialPos;

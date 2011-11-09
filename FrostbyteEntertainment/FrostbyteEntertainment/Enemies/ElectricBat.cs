@@ -35,7 +35,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal ElectricBat(string name, Vector2 initialPos)
+        public ElectricBat(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 20, 100)
         {
             movementStartTime = new TimeSpan(0, 0, 1);

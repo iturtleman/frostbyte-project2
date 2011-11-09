@@ -27,7 +27,7 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("golem-attack-up.anim"),
         };
         #endregion Variables
-        internal RockGolem(string name, Vector2 initialPos)
+        public RockGolem(string name, Vector2 initialPos)
             : base(name, initialPos, Animations)
         {
             ElementType = Element.Earth;

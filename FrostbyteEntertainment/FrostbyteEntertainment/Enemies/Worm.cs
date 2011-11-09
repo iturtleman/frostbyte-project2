@@ -30,7 +30,7 @@ namespace Frostbyte.Enemies
         };
         #endregion Variables
 
-        internal Worm(string name, Vector2 initialPos)
+        public Worm(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 10000)
         {
             GroundPos = initialPos;

@@ -35,7 +35,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal Spider(string name, Vector2 initialPos)
+        public Spider(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 100)
         {
             GroundPos = initialPos;
