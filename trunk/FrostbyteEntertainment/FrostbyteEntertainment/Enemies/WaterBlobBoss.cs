@@ -15,7 +15,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal WaterBlobBoss(string name, float speed, int health)
+        public WaterBlobBoss(string name, float speed, int health)
             : base(name, new Actor(Animations), speed, health)
         {
             movementStartTime = new TimeSpan(0, 0, 1);

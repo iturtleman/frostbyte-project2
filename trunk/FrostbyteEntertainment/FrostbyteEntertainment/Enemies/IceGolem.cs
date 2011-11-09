@@ -8,7 +8,7 @@ namespace Frostbyte.Enemies
 {
     internal partial class IceGolem : Golem
     {
-        internal IceGolem(string name, float speed, int health, Vector2 initialPos)
+        public IceGolem(string name, float speed, int health, Vector2 initialPos)
             : base(name, initialPos)
         {
             ElementType = Element.Water;

@@ -28,7 +28,7 @@ namespace Frostbyte.Enemies
         };
         #endregion Variables
 
-        internal CrystalGolem(string name, Vector2 initialPos)
+        public CrystalGolem(string name, Vector2 initialPos)
             : base(name, initialPos, Animations)
         {
             ElementType = Element.Lightning;

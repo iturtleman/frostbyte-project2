@@ -35,7 +35,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal Golem(string name, Vector2 initialPos, List<Animation> anims = null)
+        public Golem(string name, Vector2 initialPos, List<Animation> anims = null)
             : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);

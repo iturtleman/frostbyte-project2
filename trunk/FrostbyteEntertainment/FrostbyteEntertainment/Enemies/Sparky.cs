@@ -20,7 +20,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal Sparky(string name, float speed, int health, Vector2 initialPos)
+        public Sparky(string name, float speed, int health, Vector2 initialPos)
             : base(name, new Actor(Animations), speed, health)
         {
             Pos = initialPos;

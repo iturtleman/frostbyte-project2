@@ -403,34 +403,36 @@ namespace Frostbyte
             foreach (XElement elem in doc.Descendants("Enemy"))
             {
                 string type = elem.Attribute("Type").Value;
-                if (type == "Frostbyte.Enemies.RockGolem")
-                {
-                    new RockGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.Beetle")
-                {
-                    new Beetle(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.Wasp")
-                {
-                    new Wasp(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.CrystalGolem")
-                {
-                    new CrystalGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.ElectricBat")
-                {
-                    new ElectricBat(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.Spider")
-                {
-                    new Spider(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
-                else if (type == "Frostbyte.Enemies.Worm")
-                {
-                    new Worm(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                }
+                //if (type == "Frostbyte.Enemies.RockGolem")
+                //{
+                //    new RockGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.Beetle")
+                //{
+                //    new Beetle(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.Wasp")
+                //{
+                //    new Wasp(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.CrystalGolem")
+                //{
+                //    new CrystalGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.ElectricBat")
+                //{
+                //    new ElectricBat(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.Spider")
+                //{
+                //    new Spider(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                //else if (type == "Frostbyte.Enemies.Worm")
+                //{
+                //    new Worm(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
+                //}
+                Type t = Type.GetType(type);
+                var obj = Activator.CreateInstance(t, new object[]{elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector});
             }
         }
     }

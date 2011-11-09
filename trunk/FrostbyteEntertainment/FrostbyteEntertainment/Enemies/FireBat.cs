@@ -15,7 +15,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        internal FireBat(string name, float speed, int health)
+        public FireBat(string name, float speed, int health)
             : base(name, new Actor(Animations), speed, health)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
