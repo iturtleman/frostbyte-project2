@@ -144,6 +144,29 @@ namespace Frostbyte
             return range;
         }
 
+        /// <summary>
+        /// Returns a list of sprites within the specified rectangle.
+        /// </summary>
+        internal List<Sprite> GetTargetsInRectangle(List<Sprite> targets, Rectangle rect)
+        {
+            List<Sprite> range = new List<Sprite>();
+            foreach (Sprite target in targets)
+            {
+                if (target == this)
+                {
+                    continue;
+                }
+
+                Vector2 center = target.Pos + target.Center;
+                if (rect.Left < center.X && rect.Right > center.X &&
+                    rect.Top < center.Y && rect.Bottom > center.Y)
+                {
+                    range.Add(target);
+                }
+            }
+            return range;
+        }
+
         #region Collision
         internal float groundCollisionRadius = 18f;
         protected Vector2 previousFootPos = Vector2.Zero;
