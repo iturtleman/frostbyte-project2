@@ -116,11 +116,11 @@ namespace Frostbyte
     public enum Element
     {
         DEFAULT = -1,
-        Earth = 0,
+        Normal = 0,
+        Earth,
         Lightning,
         Water,
         Fire,
-        Normal
     }
 
     /// <summary>

@@ -148,10 +148,12 @@
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="Obstacles\Chest.cs" />
     <Compile Include="Obstacles\Door.cs" />
     <Compile Include="Obstacles\Rock.cs" />
     <Compile Include="Personality.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Shared\Beetle.cs" />
     <Compile Include="Shared\ElectricBat.cs" />
     <Compile Include="Shared\CrystalGolem.cs" />
