@@ -280,6 +280,20 @@ namespace Frostbyte.Characters
                 }
             }
         }
+        
+        /// <summary>
+        /// Respawns the player at their spawn point with their default attributes
+        /// </summary>
+        internal void Respawn()
+        {
+            Pos = SpawnPoint;
+            Health = MaxHealth;
+            Mana = MaxMana;
+            Rewind();
+            StartAnim();
+        }
         #endregion
+
+        
     }
 }

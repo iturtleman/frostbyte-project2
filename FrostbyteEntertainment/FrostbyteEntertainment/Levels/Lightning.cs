@@ -12,21 +12,23 @@ namespace Frostbyte.Levels
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
+            l.Theme = Element.Lightning;
             This.Game.AudioManager.AddBackgroundMusic("Music/LightningBG");
             XDocument doc = XDocument.Load(@"Content/LightningLevel.xml");
             l.Load(doc);
-            l.Theme = Element.Lightning;
 
             l.HUD.LoadCommon();
 
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage.Pos = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
+            mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
             mage.Speed = 1;
+            mage.Respawn();
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage2.Pos = new Microsoft.Xna.Framework.Vector2(72 * 64, 8 * 64);
+            mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(72 * 64, 8 * 64);
             mage2.Speed = 1;
+            mage2.Respawn();
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
 

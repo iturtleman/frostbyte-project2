@@ -141,5 +141,12 @@ namespace Frostbyte
         {
             MediaPlayer.Stop();
         }
+
+        internal void Clear()
+        {
+            soundEffects.Clear();
+            loopingSoundEffects.Clear();
+            backgroundMusic.Clear();
+        }
     }
 }

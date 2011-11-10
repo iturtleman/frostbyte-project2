@@ -101,6 +101,11 @@ namespace Frostbyte
             "Water",
             "Fire"
         };
+
+        /// <summary>
+        /// Retains progress through our levels
+        /// </summary>
+        internal static int CurrentStage = 0;
         #endregion
 
         #region Properties
@@ -138,12 +143,7 @@ namespace Frostbyte
         }
         #endregion
 
-
-        /// <summary>
-        /// Retains progress through our levels
-        /// </summary>
-        internal static int CurrentStage = 0;
-
+        #region Methods
         /// <summary>
         /// Iterates through every player onscreen to gather the minimum and maximum X and Y coordinates
         /// for any of the players. The new zoom/scale factor is calculated and then the viewport is shifted
@@ -320,7 +320,7 @@ namespace Frostbyte
 
             This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera.GetTransformation(This.Game.GraphicsDevice));
 
-            //draw bottom tiles
+            //draw covering tiles
             foreach (Tile tile in drawLater)
             {
                 tile.Draw();
@@ -411,37 +411,17 @@ namespace Frostbyte
             foreach (XElement elem in doc.Descendants("Enemy"))
             {
                 string type = elem.Attribute("Type").Value;
-                //if (type == "Frostbyte.Enemies.RockGolem")
-                //{
-                //    new RockGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.Beetle")
-                //{
-                //    new Beetle(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.Wasp")
-                //{
-                //    new Wasp(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.CrystalGolem")
-                //{
-                //    new CrystalGolem(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.ElectricBat")
-                //{
-                //    new ElectricBat(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.Spider")
-                //{
-                //    new Spider(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
-                //else if (type == "Frostbyte.Enemies.Worm")
-                //{
-                //    new Worm(elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector);
-                //}
                 Type t = Type.GetType(type);
-                var obj = Activator.CreateInstance(t, new object[]{elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector});
+                var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector });
+            }
+            foreach (XElement elem in doc.Descendants("Object"))
+            {
+                string type = elem.Attribute("Type").Value;
+                Type t = Type.GetType(type);
+                var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector });
             }
         }
+        #endregion Methods
+
     }
 }
