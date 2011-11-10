@@ -206,6 +206,7 @@ namespace Frostbyte
             mWorldObjects.Clear();
             mActors.Clear();
             mAnims.Clear();
+            This.Game.Content.Unload();
             EndBehavior();
         }
 
