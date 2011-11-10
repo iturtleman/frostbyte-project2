@@ -9,90 +9,6 @@ namespace Frostbyte
 {
     public delegate void ManaChangedHandler(object obj, int value);
 
-    internal abstract class Player : OurSprite
-    {
-        public event ManaChangedHandler ManaChanged = delegate { };
-
-        internal Player(string name, Actor actor)
-            : base(name, actor)
-        {
-            (This.Game.LoadingLevel as FrostbyteLevel).allies.Add(this);
-            Mana = MaxMana;
-
-            MaxHealth = 100;
-            Health = MaxHealth;
-
-            ItemBag = new List<Item>();
-        }
-
-        #region Mana
-        internal int MaxMana { get { return 100; } }
-        internal TimeSpan ManaRegenRate = new TimeSpan(0, 0, 2);
-        internal float ManaRegenScale = 0.1f;
-        private TimeSpan ElapsedManaRegenTime;
-
-        /// <summary>
-        /// Player's Mana value
-        /// </summary>
-        private int mMana;
-        internal int Mana
-        {
-            get
-            {
-                return mMana;
-            }
-            set
-            {
-                mMana = value < 0 ? 0 :
-                    (value > MaxMana ? MaxMana :
-                        value);
-                ManaChanged(this, mMana);
-            }
-        }
-        #endregion
-
-        #region Items
-        internal int ItemBagCapacity { get { return 10; } }
-        internal List<Item> ItemBag;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="i"></param>
-        /// <returns>Returns true if the item was picked up, false if not.</returns>
-        protected bool PickUpItem(Item i)
-        {
-            if (ItemBag.Count < ItemBagCapacity)
-            {
-                This.Game.CurrentLevel.RemoveSprite(i);
-                ItemBag.Add(i);
-                return true;
-            }
-            return false;
-        }
-        #endregion
-
-        internal override void Update()
-        {
-            ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
-            if (ElapsedManaRegenTime > ManaRegenRate)
-            {
-                Mana += (int)(ManaRegenScale * MaxMana);
-                ElapsedManaRegenTime = new TimeSpan();
-            }
-            base.Update();
-        }
-    }
-
-    internal abstract class Obstacle : OurSprite
-    {
-        internal Obstacle(string name, Actor actor)
-            : base(name, actor)
-        {
-            (This.Game.LoadingLevel as FrostbyteLevel).obstacles.Add(this);
-        }
-    }
-
     internal abstract partial class OurSprite : Sprite
     {
         #region Attacking Variables
@@ -116,6 +32,7 @@ namespace Frostbyte
             Health = MaxHealth;
         }
 
+        #region Targeting
         /// <summary>
         /// Returns a sprite in targets that is closest to the sprite's current position
         /// and within aggroDistance distance from the current position.
@@ -184,6 +101,7 @@ namespace Frostbyte
             }
             return range;
         }
+        #endregion Targeting
 
         #region Collision
         internal float groundCollisionRadius = 18f;
@@ -505,8 +423,9 @@ namespace Frostbyte
         }
         #endregion Collision
 
-
+        #region Direction
         protected Vector2 mDirection = new Vector2(0, 1);
+
         internal Vector2 Direction
         {
             get
@@ -589,5 +508,10 @@ namespace Frostbyte
                 base.Orientation = value;
             }
         }
+        #endregion Direction
+
+        #region StatusEffects/Agumentation
+        internal Element StatusEffect = Element.Normal;
+        #endregion StatusEffects/Agumentation
     }
 }

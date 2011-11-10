@@ -92,7 +92,7 @@ namespace Frostbyte
 
                 if (attacker.Frame == attackFrame && Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attackRange * attackRange && !hasAttacked)
                 {
-                    target.Health -= baseDamage;
+                    target.Health -= baseDamage+attacker.StatusEffect!=Element.Normal?baseDamage*2:0;
                     hasAttacked = true;
                 }
 
