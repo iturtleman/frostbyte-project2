@@ -202,11 +202,14 @@ namespace Frostbyte
 
         internal void Unload()
         {
+            This.Game.Content.Unload();
             This.Game.AudioManager.Stop();
+            This.Game.AudioManager.Clear();
             mWorldObjects.Clear();
+            mTextures.Clear();
             mActors.Clear();
             mAnims.Clear();
-            This.Game.Content.Unload();
+            mEffects.Clear();
             EndBehavior();
         }
 

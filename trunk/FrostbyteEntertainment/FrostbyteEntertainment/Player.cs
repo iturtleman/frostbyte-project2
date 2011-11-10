@@ -1,5 +1,10 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace Frostbyte
 {
     internal abstract class Player : OurSprite
@@ -64,6 +69,10 @@ namespace Frostbyte
             return false;
         }
         #endregion
+
+        #region Spawnpoint
+        internal Vector2 SpawnPoint = Vector2.Zero;
+        #endregion Spawnpoint
 
         internal override void Update()
         {

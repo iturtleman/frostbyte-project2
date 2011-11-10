@@ -12,21 +12,23 @@ namespace Frostbyte.Levels
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
+            l.Theme = Element.Earth;
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
             XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
-            l.Theme = Element.Earth;
 
             l.HUD.LoadCommon();
 
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage.Pos = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
+            mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
             mage.Speed = 1;
+            mage.Respawn();
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
-            mage2.Pos = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
+            mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
             mage2.Speed = 1;
+            mage2.Respawn();
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
 
