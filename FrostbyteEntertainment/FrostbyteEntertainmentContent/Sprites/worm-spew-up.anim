@@ -1,64 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,435" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,870" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,1305" AnimationPeg="0,0" />
-  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,1305" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,435" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3315,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3570,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3825,870" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="0,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="255,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="510,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="765,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1020,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1275,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1530,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="1785,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2040,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2295,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2550,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="2805,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
+  <Frame SpriteSheet="worm-spew-up" FrameDelay="20" Width="255" Height="435" TLPos="3060,1305" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,370" Radius="20" /></Frame>
 </Animation>

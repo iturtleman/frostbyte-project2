@@ -17,7 +17,7 @@ namespace Frostbyte
     internal class GenericTheme : HUDTheme
     {
         protected byte Alpha = 90;
-        public Color TextColor { get { return Color.White; } }
+        public virtual Color TextColor { get { return Color.White; } }
         public Color TransparentBackgroundColor
         {
             get
@@ -31,26 +31,28 @@ namespace Frostbyte
 
     internal class EarthTheme : GenericTheme
     {
-        public Color TextColor { get { return Color.BurlyWood; } }
+        public override Color TextColor { get { return Color.BurlyWood; } }
 
     }
 
     internal class LightningTheme : GenericTheme
     {
-        public Color TextColor { get { return Color.Lavender; } }
+        public override Color TextColor { get { return Color.Lavender; } }
     }
 
     internal class WaterTheme : GenericTheme
     {
-        public Color TextColor { get { return Color.LightSkyBlue; } }
+        public override Color TextColor { get { return Color.LightSkyBlue; } }
     }
 
     internal class FireTheme : GenericTheme
     {
+        public override Color TextColor { get { return Color.Firebrick; } }
     }
 
     internal class FinalTheme : GenericTheme
     {
+        public override Color TextColor { get { return Color.Blue; } }
     }
     #endregion Themes
 
@@ -266,7 +268,7 @@ namespace Frostbyte
         internal int MaxCharactersPerLine = 62;
         internal int TextSpacing = 2;
         internal bool SplitOnWhitespace = true;
-        private byte alpha = 90;
+        //private byte alpha = 90;
         private HUDTheme theme;
         private List<char> buffer = new List<char>();
         private List<Text> onScreen = new List<Text>();

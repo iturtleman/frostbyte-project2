@@ -225,7 +225,7 @@ namespace Frostbyte
             if (padState.Buttons.Back == ButtonState.Pressed || keyState.IsKeyDown(Keys.Escape))
                 this.Exit();
             //show collisions
-            if (mLastKeyState.IsKeyDown(Keys.F12) && keyState.IsKeyUp(Keys.F12))
+            if (mLastKeyState.IsKeyDown(Keys.F11) && keyState.IsKeyUp(Keys.F11))
                 ShowCollisionData = !ShowCollisionData;
             //enable cheats
             if (mLastKeyState.IsKeyDown(Keys.F9) && keyState.IsKeyUp(Keys.F9))
