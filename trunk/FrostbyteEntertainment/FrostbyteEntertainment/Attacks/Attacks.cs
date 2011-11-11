@@ -60,12 +60,10 @@ namespace Frostbyte
         /// Performs Melee Attack
         /// </summary>
         /// <returns>returns true when finished</returns>
-        public static IEnumerable<bool> Melee(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, int attackRange, TimeSpan _minAttackTime)
+        public static IEnumerable<bool> Melee(Sprite _target, OurSprite _attacker, int baseDamage, int attackFrame, int attackRange, TimeSpan _minAttackTime)
         {
             OurSprite target = (OurSprite)_target;
             OurSprite attacker = _attacker;
-            int baseDamage = _baseDamage;
-            int attackFrame = _attackFrame;
             bool hasAttacked = false;
             TimeSpan minAttackTime = _minAttackTime;
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
@@ -99,7 +97,7 @@ namespace Frostbyte
                         Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attackRange * attackRange &&
                         Math.Abs(Math.Acos(Vector2.Dot(attacker.Direction, dirToEnemy))) <= Math.PI / 3)
                     {
-                        target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
+                        Damage(attacker, target, baseDamage);
                         hasAttacked = true;
                     }
                 }
@@ -119,6 +117,11 @@ namespace Frostbyte
             attacker.isMovingAllowed = true;
 
             yield return true;
+        }
+
+        private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0)
+        {
+            target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
         }
 
 
@@ -203,7 +206,7 @@ namespace Frostbyte
                         {
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Characters.Mage)) || ((detectedCollision.Item2 is Characters.Mage) && (attacker is Enemy)))
                             {
-                                (detectedCollision.Item2 as OurSprite).Health -= baseDamage;
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
                                 damageDealt = true;
                                 break;
                             }
