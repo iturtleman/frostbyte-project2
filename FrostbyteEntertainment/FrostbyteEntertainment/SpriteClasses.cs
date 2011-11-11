@@ -515,5 +515,9 @@ namespace Frostbyte
         #region StatusEffects/Agumentation
         internal Element StatusEffect = Element.Normal;
         #endregion StatusEffects/Agumentation
+
+        #region Spawnpoint
+        internal Vector2 SpawnPoint = Vector2.Zero;
+        #endregion Spawnpoint
     }
 }

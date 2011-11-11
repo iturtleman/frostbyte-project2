@@ -70,10 +70,6 @@ namespace Frostbyte
         }
         #endregion
 
-        #region Spawnpoint
-        internal Vector2 SpawnPoint = Vector2.Zero;
-        #endregion Spawnpoint
-
         internal override void Update()
         {
             ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
