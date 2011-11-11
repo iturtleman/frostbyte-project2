@@ -200,6 +200,7 @@ namespace Frostbyte
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> Collisions;
                     Collision.CollisionData.TryGetValue(attacker.particleEmitter, out Collisions);
+                    if(Collisions!=null)
                     foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in Collisions)
                     {
                         if (attacker != detectedCollision.Item2 && detectedCollision.Item2.GetType() == typeof(Enemy) || detectedCollision.Item2.GetType() == typeof(Player))

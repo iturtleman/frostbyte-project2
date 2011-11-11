@@ -210,6 +210,9 @@ namespace Frostbyte
             mActors.Clear();
             mAnims.Clear();
             mEffects.Clear();
+            Collision.Lists.Clear();
+            Collision.Buckets.Clear();
+            Collision.CollisionData.Clear();
             EndBehavior();
         }
 
