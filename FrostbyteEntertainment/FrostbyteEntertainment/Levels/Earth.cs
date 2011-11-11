@@ -41,7 +41,7 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
 
             This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
-            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

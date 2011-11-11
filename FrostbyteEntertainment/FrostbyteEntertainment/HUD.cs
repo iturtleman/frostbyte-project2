@@ -268,14 +268,13 @@ namespace Frostbyte
         internal int MaxCharactersPerLine = 62;
         internal int TextSpacing = 2;
         internal bool SplitOnWhitespace = true;
-        //private byte alpha = 90;
         private HUDTheme theme;
         private List<char> buffer = new List<char>();
         private List<Text> onScreen = new List<Text>();
         private Texture2D background;
 
         private int tickCount = 0;
-        internal int TicksPerScroll = 1;
+        internal int TicksPerScroll = 2;
 
         #region Methods
         internal void ScrollText(string s)

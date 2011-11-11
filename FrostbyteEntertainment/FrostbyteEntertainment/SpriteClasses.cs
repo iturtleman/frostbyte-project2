@@ -434,7 +434,7 @@ namespace Frostbyte
             }
             set
             {
-                State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
+                //State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
 
                 if (value != Vector2.Zero)
                     mDirection = value;
@@ -518,6 +518,17 @@ namespace Frostbyte
 
         #region Spawnpoint
         internal Vector2 SpawnPoint = Vector2.Zero;
+
+        /// <summary>
+        /// Respawns the player at their spawn point with their default attributes
+        /// </summary>
+        internal virtual void Respawn()
+        {
+            Pos = SpawnPoint;
+            Health = MaxHealth;
+            Rewind();
+            StartAnim();
+        }
         #endregion Spawnpoint
     }
 }

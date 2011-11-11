@@ -256,9 +256,12 @@ namespace Frostbyte
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
                 //master.Personality.Status = EnemyStatus.Wander;
-                while (!master.dart(targets, 8.0f, 400) && Vector2.Distance(this.master.GroundPos, this.master.GetClosestTarget(targets).GroundPos) < 500)
+                Sprite closestTarget = this.master.GetClosestTarget(targets);
+                while (!master.dart(targets, 8.0f, 400) && closestTarget != null &&
+                    Vector2.Distance(this.master.GroundPos, closestTarget.GroundPos) < 500)
                 {
                     yield return null;
+                    closestTarget = this.master.GetClosestTarget(targets);
                 }
 
                 // Freeze for five seconds

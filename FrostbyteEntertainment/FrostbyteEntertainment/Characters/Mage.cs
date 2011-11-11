@@ -324,15 +324,19 @@ namespace Frostbyte.Characters
                 cancelTarget();
             }
 
-            /*if (State == SpriteState.Dead)
+            if (Health == 0)
             {
-                FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
-                if (l.allies.Count > 0)
-                {
+                State = SpriteState.Dead;
+            }
+            else
+            {
+                State = SpriteState.Idle;
+            }
 
-                }
+            if (State == SpriteState.Dead)
+            {
                 return;
-            }*/
+            }
 
             if (controller.IsConnected)
             {
@@ -419,20 +423,6 @@ namespace Frostbyte.Characters
                 }
             }
         }
-
-        /// <summary>
-        /// Respawns the player at their spawn point with their default attributes
-        /// </summary>
-        internal void Respawn()
-        {
-            Pos = SpawnPoint;
-            Health = MaxHealth;
-            Mana = MaxMana;
-            Rewind();
-            StartAnim();
-        }
         #endregion
-
-
     }
 }
