@@ -70,6 +70,12 @@ namespace Frostbyte
         }
         #endregion
 
+        internal override void Respawn()
+        {
+            base.Respawn();
+            Mana = MaxMana;
+        }
+
         internal override void Update()
         {
             ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
