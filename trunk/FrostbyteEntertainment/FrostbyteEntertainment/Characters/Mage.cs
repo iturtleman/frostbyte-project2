@@ -59,6 +59,12 @@ namespace Frostbyte.Characters
             particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
             particleLightningTier1.effectTechnique = "NoSpecialEffect";
             particleLightningTier1.blendState = BlendState.Additive;
+
+            //Create Fire Tier 1 Particle Emmiter
+            Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+            particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
+            particleFireTier1.effectTechnique = "NoSpecialEffect";
+            particleFireTier1.blendState = BlendState.AlphaBlend;
         }
         #endregion
 
@@ -73,6 +79,7 @@ namespace Frostbyte.Characters
 
         private ParticleEmitter particleEarthTier1;
         private ParticleEmitter particleLightningTier1;
+        private ParticleEmitter particleFireTier1;
         #endregion
 
         #region Methods
@@ -127,6 +134,7 @@ namespace Frostbyte.Characters
                 {
                     if (controller.Earth == ReleasableButtonState.Clicked)
                     {
+                        #region Earth Tier 1
                         particleEmitter = particleEarthTier1;
                         isAttacking = true;
 
@@ -168,15 +176,55 @@ namespace Frostbyte.Characters
 
 
                         Mana -= spellManaCost;
+                        #endregion Earth Tier 1
                         return;
                     }
                     else if (controller.Fire == ReleasableButtonState.Clicked)
                     {
+                        #region Fire Tier 1
+                        particleEmitter = particleFireTier1;
+                        isAttacking = true;
+
+                        //particle emitter is created in constructor
+
+                        int attackRange = 11;
+
+                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+
+                        mAttack = Attacks.T1Projectile(currentTarget,
+                                                  this,
+                                                  20,
+                                                  0,
+                                                  new TimeSpan(0, 0, 0, 1, 150),
+                                                  new TimeSpan(0, 0, 0, 0, 100),
+                                                  attackRange,
+                                                  9f,
+                                                  true,
+                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                                  {
+                                                      Random rand = new Random();
+                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                      for (int i = -5; i < 6; i++)
+                                                      {
+                                                          float velocitySpeed = rand.Next(30, 55);
+                                                          float accelSpeed = rand.Next(-30, -10);
+                                                          attacker.particleEmitter.createParticles(direction*velocitySpeed,
+                                                                          direction*accelSpeed,
+                                                                          attacker.particleEmitter.GroundPos,
+                                                                          rand.Next(5, 20),
+                                                                          rand.Next(50, 300));
+                                                      }
+                                                  }
+                                                  ).GetEnumerator();
                         Mana -= spellManaCost;
+                        #endregion Fire Tier 1
                         return;
                     }
                     else if (controller.Lightning == ReleasableButtonState.Clicked)
                     {
+                        #region Lightning Tier 1
                         particleEmitter = particleLightningTier1;
 
                         isAttacking = true;
@@ -210,6 +258,7 @@ namespace Frostbyte.Characters
                                                       }
                                                   }).GetEnumerator();
                         Mana -= spellManaCost;
+                        #endregion Lightning Tier 1
                         return;
                     }
                     else if (controller.Water == ReleasableButtonState.Clicked)
