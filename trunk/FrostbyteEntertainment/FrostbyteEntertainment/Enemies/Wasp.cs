@@ -89,9 +89,6 @@ namespace Frostbyte.Enemies
 
                     //particle emitter is created in constructor
 
-                    //set orientation
-                    this.Direction = target.GroundPos - this.GroundPos;
-
                     int attackRange = 11;
 
                     (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
@@ -109,13 +106,14 @@ namespace Frostbyte.Enemies
                                               false,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
                                               {
+                                                  Random randPosition = new Random();
                                                   attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
                                                   for (int i = -5; i < 6; i++)
                                                   {
                                                       attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                tangent * -i * 40,
-                                                                                               attacker.particleEmitter.GroundPos + tangent * i * 1.7f,
+                                                                                               attacker.particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
                                                                                                1.5f,
                                                                                                300);
                                                   }

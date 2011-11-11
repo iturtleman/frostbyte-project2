@@ -78,7 +78,7 @@ namespace Frostbyte.Enemies
             }
             else
             {
-                float range = 400.0f;
+                float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
@@ -87,8 +87,10 @@ namespace Frostbyte.Enemies
 
                     //particle emitter is created in constructor
 
-                    //set orientation
-                    this.Direction = target.GroundPos - this.GroundPos;
+                    int attackRange = 11;
+
+                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
                     mAttack = Attacks.T1Projectile(target,
                                               this,
@@ -96,18 +98,17 @@ namespace Frostbyte.Enemies
                                               10,
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 1, 250),
-                                              20,
+                                              attackRange,
                                               6f,
                                               true,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
                                               {
-                                                  //attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
                                                   for (int i = -5; i < 6; i++)
                                                   {
                                                       attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                   tangent * -i * 40,
-                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - direction*(Math.Abs(i) - 30),
+                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - direction*(Math.Abs(i) * 7),
                                                                                                   4,
                                                                                                   300);
                                                   }

@@ -44,6 +44,8 @@ namespace Frostbyte.Levels
             #region load textures
             l.GetTexture("boulder");
             #endregion load textures
+
+            Collision.Lists.Add(new KeyValuePair<int, int>(1, 2));
         }
     }
 }
