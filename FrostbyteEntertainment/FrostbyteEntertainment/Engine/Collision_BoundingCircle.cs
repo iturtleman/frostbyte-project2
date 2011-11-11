@@ -19,7 +19,11 @@ namespace Frostbyte
             ID = _id;
             Type = CollisionType.Circle;
 
+            createDrawPoints();
+        }
 
+        internal void createDrawPoints()
+        {
             //create collision object's points for drawing
             int numOfPoints = (int)(Radius * 2);
             drawPoints = new VertexPositionColor[numOfPoints + 1];
