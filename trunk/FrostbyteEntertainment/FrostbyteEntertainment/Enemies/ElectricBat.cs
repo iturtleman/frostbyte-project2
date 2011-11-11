@@ -87,7 +87,7 @@ namespace Frostbyte.Enemies
 
                     //particle emitter is created in constructor
 
-                    int attackRange = 11;
+                    int attackRange = 3;
 
                     (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
