@@ -155,6 +155,7 @@ namespace Frostbyte
             float projectileSpeed = _projectileSpeed;
             bool isHoming = _isHoming;
             CreateParticles createParticles = _createParticles;
+            bool damageDealt = false;
             #endregion Variables
 
             attacker.particleEmitter.GroundPos = attacker.GroundPos;
@@ -192,24 +193,26 @@ namespace Frostbyte
                     direction.Normalize();
                 }
 
-                if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.GroundPos) < 10 * 10)
-                {
-                    direction.Normalize();
-                }
                 if (Collision.CollisionData.Count > 0)
                 {
-                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> Collisions;
-                    Collision.CollisionData.TryGetValue(attacker.particleEmitter, out Collisions);
-                    if(Collisions!=null)
-                    foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in Collisions)
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(attacker.particleEmitter, out collidedWith);
+                    if (collidedWith != null)
                     {
-                        if (attacker != detectedCollision.Item2 && detectedCollision.Item2.GetType() == typeof(Enemy) || detectedCollision.Item2.GetType() == typeof(Player))
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
                         {
-                            (detectedCollision.Item2 as Enemy).Health -= baseDamage;
-                            break;
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Characters.Mage)) || ((detectedCollision.Item2 is Characters.Mage) && (attacker is Enemy)))
+                            {
+                                (detectedCollision.Item2 as OurSprite).Health -= baseDamage;
+                                damageDealt = true;
+                                break;
+                            }
                         }
                     }
                 }
+
+                if (damageDealt)
+                    break;
                 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
