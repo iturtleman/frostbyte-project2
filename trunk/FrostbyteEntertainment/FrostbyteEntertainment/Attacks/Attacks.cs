@@ -55,6 +55,16 @@ namespace Frostbyte
             return attacker.FrameCount();
         }
 
+        /// <summary>
+        /// Applies damage to target based on attacker
+        /// </summary>
+        /// <param name="attacker">The attacking object</param>
+        /// <param name="target">The target of the attack</param>
+        /// <param name="baseDamage">The attack's base damage</param>
+        private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0)
+        {
+            target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
+        }
 
         /// <summary>
         /// Performs Melee Attack
@@ -118,13 +128,7 @@ namespace Frostbyte
 
             yield return true;
         }
-
-        private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0)
-        {
-            target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
-        }
-
-
+        
         /// <summary>
         /// Performs Magic Tier 1 Attack
         /// </summary>
