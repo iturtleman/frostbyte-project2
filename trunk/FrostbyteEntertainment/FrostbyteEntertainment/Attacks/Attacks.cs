@@ -80,7 +80,6 @@ namespace Frostbyte
             bool isLoopOne = false;
             do
             {
-                attacker.Direction = target.GroundPos - attacker.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
 
@@ -90,12 +89,20 @@ namespace Frostbyte
                 if (!isLoopOne)
                     break;
 
-                if (attacker.Frame == attackFrame && Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attackRange * attackRange && !hasAttacked)
+                if (target != null)
                 {
-                    target.Health -= baseDamage+attacker.StatusEffect!=Element.Normal?baseDamage*2:0;
-                    hasAttacked = true;
-                }
+                    Vector2 dirToEnemy = (target.GroundPos - attacker.GroundPos);
+                    dirToEnemy.Normalize();
 
+                    if (!hasAttacked &&
+                        attacker.Frame == attackFrame &&
+                        Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attackRange * attackRange &&
+                        Math.Abs(Math.Acos(Vector2.Dot(attacker.Direction, dirToEnemy))) <= Math.PI / 3)
+                    {
+                        target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
+                        hasAttacked = true;
+                    }
+                }
                 yield return false;
             } while (isLoopOne);
 

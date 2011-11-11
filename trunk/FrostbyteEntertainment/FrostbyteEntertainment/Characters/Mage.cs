@@ -135,16 +135,13 @@ namespace Frostbyte.Characters
                 if (controller.Sword > 0)
                 {
                     #region Start Melee Attack
-                    float range = 150.0f;
+                    float range = 450.0f;
                     List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Enemy));
                     Sprite target = GetClosestTarget(targets, range);
-                    if (target != null)
-                    {
-                        isAttacking = true;
-                        isMovingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 25, 0, 50,TimeSpan.Zero).GetEnumerator();
-                        This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
-                    }
+                    isAttacking = true;
+                    isMovingAllowed = false;
+                    mAttack = Attacks.Melee(target, this, 25, 0, 50,TimeSpan.Zero).GetEnumerator();
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;
                 }
