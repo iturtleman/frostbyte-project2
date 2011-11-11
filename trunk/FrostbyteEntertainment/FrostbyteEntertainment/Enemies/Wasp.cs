@@ -92,13 +92,17 @@ namespace Frostbyte.Enemies
                     //set orientation
                     this.Direction = target.GroundPos - this.GroundPos;
 
+                    int attackRange = 20;
+
+                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+
                     mAttack = Attacks.T1Projectile(target,
                                               this,
                                               5,
                                               30,
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 0, 750),
-                                              20,
+                                              attackRange,
                                               6f,
                                               false,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
