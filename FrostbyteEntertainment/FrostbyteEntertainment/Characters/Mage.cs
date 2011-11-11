@@ -46,6 +46,19 @@ namespace Frostbyte.Characters
             CollidesWithBackground = true;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
+
+            //Create Earth Tier 1 Particle Emmiter
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+            particleEarthTier1 = new ParticleEmitter(1000, particleEffect, boulder);
+            particleEarthTier1.effectTechnique = "NoSpecialEffect";
+            particleEarthTier1.blendState = BlendState.AlphaBlend;
+
+            //Create Lightning Tier 1 Particle Emmiter
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
+            particleLightningTier1.effectTechnique = "NoSpecialEffect";
+            particleLightningTier1.blendState = BlendState.Additive;
         }
         #endregion
 
@@ -57,6 +70,9 @@ namespace Frostbyte.Characters
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
         private int spellManaCost = 10;
+
+        private ParticleEmitter particleEarthTier1;
+        private ParticleEmitter particleLightningTier1;
         #endregion
 
         #region Methods
@@ -111,6 +127,46 @@ namespace Frostbyte.Characters
                 {
                     if (controller.Earth == ReleasableButtonState.Clicked)
                     {
+                        particleEmitter = particleEarthTier1;
+                        isAttacking = true;
+
+                        //particle emitter is created in constructor
+
+                        int attackRange = 11;
+
+                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+
+                        mAttack = Attacks.T1Projectile(currentTarget,
+                                                  this,
+                                                  20,
+                                                  0,
+                                                  new TimeSpan(0, 0, 0, 1, 150),
+                                                  new TimeSpan(0, 0, 0, 0, 100),
+                                                  attackRange,
+                                                  9f,
+                                                  false,
+                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                                  {
+                                                      Random randPosition = new Random();
+                                                      attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
+                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                      for (int i = -5; i < 6; i++)
+                                                      {
+                                                          attacker.particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                                                   tangent * -i * 40,
+                                                                                                   attacker.particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                                   1.5f,
+                                                                                                   300);
+                                                      }
+                                                  }
+                                                  ).GetEnumerator();
+
+
+
+
+
                         Mana -= spellManaCost;
                         return;
                     }
@@ -121,6 +177,38 @@ namespace Frostbyte.Characters
                     }
                     else if (controller.Lightning == ReleasableButtonState.Clicked)
                     {
+                        particleEmitter = particleLightningTier1;
+
+                        isAttacking = true;
+
+                        //particle emitter is created in constructor
+
+                        int attackRange = 11;
+
+                        (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                        (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+                        mAttack = Attacks.T1Projectile(currentTarget,
+                                                  this,
+                                                  5,
+                                                  0,
+                                                  new TimeSpan(0, 0, 0, 1, 250),
+                                                  new TimeSpan(0, 0, 0, 0, 150),
+                                                  attackRange,
+                                                  8f,
+                                                  true,
+                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                                  {
+                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                      for (int i = -5; i < 6; i++)
+                                                      {
+                                                          attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                                      tangent * -i * 40,
+                                                                                                      attacker.particleEmitter.GroundPos + tangent * i * 1.7f - direction * (Math.Abs(i) * 7),
+                                                                                                      4,
+                                                                                                      300);
+                                                      }
+                                                  }).GetEnumerator();
                         Mana -= spellManaCost;
                         return;
                     }
@@ -140,7 +228,7 @@ namespace Frostbyte.Characters
                     Sprite target = GetClosestTarget(targets, range);
                     isAttacking = true;
                     isMovingAllowed = false;
-                    mAttack = Attacks.Melee(target, this, 25, 0, 50,TimeSpan.Zero).GetEnumerator();
+                    mAttack = Attacks.Melee(target, this, 25, 0, 50, TimeSpan.Zero).GetEnumerator();
                     This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;
@@ -152,7 +240,8 @@ namespace Frostbyte.Characters
         {
             List<Sprite> obstacles = (This.Game.CurrentLevel as FrostbyteLevel).obstacles;
             float distance = Math.Max(GetAnimation().Height, GetAnimation().Width) * 1.5f;
-            if(obstacles != null){
+            if (obstacles != null)
+            {
                 List<Sprite> targets = GetTargetsInRange(obstacles, distance);
                 foreach (Sprite target in targets)
                 {
@@ -257,9 +346,13 @@ namespace Frostbyte.Characters
                 if (isMovingAllowed)
                 {
                     PreviousPos = Pos;
-                    
+
                     Pos.X += controller.Movement.X * 3 * Speed;
                     Pos.Y -= controller.Movement.Y * 3 * Speed;
+
+                    Vector2 newDirection = controller.Movement;
+                    newDirection.Y *= -1;
+                    Direction = newDirection;
 
                     State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
                 }
@@ -277,7 +370,7 @@ namespace Frostbyte.Characters
                 }
             }
         }
-        
+
         /// <summary>
         /// Respawns the player at their spawn point with their default attributes
         /// </summary>
@@ -291,6 +384,6 @@ namespace Frostbyte.Characters
         }
         #endregion
 
-        
+
     }
 }
