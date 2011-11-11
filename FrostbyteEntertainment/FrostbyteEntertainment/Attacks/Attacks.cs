@@ -140,6 +140,7 @@ namespace Frostbyte
             #region Variables
             OurSprite target = (OurSprite)_target;
             OurSprite attacker = _attacker;
+            Vector2 initialDirection = attacker.Direction;
             int baseDamage = _baseDamage;
             int attackFrame = _attackFrame;
             attacker.State = SpriteState.Attacking;
@@ -165,7 +166,8 @@ namespace Frostbyte
             #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
             {
-                attacker.Direction = target.GroundPos - attacker.particleEmitter.GroundPos;
+                if(target != null)
+                    attacker.Direction = target.GroundPos - attacker.particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
 
@@ -184,16 +186,26 @@ namespace Frostbyte
             #region Emit Particles until particle hits target or wall or time to live runs out
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
-                if (isHoming)
+                if (isHoming && target != null)
                 {
                     direction = target.GroundPos - attacker.particleEmitter.GroundPos;
                     direction.Normalize();
                 }
 
-                if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.GroundPos) < attackRange * attackRange)
+                if (Vector2.DistanceSquared(target.GroundPos, attacker.particleEmitter.GroundPos) < 10 * 10)
                 {
-                    target.Health -= baseDamage;
-                    break;
+                    direction.Normalize();
+                }
+                if (Collision.CollisionData.Count > 0)
+                {
+                    foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in Collision.CollisionData[attacker.particleEmitter])
+                    {
+                        if (attacker != detectedCollision.Item2 && detectedCollision.Item2.GetType() == typeof(Enemy) || detectedCollision.Item2.GetType() == typeof(Player))
+                        {
+                            (detectedCollision.Item2 as Enemy).Health -= baseDamage;
+                            break;
+                        }
+                    }
                 }
                 
                 //if the attack frame has passed then allow the attacker to move

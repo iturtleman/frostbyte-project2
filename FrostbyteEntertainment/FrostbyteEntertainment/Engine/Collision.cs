@@ -31,6 +31,8 @@ namespace Frostbyte
 
         internal static void FillBuckets()
         {
+            Collision.Buckets = new List<Dictionary<Vector2, List<WorldObject>>>();
+
             /// \todo This needs to dissapear. Should only ever happen once
             var BG = This.Game.CurrentLevel.Background;
             if (BG != null)
@@ -45,6 +47,7 @@ namespace Frostbyte
                     obj.Col.AddToBucket(obj);
                 }
             }
+
 
             foreach (WorldObject worldObject in This.Game.CurrentLevel.mWorldObjects)
             {

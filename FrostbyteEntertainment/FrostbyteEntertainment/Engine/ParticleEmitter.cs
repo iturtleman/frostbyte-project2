@@ -41,6 +41,9 @@ namespace Frostbyte
 
     internal class ParticleEmitter : OurSprite
     {
+        //Collision data
+        internal List<CollisionObject> collisionObjects = new List<CollisionObject>();
+
         #region Private Variables
 
         private int maxNumOfParticles;                      //max number of particles (set in constructor)
@@ -179,7 +182,8 @@ namespace Frostbyte
 
             sendConstantsToGPU();
 
-            
+            collisionObjects.Add(new Collision_BoundingCircle(1, Vector2.Zero, 10));
+            this.CollisionList = 2;
         }
 
         internal override void Update()
@@ -319,7 +323,7 @@ namespace Frostbyte
 
         internal override List<CollisionObject> GetCollision()
         {
-            return new List<CollisionObject>();
+            return collisionObjects;
         }
 
         internal override List<Vector2> GetHotSpots()
