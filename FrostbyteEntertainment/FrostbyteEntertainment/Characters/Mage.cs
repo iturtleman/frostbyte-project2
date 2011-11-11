@@ -195,9 +195,9 @@ namespace Frostbyte.Characters
 
                         mAttack = Attacks.T1Projectile(currentTarget,
                                                   this,
-                                                  20,
+                                                  30,
                                                   0,
-                                                  new TimeSpan(0, 0, 0, 1, 150),
+                                                  new TimeSpan(0, 0, 0, 0, 750),
                                                   new TimeSpan(0, 0, 0, 0, 100),
                                                   attackRange,
                                                   9f,
@@ -231,14 +231,14 @@ namespace Frostbyte.Characters
 
                         //particle emitter is created in constructor
 
-                        int attackRange = 11;
+                        int attackRange = 3;
 
                         (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                         (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
                         mAttack = Attacks.T1Projectile(currentTarget,
                                                   this,
-                                                  5,
+                                                  20,
                                                   0,
                                                   new TimeSpan(0, 0, 0, 1, 250),
                                                   new TimeSpan(0, 0, 0, 0, 150),
