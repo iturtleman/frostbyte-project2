@@ -32,18 +32,21 @@ namespace Frostbyte.Levels
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
 
-            l.GetTexture("sparkball");
-            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", Tile.TileSize, Tile.TileSize);
-            t.Orientation = Orientations.Up;
-            t.CenterOn(mage);
-            t.Pos.Y -= Tile.TileSize * 2;
-
             This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
 
             This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
-            
+
+
+            context.GetTexture("regen");
+            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2);
+            t.CenterOn(mage);
+            t.Pos.Y -= Tile.TileSize * 2;
+
+            SetRespawnTrigger sp = new SetRespawnTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2, l.allies);
+            sp.CenterOn(mage);
+            sp.Pos.Y -= Tile.TileSize * 2;
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

@@ -31,7 +31,7 @@ namespace Frostbyte.Characters
             }
             currentTargetAlignment = TargetAlignment.None;
             This.Game.LoadingLevel.AddAnimation(new Animation("target.anim"));
-            target = new Sprite("target", new Actor(new Animation("target.anim")));//new Target("target", Color.Red);
+            target = new Sprite("target", new Actor(new Animation("target.anim")));
             target.Visible = false;
             sortType = new DistanceSort(this);
 
