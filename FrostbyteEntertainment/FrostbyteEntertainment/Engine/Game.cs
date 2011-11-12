@@ -128,6 +128,7 @@ namespace Frostbyte
         int mCurrentLevel;/**< Current Level index. */
         AudioManager mAudioManager = new AudioManager();
         List<Level> mLevels = new List<Level>();
+        internal Random rand = new Random();
 
         /// <summary>
         /// Used to detect keypresses (down-up)
