@@ -62,12 +62,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else if (isAttackingAllowed)
+            if (isMovingAllowed)
             {
                 float range = 250.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -79,7 +74,7 @@ namespace Frostbyte.Enemies
                         isAttacking = true;
                         isAttackingAllowed = false;
                         isMovingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 20, 18, 100, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator();
+                        mAttacks.Add(Attacks.Melee(target, this, 20, 18, 100, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator());
                         This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
                     }
                 }

@@ -34,23 +34,11 @@ namespace Frostbyte.Enemies
             : base(name, initialPos, Animations)
         {
             ElementType = Element.Fire;
-
-            //Create Particle Emmiter
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
-            particleEmitter = new ParticleEmitter(1000, particleEffect, fire);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
-            particleEmitter.blendState = BlendState.Additive;
         }
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else if (isAttackingAllowed)
+            if (isMovingAllowed)
             {
                 float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -63,10 +51,16 @@ namespace Frostbyte.Enemies
 
                     int attackRange = 17;
 
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    //Create Particle Emmiter
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+                    ParticleEmitter particleEmitterFire = new ParticleEmitter(1000, particleEffect, fire);
+                    particleEmitterFire.effectTechnique = "NoSpecialEffect";
+                    particleEmitterFire.blendState = BlendState.Additive;
+                    (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
-                    mAttack = Attacks.T1Projectile(target,
+                    mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               20,
                                               18,
@@ -75,7 +69,7 @@ namespace Frostbyte.Enemies
                                               attackRange,
                                               3f,
                                               true,
-                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
                                                   Random rand = new Random();
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
@@ -83,13 +77,14 @@ namespace Frostbyte.Enemies
                                                   {
                                                           float velocitySpeed = rand.Next(30, 55);
                                                           float accelSpeed = rand.Next(-30, -10);
-                                                          attacker.particleEmitter.createParticles(-direction * velocitySpeed * 2,
+                                                          particleEmitter.createParticles(-direction * velocitySpeed * 2,
                                                                               direction * accelSpeed * 15,
-                                                                              attacker.particleEmitter.GroundPos,
+                                                                              particleEmitter.GroundPos,
                                                                               rand.Next(20, 50),
                                                                               rand.Next(500, 1000));
                                                   }
-                                              }).GetEnumerator();
+                                              },
+                                              particleEmitterFire).GetEnumerator());
                 }
             }
         }

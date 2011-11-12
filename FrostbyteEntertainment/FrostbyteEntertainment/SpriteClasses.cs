@@ -16,7 +16,7 @@ namespace Frostbyte
         public bool isMovingAllowed = true;
         public int startAttackDistance = 0;
         protected bool isAttacking = false;
-        protected IEnumerator<bool> mAttack;
+        protected List<IEnumerator<bool>> mAttacks = new List<IEnumerator<bool>>();
         #endregion Attacking Variables
 
 
@@ -104,7 +104,6 @@ namespace Frostbyte
         #endregion Targeting
 
         #region Collision
-        internal float groundCollisionRadius = 18f;
         protected Vector2 previousFootPos = Vector2.Zero;
 
         /// <summary>
@@ -555,6 +554,16 @@ namespace Frostbyte
             {
                 StatusEffects.Remove(e);
             }
+
+            List<IEnumerator<bool>> removeTheseAttacks = new List<IEnumerator<bool>>();
+            foreach (IEnumerator<bool> attack in mAttacks)
+            {
+                attack.MoveNext();
+                if(attack.Current)
+                    removeTheseAttacks.Add(attack);
+            }
+            foreach (IEnumerator<bool> attack in removeTheseAttacks)
+                mAttacks.Remove(attack);
 
         }
         #endregion Update

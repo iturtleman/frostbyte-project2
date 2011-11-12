@@ -70,7 +70,7 @@ namespace Frostbyte
         /// </summary>
         internal SpriteState State = SpriteState.Idle;
 
-        internal ParticleEmitter particleEmitter = null;
+        internal List<ParticleEmitter> particleEmitters = new List<ParticleEmitter>();
 
         #endregion Properties
 
@@ -259,8 +259,9 @@ namespace Frostbyte
                         0
                     );
 
-                if (particleEmitter != null)
-                    particleEmitter.Draw(This.gameTime);
+                foreach (ParticleEmitter pe in particleEmitters)
+                    pe.Draw(This.gameTime);
+
             }
         }
         #endregion Draw

@@ -44,14 +44,6 @@ namespace Frostbyte.Enemies
             Personality = new DartPersonality(this);
             ElementType = Element.Normal;
 
-
-            //Create Particle Emmiter
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
-            particleEmitter = new ParticleEmitter(1000, particleEffect, boulder);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
-            particleEmitter.blendState = BlendState.AlphaBlend;
-
             This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Move");
             if (MovementAudioName == null)
@@ -73,12 +65,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else
+            if (isMovingAllowed)
             {
                 float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -91,11 +78,18 @@ namespace Frostbyte.Enemies
 
                     int attackRange = 11;
 
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    //Create Particle Emmiter
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+                    ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, boulder);
+                    particleEmitterEarth.effectTechnique = "NoSpecialEffect";
+                    particleEmitterEarth.blendState = BlendState.AlphaBlend;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleEmitterEarth);
 
 
-                    mAttack = Attacks.T1Projectile(target,
+                    mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,
                                               30,
@@ -104,21 +98,21 @@ namespace Frostbyte.Enemies
                                               attackRange,
                                               6f,
                                               false,
-                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
                                                   Random randPosition = new Random();
-                                                  attacker.particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, attacker.particleEmitter.GroundPos, 10, 10);
+                                                  particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
                                                   for (int i = -5; i < 6; i++)
                                                   {
-                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                      particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                tangent * -i * 40,
-                                                                                               attacker.particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                               particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
                                                                                                1.5f,
                                                                                                300);
                                                   }
-                                              }
-                                              ).GetEnumerator();
+                                              },
+                                              particleEmitterEarth).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
                 }
             }

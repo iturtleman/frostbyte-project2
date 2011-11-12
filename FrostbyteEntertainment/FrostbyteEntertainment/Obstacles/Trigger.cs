@@ -182,15 +182,16 @@ namespace Frostbyte
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-            particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
-            particleEmitter.blendState = BlendState.Additive;
+            ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
+            particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
+            particleEmitterTrigger.blendState = BlendState.Additive;
+            particleEmitters.Add(particleEmitterTrigger);
             #endregion
 
-            mAttack = Attacks.T1Projectile(null, this, 0, 0,
+            mAttacks.Add(Attacks.T1Projectile(null, this, 0, 0,
                 TimeSpan.MaxValue, new TimeSpan(0, 0, 0, 1, 250),
                 3, 3f, false,
-                delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
                     Random rand = new Random();
                     Vector2 tangent = new Vector2(-direction.Y, direction.X);
@@ -198,20 +199,20 @@ namespace Frostbyte
                     {
                         float velocitySpeed = rand.Next(50, 85);
                         float accelSpeed = rand.Next(-70, -40);
-                        attacker.particleEmitter.createParticles(-direction * velocitySpeed + tangent * rand.Next(-100, 100),
+                        particleEmitter.createParticles(-direction * velocitySpeed + tangent * rand.Next(-100, 100),
                                         Vector2.Zero,
-                                        attacker.particleEmitter.GroundPos,
+                                        particleEmitter.GroundPos,
                                         10,
                                         200);
                     }
-                }).GetEnumerator();
+                },
+                particleEmitterTrigger).GetEnumerator());
         }
 
         private List<Sprite> playersInRange;
 
         private new void TriggerUpdate()
         {
-            mAttack.MoveNext();
             playersInRange = GetTargetsInRange(This.Game.CurrentLevel.GetSpritesByType(typeof(Player)), GetAnimation().Height);
         }
 

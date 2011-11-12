@@ -66,12 +66,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else
+            if (isMovingAllowed)
             {
                 float range = 150.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -82,7 +77,7 @@ namespace Frostbyte.Enemies
                     {
                         isAttacking = true;
                         isAttackingAllowed = false;
-                        mAttack = Attacks.Melee(target, this, 5, 18, 20, new TimeSpan(0,0,0,0,250)).GetEnumerator();
+                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 20, new TimeSpan(0,0,0,0,250)).GetEnumerator());
                     }
                 }
             }     
