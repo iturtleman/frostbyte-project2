@@ -72,81 +72,84 @@ namespace Frostbyte
                 //for each list we care about checking we add them
                 foreach (var pair in Lists)
                 {
-                    var bucket1 = Buckets[pair.Key];
-                    var bucket2 = Buckets[pair.Value];
-                    foreach (var dict1 in bucket1)
+                    if (Buckets.Count > pair.Key && Buckets.Count > pair.Value)
                     {
-                        var key = dict1.Key;
-                        List<WorldObject> list1 = dict1.Value;
-                        List<WorldObject> list2;
-                        if (bucket2.TryGetValue(key, out list2))
+                        var bucket1 = Buckets[pair.Key];
+                        var bucket2 = Buckets[pair.Value];
+                        foreach (var dict1 in bucket1)
                         {
-                            foreach (var item in list1)
+                            var key = dict1.Key;
+                            List<WorldObject> list1 = dict1.Value;
+                            List<WorldObject> list2;
+                            if (bucket2.TryGetValue(key, out list2))
                             {
-                                foreach (var item2 in list2)
+                                foreach (var item in list1)
                                 {
-                                    List<Tuple<CollisionObject, CollisionObject>> detectedCollisions = DetectCollision(item, item2);
-                                    if (detectedCollisions.Count != 0)
+                                    foreach (var item2 in list2)
                                     {
-                                        List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionFront;
-                                        List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionK;
-                                        if (!CollisionData.TryGetValue(item, out collisionFront))
+                                        List<Tuple<CollisionObject, CollisionObject>> detectedCollisions = DetectCollision(item, item2);
+                                        if (detectedCollisions.Count != 0)
                                         {
-                                            CollisionData[item] = collisionFront = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
-                                        }
-                                        if (!CollisionData.TryGetValue(item2, out collisionK))
-                                        {
-                                            CollisionData[item2] = collisionK = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
-                                        }
+                                            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionFront;
+                                            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionK;
+                                            if (!CollisionData.TryGetValue(item, out collisionFront))
+                                            {
+                                                CollisionData[item] = collisionFront = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
+                                            }
+                                            if (!CollisionData.TryGetValue(item2, out collisionK))
+                                            {
+                                                CollisionData[item2] = collisionK = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
+                                            }
 
-                                        foreach (Tuple<CollisionObject, CollisionObject> tuple in detectedCollisions)
-                                        {
-                                            CollisionData[item].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item1, item2, tuple.Item2));
-                                            CollisionData[item2].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item2, item, tuple.Item1));
+                                            foreach (Tuple<CollisionObject, CollisionObject> tuple in detectedCollisions)
+                                            {
+                                                CollisionData[item].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item1, item2, tuple.Item2));
+                                                CollisionData[item2].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item2, item, tuple.Item1));
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+
+                        //KeyValuePair<Vector2, List<WorldObject>> bucketElem;
+                        //var bucket = Buckets[pair.Key];
+                        //while (bucket.Count > 0)
+                        //{
+                        //    bucketElem = bucket.First();
+                        //    bucket.Remove(bucketElem.Key);
+                        //    List<WorldObject> list = bucketElem.Value;
+
+                        //    while (list.Count > 1)
+                        //    {
+                        //        WorldObject front = list.First();
+                        //        list.RemoveAt(0);
+                        //        for (int k = 0; k < list.Count; k++)
+                        //        {
+                        //            List<Tuple<CollisionObject, CollisionObject>> detectedCollisions = DetectCollision(front, list[k]);
+                        //            if (detectedCollisions.Count != 0)
+                        //            {
+                        //                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionFront;
+                        //                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionK;
+                        //                if (!CollisionData.TryGetValue(front, out collisionFront))
+                        //                {
+                        //                    CollisionData[front] = collisionFront = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
+                        //                }
+                        //                if (!CollisionData.TryGetValue(list[k], out collisionK))
+                        //                {
+                        //                    CollisionData[list[k]] = collisionK = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
+                        //                }
+
+                        //                foreach (Tuple<CollisionObject, CollisionObject> tuple in detectedCollisions)
+                        //                {
+                        //                    CollisionData[front].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item1, list[k], tuple.Item2));
+                        //                    CollisionData[list[k]].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item2, front, tuple.Item1));
+                        //                }
+                        //            }
+                        //        }
+                        //    }
+                        //}
                     }
-
-                    //KeyValuePair<Vector2, List<WorldObject>> bucketElem;
-                    //var bucket = Buckets[pair.Key];
-                    //while (bucket.Count > 0)
-                    //{
-                    //    bucketElem = bucket.First();
-                    //    bucket.Remove(bucketElem.Key);
-                    //    List<WorldObject> list = bucketElem.Value;
-
-                    //    while (list.Count > 1)
-                    //    {
-                    //        WorldObject front = list.First();
-                    //        list.RemoveAt(0);
-                    //        for (int k = 0; k < list.Count; k++)
-                    //        {
-                    //            List<Tuple<CollisionObject, CollisionObject>> detectedCollisions = DetectCollision(front, list[k]);
-                    //            if (detectedCollisions.Count != 0)
-                    //            {
-                    //                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionFront;
-                    //                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collisionK;
-                    //                if (!CollisionData.TryGetValue(front, out collisionFront))
-                    //                {
-                    //                    CollisionData[front] = collisionFront = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
-                    //                }
-                    //                if (!CollisionData.TryGetValue(list[k], out collisionK))
-                    //                {
-                    //                    CollisionData[list[k]] = collisionK = new List<Tuple<CollisionObject, WorldObject, CollisionObject>>();
-                    //                }
-
-                    //                foreach (Tuple<CollisionObject, CollisionObject> tuple in detectedCollisions)
-                    //                {
-                    //                    CollisionData[front].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item1, list[k], tuple.Item2));
-                    //                    CollisionData[list[k]].Add(new Tuple<CollisionObject, WorldObject, CollisionObject>(tuple.Item2, front, tuple.Item1));
-                    //                }
-                    //            }
-                    //        }
-                    //    }
-                    //}
                 }
             }
         }
