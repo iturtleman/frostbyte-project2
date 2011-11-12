@@ -347,6 +347,41 @@ namespace Frostbyte
         }
     }
 
+
+    internal class ChargePersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal ChargePersonality(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            while (true)
+            {
+                TimeSpan snapshot = This.gameTime.TotalGameTime;
+                while (!master.charge(targets, 500, 1.8f))
+                {
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
+    }
+
+
     internal static class EnemyAI
     {
         //These are only to update position of enemy

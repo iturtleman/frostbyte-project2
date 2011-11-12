@@ -39,7 +39,7 @@ namespace Frostbyte.Enemies
             : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
-            Personality = new SentinelPersonality(this);
+            Personality = new StrictSentinelPersonality(this);
             ElementType = Element.Normal;
             GroundPos = initialPos;
             startAttackDistance = 70; //in pixels
