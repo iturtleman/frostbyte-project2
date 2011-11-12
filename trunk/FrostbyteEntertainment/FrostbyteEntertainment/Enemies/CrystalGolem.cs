@@ -39,7 +39,8 @@ namespace Frostbyte.Enemies
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
             particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .3f;
             particleEmitter.blendState = BlendState.Additive;
         }
 
@@ -61,7 +62,7 @@ namespace Frostbyte.Enemies
 
                     //particle emitter is created in constructor
 
-                    int attackRange = 3;
+                    int attackRange = 19;
 
                     (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -69,7 +70,7 @@ namespace Frostbyte.Enemies
                     mAttack = Attacks.T1Projectile(target,
                                               this,
                                               20,
-                                              18,
+                                              14,
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 1, 250),
                                               attackRange,
@@ -77,17 +78,17 @@ namespace Frostbyte.Enemies
                                               true,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
                                               {
-                                                  Random rand = new Random();
-                                                  Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                  for (int i = -5; i < 6; i++)
+                                                  double directionAngle = This.Game.rand.NextDouble() * Math.PI * 2;
+                                                  Vector2 directionNormal = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
+                                                  Vector2 tangent = new Vector2(-directionNormal.Y, directionNormal.X);
+                                                  int positionOffset = This.Game.rand.Next(1, 30);
+                                                  for (int i = -4; i < 5; i++)
                                                   {
-                                                      float velocitySpeed = rand.Next(50, 85);
-                                                      float accelSpeed = rand.Next(-70, -40);
-                                                      attacker.particleEmitter.createParticles(-direction * velocitySpeed + tangent * rand.Next(-100,100),
-                                                                      -direction * accelSpeed,
-                                                                      attacker.particleEmitter.GroundPos,
-                                                                      40,
-                                                                      200);
+                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed*30,
+                                                                                                  Vector2.Zero,
+                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - directionNormal * (Math.Abs(i) * 7) + directionNormal * positionOffset,
+                                                                                                  25,
+                                                                                                  1000);
                                                   }
                                               }).GetEnumerator();
                 }
