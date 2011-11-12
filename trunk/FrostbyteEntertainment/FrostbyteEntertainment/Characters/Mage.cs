@@ -11,13 +11,6 @@ namespace Frostbyte.Characters
 {
     class Mage : Player
     {
-        enum TargetAlignment
-        {
-            Ally,
-            Enemy,
-            None
-        }
-
         #region Constructors
         public Mage(string name, Actor actor)
             : this(name, actor, PlayerIndex.One)
@@ -69,8 +62,6 @@ namespace Frostbyte.Characters
         #endregion
 
         #region Variables
-        private Sprite currentTarget = null;
-        private TargetAlignment currentTargetAlignment;
         internal IController controller;
         private Sprite target;
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);

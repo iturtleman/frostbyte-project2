@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte
 {
@@ -21,9 +22,9 @@ namespace Frostbyte
         internal Sprite Target;
     }
 
-    internal class TriggerMultipleEventArgs : TriggerEventArgs
+    internal class TriggerMultipleTargetEventArgs : TriggerEventArgs
     {
-        internal TriggerMultipleEventArgs(List<Sprite> targets)
+        internal TriggerMultipleTargetEventArgs(List<Sprite> targets)
         {
             Targets = targets;
         }
@@ -87,7 +88,7 @@ namespace Frostbyte
         /// <param name="name">Sprite name of Trigger</param>
         /// <param name="initialPos">Position of Trigger</param>
         /// <param name="orientation">Trigger's orientation/direction</param>
-        internal PartyCrossTrigger(string name, Vector2 initialPosition, Orientations orientation=Orientations.Up)
+        public PartyCrossTrigger(string name, Vector2 initialPosition, Orientations orientation=Orientations.Up)
             : this(name, Tile.TileSize, Tile.TileSize, (This.Game.CurrentLevel as FrostbyteLevel).allies)
         {
             Orientation = orientation;
@@ -149,11 +150,11 @@ namespace Frostbyte
             }
         }
 
-        private new TriggerMultipleEventArgs TriggerCondition()
+        private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
             if (triggered.Values.All(on => on))
                 {
-                    return new TriggerMultipleEventArgs(triggered.Keys.ToList());
+                    return new TriggerMultipleTargetEventArgs(triggered.Keys.ToList());
                 }
                 return null;
         }
@@ -167,5 +168,69 @@ namespace Frostbyte
             this.Enabled = false;
         }
         #endregion
+    }
+
+    internal class RestorePlayerHealthTrigger : Trigger
+    {
+        internal RestorePlayerHealthTrigger(string name, int width, int height)
+            : base(name, width, height)
+        {
+            base.TriggerUpdate += TriggerUpdate;
+            base.TriggerCondition += TriggerCondition;
+            base.TriggerEffect += TriggerEffect;
+
+            #region Particles
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
+            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.blendState = BlendState.Additive;
+            #endregion
+
+            mAttack = Attacks.T1Projectile(null, this, 0, 0,
+                TimeSpan.MaxValue, new TimeSpan(0, 0, 0, 1, 250),
+                3, 3f, false,
+                delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                {
+                    Random rand = new Random();
+                    Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                    for (int i = -5; i < 6; i++)
+                    {
+                        float velocitySpeed = rand.Next(50, 85);
+                        float accelSpeed = rand.Next(-70, -40);
+                        attacker.particleEmitter.createParticles(-direction * velocitySpeed + tangent * rand.Next(-100, 100),
+                                        Vector2.Zero,
+                                        attacker.particleEmitter.GroundPos,
+                                        10,
+                                        200);
+                    }
+                }).GetEnumerator();
+        }
+
+        private List<Sprite> playersInRange;
+
+        private new void TriggerUpdate()
+        {
+            mAttack.MoveNext();
+            playersInRange = GetTargetsInRange(This.Game.CurrentLevel.GetSpritesByType(typeof(Player)), GetAnimation().Height);
+        }
+
+        private new TriggerMultipleTargetEventArgs TriggerCondition()
+        {
+            if (playersInRange.Count > 0)
+            {
+                return new TriggerMultipleTargetEventArgs(playersInRange);
+            }
+            return null;
+        }
+
+        private new void TriggerEffect(object ths, TriggerEventArgs args)
+        {
+            //This.Game.AudioManager.PlaySoundEffect("regen");
+            foreach (Player p in playersInRange)
+            {
+                p.Regen();
+            }
+        }
     }
 }

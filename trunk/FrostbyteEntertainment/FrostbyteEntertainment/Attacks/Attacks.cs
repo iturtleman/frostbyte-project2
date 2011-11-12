@@ -219,7 +219,9 @@ namespace Frostbyte
                 }
 
                 if (damageDealt)
+                {
                     break;
+                }
                 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)

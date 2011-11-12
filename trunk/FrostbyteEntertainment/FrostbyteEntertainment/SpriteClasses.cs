@@ -520,12 +520,21 @@ namespace Frostbyte
         internal Vector2 SpawnPoint = Vector2.Zero;
 
         /// <summary>
+        /// Regenerates status (eg. Health, Mana)
+        /// Possibly removing status effects as well.
+        /// </summary>
+        internal virtual void Regen()
+        {
+            Health = MaxHealth;
+        }
+
+        /// <summary>
         /// Respawns the player at their spawn point with their default attributes
         /// </summary>
         internal virtual void Respawn()
         {
             Pos = SpawnPoint;
-            Health = MaxHealth;
+            Regen();
             Rewind();
             StartAnim();
         }

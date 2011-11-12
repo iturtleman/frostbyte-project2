@@ -10,6 +10,12 @@ namespace Frostbyte
     internal abstract class Player : OurSprite
     {
         public event ManaChangedHandler ManaChanged = delegate { };
+        internal enum TargetAlignment
+        {
+            Ally,
+            Enemy,
+            None
+        }
 
         internal Player(string name, Actor actor)
             : base(name, actor)
@@ -22,6 +28,11 @@ namespace Frostbyte
 
             ItemBag = new List<Item>();
         }
+
+        #region Targeting
+        public Sprite currentTarget { get; protected set; }
+        public TargetAlignment currentTargetAlignment { get; protected set; }
+        #endregion
 
         #region Mana
         internal int MaxMana { get { return 100; } }
@@ -70,9 +81,9 @@ namespace Frostbyte
         }
         #endregion
 
-        internal override void Respawn()
+        internal override void Regen()
         {
-            base.Respawn();
+            base.Regen();
             Mana = MaxMana;
         }
 
