@@ -717,6 +717,10 @@
       <Link>Content\Sprites\worm-surface-down.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-underground.anim">
+      <Link>Content\Sprites\worm-underground.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-vomit.anim">
       <Link>Content\Sprites\worm-vomit.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

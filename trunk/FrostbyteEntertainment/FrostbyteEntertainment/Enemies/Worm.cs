@@ -13,6 +13,7 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<Animation> Animations = new List<Animation>(){
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
@@ -40,10 +41,12 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
+
         }
 
         protected override void updateAttack()
         {
+
         }
     }
 }
