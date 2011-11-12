@@ -204,6 +204,8 @@
     <Compile Include="Shared\Tile.cs" />
     <Compile Include="Shared\TileHelper.cs" />
     <Compile Include="Shared\TileList.cs" />
+    <Compile Include="StatusEffect\ElementalBuff.cs" />
+    <Compile Include="StatusEffect\StatusEffect.cs" />
     <Compile Include="Target.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileHelper.cs" />

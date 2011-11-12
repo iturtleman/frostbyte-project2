@@ -513,7 +513,7 @@ namespace Frostbyte
         #endregion Direction
 
         #region StatusEffects/Agumentation
-        internal Element StatusEffect = Element.Normal;
+        internal List<StatusEffect> StatusEffects = new List<StatusEffect>();
         #endregion StatusEffects/Agumentation
 
         #region Spawnpoint
@@ -539,5 +539,26 @@ namespace Frostbyte
             StartAnim();
         }
         #endregion Spawnpoint
+
+        #region Update
+        internal override void Update()
+        {
+            base.Update();
+            List<StatusEffect> toDelete = new List<StatusEffect>();
+            foreach (StatusEffect e in StatusEffects)
+            {
+                e.Update();
+                if (e.Expired)
+                    toDelete.Add(e);
+            }
+            foreach (StatusEffect e in toDelete)
+            {
+                StatusEffects.Remove(e);
+            }
+
+        }
+        #endregion Update
+
+        public Element mStatusEffect { get; set; }
     }
 }

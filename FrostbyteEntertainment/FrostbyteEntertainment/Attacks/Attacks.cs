@@ -63,7 +63,17 @@ namespace Frostbyte
         /// <param name="baseDamage">The attack's base damage</param>
         private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0)
         {
-            target.Health -= baseDamage + attacker.StatusEffect != Element.Normal ? baseDamage * 2 : 0;
+            int damage = baseDamage;
+            foreach (StatusEffect e in attacker.StatusEffects)
+            {
+                //add effect of elemental buffs
+                if (e is ElementalBuff)
+                {
+                    damage += 2 * baseDamage;
+                }
+                /// \todo fill this out better
+            }
+            target.Health -= damage;
         }
 
         /// <summary>
@@ -142,26 +152,18 @@ namespace Frostbyte
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <param name="_trailLength">The length of the trailing particles as a function of the projectile speed</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite _attacker, int _baseDamage, int _attackFrame, TimeSpan _attackEndTime, TimeSpan _minAttackTime, int _attackRange, float _projectileSpeed, bool _isHoming, CreateParticles _createParticles)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, TimeSpan minAttackTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, Element elem = Element.Normal)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
-            OurSprite attacker = _attacker;
             Vector2 initialDirection = attacker.Direction;
-            int baseDamage = _baseDamage;
-            int attackFrame = _attackFrame;
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             Vector2 direction = new Vector2();
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2,Vector2>(new Vector2(), new Vector2());
             Vector2 closestIntersection = new Vector2();
-            TimeSpan attackEndTime = _attackEndTime;
-            TimeSpan minAttackTime = _minAttackTime;
-            int attackRange = _attackRange;  //distance in pixels from target that is considered a hit
-            float projectileSpeed = _projectileSpeed;
-            bool isHoming = _isHoming;
-            CreateParticles createParticles = _createParticles;
+
             bool damageDealt = false;
             #endregion Variables
 
@@ -208,10 +210,17 @@ namespace Frostbyte
                     {
                         foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
                         {
-                            if (((detectedCollision.Item2 is Enemy) && (attacker is Characters.Mage)) || ((detectedCollision.Item2 is Characters.Mage) && (attacker is Enemy)))
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
                                 Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
                                 damageDealt = true;
+                                break;
+                            }
+                            else if ((detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
+                            {
+                                Player p = (detectedCollision.Item2 as Player);
+                                p.StatusEffects.Add(new ElementalBuff(elem));
+                                damageDealt=true;
                                 break;
                             }
                         }

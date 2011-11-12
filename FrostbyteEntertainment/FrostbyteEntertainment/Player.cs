@@ -89,13 +89,13 @@ namespace Frostbyte
 
         internal override void Update()
         {
+            base.Update();
             ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
             if (ElapsedManaRegenTime > ManaRegenRate)
             {
                 Mana += (int)(ManaRegenScale * MaxMana);
                 ElapsedManaRegenTime = new TimeSpan();
             }
-            base.Update();
         }
     }
 }
