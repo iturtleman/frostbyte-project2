@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Frostbyte
 {
-    internal static class LevelFunctions
+    public static class LevelFunctions
     {
         internal delegate Sprite EnemyFactory();
 
         internal static readonly Random rand = new Random();
 
-        internal static void DoNothing() { }
+        public static void DoNothing() { }
 
         /// <summary>
         /// A behavior that sends the player to the Stage Clear screen once the level is over.

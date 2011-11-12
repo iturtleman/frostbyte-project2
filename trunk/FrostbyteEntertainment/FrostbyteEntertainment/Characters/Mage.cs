@@ -159,7 +159,8 @@ namespace Frostbyte.Characters
                                                                                                    1.5f,
                                                                                                    300);
                                                       }
-                                                  }
+                                                  },
+                                                  Element.Earth
                                                   ).GetEnumerator();
 
 
@@ -201,13 +202,14 @@ namespace Frostbyte.Characters
                                                       {
                                                           float velocitySpeed = rand.Next(30, 55);
                                                           float accelSpeed = rand.Next(-30, -10);
-                                                          attacker.particleEmitter.createParticles(direction*velocitySpeed,
-                                                                          direction*accelSpeed,
+                                                          attacker.particleEmitter.createParticles(direction * velocitySpeed,
+                                                                          direction * accelSpeed,
                                                                           attacker.particleEmitter.GroundPos,
                                                                           rand.Next(5, 20),
                                                                           rand.Next(50, 300));
                                                       }
-                                                  }
+                                                  },
+                                                  Element.Fire
                                                   ).GetEnumerator();
                         Mana -= spellManaCost;
                         #endregion Fire Tier 1
@@ -247,7 +249,9 @@ namespace Frostbyte.Characters
                                                                                                       4,
                                                                                                       300);
                                                       }
-                                                  }).GetEnumerator();
+                                                  },
+                                                  Element.Lightning
+                                                  ).GetEnumerator();
                         Mana -= spellManaCost;
                         #endregion Lightning Tier 1
                         return;
@@ -338,34 +342,40 @@ namespace Frostbyte.Characters
                 #region Targeting
                 if (controller.TargetEnemies)
                 {
-                    if (currentTargetAlignment != TargetAlignment.Enemy)
+                    if (currentTargetAlignment == TargetAlignment.Ally)
                     {
-                        currentTarget = null;
+                        cancelTarget();
                     }
-
-                    currentTarget = findMinimum(GetTargetsInRange(
-                        (This.Game.CurrentLevel as FrostbyteLevel).enemies,
-                        This.Game.GraphicsDevice.Viewport.Width));
-
-                    if (currentTarget != null)
+                    else
                     {
-                        currentTargetAlignment = TargetAlignment.Enemy;
+
+                        currentTarget = findMinimum(GetTargetsInRange(
+                            (This.Game.CurrentLevel as FrostbyteLevel).enemies,
+                            This.Game.GraphicsDevice.Viewport.Width));
+
+                        if (currentTarget != null)
+                        {
+                            currentTargetAlignment = TargetAlignment.Enemy;
+                        }
                     }
                 }
                 else if (controller.TargetAllies)
                 {
-                    if (currentTargetAlignment != TargetAlignment.Ally)
+                    if (currentTargetAlignment == TargetAlignment.Enemy)
                     {
-                        currentTarget = null;
-                    }
+                        cancelTarget();
 
-                    currentTarget = findMinimum(GetTargetsInRange(
-                        (This.Game.CurrentLevel as FrostbyteLevel).allies.Concat(
-                        (This.Game.CurrentLevel as FrostbyteLevel).obstacles).ToList(),
-                        This.Game.GraphicsDevice.Viewport.Width));
-                    if (currentTarget != null)
+                    }
+                    else
                     {
-                        currentTargetAlignment = TargetAlignment.Ally;
+                        currentTarget = findMinimum(GetTargetsInRange(
+                            (This.Game.CurrentLevel as FrostbyteLevel).allies.Concat(
+                            (This.Game.CurrentLevel as FrostbyteLevel).obstacles).ToList(),
+                            This.Game.GraphicsDevice.Viewport.Width));
+                        if (currentTarget != null)
+                        {
+                            currentTargetAlignment = TargetAlignment.Ally;
+                        }
                     }
                 }
 
@@ -380,7 +390,7 @@ namespace Frostbyte.Characters
                     target.CenterOn(currentTarget);
                 }
 
-                if (!(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(currentTarget))
+                if (!This.Game.CurrentLevel.mWorldObjects.Contains(currentTarget))
                 {
                     cancelTarget();
                 }
