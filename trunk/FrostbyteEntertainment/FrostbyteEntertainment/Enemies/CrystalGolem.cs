@@ -34,24 +34,11 @@ namespace Frostbyte.Enemies
             : base(name, initialPos, Animations)
         {
             ElementType = Element.Lightning;
-
-            //Create Particle Emmiter
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-            particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitter.effectTechnique = "FadeAtXPercent";
-            particleEmitter.fadeStartPercent = .3f;
-            particleEmitter.blendState = BlendState.Additive;
         }
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else if (isAttackingAllowed)
+            if (isMovingAllowed)
             {
                 float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -60,14 +47,20 @@ namespace Frostbyte.Enemies
                 {
                     isAttacking = true;
 
-                    //particle emitter is created in constructor
-
                     int attackRange = 19;
 
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    //Create Particle Emmiter
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+                    ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, lightning);
+                    particleEmitterEarth.effectTechnique = "FadeAtXPercent";
+                    particleEmitterEarth.fadeStartPercent = .3f;
+                    particleEmitterEarth.blendState = BlendState.Additive;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleEmitterEarth);
 
-                    mAttack = Attacks.T1Projectile(target,
+                    mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               20,
                                               14,
@@ -76,7 +69,7 @@ namespace Frostbyte.Enemies
                                               attackRange,
                                               3f,
                                               true,
-                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
                                                   double directionAngle = This.Game.rand.NextDouble() * Math.PI * 2;
                                                   Vector2 directionNormal = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
@@ -84,13 +77,14 @@ namespace Frostbyte.Enemies
                                                   int positionOffset = This.Game.rand.Next(1, 30);
                                                   for (int i = -4; i < 5; i++)
                                                   {
-                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed*30,
+                                                      particleEmitter.createParticles(-direction * projectileSpeed*30,
                                                                                                   Vector2.Zero,
-                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - directionNormal * (Math.Abs(i) * 7) + directionNormal * positionOffset,
+                                                                                                  particleEmitter.GroundPos + tangent * i * 1.7f - directionNormal * (Math.Abs(i) * 7) + directionNormal * positionOffset,
                                                                                                   25,
                                                                                                   1000);
                                                   }
-                                              }).GetEnumerator();
+                                              },
+                                              particleEmitterEarth).GetEnumerator());
                 }
             }
         }

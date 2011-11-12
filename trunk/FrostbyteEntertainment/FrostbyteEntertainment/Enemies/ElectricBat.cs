@@ -50,14 +50,6 @@ namespace Frostbyte.Enemies
                 MovementAudioName = "Effects/Bat_Move";
                 This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
             }
-
-
-            //Create Particle Emmiter
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-            particleEmitter = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
-            particleEmitter.blendState = BlendState.Additive;
         }
 
         protected override void updateMovement()
@@ -71,12 +63,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttacking)
-            {
-                mAttack.MoveNext();
-                isAttacking = !mAttack.Current;
-            }
-            else
+            if (isMovingAllowed)
             {
                 float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
@@ -89,10 +76,17 @@ namespace Frostbyte.Enemies
 
                     int attackRange = 3;
 
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    //Create Particle Emmiter
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+                    ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
+                    particleEmitterLightning.effectTechnique = "NoSpecialEffect";
+                    particleEmitterLightning.blendState = BlendState.Additive;
+                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleEmitterLightning);
 
-                    mAttack = Attacks.T1Projectile(target,
+                    mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,
                                               10,
@@ -101,18 +95,19 @@ namespace Frostbyte.Enemies
                                               attackRange,
                                               6f,
                                               true,
-                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed)
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
                                                   for (int i = -5; i < 6; i++)
                                                   {
-                                                      attacker.particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                      particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                   tangent * -i * 40,
-                                                                                                  attacker.particleEmitter.GroundPos + tangent * i * 1.7f - direction*(Math.Abs(i) * 7),
+                                                                                                  particleEmitter.GroundPos + tangent * i * 1.7f - direction * (Math.Abs(i) * 7),
                                                                                                   4,
                                                                                                   300);
                                                   }
-                                              }).GetEnumerator();
+                                              },
+                                              particleEmitterLightning).GetEnumerator());
                 }
             }
         }

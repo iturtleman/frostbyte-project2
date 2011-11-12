@@ -10,7 +10,7 @@ namespace Frostbyte
 {
     internal static class Attacks
     {
-        internal delegate void CreateParticles(OurSprite attacker, Vector2 direction, float projectileSpeed);
+        internal delegate void CreateParticles(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter);
 
         /// <summary>
         /// Sets correctly oriented animation and returns number of frames in animation
@@ -152,7 +152,7 @@ namespace Frostbyte
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <param name="_trailLength">The length of the trailing particles as a function of the projectile speed</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, TimeSpan minAttackTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, Element elem = Element.Normal)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, TimeSpan minAttackTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Element elem = Element.Normal)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -163,11 +163,12 @@ namespace Frostbyte
             Vector2 direction = new Vector2();
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2,Vector2>(new Vector2(), new Vector2());
             Vector2 closestIntersection = new Vector2();
+            ParticleEmitter particleEmitter = _particleEmitter;
 
             bool damageDealt = false;
             #endregion Variables
 
-            attacker.particleEmitter.GroundPos = attacker.GroundPos;
+            particleEmitter.GroundPos = attacker.GroundPos;
             
             attacker.Rewind();
 
@@ -177,7 +178,7 @@ namespace Frostbyte
             while (attacker.Frame < FrameCount)
             {
                 if(target != null)
-                    attacker.Direction = target.GroundPos - attacker.particleEmitter.GroundPos;
+                    attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
 
@@ -198,14 +199,14 @@ namespace Frostbyte
             {
                 if (isHoming && target != null)
                 {
-                    direction = target.GroundPos - attacker.particleEmitter.GroundPos;
+                    direction = target.GroundPos - particleEmitter.GroundPos;
                     direction.Normalize();
                 }
 
                 if (Collision.CollisionData.Count > 0)
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
-                    Collision.CollisionData.TryGetValue(attacker.particleEmitter, out collidedWith);
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
                     if (collidedWith != null)
                     {
                         foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
@@ -237,18 +238,18 @@ namespace Frostbyte
                     attacker.isMovingAllowed = true;
 
                 //make sure magic cannot go through walls
-                Vector2 previousPosition = attacker.particleEmitter.GroundPos;
-                attacker.particleEmitter.GroundPos += direction * projectileSpeed;
-                attacker.detectBackgroundCollisions(attacker.particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
-                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, attacker.particleEmitter.GroundPos))
+                Vector2 previousPosition = particleEmitter.GroundPos;
+                particleEmitter.GroundPos += direction * projectileSpeed;
+                attacker.detectBackgroundCollisions(particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
+                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, particleEmitter.GroundPos))
                 {
                     break;
                 }
 
 
-                attacker.particleEmitter.Update();
+                particleEmitter.Update();
 
-                createParticles(attacker, direction, projectileSpeed);
+                createParticles(attacker, direction, projectileSpeed, particleEmitter);
 
                 yield return false;
             }
@@ -257,12 +258,16 @@ namespace Frostbyte
             attacker.isMovingAllowed = true;
 
             #region Finish attacking after all particles are dead
-            while (attacker.particleEmitter.ActiveParticleCount > 0)
+            while (particleEmitter.ActiveParticleCount > 0)
             {
-                attacker.particleEmitter.Update();
+                particleEmitter.Update();
                 yield return false;
             }
             #endregion Finish attacking after all particles are dead
+
+            particleEmitter.collisionObjects.Clear();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitter);
+            attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
