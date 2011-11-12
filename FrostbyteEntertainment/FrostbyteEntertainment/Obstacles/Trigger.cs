@@ -36,7 +36,7 @@ namespace Frostbyte
         internal Trigger(string name, int width, int height)
             : base(name, new Actor(new DummyAnimation(name, width, height)))
         {
-            GroundPos = CenterPos;
+            Center = new Vector2(width / 2, height / 4);
             UpdateBehavior += Update;
         }
 
@@ -181,7 +181,7 @@ namespace Frostbyte
 
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("regen");
             ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
             particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
             particleEmitterTrigger.blendState = BlendState.Additive;
@@ -189,21 +189,24 @@ namespace Frostbyte
             #endregion
 
             mAttacks.Add(Attacks.T1Projectile(null, this, 0, 0,
-                TimeSpan.MaxValue, new TimeSpan(0, 0, 0, 1, 250),
-                3, 3f, false,
+                TimeSpan.MaxValue, TimeSpan.MaxValue,
+                0, 0, false,
                 delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
                     Random rand = new Random();
-                    Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                    for (int i = -5; i < 6; i++)
+                    for (int i = 0; i < 5; i++)
                     {
-                        float velocitySpeed = rand.Next(50, 85);
-                        float accelSpeed = rand.Next(-70, -40);
-                        particleEmitter.createParticles(-direction * velocitySpeed + tangent * rand.Next(-100, 100),
-                                        Vector2.Zero,
-                                        particleEmitter.GroundPos,
-                                        10,
-                                        200);
+                        double radius = rand.Next(GetAnimation().Height/5, GetAnimation().Height);
+                        double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
+                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
+                        Vector2 velocity = attacker.Pos + attacker.Center + new Vector2(-origin.Y, origin.X);
+
+                        velocity.Normalize();
+                        particleEmitter.createParticles(direction,
+                                        velocity,
+                                        attacker.Pos + attacker.Center + origin,
+                                        5,
+                                        1000);
                     }
                 },
                 particleEmitterTrigger).GetEnumerator());
@@ -232,6 +235,37 @@ namespace Frostbyte
             {
                 p.Regen();
             }
+        }
+    }
+
+    internal class SetRespawnTrigger : Trigger
+    {
+        internal SetRespawnTrigger(string name, int width, int height, List<Sprite> party)
+            : base(name, width, height)
+        {
+            this.party = party;
+            base.TriggerCondition += TriggerCondition;
+            base.TriggerEffect += TriggerEffect;
+        }
+
+        private List<Sprite> party;
+
+        private new TriggerMultipleTargetEventArgs TriggerCondition()
+        {
+            if (this.GetTargetsInRange(party, GetAnimation().Height).Count > 0)
+            {
+                return new TriggerMultipleTargetEventArgs(party);
+            }
+            return null;
+        }
+
+        private new void TriggerEffect(object ths, TriggerEventArgs args)
+        {
+            foreach (Player p in party)
+            {
+                p.SpawnPoint = p.CenteredOn(this);
+            }
+            this.Enabled = false;
         }
     }
 }
