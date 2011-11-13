@@ -214,6 +214,7 @@ namespace Frostbyte
             This.Game.AudioManager.Clear();
             mWorldObjects.Clear();
             mTextures.Clear();
+            mDocs.Clear();
             mActors.Clear();
             mAnims.Clear();
             mEffects.Clear();
