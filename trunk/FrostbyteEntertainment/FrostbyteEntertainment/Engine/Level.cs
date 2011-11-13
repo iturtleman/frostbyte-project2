@@ -177,7 +177,7 @@ namespace Frostbyte
                 {
                     // Try to remove from mWorldObjects,
                     // if failed see if it's currently pending add
-                    if (mWorldObjects.Remove(item))
+                    if (!mWorldObjects.Remove(item))
                     {
                         ToAdd.Remove(item);
                     }
@@ -185,7 +185,7 @@ namespace Frostbyte
                 ToRemove.Clear();
                 foreach (var item in ToAdd)
                 {
-                    mWorldObjects.Add(item);   
+                    mWorldObjects.Add(item);
                 }
                 ToAdd.Clear();
                 Collision.Update();
