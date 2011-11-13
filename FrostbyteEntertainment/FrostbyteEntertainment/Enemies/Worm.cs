@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Enemies
 {
@@ -13,7 +14,11 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
@@ -24,6 +29,7 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("worm-spew-right.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-submerge.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-surface-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-vomit.anim"),
@@ -32,21 +38,78 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Worm(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 10000)
+            : base(name, new Actor(Animations), 1, 1000)
         {
             GroundPos = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Earth;
+            // Personality = new UndergroundAttackPersonality();
+            Personality = new DartPersonality(this);
         }
+
+        private bool changeState = false;
 
         protected override void updateMovement()
         {
-
+            if (changeState)
+            {
+                movementStartTime = TimeSpan.MaxValue;
+            }
+            Personality.Update();
         }
 
         protected override void updateAttack()
         {
+            if (isMovingAllowed)
+            {
+                float range = 450.0f;
+                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                Sprite target = GetClosestTarget(targets, range);
+                if (target != null)
+                {
+                    isAttacking = true;
 
+                    //particle emitter is created in constructor
+
+                    int attackRange = 11;
+
+                    //Create Particle Emmiter
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+                    ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, boulder);
+                    particleEmitterEarth.effectTechnique = "NoSpecialEffect";
+                    particleEmitterEarth.blendState = BlendState.AlphaBlend;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleEmitterEarth);
+
+
+                    mAttacks.Add(Attacks.T1Projectile(target,
+                                              this,
+                                              5,
+                                              41,
+                                              new TimeSpan(0, 0, 0, 1, 750),
+                                              new TimeSpan(0, 0, 0, 0, 750),
+                                              attackRange,
+                                              6f,
+                                              false,
+                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                              {
+                                                  Random randPosition = new Random();
+                                                  particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                                  Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                  for (int i = -5; i < 6; i++)
+                                                  {
+                                                      particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                               tangent * -i * 40,
+                                                                                               particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                               1.5f,
+                                                                                               300);
+                                                  }
+                                              },
+                                              particleEmitterEarth).GetEnumerator());
+                }
+            }
         }
     }
 }

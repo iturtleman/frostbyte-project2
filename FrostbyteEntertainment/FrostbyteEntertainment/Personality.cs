@@ -347,7 +347,6 @@ namespace Frostbyte
         }
     }
 
-
     internal class ChargePersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -381,6 +380,46 @@ namespace Frostbyte
         }
     }
 
+    internal class UndergroundAttack : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal UndergroundAttack(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            float[] distances = new float[3] { 1000f, 150f, 100f };
+            while (true)
+            {
+                while (!master.stealthCharge(targets, TimeSpan.MaxValue, distances[1], distances[0], 1f))
+                {
+                    yield return null;
+                }
+                while (!master.stealthCamp(targets, distances[2], distances[1]))
+                {
+                    yield return null;
+                }
+                while (!master.charge(targets, distances[2], 2))
+                {
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
+    }
 
     internal static class EnemyAI
     {
