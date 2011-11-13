@@ -146,9 +146,6 @@ namespace Frostbyte
         internal ParticleEmitter(int maxNumOfParticles, Effect effect, Texture2D texture1, Texture2D texture2 = null)
             : base("particleEmitter", new Actor(new DummyAnimation()))
         {
-            //adds partice to current level
-            This.Game.LoadingLevel.AddParticleEmitter(this);
-
             //sets max number of particles 
             this.maxNumOfParticles = maxNumOfParticles;
 
