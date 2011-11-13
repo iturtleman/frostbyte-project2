@@ -63,14 +63,20 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isMovingAllowed)
+            
+            if (isAttacking && This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2))
+                isAttacking = false;
+
+            if (!isAttacking)
             {
                 float range = 450.0f;
                 List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
                 Sprite target = GetClosestTarget(targets, range);
+                attackStartTime = This.gameTime.TotalGameTime;
                 if (target != null)
                 {
                     isAttacking = true;
+                    
 
                     //particle emitter is created in constructor
 
@@ -89,7 +95,7 @@ namespace Frostbyte.Enemies
                     mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,
-                                              0,
+                                              18,
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 0, 750),
                                               attackRange,
@@ -111,6 +117,7 @@ namespace Frostbyte.Enemies
                                               },
                                               particleEmitterEarth).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
+
                 }
             }
         }

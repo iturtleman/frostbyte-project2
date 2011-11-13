@@ -18,6 +18,7 @@ namespace Frostbyte
         //protected enum movementTypes { Charge, PulseCharge, Ram, StealthCharge, StealthCamp, StealthRetreat, Retreat, TeaseRetreat, Swap, Freeze };
         //protected movementTypes currentMovementType = 0;
         internal TimeSpan movementStartTime = TimeSpan.MaxValue;
+        internal TimeSpan attackStartTime = TimeSpan.Zero;
 
         //protected EnemyStatus Status = EnemyStatus.Wander;
         internal IPersonality Personality;
