@@ -63,16 +63,14 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if(isMovingAllowed)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 0, 0, 750) && isAttackAnimDone)
             {
                 float range = 450.0f;
-                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
-                    isAttacking = true;
-
-                    //particle emitter is created in constructor
+                    attackStartTime = This.gameTime.TotalGameTime;
 
                     int attackRange = 3;
 
@@ -91,7 +89,6 @@ namespace Frostbyte.Enemies
                                               5,
                                               10,
                                               new TimeSpan(0, 0, 0, 1, 750),
-                                              new TimeSpan(0, 0, 0, 1, 250),
                                               attackRange,
                                               6f,
                                               true,

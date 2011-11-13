@@ -39,7 +39,7 @@ namespace Frostbyte.Enemies
             : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
-            Personality = new StrictSentinelPersonality(this);
+            Personality = new SentinelPersonality(this);
             ElementType = Element.Normal;
             GroundPos = initialPos;
             startAttackDistance = 70; //in pixels
@@ -56,25 +56,31 @@ namespace Frostbyte.Enemies
             {
                 movementStartTime = TimeSpan.MaxValue;
             }
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
-            Personality.Update();
+
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            Sprite target = GetClosestTarget(targets, float.MaxValue);
+            if (target != null)
+            {
+                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) >= this.startAttackDistance * this.startAttackDistance)
+                {
+                    Personality.Update();
+                }
+            }
         }
 
         protected override void updateAttack()
         {
-            if (isMovingAllowed)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
             {
                 float range = 250.0f;
-                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
                     if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
                     {
-                        isAttacking = true;
-                        isAttackingAllowed = false;
-                        isMovingAllowed = false;
-                        mAttacks.Add(Attacks.Melee(target, this, 20, 18, 100, new TimeSpan(0, 0, 0, 1, 500)).GetEnumerator());
+                        mAttacks.Add(Attacks.Melee(target, this, 20, 18, 100).GetEnumerator());
+                        attackStartTime = This.gameTime.TotalGameTime;
                         This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
                     }
                 }

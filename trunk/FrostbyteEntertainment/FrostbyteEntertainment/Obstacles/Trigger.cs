@@ -189,7 +189,7 @@ namespace Frostbyte
             #endregion
             Random rand = new Random();
             mAttacks.Add(Attacks.T1Projectile(null, this, 0, 0,
-                TimeSpan.MaxValue, TimeSpan.MaxValue,
+                TimeSpan.MaxValue,
                 0, 0, false,
                 delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
@@ -229,7 +229,7 @@ namespace Frostbyte
 
         private new void TriggerUpdate()
         {
-            playersInRange = GetTargetsInRange(This.Game.CurrentLevel.GetSpritesByType(typeof(Player)), GetAnimation().Height);
+            playersInRange = GetTargetsInRange((This.Game.CurrentLevel as FrostbyteLevel).allies, GetAnimation().Height);
         }
 
         private new TriggerMultipleTargetEventArgs TriggerCondition()

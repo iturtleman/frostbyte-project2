@@ -59,7 +59,7 @@ namespace Frostbyte
             if(this.CollidesWithBackground)
                 previousFootPos = this.GroundPos;
 
-            if (isMovingAllowed)
+            if (isAttackAnimDone)
             {
                 PreviousPos = Pos;
                 updateMovement();
@@ -113,7 +113,7 @@ namespace Frostbyte
                 this.EndBehavior();
                 return;
             }
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             if (MovementAudioName != null)
             {
                 if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)

@@ -91,15 +91,13 @@ namespace Frostbyte.Characters
         /// </summary>
         private void attack()
         {
-            if (isMovingAllowed)
+            if (isAttackAnimDone)
             {
                 if (Mana >= spellManaCost)
                 {
                     if (controller.Earth == ReleasableButtonState.Clicked)
                     {
                         #region Earth Tier 1
-
-                        isAttacking = true;
 
                         int attackRange = 11;
 
@@ -118,7 +116,6 @@ namespace Frostbyte.Characters
                                                   20,
                                                   0,
                                                   new TimeSpan(0, 0, 0, 1, 150),
-                                                  new TimeSpan(0, 0, 0, 0, 100),
                                                   attackRange,
                                                   9f,
                                                   false,
@@ -147,8 +144,6 @@ namespace Frostbyte.Characters
                     {
                         #region Fire Tier 1
 
-                        isAttacking = true;
-
                         int attackRange = 11;
 
                         //Create Fire Tier 1 Particle Emmiter
@@ -167,7 +162,6 @@ namespace Frostbyte.Characters
                                                   30,
                                                   0,
                                                   new TimeSpan(0, 0, 0, 0, 750),
-                                                  new TimeSpan(0, 0, 0, 0, 100),
                                                   attackRange,
                                                   9f,
                                                   true,
@@ -197,8 +191,6 @@ namespace Frostbyte.Characters
                     {
                         #region Lightning Tier 1
 
-                        isAttacking = true;
-
                         int attackRange = 3;
 
                         //Create Lightning Tier 1 Particle Emmiter
@@ -216,7 +208,6 @@ namespace Frostbyte.Characters
                                                   20,
                                                   0,
                                                   new TimeSpan(0, 0, 0, 1, 250),
-                                                  new TimeSpan(0, 0, 0, 0, 150),
                                                   attackRange,
                                                   8f,
                                                   true,
@@ -251,11 +242,9 @@ namespace Frostbyte.Characters
                 {
                     #region Start Melee Attack
                     float range = 450.0f;
-                    List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Enemy));
+                    List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).enemies;
                     Sprite target = GetClosestTarget(targets, range);
-                    isAttacking = true;
-                    isMovingAllowed = false;
-                    mAttacks.Add(Attacks.Melee(target, this, 25, 0, 50, TimeSpan.Zero).GetEnumerator());
+                    mAttacks.Add(Attacks.Melee(target, this, 25, 0, 50).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;
@@ -380,7 +369,7 @@ namespace Frostbyte.Characters
                 #endregion Targeting
 
                 #region Movement
-                if (isMovingAllowed)
+                if (isAttackAnimDone)
                 {
                     PreviousPos = Pos;
 

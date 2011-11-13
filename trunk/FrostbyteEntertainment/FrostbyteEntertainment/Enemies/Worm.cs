@@ -60,20 +60,16 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isMovingAllowed)
+            if (isAttackAnimDone)
             {
                 float range = 450.0f;
-                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
-                    isAttacking = true;
-
-                    //particle emitter is created in constructor
-
                     int attackRange = 11;
 
-                    //Create Particle Emmiter
+                    //Create Particle Emitter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
                     ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, boulder);
@@ -89,7 +85,6 @@ namespace Frostbyte.Enemies
                                               5,
                                               41,
                                               new TimeSpan(0, 0, 0, 1, 750),
-                                              new TimeSpan(0, 0, 0, 0, 750),
                                               attackRange,
                                               6f,
                                               false,

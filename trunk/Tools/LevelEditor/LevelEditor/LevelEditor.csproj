@@ -101,9 +101,6 @@
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\RockGolem.cs">
       <Link>EnemyStuff\RockGolem.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\Sparky.cs">
-      <Link>EnemyStuff\Sparky.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\SpriteClasses.cs">
       <Link>EnemyStuff\SpriteClasses.cs</Link>
     </Compile>
