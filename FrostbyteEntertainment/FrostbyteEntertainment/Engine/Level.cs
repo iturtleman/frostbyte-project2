@@ -177,7 +177,7 @@ namespace Frostbyte
                 {
                     // Try to remove from mWorldObjects,
                     // if failed see if it's currently pending add
-                    if (mWorldObjects.RemoveAll(delegate(WorldObject o) { return o == item; }) == 0)
+                    if (mWorldObjects.Remove(item))
                     {
                         ToAdd.Remove(item);
                     }
@@ -185,7 +185,7 @@ namespace Frostbyte
                 ToRemove.Clear();
                 foreach (var item in ToAdd)
                 {
-                    mWorldObjects.Add(item);
+                    mWorldObjects.Add(item);   
                 }
                 ToAdd.Clear();
                 Collision.Update();
@@ -276,12 +276,6 @@ namespace Frostbyte
         internal Sprite GetSprite(string name)
         {
             return (mWorldObjects.Find(delegate(WorldObject s) { return s.Name == name; }) as Sprite);
-        }
-
-
-        internal void AddParticleEmitter(ParticleEmitter particleEmitter)
-        {
-            ToAdd.Add(particleEmitter);
         }
 
         internal ParticleEmitter GetParticleEmitter(string name)
