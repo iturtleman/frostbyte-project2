@@ -419,6 +419,8 @@ namespace Frostbyte
 
             closestObjectOut = closestObject;
             closestIntersectionOut = closestIntersection;
+            boundaryCircles.Clear();
+            boundaryLineSegments.Clear();
         }
         #endregion Collision
 
@@ -563,7 +565,10 @@ namespace Frostbyte
                     removeTheseAttacks.Add(attack);
             }
             foreach (IEnumerator<bool> attack in removeTheseAttacks)
+            {
+                attack.Dispose();
                 mAttacks.Remove(attack);
+            }
 
         }
         #endregion Update
