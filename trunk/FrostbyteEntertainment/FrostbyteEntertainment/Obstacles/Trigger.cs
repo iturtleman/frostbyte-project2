@@ -89,7 +89,7 @@ namespace Frostbyte
         /// <param name="initialPos">Position of Trigger</param>
         /// <param name="orientation">Trigger's orientation/direction</param>
         public PartyCrossTrigger(string name, Vector2 initialPosition, Orientations orientation=Orientations.Up)
-            : this(name, Tile.TileSize, Tile.TileSize, (This.Game.CurrentLevel as FrostbyteLevel).allies)
+            : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
         {
             Orientation = orientation;
             Pos = initialPosition;
@@ -187,29 +187,42 @@ namespace Frostbyte
             particleEmitterTrigger.blendState = BlendState.Additive;
             particleEmitters.Add(particleEmitterTrigger);
             #endregion
-
+            Random rand = new Random();
             mAttacks.Add(Attacks.T1Projectile(null, this, 0, 0,
                 TimeSpan.MaxValue, TimeSpan.MaxValue,
                 0, 0, false,
                 delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
-                    Random rand = new Random();
-                    for (int i = 0; i < 5; i++)
+                    int numLayers = 5;
+                    int size = attacker.GetAnimation().Height;
+                    for (int i = 0; i < numLayers; i++)
                     {
-                        double radius = rand.Next(GetAnimation().Height/5, GetAnimation().Height);
+                        double radius = (i + 1) * size / numLayers;
                         double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
                         Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
-                        Vector2 velocity = attacker.Pos + attacker.Center + new Vector2(-origin.Y, origin.X);
+                        Vector2 velocity = new Vector2(-origin.Y, origin.X);
 
                         velocity.Normalize();
-                        particleEmitter.createParticles(direction,
-                                        velocity,
+                        particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
+                                        (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
                                         attacker.Pos + attacker.Center + origin,
-                                        5,
+                                        size / numLayers - 1,
                                         1000);
                     }
                 },
                 particleEmitterTrigger).GetEnumerator());
+        }
+
+        /// <summary>
+        /// Constructor for the Level Editor
+        /// </summary>
+        /// <param name="name">Sprite name of Trigger</param>
+        /// <param name="initialPos">Position of Trigger</param>
+        /// <param name="orientation">Trigger's orientation/direction</param>
+        public RestorePlayerHealthTrigger(string name, Vector2 initialPosition)
+            : this(name, Tile.TileSize, Tile.TileSize)
+        {
+            Pos = initialPosition;
         }
 
         private List<Sprite> playersInRange;
@@ -246,6 +259,18 @@ namespace Frostbyte
             this.party = party;
             base.TriggerCondition += TriggerCondition;
             base.TriggerEffect += TriggerEffect;
+        }
+
+        /// <summary>
+        /// Constructor for the Level Editor
+        /// </summary>
+        /// <param name="name">Sprite name of Trigger</param>
+        /// <param name="initialPos">Position of Trigger</param>
+        /// <param name="orientation">Trigger's orientation/direction</param>
+        public SetRespawnTrigger(string name, Vector2 initialPosition)
+            : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
+        {
+            Pos = initialPosition;
         }
 
         private List<Sprite> party;

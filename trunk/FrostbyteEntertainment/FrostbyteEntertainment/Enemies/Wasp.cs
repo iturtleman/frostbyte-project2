@@ -14,7 +14,6 @@ namespace Frostbyte.Enemies
         #region Variables
 
         bool changeState = false;
-        TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<Animation> Animations = new List<Animation>(){
             This.Game.CurrentLevel.GetAnimation("wasp-idle-down.anim"),
@@ -59,7 +58,6 @@ namespace Frostbyte.Enemies
             {
                 movementStartTime = TimeSpan.MaxValue;
             }
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
             Personality.Update();
         }
 
@@ -92,7 +90,7 @@ namespace Frostbyte.Enemies
                     mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,
-                                              30,
+                                              0,
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               new TimeSpan(0, 0, 0, 0, 750),
                                               attackRange,
