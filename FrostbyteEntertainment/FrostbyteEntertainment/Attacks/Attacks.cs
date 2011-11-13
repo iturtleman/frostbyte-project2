@@ -80,12 +80,11 @@ namespace Frostbyte
         /// Performs Melee Attack
         /// </summary>
         /// <returns>returns true when finished</returns>
-        public static IEnumerable<bool> Melee(Sprite _target, OurSprite _attacker, int baseDamage, int attackFrame, int attackRange, TimeSpan _minAttackTime)
+        public static IEnumerable<bool> Melee(Sprite _target, OurSprite _attacker, int baseDamage, int attackFrame, int attackRange)
         {
             OurSprite target = (OurSprite)_target;
             OurSprite attacker = _attacker;
             bool hasAttacked = false;
-            TimeSpan minAttackTime = _minAttackTime;
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             attacker.State = SpriteState.Attacking;
@@ -93,7 +92,7 @@ namespace Frostbyte
                 
             attacker.Rewind();
 
-            attacker.isMovingAllowed = false;
+            attacker.isAttackAnimDone = false;
 
             bool isLoopOne = false;
             do
@@ -124,17 +123,10 @@ namespace Frostbyte
                 yield return false;
             } while (isLoopOne);
 
+            attacker.isAttackAnimDone = true;
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
-
-            //wait until minimum amount of time has passed
-            while ((This.gameTime.TotalGameTime - attackStartTime) < minAttackTime)
-            {
-                yield return false;
-            }
-
-            attacker.isMovingAllowed = true;
 
             yield return true;
         }
@@ -152,7 +144,7 @@ namespace Frostbyte
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <param name="_trailLength">The length of the trailing particles as a function of the projectile speed</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, TimeSpan minAttackTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Element elem = Element.Normal)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Element elem = Element.Normal)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -172,7 +164,7 @@ namespace Frostbyte
             
             attacker.Rewind();
 
-            attacker.isMovingAllowed = false;
+            attacker.isAttackAnimDone = false;
 
             #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
@@ -235,7 +227,7 @@ namespace Frostbyte
                 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
-                    attacker.isMovingAllowed = true;
+                    attacker.isAttackAnimDone = true;
 
                 //make sure magic cannot go through walls
                 Vector2 previousPosition = particleEmitter.GroundPos;
@@ -252,7 +244,7 @@ namespace Frostbyte
             }
             #endregion Emit Particles until particle hits target or wall or time to live runs out
 
-            attacker.isMovingAllowed = true;
+            attacker.isAttackAnimDone = true;
 
             #region Finish attacking after all particles are dead
             while (particleEmitter.ActiveParticleCount > 0)
@@ -267,11 +259,6 @@ namespace Frostbyte
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
-
-            while ((This.gameTime.TotalGameTime - attackStartTime) < minAttackTime)
-            {
-                yield return false;
-            }
 
             yield return true;
         }

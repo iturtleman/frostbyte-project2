@@ -12,10 +12,8 @@ namespace Frostbyte
     internal abstract partial class OurSprite : Sprite
     {
         #region Attacking Variables
-        public bool isAttackingAllowed = true;
-        public bool isMovingAllowed = true;
+        public bool isAttackAnimDone = true;
         public int startAttackDistance = 0;
-        protected bool isAttacking = false;
         protected List<IEnumerator<bool>> mAttacks = new List<IEnumerator<bool>>();
         #endregion Attacking Variables
 

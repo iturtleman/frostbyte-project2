@@ -42,7 +42,7 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new PulseChargePersonality(this);
             ElementType = Element.Normal;
-            Scale = .4f;
+            Scale = 1.0f;
 
             startAttackDistance = 20;
 
@@ -60,24 +60,31 @@ namespace Frostbyte.Enemies
             {
                 movementStartTime = TimeSpan.MaxValue;
             }
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
-            Personality.Update();
+
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            Sprite target = GetClosestTarget(targets, float.MaxValue);
+            if (target != null)
+            {
+                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) >= this.startAttackDistance * this.startAttackDistance)
+                {
+                    Personality.Update();
+                }
+            }
         }
 
         protected override void updateAttack()
         {
-            if (isMovingAllowed)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 0, 0, 750) && isAttackAnimDone)
             {
                 float range = 150.0f;
-                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
                     if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
                     {
-                        isAttacking = true;
-                        isAttackingAllowed = false;
-                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 20, new TimeSpan(0,0,0,0,250)).GetEnumerator());
+                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 20).GetEnumerator());
+                        attackStartTime = This.gameTime.TotalGameTime;
                     }
                 }
             }     

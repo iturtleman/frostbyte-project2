@@ -34,23 +34,23 @@ namespace Frostbyte.Enemies
             : base(name, initialPos, Animations)
         {
             ElementType = Element.Water;
+            Personality = new StrictSentinelPersonality(this);
         }
 
         protected override void updateAttack()
         {
-            if (isMovingAllowed)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
             {
                 float range = 450.0f;
-                List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)
                 {
-                    isAttacking = true;
+                    attackStartTime = This.gameTime.TotalGameTime;
 
                     int attackRange = 17;
 
-
-                    //Create Particle Emmiter
+                    //Create Particle Emitter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D water = This.Game.CurrentLevel.GetTexture("snowflake");
                     ParticleEmitter particleEmitterIce = new ParticleEmitter(1000, particleEffect, water);
@@ -64,7 +64,6 @@ namespace Frostbyte.Enemies
                                               20,
                                               18,
                                               new TimeSpan(0, 0, 0, 1, 750),
-                                              new TimeSpan(0, 0, 0, 1, 250),
                                               attackRange,
                                               3f,
                                               true,

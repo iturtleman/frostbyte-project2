@@ -130,7 +130,6 @@
     <Compile Include="Enemies\ManInCrystalBoss.cs" />
     <Compile Include="Enemies\Owl.cs" />
     <Compile Include="Enemies\RockGolem.cs" />
-    <Compile Include="Enemies\Sparky.cs" />
     <Compile Include="Enemies\Spider.cs" />
     <Compile Include="Enemies\Wasp.cs" />
     <Compile Include="Enemies\WaterBlobBoss.cs" />
@@ -192,7 +191,6 @@
     <Compile Include="Shared\ManInCrystalBoss.cs" />
     <Compile Include="Shared\Owl.cs" />
     <Compile Include="Shared\RockGolem.cs" />
-    <Compile Include="Shared\Sparky.cs" />
     <Compile Include="Shared\SpriteClasses.cs" />
     <Compile Include="Shared\Wasp.cs" />
     <Compile Include="Shared\WaterBlobBoss.cs" />

@@ -253,7 +253,7 @@ namespace Frostbyte
         {
             This.Game.AudioManager.StopAllLoopingSoundEffects();
 
-            List<Sprite> livingPlayers = GetSpritesByType(typeof(Player)).
+            List<Sprite> livingPlayers = (This.Game.CurrentLevel as FrostbyteLevel).allies.
                 Where(x => x.State != SpriteState.Dead).ToList();
             if (livingPlayers.Count == 0)
             {

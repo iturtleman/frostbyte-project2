@@ -51,7 +51,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             float[] transitionDistances = new float[1] { 50f };
             while (true)
             {
@@ -88,7 +88,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             float[] transitionDistances = new float[1] { 0f };
             while (true)
             {
@@ -123,7 +123,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             float[] distances = new float[3] { 1000f, 150f, 100f };
             while (true)
             {
@@ -164,7 +164,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             Vector2 guardPosition = master.GroundPos;
             while (true)
             {
@@ -187,10 +187,6 @@ namespace Frostbyte
                 {
                     master.State = SpriteState.Idle;
                 }
-
-
-
-                master.isAttackingAllowed = true;
 
                 yield return null;
             }
@@ -216,7 +212,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             Vector2 guardPosition = master.GroundPos;
             while (true)
             {
@@ -224,8 +220,6 @@ namespace Frostbyte
                 {
                     master.State = SpriteState.Idle;
                 }
-
-                master.isAttackingAllowed = true;
 
                 yield return null;
             }
@@ -251,7 +245,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             while (true)
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
@@ -277,43 +271,6 @@ namespace Frostbyte
         }
     }
 
-    internal class CowardlyPersonality : IPersonality
-    {
-        public EnemyStatus Status { get; set; }
-        private Enemy master;
-        private IEnumerator mStates;
-
-        internal CowardlyPersonality(Enemy master)
-        {
-            this.master = master;
-            mStates = States().GetEnumerator();
-        }
-
-        public void Update()
-        {
-            mStates.MoveNext();
-        }
-
-        public IEnumerable States()
-        {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
-            float[] distances = new float[3] { 500f, 150f, 100f };
-            while (true)
-            {
-                while (!master.charge(targets, distances[0], 5f) && master.isAttackingAllowed)
-                {
-                    yield return null;
-                }
-                while (!master.retreat(targets, new TimeSpan(0, 0, 0, 2), 250f, 15.0f))
-                {
-                    yield return null;
-                }
-                master.isAttackingAllowed = true;
-                yield return null;
-            }
-        }
-    }
-
     internal class PulseChargePersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -333,7 +290,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             while (true)
             {
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
@@ -366,15 +323,10 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             while (true)
             {
-                TimeSpan snapshot = This.gameTime.TotalGameTime;
-                while (!master.charge(targets, 500, 1.8f))
-                {
-                    yield return null;
-                }
-
+                master.charge(targets, 500, 2.94f);
                 yield return null;
             }
         }
@@ -399,7 +351,7 @@ namespace Frostbyte
 
         public IEnumerable States()
         {
-            List<Sprite> targets = This.Game.CurrentLevel.GetSpritesByType(typeof(Player));
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             float[] distances = new float[3] { 1000f, 150f, 100f };
             while (true)
             {
