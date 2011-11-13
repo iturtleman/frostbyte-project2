@@ -52,158 +52,233 @@ namespace Frostbyte
             #region setup
             if (Image == null)
             {
-                //Set up the way it should face
-                if (Orientation == Orientations.Up_Left)
+                FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+                if (Type != TileTypes.DEFAULT)
                 {
-                    Hflip = true;
-                    Vflip = true;
+                    //Set up the way it should face
+                    if (Orientation == Orientations.Up_Left)
+                    {
+                        Hflip = true;
+                        Vflip = true;
+                    }
+                    else if (Orientation == Orientations.Up)
+                    {
+                        Vflip = true;
+                    }
+                    else if (Orientation == Orientations.Right)
+                    {
+                        Hflip = true;
+                    }
+
+                    //The file that has the spritesheet for the image
+                    string file = "";
+
+                    //determine what the image should be
+                    switch (Theme != Element.DEFAULT ? Theme : l.Theme)
+                    {
+                        case Element.Earth:
+                            file = "Earth";
+                            break;
+                        case Element.Lightning:
+                            file = "Lightning";
+                            break;
+                        case Element.Water:
+                            file = "Water";
+                            break;
+                        case Element.Fire:
+                            file = "Fire";
+                            break;
+                        case Element.Normal:
+                            file = "Earth";
+                            break;
+                        case Element.DEFAULT:
+                            //this'd be bad so don't even draw the sucker
+                            return;
+                    }
+
+                    Image = l.GetTexture(file);
+
+                    List<Tile> frames = new List<Tile>();
+
+                    XDocument doc = l.GetTextureDoc(file + ".spsh");
+
+                    foreach (var frame in doc.Descendants("Frame"))
+                    {
+                        int h = int.Parse(frame.Attribute("Height").Value);
+                        int w = int.Parse(frame.Attribute("Width").Value);
+                        System.Windows.Point TL = System.Windows.Point.Parse(frame.Attribute("TLPos").Value);
+                        frames.Add(
+                            new Tile()
+                            {
+                                ImageStartPos = new Vector2((float)TL.X, (float)TL.Y),
+                                Height = h,
+                                Width = w
+                            }
+                        );
+                    }
+
+                    //determine the pos in the image
+                    Tile f;
+                    switch (Type)
+                    {
+                        //The items in the spritesheet will be ordered as follows:
+                        //Wall, Bottom, Corner, ConvexCorner,
+                        //Sidewall, TopArea, BottomCorner, BottomConvexCorner,
+                        //Floor
+                        case TileTypes.Wall:
+                            f = frames[0];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.Bottom:
+                            f = frames[1];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.Corner:
+                            f = frames[2];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.BottomCorner:
+                            f = frames[6];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.ConvexCorner:
+                            f = frames[3];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.BottomConvexCorner:
+                            f = frames[7];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.Floor:
+                            f = frames[8];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        //case TileTypes.Lava:
+                        //    file = "lava";
+                        //    break;
+                        //case TileTypes.Water:
+                        //    file = "water";
+                        //    break;
+                        case TileTypes.SideWall:
+                            f = frames[4];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        //case TileTypes.Room:
+                        //    //do some magic to show pic for the walls etc
+                        //    file = "room";
+                        //    break;
+                        //case TileTypes.Stone:
+                        //    file = "rock";
+                        //    break;
+                        //case TileTypes.Empty:
+                        //    file = "";
+                        //    break;
+                        case TileTypes.TopArea:
+                            f = frames[5];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        case TileTypes.DEFAULT:
+                            f = frames[5];
+                            ImageStartPos = f.ImageStartPos;
+                            Width = f.Width;
+                            Height = f.Height;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                else if (Orientation == Orientations.Up)
+                else
                 {
-                    Vflip = true;
-                }
-                else if (Orientation == Orientations.Right)
-                {
-                    Hflip = true;
-                }
+                    if (l.TopAreaTile != null)
+                    {
+                        Image = l.TopAreaTile.Image;
+                        ImageStartPos = l.TopAreaTile.ImageStartPos;
+                        Width = l.TopAreaTile.Width;
+                        Height = l.TopAreaTile.Height;
+                    }
+                    else
+                    {
+                        //The file that has the spritesheet for the image
+                        string file = "";
 
-                //The file that has the spritesheet for the image
-                string file = "";
-
-                //determine what the image should be
-                switch (Theme != Element.DEFAULT?Theme:(This.Game.CurrentLevel as FrostbyteLevel).Theme)
-                {
-                    case Element.Earth:
-                        file = "Earth";
-                        break;
-                    case Element.Lightning:
-                        file = "Lightning";
-                        break;
-                    case Element.Water:
-                        file = "Water";
-                        break;
-                    case Element.Fire:
-                        file = "Fire";
-                        break;
-                    case Element.Normal:
-                        file = "Earth";
-                        break;
-                    case Element.DEFAULT:
-                        //this'd be bad so don't even draw the sucker
-                        return;
-                }
-
-                Image = This.Game.Content.Load<Texture2D>(string.Format(@"Textures\{0}", file));
-
-                List<Tile> frames = new List<Tile>();
-
-                XDocument doc = XDocument.Load(string.Format(@".\Content\Textures\{0}", file + ".spsh"));
-
-                foreach (var frame in doc.Descendants("Frame"))
-                {
-                    int h = int.Parse(frame.Attribute("Height").Value);
-                    int w = int.Parse(frame.Attribute("Width").Value);
-                    System.Windows.Point TL = System.Windows.Point.Parse(frame.Attribute("TLPos").Value);
-
-
-                    frames.Add(
-                        new Tile()
+                        //determine what the image should be
+                        switch (l.Theme)
                         {
-                            ImageStartPos = new Vector2((float)TL.X, (float)TL.Y),
-                            Height = h,
-                            Width = w
+                            case Element.Earth:
+                                file = "Earth";
+                                break;
+                            case Element.Lightning:
+                                file = "Lightning";
+                                break;
+                            case Element.Water:
+                                file = "Water";
+                                break;
+                            case Element.Fire:
+                                file = "Fire";
+                                break;
+                            case Element.Normal:
+                                file = "Earth";
+                                break;
+                            case Element.DEFAULT:
+                                //this'd be bad so don't even draw the sucker
+                                return;
                         }
-                    );
-                }
 
-                //determine the pos in the image
-                Tile f;
-                switch (Type)
-                {
-                    //The items in the spritesheet will be ordered as follows:
-                    //Wall, Bottom, Corner, ConvexCorner,
-                    //Sidewall, TopArea, BottomCorner, BottomConvexCorner,
-                    //Floor
-                    case TileTypes.Wall:
-                        f = frames[0];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.Bottom:
-                        f = frames[1];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.Corner:
-                        f = frames[2];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.BottomCorner:
-                        f = frames[6];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.ConvexCorner:
-                        f = frames[3];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.BottomConvexCorner:
-                        f = frames[7];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.Floor:
-                        f = frames[8];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    //case TileTypes.Lava:
-                    //    file = "lava";
-                    //    break;
-                    //case TileTypes.Water:
-                    //    file = "water";
-                    //    break;
-                    case TileTypes.SideWall:
-                        f = frames[4];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    //case TileTypes.Room:
-                    //    //do some magic to show pic for the walls etc
-                    //    file = "room";
-                    //    break;
-                    //case TileTypes.Stone:
-                    //    file = "rock";
-                    //    break;
-                    //case TileTypes.Empty:
-                    //    file = "";
-                    //    break;
-                    case TileTypes.TopArea:
-                        f = frames[5];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    case TileTypes.DEFAULT:
-                        f = frames[5];
-                        ImageStartPos = f.ImageStartPos;
-                        Width = f.Width;
-                        Height = f.Height;
-                        break;
-                    default:
-                        break;
+                        l.TopAreaTile = new Tile() { Image = l.GetTexture(file) };
+
+                        List<Tile> frames = new List<Tile>();
+
+                        XDocument doc = l.GetTextureDoc(file + ".spsh");
+
+                        foreach (var frame in doc.Descendants("Frame"))
+                        {
+                            int h = int.Parse(frame.Attribute("Height").Value);
+                            int w = int.Parse(frame.Attribute("Width").Value);
+                            System.Windows.Point TL = System.Windows.Point.Parse(frame.Attribute("TLPos").Value);
+
+
+                            frames.Add(
+                                new Tile()
+                                {
+                                    ImageStartPos = new Vector2((float)TL.X, (float)TL.Y),
+                                    Height = h,
+                                    Width = w
+                                }
+                            );
+                        }
+
+                        //determine the pos in the image
+                        Tile f = frames[5];
+                        l.TopAreaTile.ImageStartPos = f.ImageStartPos;
+                        l.TopAreaTile.Width = f.Width;
+                        l.TopAreaTile.Height = f.Height;
+
+                        Image = l.TopAreaTile.Image;
+                        ImageStartPos = l.TopAreaTile.ImageStartPos;
+                        Width = l.TopAreaTile.Width;
+                        Height = l.TopAreaTile.Height;
+                    }
                 }
             }
+
             #endregion setup
 
             if (GridCell != null && Image != null)
@@ -214,8 +289,8 @@ namespace Frostbyte
                         new Rectangle((int)ImageStartPos.X, (int)ImageStartPos.Y, Width, Height),
                         Microsoft.Xna.Framework.Color.White,
                         0,
-                        new Vector2(0,0),
-                        Scale * ( Width + 1 ) / (float)Width,
+                        new Vector2(0, 0),
+                        Scale * (Width + 1) / (float)Width,
                         Hflip ?
                             Vflip ?
                                 SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically

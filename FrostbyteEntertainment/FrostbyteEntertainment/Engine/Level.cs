@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Xml.Linq;
+
 
 namespace Frostbyte
 {
@@ -120,6 +122,11 @@ namespace Frostbyte
         /// Textures that have been loaded by the level.
         /// </summary>
         protected Dictionary<string, Texture2D> mTextures = new Dictionary<string, Texture2D>();
+
+        /// <summary>
+        /// XDocuments that have been loaded by the level.
+        /// </summary>
+        protected Dictionary<string, XDocument> mDocs = new Dictionary<string, XDocument>();
 
         /// <summary>
         /// Effects that have been loaded by the level.
@@ -386,6 +393,24 @@ namespace Frostbyte
                 {
                     throw new TextureDoesNotExistException(name);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Returns the document if it exists loads from disk if it not. Can throw an exception
+        /// </summary>
+        /// <param name="name">Name of the document</param>
+        /// <returns>The requested document</returns>
+        internal XDocument GetTextureDoc(string filename)
+        {
+            XDocument output;
+            if (mDocs.TryGetValue(filename, out output))
+                return output;
+            else
+            {
+                XDocument doc = XDocument.Load(string.Format(@".\Content\Textures\{0}", filename));
+                mDocs[filename] = doc;
+                return doc;
             }
         }
 

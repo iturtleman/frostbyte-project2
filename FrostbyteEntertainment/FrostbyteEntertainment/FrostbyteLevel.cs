@@ -85,6 +85,11 @@ namespace Frostbyte
 
         internal TileList TileMap = new TileList();
 
+        /// <summary>
+        /// the default type of tile for the current level
+        /// </summary>
+        public Tile TopAreaTile = null;
+
         //private Polygon viewportPolygon = null;
         internal bool AutoZoom = true;
 
