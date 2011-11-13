@@ -59,7 +59,7 @@ namespace Frostbyte
         private string m_effectTechnique = "FadeAtXPercent";
         private float m_fadeStartPercent = .80f;
         private float m_changePicPercent = .80f;
-        
+
         //World/View/Projection Matrices
         private Matrix viewMatrix;
         private Matrix projectionMatrix;
@@ -93,7 +93,7 @@ namespace Frostbyte
                 else if (value == "ChangePicAndFadeAtPercent")
                     m_effectTechnique = value;
                 else if (value == "NoSpecialEffect")
-                    m_effectTechnique = value;    
+                    m_effectTechnique = value;
                 else
                     m_effectTechnique = "FadeAtXPercent";
             }
@@ -144,7 +144,7 @@ namespace Frostbyte
         #endregion internal Properties
 
         internal ParticleEmitter(int maxNumOfParticles, Effect effect, Texture2D texture1, Texture2D texture2 = null)
-            :base("particleEmitter", new Actor(new DummyAnimation()))
+            : base("particleEmitter", new Actor(new DummyAnimation()))
         {
             //adds partice to current level
             This.Game.LoadingLevel.AddParticleEmitter(this);
@@ -329,6 +329,21 @@ namespace Frostbyte
         internal override List<Vector2> GetHotSpots()
         {
             return new List<Vector2>();
+        }
+
+        internal void Remove()
+        {
+            collisionObjects.Clear();
+            maxNumOfParticles = 0;            
+            particleVertices = null;
+            particleIndices = null;
+            vertexBuffer.Dispose();
+            indexBuffer.Dispose();
+            expirationTime = null; 
+            numOfActiveParticles = 0;
+            m_effectTechnique = null;
+            m_fadeStartPercent = 0;
+            m_changePicPercent = 0;
         }
     }
 }

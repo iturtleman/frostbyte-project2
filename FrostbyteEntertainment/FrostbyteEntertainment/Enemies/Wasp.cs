@@ -86,7 +86,6 @@ namespace Frostbyte.Enemies
                     (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
                     particleEmitters.Add(particleEmitterEarth);
 
-
                     mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,

@@ -265,7 +265,7 @@ namespace Frostbyte
             }
             #endregion Finish attacking after all particles are dead
 
-            particleEmitter.collisionObjects.Clear();
+            particleEmitter.Remove();
             This.Game.CurrentLevel.RemoveSprite(particleEmitter);
             attacker.particleEmitters.Remove(particleEmitter);
 
