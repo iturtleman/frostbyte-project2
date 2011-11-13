@@ -241,7 +241,9 @@ namespace Frostbyte
                                 Vflip ?
                                      new Vector2(-GetAnimation().AnimationPeg.X,GetAnimation().AnimationPeg.Y)
                                     : new Vector2(-GetAnimation().AnimationPeg.X,-GetAnimation().AnimationPeg.Y)
-                                    ),
+                                    ) +
+                            Center-Center*Scale//this places scaling in the correct spot (i think)
+                        ,
                         new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frame.Width, frame.Height),
                         Color.White,
                         Angle,
