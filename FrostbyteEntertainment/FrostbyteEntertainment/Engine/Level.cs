@@ -177,7 +177,7 @@ namespace Frostbyte
                 {
                     // Try to remove from mWorldObjects,
                     // if failed see if it's currently pending add
-                    if (!mWorldObjects.Remove(item))
+                    if (mWorldObjects.RemoveAll(delegate(WorldObject o) { return o == item; }) == 0)
                     {
                         ToAdd.Remove(item);
                     }
