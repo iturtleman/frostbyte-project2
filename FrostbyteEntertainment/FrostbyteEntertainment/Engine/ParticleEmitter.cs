@@ -39,7 +39,7 @@ namespace Frostbyte
                 );
     }
 
-    internal class ParticleEmitter : OurSprite
+    internal class ParticleEmitter : Sprite
     {
         //Collision data
         internal List<CollisionObject> collisionObjects = new List<CollisionObject>();
@@ -78,7 +78,7 @@ namespace Frostbyte
         internal BlendState blendState = BlendState.AlphaBlend;
 
         /// <summary>
-        /// Types are "FadeAtXPercent", "ChangePicAndFadeAtPercent"
+        /// Types are "FadeAtXPercent", "ChangePicAndFadeAtPercent", "NoSpecialEffect"
         /// </summary>
         internal string effectTechnique
         {
