@@ -246,9 +246,6 @@ namespace Frostbyte
                     break;
                 }
 
-
-                particleEmitter.Update();
-
                 createParticles(attacker, direction, projectileSpeed, particleEmitter);
 
                 yield return false;
@@ -260,7 +257,6 @@ namespace Frostbyte
             #region Finish attacking after all particles are dead
             while (particleEmitter.ActiveParticleCount > 0)
             {
-                particleEmitter.Update();
                 yield return false;
             }
             #endregion Finish attacking after all particles are dead

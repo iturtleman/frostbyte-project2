@@ -258,10 +258,6 @@ namespace Frostbyte
                         ,
                         0
                     );
-
-                foreach (ParticleEmitter pe in particleEmitters)
-                    pe.Draw(This.gameTime);
-
             }
         }
         #endregion Draw
