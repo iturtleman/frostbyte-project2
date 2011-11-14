@@ -252,6 +252,46 @@ namespace Frostbyte
         }
     }
 
+    internal class ConcentricCircles : OurSprite
+    {
+        internal ConcentricCircles(string name, int width, int height)
+            : base(name, new Actor(new DummyAnimation(name, width, height)))
+        {
+            #region Particles
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("regen");
+            ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
+            particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
+            particleEmitterTrigger.blendState = BlendState.Additive;
+            particleEmitters.Add(particleEmitterTrigger);
+            #endregion
+            Random rand = new Random();
+            mAttacks.Add(Attacks.T1Projectile(null, this, 0, 0,
+                TimeSpan.MaxValue,
+                0, 0, false,
+                delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                {
+                    int numLayers = 5;
+                    int size = attacker.GetAnimation().Height;
+                    for (int i = 0; i < numLayers; i++)
+                    {
+                        double radius = (i + 1) * size / numLayers;
+                        double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
+                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
+                        Vector2 velocity = new Vector2(-origin.Y, origin.X);
+
+                        velocity.Normalize();
+                        particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
+                                        (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
+                                        attacker.Pos + attacker.Center + origin,
+                                        size / numLayers - 1,
+                                        1000);
+                    }
+                },
+                particleEmitterTrigger).GetEnumerator());
+        }
+    }
+
     internal class SetRespawnTrigger : Trigger
     {
         internal SetRespawnTrigger(string name, int width, int height, List<Sprite> party)

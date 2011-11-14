@@ -147,6 +147,7 @@
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
+    <Compile Include="Levels\WorldMap.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Obstacles\Chest.cs" />
     <Compile Include="Obstacles\Door.cs" />
