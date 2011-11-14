@@ -50,6 +50,11 @@ namespace Frostbyte
 
 
         /// <summary>
+        /// Determines when the Left Trigger is releases so we know what attack tier to use.
+        /// </summary> 
+        ReleasableButtonState LaunchAttack { get; }
+
+        /// <summary>
         /// Determines whether or not the button for cancelling targeting was pressed
         /// </summary>
         ReleasableButtonState CancelTargeting { get; }
@@ -203,6 +208,25 @@ namespace Frostbyte
                     {
                         return ReleasableButtonState.Clicked;
                     }
+                }
+
+                return ReleasableButtonState.Released;
+            }
+        }
+
+        public ReleasableButtonState LaunchAttack
+        {
+            get
+            {
+                // Only trigger spells when Left Trigger is pressed
+                if (mCurrentControllerState.Triggers.Left > InteractElementThreshold)
+                {
+                    return ReleasableButtonState.Pressed;   
+                }
+
+                else if (mLastControllerState.Triggers.Left > InteractElementThreshold && mCurrentControllerState.Triggers.Left < InteractElementThreshold)
+                {
+                    return ReleasableButtonState.Clicked;
                 }
 
                 return ReleasableButtonState.Released;
@@ -412,6 +436,23 @@ namespace Frostbyte
                     return ReleasableButtonState.Pressed;
                 }
                 else if (mLastControllerState.IsKeyDown(Keys.W) && mCurrentControllerState.IsKeyUp(Keys.W))
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+
+                return ReleasableButtonState.Released;
+            }
+        }
+
+        public ReleasableButtonState LaunchAttack
+        {
+            get
+            {
+                if (mCurrentControllerState.IsKeyDown(Keys.Space))
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (mLastControllerState.IsKeyDown(Keys.Space) && mCurrentControllerState.IsKeyUp(Keys.Space))
                 {
                     return ReleasableButtonState.Clicked;
                 }

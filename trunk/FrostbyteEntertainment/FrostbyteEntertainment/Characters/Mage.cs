@@ -49,6 +49,7 @@ namespace Frostbyte.Characters
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
         private int spellManaCost = 10;
+        private List<Element> attackCounter = new List<Element>();
         #endregion
 
         #region Methods
@@ -96,146 +97,245 @@ namespace Frostbyte.Characters
             {
                 if (Mana >= spellManaCost)
                 {
-                    if (controller.Earth == ReleasableButtonState.Clicked)
+                    if (controller.LaunchAttack == ReleasableButtonState.Clicked)
                     {
-                        #region Earth Tier 1
+                        if (attackCounter.Count != 0)
+                        {
+                            switch (attackCounter.First())
+                            {
 
-                        int attackRange = 11;
+                                case Element.Earth:
+                                    if (attackCounter.Count == 1)
+                                    {
+                                        #region Earth Tier 1
 
-                        //Create Earth Tier 1 Particle Emmiter
-                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                        Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
-                        ParticleEmitter particleEarthTier1 = new ParticleEmitter(1000, particleEffect, boulder);
-                        particleEarthTier1.effectTechnique = "NoSpecialEffect";
-                        particleEarthTier1.blendState = BlendState.AlphaBlend;
-                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                        particleEmitters.Add(particleEarthTier1);
+                                        int attackRange = 11;
 
-                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
-                                                  this,
-                                                  20,
-                                                  0,
-                                                  new TimeSpan(0, 0, 0, 1, 150),
-                                                  attackRange,
-                                                  9f,
-                                                  false,
-                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                                                  {
-                                                      Random randPosition = new Random();
-                                                      particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
-                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                      for (int i = -5; i < 6; i++)
-                                                      {
-                                                          particleEmitter.createParticles(-direction * projectileSpeed * .75f,
-                                                                                                   tangent * -i * 40,
-                                                                                                   particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
-                                                                                                   1.5f,
-                                                                                                   300);
-                                                      }
-                                                  },
-                                                  particleEarthTier1,
-                                                  Element.Earth
-                                                  ).GetEnumerator());
-                        Mana -= spellManaCost;
-                        #endregion Earth Tier 1
+                                        //Create Earth Tier 1 Particle Emmiter
+                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                                        Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+                                        ParticleEmitter particleEarthTier1 = new ParticleEmitter(1000, particleEffect, boulder);
+                                        particleEarthTier1.effectTechnique = "NoSpecialEffect";
+                                        particleEarthTier1.blendState = BlendState.AlphaBlend;
+                                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                                        (particleEarthTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                                        particleEmitters.Add(particleEarthTier1);
+
+                                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
+                                                                  this,
+                                                                  20,
+                                                                  0,
+                                                                  new TimeSpan(0, 0, 0, 1, 150),
+                                                                  attackRange,
+                                                                  9f,
+                                                                  false,
+                                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                                                  {
+                                                                      Random randPosition = new Random();
+                                                                      particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                                      for (int i = -5; i < 6; i++)
+                                                                      {
+                                                                          particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                                                                   tangent * -i * 40,
+                                                                                                                   particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                                                   1.5f,
+                                                                                                                   300);
+                                                                      }
+                                                                  },
+                                                                  particleEarthTier1,
+                                                                  Element.Earth
+                                                                  ).GetEnumerator());
+                                        Mana -= spellManaCost;
+                                        #endregion Earth Tier 1
+                                    }
+
+                                    else if (attackCounter.Count == 2)
+                                    {
+
+                                    }
+
+                                    else
+                                    {
+
+                                    }
+                                    break;
+
+                                case Element.Lightning:
+                                    if (attackCounter.Count == 1)
+                                    {
+                                        #region Lightning Tier 1
+
+                                        int attackRange = 3;
+
+                                        //Create Lightning Tier 1 Particle Emmiter
+                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                                        Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+                                        ParticleEmitter particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
+                                        particleLightningTier1.effectTechnique = "NoSpecialEffect";
+                                        particleLightningTier1.blendState = BlendState.Additive;
+                                        (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                                        (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                                        particleEmitters.Add(particleLightningTier1);
+
+                                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
+                                                                  this,
+                                                                  20,
+                                                                  0,
+                                                                  new TimeSpan(0, 0, 0, 1, 250),
+                                                                  attackRange,
+                                                                  8f,
+                                                                  true,
+                                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                                                  {
+                                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                                      for (int i = -5; i < 6; i++)
+                                                                      {
+                                                                          particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                                                      tangent * -i * 40,
+                                                                                                                      particleEmitter.GroundPos + tangent * i * 1.7f - direction * (Math.Abs(i) * 7),
+                                                                                                                      4,
+                                                                                                                      300);
+                                                                      }
+                                                                  },
+                                                                  particleLightningTier1,
+                                                                  Element.Lightning
+                                                                  ).GetEnumerator());
+                                        Mana -= spellManaCost;
+                                        #endregion Lightning Tier 1
+                                    }
+
+                                    else if (attackCounter.Count == 2)
+                                    {
+
+                                    }
+
+                                    else
+                                    {
+                                        #region Lightning Tier 3
+                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 20, 0).GetEnumerator());
+                                        #endregion Lightning Tier 3
+                                    }
+                                    break;
+
+                                case Element.Water:
+                                    if (attackCounter.Count == 1)
+                                    {
+
+                                    }
+
+                                    else if (attackCounter.Count == 2)
+                                    {
+
+                                    }
+
+                                    else
+                                    {
+
+                                    }
+                                    break;
+
+                                case Element.Fire:
+                                    if (attackCounter.Count == 1)
+                                    {
+                                        #region Fire Tier 1
+
+                                        int attackRange = 11;
+
+                                        //Create Fire Tier 1 Particle Emmiter
+                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                                        Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+                                        ParticleEmitter particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
+                                        particleFireTier1.effectTechnique = "NoSpecialEffect";
+                                        particleFireTier1.blendState = BlendState.AlphaBlend;
+                                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                                        particleEmitters.Add(particleFireTier1);
+
+
+                                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
+                                                                  this,
+                                                                  30,
+                                                                  0,
+                                                                  new TimeSpan(0, 0, 0, 0, 750),
+                                                                  attackRange,
+                                                                  9f,
+                                                                  true,
+                                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                                                  {
+                                                                      Random rand = new Random();
+                                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                                      for (int i = -5; i < 6; i++)
+                                                                      {
+                                                                          float velocitySpeed = rand.Next(30, 55);
+                                                                          float accelSpeed = rand.Next(-30, -10);
+                                                                          particleEmitter.createParticles(direction * velocitySpeed,
+                                                                                          direction * accelSpeed,
+                                                                                          particleEmitter.GroundPos,
+                                                                                          rand.Next(5, 20),
+                                                                                          rand.Next(50, 300));
+                                                                      }
+                                                                  },
+                                                                  particleFireTier1,
+                                                                  Element.Fire
+                                                                  ).GetEnumerator());
+                                        Mana -= spellManaCost;
+                                        #endregion Fire Tier 1
+                                    }
+
+                                    else if (attackCounter.Count == 2)
+                                    {
+
+                                    }
+
+                                    else
+                                    {
+
+                                    }
+                                    break;
+                            }
+
+                            attackCounter.Clear();
+                        }
+                    }
+
+                    else if (controller.Earth == ReleasableButtonState.Clicked)
+                    {
+                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Earth)
+                        {
+                            attackCounter.Add(Element.Earth);
+                        }
+
                         return;
                     }
+
                     else if (controller.Fire == ReleasableButtonState.Clicked)
                     {
-                        #region Fire Tier 1
+                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Fire)
+                        {
+                            attackCounter.Add(Element.Fire);
+                        }
 
-                        int attackRange = 11;
-
-                        //Create Fire Tier 1 Particle Emmiter
-                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                        Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
-                        ParticleEmitter particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
-                        particleFireTier1.effectTechnique = "NoSpecialEffect";
-                        particleFireTier1.blendState = BlendState.AlphaBlend;
-                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                        particleEmitters.Add(particleFireTier1);
-
-
-                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
-                                                  this,
-                                                  30,
-                                                  0,
-                                                  new TimeSpan(0, 0, 0, 0, 750),
-                                                  attackRange,
-                                                  9f,
-                                                  true,
-                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                                                  {
-                                                      Random rand = new Random();
-                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                      for (int i = -5; i < 6; i++)
-                                                      {
-                                                          float velocitySpeed = rand.Next(30, 55);
-                                                          float accelSpeed = rand.Next(-30, -10);
-                                                          particleEmitter.createParticles(direction * velocitySpeed,
-                                                                          direction * accelSpeed,
-                                                                          particleEmitter.GroundPos,
-                                                                          rand.Next(5, 20),
-                                                                          rand.Next(50, 300));
-                                                      }
-                                                  },
-                                                  particleFireTier1,
-                                                  Element.Fire
-                                                  ).GetEnumerator());
-                        Mana -= spellManaCost;
-                        #endregion Fire Tier 1
                         return;
                     }
+
                     else if (controller.Lightning == ReleasableButtonState.Clicked)
                     {
-                        #region Lightning Tier 1
-
-                        int attackRange = 3;
-
-                        //Create Lightning Tier 1 Particle Emmiter
-                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                        Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-                        ParticleEmitter particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
-                        particleLightningTier1.effectTechnique = "NoSpecialEffect";
-                        particleLightningTier1.blendState = BlendState.Additive;
-                        (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                        (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                        particleEmitters.Add(particleLightningTier1);
-
-                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
-                                                  this,
-                                                  20,
-                                                  0,
-                                                  new TimeSpan(0, 0, 0, 1, 250),
-                                                  attackRange,
-                                                  8f,
-                                                  true,
-                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                                                  {
-                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                      for (int i = -5; i < 6; i++)
-                                                      {
-                                                          particleEmitter.createParticles(-direction * projectileSpeed * 5,
-                                                                                                      tangent * -i * 40,
-                                                                                                      particleEmitter.GroundPos + tangent * i * 1.7f - direction * (Math.Abs(i) * 7),
-                                                                                                      4,
-                                                                                                      300);
-                                                      }
-                                                  },
-                                                  particleLightningTier1,
-                                                  Element.Lightning
-                                                  ).GetEnumerator());
-                        Mana -= spellManaCost;
-                        #endregion Lightning Tier 1
-
-                        //mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 20, 0).GetEnumerator());
+                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Lightning)
+                        {
+                            attackCounter.Add(Element.Lightning);
+                        }
 
                         return;
                     }
+
                     else if (controller.Water == ReleasableButtonState.Clicked)
                     {
+                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Water)
+                        {
+                            attackCounter.Add(Element.Water);
+                        }
+
                         Item i = new Key("key");
                         PickUpItem(i);
                         Mana -= spellManaCost;
