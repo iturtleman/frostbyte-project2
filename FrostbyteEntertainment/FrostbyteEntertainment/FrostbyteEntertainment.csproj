@@ -665,6 +665,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-die.anim">
       <Link>Content\Sprites\worm-die.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-idle-diagdown.anim">
       <Link>Content\Sprites\worm-idle-diagdown.anim</Link>
