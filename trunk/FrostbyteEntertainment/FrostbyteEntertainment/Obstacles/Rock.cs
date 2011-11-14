@@ -14,10 +14,10 @@ namespace Frostbyte.Obstacles
             ZOrder = int.MaxValue;
         }
 
-        internal Rock(string name, Vector2 initialPosition)
+        public Rock(string name, Vector2 initialPosition)
             : this(name)
         {
-            Pos = initialPosition;
+            SpawnPoint = initialPosition;
         }
     }
 
@@ -29,10 +29,10 @@ namespace Frostbyte.Obstacles
             ZOrder = int.MaxValue;
         }
 
-        internal PartialRock(string name, Vector2 initialPosition)
+        public PartialRock(string name, Vector2 initialPosition)
             : this(name)
         {
-            Pos = initialPosition;
+            SpawnPoint = initialPosition;
         }
     }
 }

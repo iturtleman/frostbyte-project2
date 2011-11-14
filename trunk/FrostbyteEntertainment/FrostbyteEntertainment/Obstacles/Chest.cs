@@ -23,10 +23,10 @@ namespace Frostbyte.Obstacles
         {
         }
 
-        internal Chest(string name, Vector2 initialPos)
+        public Chest(string name, Vector2 initialPos)
             : this(name)
         {
-            Pos = initialPos;
+            SpawnPoint = initialPos;
         }
 
         private Item Held;

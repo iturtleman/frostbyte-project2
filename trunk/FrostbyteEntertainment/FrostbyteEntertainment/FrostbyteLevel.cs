@@ -169,7 +169,7 @@ namespace Frostbyte
         /// </summary>
         internal void RealignViewport()
         {
-            
+
             #region Create Viewport
             /*if (viewportPolygon == null)
             {
@@ -297,7 +297,7 @@ namespace Frostbyte
             EndDraw = (cameraPosition + new Vector3(viewport.X + viewport.Width / zoom,
                                                 viewport.Y + viewport.Height / zoom, 0)) / Tile.TileSize;
 
-            if((This.Game as FrostbyteGame).GlobalController.NextLevel == ReleasableButtonState.Clicked)
+            if ((This.Game as FrostbyteGame).GlobalController.NextLevel == ReleasableButtonState.Clicked)
             {
                 Unload();
             }
@@ -443,7 +443,16 @@ namespace Frostbyte
             {
                 string type = elem.Attribute("Type").Value;
                 Type t = Type.GetType(type);
-                var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector });
+                if (elem.Attribute("Orientation") != null)
+                {
+                    var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector, (Orientations)Enum.Parse(typeof(Orientations), elem.Attribute("Orientation").Value) });
+                    Console.WriteLine(obj);
+                }
+                else
+                {
+                    var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector });
+                    Console.WriteLine(obj);
+                }
             }
         }
         #endregion Methods
