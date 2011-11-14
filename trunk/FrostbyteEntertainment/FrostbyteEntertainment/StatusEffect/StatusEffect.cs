@@ -34,6 +34,12 @@ namespace Frostbyte
             Effect = effect;
         }
 
+        internal StatusEffect(TimeSpan time, Behavior effect, ParticleEmitter p)
+            : this(time,effect)
+        {
+            //do something with the particle emmiter
+        }
+
 
         internal void Update()
         {
