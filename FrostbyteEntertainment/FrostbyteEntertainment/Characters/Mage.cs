@@ -33,6 +33,7 @@ namespace Frostbyte.Characters
             This.Game.LoadingLevel.AddAnimation(new Animation("target.anim"));
             target = new Sprite("target", new Actor(new Animation("target.anim")));
             target.Visible = false;
+            target.Static = true;
             sortType = new DistanceSort(this);
 
             UpdateBehavior = mUpdate;
@@ -308,6 +309,7 @@ namespace Frostbyte.Characters
                 return;
             }
 
+
             if (controller.IsConnected)
             {
                 //necessary for collision
@@ -315,6 +317,7 @@ namespace Frostbyte.Characters
                     previousFootPos = this.GroundPos;
 
                 #region Targeting
+                FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
                 if (controller.TargetEnemies)
                 {
                     if (currentTargetAlignment == TargetAlignment.Ally)
@@ -325,7 +328,7 @@ namespace Frostbyte.Characters
                     {
 
                         currentTarget = findMinimum(GetTargetsInRange(
-                            (This.Game.CurrentLevel as FrostbyteLevel).enemies,
+                            l.enemies,
                             This.Game.GraphicsDevice.Viewport.Width));
 
                         if (currentTarget != null)
@@ -344,8 +347,8 @@ namespace Frostbyte.Characters
                     else
                     {
                         currentTarget = findMinimum(GetTargetsInRange(
-                            (This.Game.CurrentLevel as FrostbyteLevel).allies.Concat(
-                            (This.Game.CurrentLevel as FrostbyteLevel).obstacles).ToList(),
+                            l.allies.Concat(
+                            l.obstacles).ToList(),
                             This.Game.GraphicsDevice.Viewport.Width));
                         if (currentTarget != null)
                         {
@@ -357,15 +360,16 @@ namespace Frostbyte.Characters
                 if (controller.CancelTargeting == ReleasableButtonState.Clicked)
                 {
                     cancelTarget();
+
                 }
 
                 if (currentTarget != null)
                 {
                     target.Visible = true;
-                    target.CenterOn(currentTarget);
+                    target.Pos = target.CenteredOn(currentTarget)-l.Camera.Pos;
                 }
 
-                if (!This.Game.CurrentLevel.mWorldObjects.Contains(currentTarget))
+                if (!l.enemies.Contains(currentTarget) && !l.allies.Contains(currentTarget) && !l.obstacles.Contains(currentTarget))//makes it a little faster
                 {
                     cancelTarget();
                 }
