@@ -8,7 +8,7 @@ namespace Frostbyte.Obstacles
 {
     internal class Door : Obstacle
     {
-        internal Door(string name)
+        public Door(string name)
             : base(name, new Actor(new Animation("door.anim")))
         {
             ZOrder = int.MinValue;
@@ -21,10 +21,10 @@ namespace Frostbyte.Obstacles
         /// <param name="name">Sprite name of Door</param>
         /// <param name="initialPos">Position of door</param>
         /// <param name="orientation">Door's orientation/direction</param>
-        internal Door(string name, Vector2 initialPos, Orientations orientation=Orientations.Up)
+        public Door(string name, Vector2 initialPos, Orientations orientation=Orientations.Up)
             : this(name)
         {
-            Pos = initialPos;
+            SpawnPoint = initialPos;
             this.Orientation = orientation;
         }
 
