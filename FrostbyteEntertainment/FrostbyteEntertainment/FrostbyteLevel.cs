@@ -149,6 +149,19 @@ namespace Frostbyte
         #endregion
 
         #region Methods
+        internal override void Load(Level context)
+        {
+            base.Load(context);
+            foreach (WorldObject s in ToAdd)
+            {
+                OurSprite o = s as OurSprite;
+                if (o != null)
+                {
+                    o.Respawn();
+                }
+            }
+        }
+
         /// <summary>
         /// Iterates through every player onscreen to gather the minimum and maximum X and Y coordinates
         /// for any of the players. The new zoom/scale factor is calculated and then the viewport is shifted

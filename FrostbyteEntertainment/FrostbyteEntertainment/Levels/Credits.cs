@@ -15,6 +15,8 @@ namespace Forstbyte.Levels
         internal static void Load(Level context)
         {
             levelCompleted = false;
+            FrostbyteLevel l = context as FrostbyteLevel;
+            l.Theme = Element.DEFAULT;
         }
 
         internal static void Update()

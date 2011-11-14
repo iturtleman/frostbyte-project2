@@ -12,6 +12,8 @@ namespace Frostbyte.Levels
 
         internal static void Load(Level context)
         {
+            FrostbyteLevel l = context as FrostbyteLevel;
+            l.Theme = Element.DEFAULT;
             Viewport v = This.Game.GraphicsDevice.Viewport;
             scroller = new TextScroller("intro_text", v.Width * 3 / 4, v.Height * 3 / 4);
             scroller.Pos.X = v.Width / 8;

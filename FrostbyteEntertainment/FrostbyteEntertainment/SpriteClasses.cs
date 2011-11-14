@@ -518,6 +518,18 @@ namespace Frostbyte
         #region Spawnpoint
         internal Vector2 SpawnPoint = Vector2.Zero;
 
+        internal void SpawnOn(OurSprite target)
+        {
+            if (target.Pos == Vector2.Zero)
+            {
+                SpawnPoint = target.SpawnPoint;
+            }
+            else
+            {
+                SpawnPoint = target.CenterPos;
+            }
+        }
+
         /// <summary>
         /// Regenerates status (eg. Health, Mana)
         /// Possibly removing status effects as well.
@@ -532,7 +544,7 @@ namespace Frostbyte
         /// </summary>
         internal virtual void Respawn()
         {
-            Pos = SpawnPoint;
+            GroundPos = SpawnPoint;
             Regen();
             Rewind();
             StartAnim();

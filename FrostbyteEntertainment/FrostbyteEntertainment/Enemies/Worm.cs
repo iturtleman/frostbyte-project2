@@ -40,7 +40,7 @@ namespace Frostbyte.Enemies
         public Worm(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 1000)
         {
-            GroundPos = initialPos;
+            SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Earth;
             // Personality = new UndergroundAttackPersonality();

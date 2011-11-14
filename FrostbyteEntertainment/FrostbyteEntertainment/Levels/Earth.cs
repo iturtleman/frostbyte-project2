@@ -22,13 +22,11 @@ namespace Frostbyte.Levels
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
             mage.Speed = 1;
-            mage.Respawn();
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
             mage2.Speed = 1;
-            mage2.Respawn();
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
 
@@ -41,12 +39,12 @@ namespace Frostbyte.Levels
 
             context.GetTexture("regen");
             RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2);
-            t.CenterOn(mage);
-            t.Pos.Y -= Tile.TileSize * 2;
+            t.SpawnOn(mage);
+            t.SpawnPoint.Y -= Tile.TileSize * 2;
 
             SetRespawnTrigger sp = new SetRespawnTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2, l.allies);
-            sp.CenterOn(mage);
-            sp.Pos.Y -= Tile.TileSize * 2;
+            sp.SpawnOn(mage);
+            sp.SpawnPoint.Y -= Tile.TileSize * 2;
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

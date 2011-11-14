@@ -263,6 +263,7 @@ namespace Frostbyte
             this.theme = theme;
             background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
             background.SetData(new Color[] { theme.TransparentBackgroundColor });
+            Center = new Vector2(0, 0);
         }
 
         internal int MaxCharactersPerLine = 62;

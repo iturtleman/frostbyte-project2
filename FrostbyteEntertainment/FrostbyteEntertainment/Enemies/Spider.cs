@@ -38,7 +38,7 @@ namespace Frostbyte.Enemies
         public Spider(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 100)
         {
-            GroundPos = initialPos;
+            SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new PulseChargePersonality(this);
             ElementType = Element.Normal;

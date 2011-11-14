@@ -25,7 +25,7 @@ namespace Frostbyte.Enemies
         public FireAnt(string name, Vector2 initialPos)
             : base(name, new Actor(Animations), 1, 100)
         {
-            GroundPos = initialPos;
+            SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
             startAttackDistance = 10; //in pixels

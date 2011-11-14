@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
 
 namespace Frostbyte.Enemies
 {
@@ -15,9 +16,10 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        public Yeti(string name, float speed, int health)
-            : base(name, new Actor(Animations), speed, health)
+        public Yeti(string name, Vector2 initialPosition)
+            : base(name, new Actor(Animations), 20, 100)
         {
+            SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Water;
         }
