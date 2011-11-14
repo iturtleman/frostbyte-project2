@@ -278,7 +278,6 @@ namespace Frostbyte
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
-            Vector2 direction = new Vector2();
 
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
@@ -289,7 +288,7 @@ namespace Frostbyte
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 250;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
-            bool damageDealt = false;
+            Vector2 particleTopPosition;
             #endregion Variables
 
             attacker.Rewind();
@@ -313,9 +312,17 @@ namespace Frostbyte
             }
             #endregion Shoot Attack
 
+            if (target != null)
+            {
+                particleEmitter.GroundPos = target.GroundPos;
+                particleTopPosition = new Vector2(target.GroundPos.X, target.GroundPos.Y - 400);
+            }
+            else
+            {
+                particleEmitter.GroundPos = attacker.GroundPos + 300 * initialDirection;
+                particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
+            }
 
-            particleEmitter.GroundPos = target.GroundPos;
-            Vector2 particleTopPosition = new Vector2(target.GroundPos.X, target.GroundPos.Y - 400);
 
             #region Generate Start Position Ball
 
@@ -337,10 +344,11 @@ namespace Frostbyte
             {
 
                 // Lightning Strike
-                particleTopPosition = new Vector2(target.GroundPos.X, target.GroundPos.Y - 400);
+                particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
+
                 for (int j = 0; j < 200; j++)
                 {
-                    Vector2 directionToTarget = target.GroundPos - particleTopPosition;
+                    Vector2 directionToTarget = particleEmitter.GroundPos - particleTopPosition;
                     directionToTarget.Normalize();
                     double directionAngle2 = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection2 = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2));
@@ -368,7 +376,7 @@ namespace Frostbyte
             #endregion Generate Lightning Strike and Ground Spread
 
 
-            while (true) yield return false;
+            //while (true) yield return false;
             attacker.isAttackAnimDone = true;
 
 
