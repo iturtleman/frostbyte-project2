@@ -228,6 +228,9 @@ namespace Frostbyte.Characters
                                                   ).GetEnumerator());
                         Mana -= spellManaCost;
                         #endregion Lightning Tier 1
+
+                        //mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 20, 0).GetEnumerator());
+
                         return;
                     }
                     else if (controller.Water == ReleasableButtonState.Clicked)
