@@ -293,8 +293,6 @@ namespace Frostbyte
 
             attacker.Rewind();
 
-            attacker.isAttackAnimDone = false;
-
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
@@ -331,7 +329,7 @@ namespace Frostbyte
             {
                 double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                 Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
-                particleEmitter.createParticles(randDirection * 50, -randDirection * 38, particleTopPosition, 16f, 2500);
+                particleEmitter.createParticles(randDirection * 50, -randDirection * 38, particleTopPosition, 16f, 2750);
             }
 
 
@@ -340,7 +338,7 @@ namespace Frostbyte
             #region Generate Lightning Strike and Ground Spread
 
 
-            for (int i = 0; i < 200; i++ )
+            for (int i = 0; i < 165; i++ )
             {
 
                 // Lightning Strike
@@ -376,8 +374,6 @@ namespace Frostbyte
             #endregion Generate Lightning Strike and Ground Spread
 
 
-            //while (true) yield return false;
-            attacker.isAttackAnimDone = true;
 
 
             //    #region Emit Particles until particle hits target or wall or time to live runs out
