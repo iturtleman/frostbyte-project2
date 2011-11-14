@@ -101,10 +101,17 @@ namespace Frostbyte
         internal static List<string> LevelProgression = new List<string>()
         {
             "Intro",
+            "WorldMap",
             "Earth",
+            "WorldMap",
             "Lightning",
+            "WorldMap",
             "Water",
-            "Fire"
+            "WorldMap",
+            "Fire",
+            "WorldMap",
+            "Final",
+            "Credits"
         };
 
         /// <summary>
