@@ -40,7 +40,7 @@ namespace Frostbyte
         /// <param name="target">The World Object to align on</param>
         internal void CenterOn(WorldObject target)
         {
-            CenterOn(target);
+            CenterOn(target.Pos);
         }
 
         internal void CenterOn(Vector2 pos)
