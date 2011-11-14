@@ -40,7 +40,7 @@ namespace Frostbyte.Enemies
         {
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
-            GroundPos = initialPos;
+            SpawnPoint = initialPos;
             Personality = new PseudoWanderPersonality(this);
             Scale = .5f;
 

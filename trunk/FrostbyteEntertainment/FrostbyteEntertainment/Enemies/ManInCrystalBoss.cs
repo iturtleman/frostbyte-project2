@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
 
 namespace Frostbyte.Enemies
 {
@@ -15,9 +16,10 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        public ManInCrystalBoss(string name, float speed, int health)
-            : base(name, new Actor(Animations), speed, health)
+        public ManInCrystalBoss(string name, Vector2 initialPosition)
+            : base(name, new Actor(Animations), 20, 1000)
         {
+            SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
         }

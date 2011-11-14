@@ -126,7 +126,7 @@ namespace Frostbyte
 
     public class Wall : LevelPart
     {
-        public Wall(Index2D start, Index2D end, Orientations or, TileTypes t, Element theme = Element.Earth, bool move = false)
+        public Wall(Index2D start, Index2D end, Orientations or, TileTypes t, Element theme = Element.DEFAULT, bool move = false)
         {
             StartCell = start;
             EndCell = end;

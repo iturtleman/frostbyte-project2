@@ -92,7 +92,7 @@ namespace Frostbyte
             : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
         {
             Orientation = orientation;
-            Pos = initialPosition;
+            SpawnPoint = initialPosition;
         }
 
         private List<Sprite> party;
@@ -162,8 +162,9 @@ namespace Frostbyte
         private new void TriggerEffect(object ths, TriggerEventArgs args)
         {
             Obstacle rock = new Obstacles.Rock("rock");
-            rock.CenterOn(this);
-            rock.Pos.Y += Tile.TileSize * Math.Sign(-Direction.Y);
+            rock.SpawnOn(this);
+            rock.SpawnPoint += new Vector2(0, Tile.TileSize * Math.Sign(-Direction.Y));
+            rock.Respawn();
 
             this.Enabled = false;
         }
@@ -222,7 +223,7 @@ namespace Frostbyte
         public RestorePlayerHealthTrigger(string name, Vector2 initialPosition)
             : this(name, Tile.TileSize, Tile.TileSize)
         {
-            Pos = initialPosition;
+            SpawnPoint = initialPosition;
         }
 
         private List<Sprite> playersInRange;
@@ -270,7 +271,7 @@ namespace Frostbyte
         public SetRespawnTrigger(string name, Vector2 initialPosition)
             : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
         {
-            Pos = initialPosition;
+            SpawnPoint = initialPosition;
         }
 
         private List<Sprite> party;

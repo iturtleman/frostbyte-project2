@@ -22,19 +22,14 @@ namespace Frostbyte.Levels
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
             mage.Speed = 1;
-            mage.Respawn();
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(72 * 64, 8 * 64);
             mage2.Speed = 1;
-            mage2.Respawn();
             l.HUD.AddPlayer(mage2);
             mage2.controller = new KeyboardController();
 
-            Trigger t = new Trigger("trap", 64, 64);
-            t.CenterOn(mage);
-            t.Pos.Y -= 128;
             This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG");
 
             #region loadeffects etc

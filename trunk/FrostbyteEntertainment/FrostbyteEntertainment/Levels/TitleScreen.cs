@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Frostbyte;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Levels
 {
@@ -16,17 +17,25 @@ namespace Frostbyte.Levels
 
         internal static void Load(Level context)
         {
+            FrostbyteLevel l = context as FrostbyteLevel;
+            l.Theme = Element.DEFAULT;
             LevelInitTime = TimeSpan.MinValue;
             levelCompleted = false;
+
+            Viewport v = This.Game.GraphicsDevice.Viewport;
 
             /** load music */
             //This.Game.AudioManager.AddBackgroundMusic("title");
             //This.Game.AudioManager.PlayBackgroundMusic("title");
 
             Text title = new Text("titletext", "text", "Welcome. Please Press Enter/Start.");
-            title.Pos = new Vector2(400, 50);
+            title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));
             title.Static = true;
             title.DisplayColor = Color.Chartreuse;
+
+            context.GetTexture("regen");
+            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width, v.Height);
+            t.SpawnPoint = new Vector2(v.Width / 2, v.Height);
         }
 
         internal static void Update()

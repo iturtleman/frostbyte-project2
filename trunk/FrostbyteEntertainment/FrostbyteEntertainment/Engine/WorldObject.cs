@@ -40,7 +40,12 @@ namespace Frostbyte
         /// <param name="target">The World Object to align on</param>
         internal void CenterOn(WorldObject target)
         {
-            Pos = CenteredOn(target);
+            CenterOn(target);
+        }
+
+        internal void CenterOn(Vector2 pos)
+        {
+            Pos = CenteredOn(pos);
         }
 
         /// <summary>
@@ -52,7 +57,12 @@ namespace Frostbyte
         /// <returns></returns>
         internal Vector2 CenteredOn(WorldObject target)
         {
-            return target.Pos + target.Center - this.Center;
+            return CenteredOn(target.Pos + target.Center);
+        }
+
+        internal Vector2 CenteredOn(Vector2 pos)
+        {
+            return pos - this.Center;
         }
 
         #endregion Methods

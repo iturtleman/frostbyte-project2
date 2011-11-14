@@ -26,6 +26,7 @@ namespace Frostbyte
             Vector2 size = font.MeasureString(content);
             mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame].Width = (int)size.X;
             mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame].Height = (int)size.Y;
+            Center = size / new Vector2(2, 2);
         }
 
         internal override void Draw(GameTime gameTime)

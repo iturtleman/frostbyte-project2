@@ -1041,7 +1041,7 @@ namespace Frostbyte
         /// creates all the rooms, tiles, etc that would be needed to generate the level
         /// </summary>
         /// <returns></returns>
-        public List<LevelObject> GenerateSaveObjects(Element theme = Element.Earth)
+        public List<LevelObject> GenerateSaveObjects(Element theme = Element.DEFAULT)
         {
             List<LevelObject> objs = new List<LevelObject>();
             TileList copy = Duplicate();

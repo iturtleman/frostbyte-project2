@@ -178,7 +178,6 @@
     <Compile Include="Engine\This.cs" />
     <Compile Include="Engine\WorldObject.cs" />
     <Compile Include="LevelFunctions.cs" />
-    <Compile Include="Levels\Test.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="Shared\FinalBoss.cs" />
     <Compile Include="Shared\FireAnt.cs" />

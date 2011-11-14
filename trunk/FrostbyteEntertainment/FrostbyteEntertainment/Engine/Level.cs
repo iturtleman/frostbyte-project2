@@ -150,7 +150,7 @@ namespace Frostbyte
         #endregion Variables
 
 
-        internal void Load(Level context)
+        internal virtual void Load(Level context)
         {
             This.Game.AudioManager.Stop();
             mWorldObjects.Clear();
@@ -258,7 +258,7 @@ namespace Frostbyte
             if (!drawLater)
                 if (staticSprites.Count > 0)
                 {
-                    This.Game.spriteBatch.Begin();
+                    This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
                     foreach (var sprite in staticSprites)
                     {

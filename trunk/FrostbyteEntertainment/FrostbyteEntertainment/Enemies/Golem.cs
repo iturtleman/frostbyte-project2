@@ -41,7 +41,7 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new SentinelPersonality(this);
             ElementType = Element.Normal;
-            GroundPos = initialPos;
+            SpawnPoint = initialPos;
             startAttackDistance = 70; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
