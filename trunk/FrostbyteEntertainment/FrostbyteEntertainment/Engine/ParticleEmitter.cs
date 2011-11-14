@@ -146,6 +146,9 @@ namespace Frostbyte
         internal ParticleEmitter(int maxNumOfParticles, Effect effect, Texture2D texture1, Texture2D texture2 = null)
             : base("particleEmitter", new Actor(new DummyAnimation()))
         {
+            //This makes particles draw on top of all objects
+            Static = true;
+
             //sets max number of particles 
             this.maxNumOfParticles = maxNumOfParticles;
 
