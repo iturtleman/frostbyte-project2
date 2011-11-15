@@ -285,7 +285,7 @@ namespace Frostbyte
             particleEmitter.ZOrder = int.MaxValue;
             particleEmitter.effectTechnique = "NoSpecialEffect";
             particleEmitter.blendState = BlendState.Additive;
-            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 250;
+            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
             Vector2 particleTopPosition;
@@ -322,28 +322,24 @@ namespace Frostbyte
             }
 
 
-            #region Generate Start Position Ball
-
-
-            for (int i = 0; i < 100; i++)
-            {
-                double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
-                particleEmitter.createParticles(randDirection * 50, -randDirection * 38, particleTopPosition, 16f, 2750);
-            }
-
-
-            #endregion Generate Start Position Ball
-
             #region Generate Lightning Strike and Ground Spread
 
+            
 
             for (int i = 0; i < 165; i++ )
             {
-
-                // Lightning Strike
                 particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
 
+                //Generate Start Position Ball
+                for (int j = 0; j < 2; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitter.createParticles(randDirection * 30, -randDirection * 3, particleTopPosition, 25f, This.Game.rand.Next(100,1200));
+                }
+
+
+                // Lightning Strike
                 for (int j = 0; j < 200; j++)
                 {
                     Vector2 directionToTarget = particleEmitter.GroundPos - particleTopPosition;
@@ -361,11 +357,26 @@ namespace Frostbyte
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
-                    particleEmitter.createParticles(randDirection * 170, -randDirection * 90, particleEmitter.GroundPos, 2f, 1500);
+                    particleEmitter.createParticles(randDirection * 170, -randDirection * 90, particleEmitter.GroundPos, 2f, This.Game.rand.Next(400, 1500));
                 }
 
-
-
+                //Deal Damage
+                if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                break;
+                            }
+                        }
+                    }
+                }
                 yield return false;
             }
 
@@ -373,84 +384,15 @@ namespace Frostbyte
 
             #endregion Generate Lightning Strike and Ground Spread
 
+            particleEmitter.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitter);
+            attacker.particleEmitters.Remove(particleEmitter);
 
-
-
-            //    #region Emit Particles until particle hits target or wall or time to live runs out
-            //    while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
-            //    {
-            //        if (isHoming && target != null)
-            //        {
-            //            direction = target.GroundPos - particleEmitter.GroundPos;
-            //            direction.Normalize();
-            //        }
-
-            //        if (Collision.CollisionData.Count > 0)
-            //        {
-            //            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
-            //            Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
-            //            if (collidedWith != null)
-            //            {
-            //                foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
-            //                {
-            //                    if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
-            //                    {
-            //                        Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
-            //                        damageDealt = true;
-            //                        break;
-            //                    }
-            //                    else if ((detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
-            //                    {
-            //                        Player p = (detectedCollision.Item2 as Player);
-            //                        p.StatusEffects.Add(new ElementalBuff(elem));
-            //                        damageDealt = true;
-            //                        break;
-            //                    }
-            //                }
-            //            }
-            //        }
-
-            //        if (damageDealt)
-            //        {
-            //            break;
-            //        }
-
-            //        //if the attack frame has passed then allow the attacker to move
-            //        if (attacker.Frame >= FrameCount - 1)
-            //            attacker.isAttackAnimDone = true;
-
-            //        //make sure magic cannot go through walls
-            //        Vector2 previousPosition = particleEmitter.GroundPos;
-            //        particleEmitter.GroundPos += direction * projectileSpeed;
-            //        attacker.detectBackgroundCollisions(particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
-            //        if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, particleEmitter.GroundPos))
-            //        {
-            //            break;
-            //        }
-
-            //        createParticles(attacker, direction, projectileSpeed, particleEmitter);
-
-            //        yield return false;
-            //    }
-            //    #endregion Emit Particles until particle hits target or wall or time to live runs out
-
-            //    attacker.isAttackAnimDone = true;
-
-            //    #region Finish attacking after all particles are dead
-            //    while (particleEmitter.ActiveParticleCount > 0)
-            //    {
-            //        yield return false;
-            //    }
-            //    #endregion Finish attacking after all particles are dead
-
-            //    particleEmitter.Remove();
-            //    This.Game.CurrentLevel.RemoveSprite(particleEmitter);
-            //    attacker.particleEmitters.Remove(particleEmitter);
-
-            //    attacker.State = SpriteState.Idle;
-            //    setAnimationReturnFrameCount(attacker);
-
-            //    yield return true;
+            attacker.State = SpriteState.Idle;
+            setAnimationReturnFrameCount(attacker);
+        
+            
+            yield return true;
         }
     }
 }

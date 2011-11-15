@@ -207,13 +207,15 @@ namespace Frostbyte.Characters
 
                                     else if (attackCounter.Count == 2)
                                     {
-
+                                        #region Lightning Tier 2
+                                        mAttacks.Add(Attacks.LightningStrike(this, this, 10, 0).GetEnumerator());
+                                        #endregion Lightning Tier 2
                                     }
 
                                     else
                                     {
                                         #region Lightning Tier 3
-                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 20, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 0).GetEnumerator());
                                         #endregion Lightning Tier 3
                                     }
                                     break;
