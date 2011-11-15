@@ -44,7 +44,7 @@ namespace Frostbyte
             base.Draw(target);
 
             Random rand = new Random();
-            int numLayers = 5;
+            int numLayers = 3;
             int size = target.GetAnimation().Height;
             int scale = size;
             switch (Element)
@@ -64,7 +64,7 @@ namespace Frostbyte
             }
             for (int i = 0; i < numLayers; i++)
             {
-                double radius = (i + 1) * size / numLayers;
+                double radius = (i + 1) * size / (numLayers*2);
                 double theta = rand.NextDouble() * 3 * Element.GetHashCode() * Math.PI - Math.PI;
                 if (rand.Next() % 2 == 0)
                     theta = -theta;
@@ -72,11 +72,12 @@ namespace Frostbyte
                 Vector2 velocity = new Vector2(-origin.Y, origin.X);
 
                 velocity.Normalize();
-                particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
-                                (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
-                                target.Pos + target.Center + origin,
-                                scale / numLayers - 1,
-                                100);
+                particleEmitter.createParticles(
+                    new Vector2(0, -10 * (i + 1)),
+                    (velocity ) / new Vector2((float)radius, (float)radius) * 100,
+                    target.Pos + target.Center + origin,
+                    scale / numLayers - 1,
+                    500);
             }
         }
     }

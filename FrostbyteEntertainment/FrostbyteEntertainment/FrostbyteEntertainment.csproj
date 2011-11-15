@@ -478,6 +478,34 @@
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-diagdown.anim">
+      <Link>Content\Sprites\crystalman-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-diagup.anim">
+      <Link>Content\Sprites\crystalman-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-down.anim">
+      <Link>Content\Sprites\crystalman-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-right.anim">
+      <Link>Content\Sprites\crystalman-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-up.anim">
+      <Link>Content\Sprites\crystalman-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-in.anim">
+      <Link>Content\Sprites\crystalman-teleport-in.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-out.anim">
+      <Link>Content\Sprites\crystalman-teleport-out.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\door.anim">
       <Link>Content\Sprites\door.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
