@@ -560,11 +560,18 @@ namespace Frostbyte
             {
                 e.Update();
                 if (e.Expired)
+                {
+                    This.Game.CurrentLevel.RemoveSprite(e.particleEmitter);
                     toDelete.Add(e);
+                }
             }
             foreach (StatusEffect e in toDelete)
             {
                 StatusEffects.Remove(e);
+            }
+            foreach (StatusEffect e in StatusEffects)
+            {
+                e.Draw(this);
             }
 
             List<IEnumerator<bool>> removeTheseAttacks = new List<IEnumerator<bool>>();

@@ -97,5 +97,11 @@ namespace Frostbyte
                 ElapsedManaRegenTime = new TimeSpan();
             }
         }
+
+        internal void AddStatusEffect(ElementalBuff elementalBuff)
+        {
+            StatusEffects.Add(elementalBuff);
+            //elementalBuff.Draw(this);
+        }
     }
 }

@@ -409,7 +409,6 @@ namespace Frostbyte.Characters
                 return;
             }
 
-
             if (controller.IsConnected)
             {
                 //necessary for collision

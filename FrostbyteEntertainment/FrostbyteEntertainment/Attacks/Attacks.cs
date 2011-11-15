@@ -210,7 +210,7 @@ namespace Frostbyte
                             else if ((detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
                             {
                                 Player p = (detectedCollision.Item2 as Player);
-                                p.StatusEffects.Add(new ElementalBuff(elem));
+                                p.AddStatusEffect(new ElementalBuff(elem));
                                 damageDealt = true;
                                 break;
                             }
