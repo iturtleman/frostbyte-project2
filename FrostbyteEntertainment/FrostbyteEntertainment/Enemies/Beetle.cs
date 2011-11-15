@@ -42,7 +42,7 @@ namespace Frostbyte.Enemies
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
-            startAttackDistance = 65; //in pixels
+            startAttackDistance = 50; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
             if (MovementAudioName == null)
             {
@@ -80,7 +80,7 @@ namespace Frostbyte.Enemies
                 {
                     if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) <= this.startAttackDistance * this.startAttackDistance)
                     {
-                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 40).GetEnumerator());
+                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 65).GetEnumerator());
                         attackStartTime = This.gameTime.TotalGameTime;
                     }
                 }
