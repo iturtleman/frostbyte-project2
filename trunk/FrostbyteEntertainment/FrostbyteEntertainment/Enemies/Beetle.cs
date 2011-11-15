@@ -37,12 +37,12 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Beetle(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 100)
+            : base(name, new Actor(Animations), 1, 50)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
-            startAttackDistance = 15; //in pixels
+            startAttackDistance = 65; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
             if (MovementAudioName == null)
             {

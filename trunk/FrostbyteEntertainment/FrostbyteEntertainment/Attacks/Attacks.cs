@@ -415,7 +415,7 @@ namespace Frostbyte
 
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
-            ParticleEmitter particleEmitterDust = new ParticleEmitter(200, particleEffect, earthquake);
+            ParticleEmitter particleEmitterDust = new ParticleEmitter(500, particleEffect, earthquake);
             particleEmitterDust.effectTechnique = "NoSpecialEffect";
             particleEmitterDust.blendState = BlendState.AlphaBlend;
             (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
@@ -430,8 +430,9 @@ namespace Frostbyte
 
             //Texture2D earthquakeRock = This.Game.CurrentLevel.GetTexture("Earthquake Rock");
             ParticleEmitter particleEmitterRing = new ParticleEmitter(2000, particleEffect, earthquakeRock);
-            particleEmitterRing.effectTechnique = "NoSpecialEffect";
-            particleEmitterRing.blendState = BlendState.Opaque;
+            particleEmitterRing.effectTechnique = "FadeAtXPercent";
+            particleEmitterRing.fadeStartPercent = 0f;
+            particleEmitterRing.blendState = BlendState.Additive;
             (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
             (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             #endregion Variables
@@ -459,11 +460,13 @@ namespace Frostbyte
             {
                 particleEmitterDust.GroundPos = target.GroundPos;
                 particleEmitterRocks.GroundPos = target.GroundPos;
+                particleEmitterRing.GroundPos = target.GroundPos;
             }
             else
             {
                 particleEmitterDust.GroundPos = attacker.GroundPos + 300 * initialDirection;
                 particleEmitterRocks.GroundPos = attacker.GroundPos + 300 * initialDirection;
+                particleEmitterRing.GroundPos = attacker.GroundPos + 300 * initialDirection;
             }
 
 
@@ -480,7 +483,7 @@ namespace Frostbyte
                 }
 
                 // Dust
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
@@ -488,11 +491,16 @@ namespace Frostbyte
                 }
 
                 // Ring
-                for (double j = 0; j < 1; j += .05f)
+                if ((double)i % 14 == 0)
                 {
-                    double directionAngle = ((((double)i + j) % 10) / 165) * 2 * Math.PI;
-                    Vector2 circlePoint = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
-                    particleEmitterDust.createParticles(new Vector2(0, -10), new Vector2(0, -5), particleEmitterDust.GroundPos + circlePoint * 150, 4f, This.Game.rand.Next(1100, 1200));
+                    double startPos = This.Game.rand.Next(0, 50);
+                    double maxLength = This.Game.rand.Next(15, 20);
+                    for (double j = 0; j < maxLength; j += .15f)
+                    {
+                        double directionAngle2 = (((j + startPos) % 50) / 50) * 2 * Math.PI;
+                        Vector2 circlePoint = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2) / 1.7f);
+                        particleEmitterRing.createParticles(new Vector2(0, -30), new Vector2(0, -35), particleEmitterRing.GroundPos + circlePoint * 150, 4f, This.Game.rand.Next(1100, 1200));
+                    }
                 }
 
                 //Deal Damage
@@ -515,7 +523,7 @@ namespace Frostbyte
                 yield return false;
             }
 
-            while (particleEmitterDust.ActiveParticleCount > 0 && particleEmitterRocks.ActiveParticleCount > 0)
+            while (particleEmitterDust.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0)
                 yield return false;
 
             #endregion Generate Earthquake
@@ -527,6 +535,10 @@ namespace Frostbyte
             particleEmitterRocks.Remove();
             This.Game.CurrentLevel.RemoveSprite(particleEmitterRocks);
             attacker.particleEmitters.Remove(particleEmitterRocks);
+
+            particleEmitterRing.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterRing);
+            attacker.particleEmitters.Remove(particleEmitterRing);
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);

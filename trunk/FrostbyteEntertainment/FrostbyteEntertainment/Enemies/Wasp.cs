@@ -36,7 +36,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Wasp(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 100)
+            : base(name, new Actor(Animations), 1, 75)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
