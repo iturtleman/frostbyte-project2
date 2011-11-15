@@ -154,7 +154,13 @@ namespace Frostbyte.Characters
 
                                 else if (attackCounter.Count == 2)
                                 {
-
+                                    if (Mana >= 20)
+                                    {
+                                        #region Earth Tier 2
+                                        mAttacks.Add(Attacks.Earthquake(currentTarget, this, 10, 0).GetEnumerator());
+                                        #endregion Earth Tier 2
+                                        Mana -= 20;
+                                    }
                                 }
 
                                 else
