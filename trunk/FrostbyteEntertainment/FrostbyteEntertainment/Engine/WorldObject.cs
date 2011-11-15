@@ -244,8 +244,8 @@ namespace Frostbyte
         /// <returns></returns>
         public int CompareTo(WorldObject other)
         {
-            int result = GroundPos.Y.CompareTo(other.GroundPos.Y);
-            return result == 0 ? ZOrder.CompareTo(other.ZOrder) : result;
+            int result = ZOrder.CompareTo(other.ZOrder);
+            return result == 0 ?  GroundPos.Y.CompareTo(other.GroundPos.Y) : result;
         }
 
         /// <summary>
