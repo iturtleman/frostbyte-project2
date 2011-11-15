@@ -296,7 +296,7 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
-                if (target != null)
+                if (target != null && target != attacker)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
