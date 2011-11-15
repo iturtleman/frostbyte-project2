@@ -25,6 +25,12 @@ namespace Frostbyte
         /// Effect the Status effect has
         /// </summary>
         Behavior Effect;
+
+        /// <summary>
+        /// Particle emmitter if we want the effect to sparkle
+        /// </summary>
+        internal ParticleEmitter particleEmitter;
+       
         #endregion Variables
 
         internal StatusEffect(TimeSpan time, Behavior effect)
@@ -33,13 +39,6 @@ namespace Frostbyte
             Time = This.gameTime.TotalGameTime + time;
             Effect = effect;
         }
-
-        internal StatusEffect(TimeSpan time, Behavior effect, ParticleEmitter p)
-            : this(time,effect)
-        {
-            //do something with the particle emmiter
-        }
-
 
         internal void Update()
         {
@@ -56,5 +55,8 @@ namespace Frostbyte
             }
         }
 
+        internal virtual void Draw(Sprite target)
+        {
+        }
     }
 }
