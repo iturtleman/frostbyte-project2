@@ -50,7 +50,6 @@ namespace Frostbyte.Characters
         private Sprite target;
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
-        private int spellManaCost = 10;
         private List<Element> attackCounter = new List<Element>();
         #endregion
 
@@ -97,17 +96,17 @@ namespace Frostbyte.Characters
         {
             if (isAttackAnimDone)
             {
-                if (Mana >= spellManaCost)
+                if (controller.LaunchAttack == ReleasableButtonState.Clicked)
                 {
-                    if (controller.LaunchAttack == ReleasableButtonState.Clicked)
+                    if (attackCounter.Count != 0)
                     {
-                        if (attackCounter.Count != 0)
+                        switch (attackCounter.First())
                         {
-                            switch (attackCounter.First())
-                            {
 
-                                case Element.Earth:
-                                    if (attackCounter.Count == 1)
+                            case Element.Earth:
+                                if (attackCounter.Count == 1)
+                                {
+                                    if (Mana >= 10)
                                     {
                                         #region Earth Tier 1
 
@@ -148,23 +147,26 @@ namespace Frostbyte.Characters
                                                                   particleEarthTier1,
                                                                   Element.Earth
                                                                   ).GetEnumerator());
-                                        Mana -= spellManaCost;
                                         #endregion Earth Tier 1
+                                        Mana -= 10;
                                     }
+                                }
 
-                                    else if (attackCounter.Count == 2)
-                                    {
+                                else if (attackCounter.Count == 2)
+                                {
 
-                                    }
+                                }
 
-                                    else
-                                    {
+                                else
+                                {
 
-                                    }
-                                    break;
+                                }
+                                break;
 
-                                case Element.Lightning:
-                                    if (attackCounter.Count == 1)
+                            case Element.Lightning:
+                                if (attackCounter.Count == 1)
+                                {
+                                    if (Mana >= 10)
                                     {
                                         #region Lightning Tier 1
 
@@ -203,44 +205,55 @@ namespace Frostbyte.Characters
                                                                   particleLightningTier1,
                                                                   Element.Lightning
                                                                   ).GetEnumerator());
-                                        Mana -= spellManaCost;
                                         #endregion Lightning Tier 1
+                                        Mana -= 10;
                                     }
+                                }
 
-                                    else if (attackCounter.Count == 2)
+                                else if (attackCounter.Count == 2)
+                                {
+                                    if (Mana >= 50)
                                     {
                                         #region Lightning Tier 2
                                         mAttacks.Add(Attacks.LightningStrike(this, this, 10, 0).GetEnumerator());
                                         #endregion Lightning Tier 2
+                                        Mana -= 50;
                                     }
+                                }
 
-                                    else
+                                else
+                                {
+                                    if (Mana >= 50)
                                     {
                                         #region Lightning Tier 3
                                         mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 0).GetEnumerator());
                                         #endregion Lightning Tier 3
+                                        Mana -= 50;
                                     }
-                                    break;
+                                }
+                                break;
 
-                                case Element.Water:
-                                    if (attackCounter.Count == 1)
-                                    {
+                            case Element.Water:
+                                if (attackCounter.Count == 1)
+                                {
 
-                                    }
+                                }
 
-                                    else if (attackCounter.Count == 2)
-                                    {
+                                else if (attackCounter.Count == 2)
+                                {
 
-                                    }
+                                }
 
-                                    else
-                                    {
+                                else
+                                {
 
-                                    }
-                                    break;
+                                }
+                                break;
 
-                                case Element.Fire:
-                                    if (attackCounter.Count == 1)
+                            case Element.Fire:
+                                if (attackCounter.Count == 1)
+                                {
+                                    if (Mana >= 10)
                                     {
                                         #region Fire Tier 1
 
@@ -283,67 +296,59 @@ namespace Frostbyte.Characters
                                                                   particleFireTier1,
                                                                   Element.Fire
                                                                   ).GetEnumerator());
-                                        Mana -= spellManaCost;
                                         #endregion Fire Tier 1
+                                        Mana -= 10;
                                     }
+                                }
 
-                                    else if (attackCounter.Count == 2)
-                                    {
+                                else if (attackCounter.Count == 2)
+                                {
 
-                                    }
+                                }
 
-                                    else
-                                    {
+                                else
+                                {
 
-                                    }
-                                    break;
-                            }
-
-                            attackCounter.Clear();
+                                }
+                                break;
                         }
+
+                        attackCounter.Clear();
                     }
+                }
 
-                    else if (controller.Earth == ReleasableButtonState.Clicked)
+                else if (controller.Earth == ReleasableButtonState.Clicked)
+                {
+                    if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Earth)
                     {
-                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Earth)
-                        {
-                            attackCounter.Add(Element.Earth);
-                        }
-
-                        return;
+                        attackCounter.Add(Element.Earth);
                     }
+                    return;
+                }
 
-                    else if (controller.Fire == ReleasableButtonState.Clicked)
+                else if (controller.Fire == ReleasableButtonState.Clicked)
+                {
+                    if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Fire)
                     {
-                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Fire)
-                        {
-                            attackCounter.Add(Element.Fire);
-                        }
-
-                        return;
+                        attackCounter.Add(Element.Fire);
                     }
+                    return;
+                }
 
-                    else if (controller.Lightning == ReleasableButtonState.Clicked)
+                else if (controller.Lightning == ReleasableButtonState.Clicked)
+                {
+                    if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Lightning)
                     {
-                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Lightning)
-                        {
-                            attackCounter.Add(Element.Lightning);
-                        }
-
-                        return;
+                        attackCounter.Add(Element.Lightning);
                     }
+                    return;
+                }
 
-                    else if (controller.Water == ReleasableButtonState.Clicked)
+                else if (controller.Water == ReleasableButtonState.Clicked)
+                {
+                    if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Water)
                     {
-                        if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Water)
-                        {
-                            attackCounter.Add(Element.Water);
-                        }
-
-                        Item i = new Key("key");
-                        PickUpItem(i);
-                        Mana -= spellManaCost;
-                        return;
+                        attackCounter.Add(Element.Water);
                     }
                 }
                 if (controller.Sword > 0)
@@ -469,7 +474,7 @@ namespace Frostbyte.Characters
                 if (currentTarget != null)
                 {
                     target.Visible = true;
-                    target.Pos = target.CenteredOn(currentTarget)-l.Camera.Pos;
+                    target.Pos = target.CenteredOn(currentTarget) - l.Camera.Pos;
                 }
 
                 if (!l.enemies.Contains(currentTarget) && !l.allies.Contains(currentTarget) && !l.obstacles.Contains(currentTarget))//makes it a little faster
