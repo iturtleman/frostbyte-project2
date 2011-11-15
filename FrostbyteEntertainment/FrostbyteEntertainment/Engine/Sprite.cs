@@ -76,6 +76,11 @@ namespace Frostbyte
 
         #region Variables
 
+        /// <summary>
+        /// The color value to multiply the image's color data with.
+        /// </summary>
+        public Color mColor = Color.White;
+
         internal Vector2 PreviousPos = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
 
         /// <summary>
@@ -245,7 +250,7 @@ namespace Frostbyte
                             Center-Center*Scale//this places scaling in the correct spot (i think)
                         ,
                         new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frame.Width, frame.Height),
-                        Color.White,
+                        mColor,
                         Angle,
                         Vector2.Zero,
                         Scale,

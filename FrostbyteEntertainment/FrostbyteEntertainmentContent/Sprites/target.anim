@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="target" FrameDelay="20" Width="400" Height="400" TLPos="0,0" AnimationPeg="0,0" >
+  <Frame SpriteSheet="target" FrameDelay="20" Width="32" Height="32" TLPos="0,0" AnimationPeg="0,0" >
   </Frame>
 </Animation>

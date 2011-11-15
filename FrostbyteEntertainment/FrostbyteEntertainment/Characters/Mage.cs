@@ -12,13 +12,13 @@ namespace Frostbyte.Characters
     class Mage : Player
     {
         #region Constructors
-        public Mage(string name, Actor actor)
-            : this(name, actor, PlayerIndex.One)
+        public Mage(string name, Actor actor, Color targetColor)
+            : this(name, actor, PlayerIndex.One, targetColor)
         {
             CollidesWithBackground = true;
         }
 
-        internal Mage(string name, Actor actor, PlayerIndex input)
+        internal Mage(string name, Actor actor, PlayerIndex input, Color targetColor)
             : base(name, actor)
         {
             if (GamePad.GetState(input).IsConnected)
@@ -34,6 +34,8 @@ namespace Frostbyte.Characters
             target = new Sprite("target", new Actor(new Animation("target.anim")));
             target.Visible = false;
             target.Static = true;
+            target.mColor = targetColor;
+            target.Scale = 1.5f;
             sortType = new DistanceSort(this);
 
             UpdateBehavior = mUpdate;

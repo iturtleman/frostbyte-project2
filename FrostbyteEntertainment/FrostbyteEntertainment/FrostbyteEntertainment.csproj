@@ -128,7 +128,6 @@
     <Compile Include="Enemies\Golem.cs" />
     <Compile Include="Enemies\IceGolem.cs" />
     <Compile Include="Enemies\ManInCrystalBoss.cs" />
-    <Compile Include="Enemies\Owl.cs" />
     <Compile Include="Enemies\RockGolem.cs" />
     <Compile Include="Enemies\Spider.cs" />
     <Compile Include="Enemies\Wasp.cs" />
@@ -189,7 +188,6 @@
     <Compile Include="Shared\Golem.cs" />
     <Compile Include="Shared\IceGolem.cs" />
     <Compile Include="Shared\ManInCrystalBoss.cs" />
-    <Compile Include="Shared\Owl.cs" />
     <Compile Include="Shared\RockGolem.cs" />
     <Compile Include="Shared\SpriteClasses.cs" />
     <Compile Include="Shared\Wasp.cs" />
@@ -621,6 +619,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\target.anim">
       <Link>Content\Sprites\target.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wasp-attack-diagdown.anim">
       <Link>Content\Sprites\wasp-attack-diagdown.anim</Link>
