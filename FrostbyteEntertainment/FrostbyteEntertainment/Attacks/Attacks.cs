@@ -394,5 +394,146 @@ namespace Frostbyte
             
             yield return true;
         }
+
+
+        /// <summary>
+        /// Performs Earthquake Attack
+        /// </summary>
+        /// <param name="_target">The target for the projectile to attack</param>
+        /// <param name="_attacker">The sprite initiating the attack</param>
+        /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
+        /// <param name="_attackFrame">The frame that the attack begins on</param>
+        /// <returns>Returns true when finished</returns>
+        public static IEnumerable<bool> Earthquake(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
+        {
+            #region Variables
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            attacker.State = SpriteState.Attacking;
+            int FrameCount = setAnimationReturnFrameCount(attacker);
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
+            ParticleEmitter particleEmitterDust = new ParticleEmitter(200, particleEffect, earthquake);
+            particleEmitterDust.effectTechnique = "NoSpecialEffect";
+            particleEmitterDust.blendState = BlendState.AlphaBlend;
+            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            Texture2D earthquakeRock = This.Game.CurrentLevel.GetTexture("Earthquake Rock");
+            ParticleEmitter particleEmitterRocks = new ParticleEmitter(200, particleEffect, earthquakeRock);
+            particleEmitterRocks.effectTechnique = "NoSpecialEffect";
+            particleEmitterRocks.blendState = BlendState.AlphaBlend;
+            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            //Texture2D earthquakeRock = This.Game.CurrentLevel.GetTexture("Earthquake Rock");
+            ParticleEmitter particleEmitterRing = new ParticleEmitter(2000, particleEffect, earthquakeRock);
+            particleEmitterRing.effectTechnique = "NoSpecialEffect";
+            particleEmitterRing.blendState = BlendState.Opaque;
+            (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            #endregion Variables
+
+            attacker.Rewind();
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                if (target != null)
+                    attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
+                attacker.State = SpriteState.Attacking;
+                setAnimationReturnFrameCount(attacker);
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            if (target != null)
+            {
+                particleEmitterDust.GroundPos = target.GroundPos;
+                particleEmitterRocks.GroundPos = target.GroundPos;
+            }
+            else
+            {
+                particleEmitterDust.GroundPos = attacker.GroundPos + 300 * initialDirection;
+                particleEmitterRocks.GroundPos = attacker.GroundPos + 300 * initialDirection;
+            }
+
+
+            #region Generate Earthquake
+
+            for (int i = 0; i < 165; i++)
+            {
+                // Shaking Rocks
+                for (int j = 0; j < 1; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitterRocks.createParticles(new Vector2(0, -200), new Vector2(0, 800), particleEmitterRocks.GroundPos + randDirection * This.Game.rand.Next(0, 150), 4f, This.Game.rand.Next(100, 400));
+                }
+
+                // Dust
+                for (int j = 0; j < 4; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitterDust.createParticles(new Vector2(0, -10), new Vector2(0, -5), particleEmitterDust.GroundPos + randDirection * This.Game.rand.Next(0, 150), 35f, This.Game.rand.Next(300, 1200));
+                }
+
+                // Ring
+                for (double j = 0; j < 1; j += .05f)
+                {
+                    double directionAngle = ((((double)i + j) % 10) / 165) * 2 * Math.PI;
+                    Vector2 circlePoint = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitterDust.createParticles(new Vector2(0, -10), new Vector2(0, -5), particleEmitterDust.GroundPos + circlePoint * 150, 4f, This.Game.rand.Next(1100, 1200));
+                }
+
+                //Deal Damage
+                if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitterDust, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                break;
+                            }
+                        }
+                    }
+                }
+                yield return false;
+            }
+
+            while (particleEmitterDust.ActiveParticleCount > 0 && particleEmitterRocks.ActiveParticleCount > 0)
+                yield return false;
+
+            #endregion Generate Earthquake
+
+            particleEmitterDust.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterDust);
+            attacker.particleEmitters.Remove(particleEmitterDust);
+
+            particleEmitterRocks.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterRocks);
+            attacker.particleEmitters.Remove(particleEmitterRocks);
+
+            attacker.State = SpriteState.Idle;
+            setAnimationReturnFrameCount(attacker);
+
+
+            yield return true;
+        }
+    
     }
 }
