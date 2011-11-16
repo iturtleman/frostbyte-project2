@@ -531,7 +531,7 @@ namespace Frostbyte
                         {
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
-                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                //Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
                                 Slow((detectedCollision.Item2 as OurSprite), 0.5f, new TimeSpan(0, 0, 5));
                             }
                         }
