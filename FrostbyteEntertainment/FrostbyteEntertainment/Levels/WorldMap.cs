@@ -54,8 +54,7 @@ namespace Frostbyte.Levels
             }*/
             visited++;
 
-            context.GetTexture("regen");
-            ConcentricCircles c = new ConcentricCircles("cc", 100, 100);
+            ConcentricCircles c = new ConcentricCircles("cc", 32, 32);
             c.SpawnPoint = new Vector2(v.Width / 2, v.Height / 2);
         }
 
