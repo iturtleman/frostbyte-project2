@@ -115,6 +115,7 @@ namespace Frostbyte
     /// </summary>
     public enum Element
     {
+        None = -2,
         DEFAULT = -1,
         Normal = 0,
         Earth,

@@ -690,6 +690,10 @@
       <Link>Content\Sprites\wasp-idle-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\WorldMap.anim">
+      <Link>Content\Sprites\WorldMap.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-die.anim">
       <Link>Content\Sprites\worm-die.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

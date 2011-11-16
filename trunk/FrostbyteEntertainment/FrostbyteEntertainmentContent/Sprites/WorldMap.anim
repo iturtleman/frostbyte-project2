@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="WorldMap" FrameDelay="20" Width="1000" Height="750" TLPos="0,0" AnimationPeg="0,0" >
+  </Frame>
+</Animation>
