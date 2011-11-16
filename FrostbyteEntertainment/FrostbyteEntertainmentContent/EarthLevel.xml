@@ -5389,4 +5389,6 @@
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="7776,2848" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="4256,4000" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="6240,5280" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6752,7648" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6752,7648" />
 </Level>
