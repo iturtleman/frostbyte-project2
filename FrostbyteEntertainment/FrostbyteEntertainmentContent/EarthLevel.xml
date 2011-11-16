@@ -5385,6 +5385,7 @@
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="8608,8544" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="7776,8608" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="5088,1120" />
+  <Enemy Type="Frostbyte.Enemies.Worm" Name="Boss" Pos="8000,2176" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="7776,2848" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="4256,4000" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="6240,5280" />

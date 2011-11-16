@@ -40,6 +40,12 @@ namespace Frostbyte
         /// Position of the top left corner
         /// </summary>
         internal Vector2 StartPos { get; set; }
+
+        /// <summary>
+        /// Offset of the image from being mirroable. This value should be the value from what you want to be the center of the flip to what is the actual center of the frame.
+        /// </summary>
+        public Vector2 MirrorOffset { get; set; }
+
         #endregion
 
         #region Variables
