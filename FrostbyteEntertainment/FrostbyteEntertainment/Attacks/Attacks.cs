@@ -98,7 +98,7 @@ namespace Frostbyte
         /// Performs Melee Attack
         /// </summary>
         /// <returns>returns true when finished</returns>
-        public static IEnumerable<bool> Melee(OurSprite _attacker, int baseDamage, int attackFrame, int attackRange)
+        public static IEnumerable<bool> Melee(OurSprite _attacker, int baseDamage, int attackFrame)
         {
             OurSprite attacker = _attacker;
             bool hasAttacked = false;

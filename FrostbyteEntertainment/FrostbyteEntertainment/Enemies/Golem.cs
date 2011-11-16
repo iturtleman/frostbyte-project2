@@ -80,7 +80,7 @@ namespace Frostbyte.Enemies
                     {
                         if (detectedCollision.Item2 is Player)
                         {
-                            mAttacks.Add(Attacks.Melee(this, 20, 18, 100).GetEnumerator());
+                            mAttacks.Add(Attacks.Melee(this, 20, 18).GetEnumerator());
                             attackStartTime = This.gameTime.TotalGameTime;
                             This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
                         }
