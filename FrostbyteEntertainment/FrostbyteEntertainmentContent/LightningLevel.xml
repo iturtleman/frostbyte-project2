@@ -5834,4 +5834,5 @@
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="4896,7136" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="4576,7456" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="4896,7456" />
+  <Enemy Type="Frostbyte.Enemies.CrystalMan" Name="Boss" Pos="4480, 512" />
 </Level>
