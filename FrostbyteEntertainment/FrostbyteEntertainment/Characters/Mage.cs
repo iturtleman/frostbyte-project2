@@ -485,7 +485,7 @@ namespace Frostbyte.Characters
                 if (currentTarget != null)
                 {
                     target.Visible = true;
-                    target.Pos = target.CenteredOn(currentTarget) - l.Camera.Pos;
+                    target.Pos = (target.CenteredOn(currentTarget) - l.Camera.Pos) * l.Camera.Zoom;
                 }
 
                 if (!l.enemies.Contains(currentTarget) && !l.allies.Contains(currentTarget) && !l.obstacles.Contains(currentTarget))//makes it a little faster
