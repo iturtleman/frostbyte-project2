@@ -127,7 +127,7 @@
     <Compile Include="Enemies\FrostWolf.cs" />
     <Compile Include="Enemies\Golem.cs" />
     <Compile Include="Enemies\IceGolem.cs" />
-    <Compile Include="Enemies\ManInCrystalBoss.cs" />
+    <Compile Include="Enemies\CrystalMan.cs" />
     <Compile Include="Enemies\RockGolem.cs" />
     <Compile Include="Enemies\Spider.cs" />
     <Compile Include="Enemies\Wasp.cs" />

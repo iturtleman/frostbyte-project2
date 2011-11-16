@@ -89,7 +89,7 @@ namespace Frostbyte
                             file = "Fire";
                             break;
                         case Element.Normal:
-                            file = "Earth";
+                            file = "Normal";
                             break;
                         case Element.DEFAULT:
                             //this'd be bad so don't even draw the sucker
