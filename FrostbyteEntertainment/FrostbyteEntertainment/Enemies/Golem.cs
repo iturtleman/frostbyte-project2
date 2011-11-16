@@ -42,7 +42,6 @@ namespace Frostbyte.Enemies
             Personality = new SentinelPersonality(this);
             ElementType = Element.Normal;
             SpawnPoint = initialPos;
-            startAttackDistance = 70; //in pixels
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
             MovementAudioName = "Effects/Golem_Move";
@@ -61,7 +60,8 @@ namespace Frostbyte.Enemies
             Sprite target = GetClosestTarget(targets, float.MaxValue);
             if (target != null)
             {
-                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) >= this.startAttackDistance * this.startAttackDistance)
+                float attackRadius = ((target.GetCollision()[0] as Collision_BoundingCircle).Radius + (this.GetCollision()[0] as Collision_BoundingCircle).Radius) * .92f;
+                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) > attackRadius * attackRadius)
                 {
                     Personality.Update();
                 }
@@ -72,16 +72,18 @@ namespace Frostbyte.Enemies
         {
             if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
             {
-                float range = 250.0f;
-                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-                Sprite target = GetClosestTarget(targets, range);
-                if (target != null)
+                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                Collision.CollisionData.TryGetValue(this, out collidedWith);
+                if (collidedWith != null)
                 {
-                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
+                    foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
                     {
-                        mAttacks.Add(Attacks.Melee(target, this, 20, 18, 100).GetEnumerator());
-                        attackStartTime = This.gameTime.TotalGameTime;
-                        This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
+                        if (detectedCollision.Item2 is Player)
+                        {
+                            mAttacks.Add(Attacks.Melee(this, 20, 18, 100).GetEnumerator());
+                            attackStartTime = This.gameTime.TotalGameTime;
+                            This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
+                        }
                     }
                 }
             }

@@ -30,8 +30,6 @@ namespace Frostbyte.Enemies
             ElementType = Element.Water;
             //Scale = .4f;
 
-            startAttackDistance = 20;
-
             //This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
             //if (MovementAudioName == null)
             //{
@@ -51,7 +49,8 @@ namespace Frostbyte.Enemies
             Sprite target = GetClosestTarget(targets, float.MaxValue);
             if (target != null)
             {
-                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) >= this.startAttackDistance * this.startAttackDistance)
+                float attackRadius = ((target.GetCollision()[0] as Collision_BoundingCircle).Radius + (this.GetCollision()[0] as Collision_BoundingCircle).Radius) * .92f;
+                if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) > attackRadius * attackRadius)
                 {
                     Personality.Update();
                 }
@@ -60,17 +59,19 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 0, 0, 750) && isAttackAnimDone)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
             {
-                float range = 150.0f;
-                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-                Sprite target = GetClosestTarget(targets, range);
-                if (target != null)
+                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                Collision.CollisionData.TryGetValue(this, out collidedWith);
+                if (collidedWith != null)
                 {
-                    if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) < this.startAttackDistance * this.startAttackDistance)
+                    foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
                     {
-                        mAttacks.Add(Attacks.Melee(target, this, 5, 18, 20).GetEnumerator());
-                        attackStartTime = This.gameTime.TotalGameTime;
+                        if (detectedCollision.Item2 is Player)
+                        {
+                            mAttacks.Add(Attacks.Melee(this, 5, 18, 20).GetEnumerator());
+                            attackStartTime = This.gameTime.TotalGameTime;
+                        }
                     }
                 }
             }

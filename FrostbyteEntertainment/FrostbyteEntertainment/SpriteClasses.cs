@@ -13,7 +13,6 @@ namespace Frostbyte
     {
         #region Attacking Variables
         public bool isAttackAnimDone = true;
-        public int startAttackDistance = 0;
         protected List<IEnumerator<bool>> mAttacks = new List<IEnumerator<bool>>();
         internal float originalSpeed;
         internal TimeSpan slowStart = new TimeSpan(0, 0, 0);
