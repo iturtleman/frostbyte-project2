@@ -76,11 +76,12 @@ namespace Frostbyte
             target.Health -= damage;
         }
 
-
-        //private static float originalSpeed;
-        //private static TimeSpan slowStart = new TimeSpan(0,0,0);
-        //private static bool isSlowed = false;
-
+        /// <summary>
+        /// Slows target by specified amount for specified amount of time.
+        /// </summary>
+        /// <param name="target">The enemy to be slowed.</param>
+        /// <param name="slowMultiplier"> The amount the enemy should be slowed.</param>
+        /// <param name="slowDuration"> The length of time the enemy should be slowed.</param>
         private static void Slow(OurSprite target, float slowMultiplier, TimeSpan slowDuration)
         {
             if (!target.isSlowed)
@@ -286,7 +287,6 @@ namespace Frostbyte
             yield return true;
         }
 
-
         /// <summary>
         /// Performs Lightning Tiers 2 & 3 Attack
         /// </summary>
@@ -316,6 +316,7 @@ namespace Frostbyte
             Vector2 particleTopPosition;
             #endregion Variables
 
+            attacker.isAttackAnimDone = false;
             attacker.Rewind();
 
             #region Shoot Attack
@@ -404,6 +405,11 @@ namespace Frostbyte
                         }
                     }
                 }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                    attacker.isAttackAnimDone = true;
+
                 yield return false;
             }
 
@@ -420,11 +426,10 @@ namespace Frostbyte
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
-        
+            attacker.isAttackAnimDone = true;
             
             yield return true;
         }
-
 
         /// <summary>
         /// Performs Earthquake Attack
@@ -434,7 +439,7 @@ namespace Frostbyte
         /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
         /// <param name="_attackFrame">The frame that the attack begins on</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> Earthquake(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
+        public static IEnumerable<bool> Earthquake(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
         {
             #region Variables
             OurSprite target = (OurSprite)_target;
@@ -467,6 +472,7 @@ namespace Frostbyte
             (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             #endregion Variables
 
+            attacker.isAttackAnimDone = false;
             attacker.Rewind();
 
             #region Shoot Attack
@@ -550,10 +556,14 @@ namespace Frostbyte
                         }
                     }
                 }
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                    attacker.isAttackAnimDone = true;
+
                 yield return false;
             }
 
-            while (particleEmitterDust.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0)
+            while (particleEmitterDust.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0 || particleEmitterRing.ActiveParticleCount > 0)
                 yield return false;
 
             #endregion Generate Earthquake
@@ -572,7 +582,131 @@ namespace Frostbyte
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
+            attacker.isAttackAnimDone = true;
 
+            yield return true;
+        }
+
+        /// <summary>
+        /// Performs Ground Clap Attack
+        /// </summary>
+        /// <param name="_target"></param>
+        /// <param name="attacker"></param>
+        /// <param name="baseDamage"></param>
+        /// <param name="attackFrame"></param>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        public static IEnumerable<bool> RockShower(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
+        {
+
+            if (_target == null)
+            {
+                yield return true;
+            }
+
+            #region Variables
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            attacker.State = SpriteState.Attacking;
+            int FrameCount = setAnimationReturnFrameCount(attacker);
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+
+            Effect particleEffectDust = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
+            ParticleEmitter particleEmitterDust = new ParticleEmitter(500, particleEffectDust, earthquake);
+            particleEmitterDust.effectTechnique = "NoSpecialEffect";
+            particleEmitterDust.blendState = BlendState.AlphaBlend;
+            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = (target.GetCollision()[0] as Collision_BoundingCircle).Radius + 20;
+            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            particleEmitterDust.ZOrder = 10;
+
+            Effect particleEffectRocks = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+            ParticleEmitter particleEmitterRocks = new ParticleEmitter(4000, particleEffectRocks, boulder);
+            particleEmitterRocks.effectTechnique = "NoSpecialEffect";
+            particleEmitterRocks.blendState = BlendState.AlphaBlend;
+            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = (target.GetCollision()[0] as Collision_BoundingCircle).Radius + 20;
+            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            float rockParticleEmitterRadius = (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius;
+            particleEmitterRocks.ZOrder = 1;
+
+            #endregion Variables
+
+            attacker.isAttackAnimDone = false;
+            attacker.Rewind();
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
+                attacker.State = SpriteState.Attacking;
+                setAnimationReturnFrameCount(attacker);
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            
+
+            #region Generate Rock Shower
+
+            for (int i = 0; i < 165; i++)
+            {
+                particleEmitterDust.GroundPos = target.GroundPos;
+                particleEmitterRocks.GroundPos = target.GroundPos;
+
+                // Dust Cloud
+                for (int j = 0; j < rockParticleEmitterRadius / 8 ; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitterDust.createParticles(new Vector2(0, -6), new Vector2(0, -5), particleEmitterDust.GroundPos + new Vector2(0, -175) + randDirection * This.Game.rand.Next(0, (int)(rockParticleEmitterRadius * 1.4f)), 15f, This.Game.rand.Next(300, 1200));
+                }
+
+                // Rock Shower
+                for (int j = 0; j < rockParticleEmitterRadius / 8; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    particleEmitterRocks.createParticles(new Vector2(0, 275), new Vector2(10, 50), particleEmitterRocks.GroundPos + new Vector2(0, -175) + randDirection * This.Game.rand.Next(0, (int)rockParticleEmitterRadius), 5f, This.Game.rand.Next(300, 600));
+                }
+
+                //Deal Damage
+                if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    Damage(attacker, target, baseDamage);
+                    Slow(target, 0.5f, new TimeSpan(0,0,1));
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                    attacker.isAttackAnimDone = true;
+
+                yield return false;
+            }
+
+            while (particleEmitterDust.ActiveParticleCount > 0 || particleEmitterRocks.ActiveParticleCount > 0)
+                yield return false;
+
+            #endregion Generate Rock Shower
+
+            particleEmitterDust.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterDust);
+            attacker.particleEmitters.Remove(particleEmitterDust);
+
+            particleEmitterRocks.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterRocks);
+            attacker.particleEmitters.Remove(particleEmitterRocks);
+
+
+            attacker.State = SpriteState.Idle;
+            setAnimationReturnFrameCount(attacker);
+            attacker.isAttackAnimDone = true;
 
             yield return true;
         }
