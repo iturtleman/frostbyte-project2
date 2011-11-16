@@ -362,7 +362,7 @@ namespace Frostbyte.Characters
                 if (controller.Sword > 0)
                 {
                     #region Start Melee Attack
-                    mAttacks.Add(Attacks.Melee(this, 25, 0, 50).GetEnumerator());
+                    mAttacks.Add(Attacks.Melee(this, 25, 0).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;
