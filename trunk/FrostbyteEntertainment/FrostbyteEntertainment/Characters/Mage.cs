@@ -167,7 +167,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 50 && currentTarget != null)
+                                    if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Earth Tier 3
                                         mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 0).GetEnumerator());
