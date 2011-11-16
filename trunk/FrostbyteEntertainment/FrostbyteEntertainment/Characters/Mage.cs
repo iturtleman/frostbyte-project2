@@ -159,7 +159,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 20)
                                     {
                                         #region Earth Tier 2
-                                        mAttacks.Add(Attacks.Earthquake(currentTarget, this, 10, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.Earthquake(this, this, 10, 0).GetEnumerator());
                                         #endregion Earth Tier 2
                                         Mana -= 20;
                                     }
@@ -167,7 +167,13 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-
+                                    if (Mana >= 50 && currentTarget != null)
+                                    {
+                                        #region Earth Tier 3
+                                        mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 0).GetEnumerator());
+                                        #endregion Earth Tier 3
+                                        Mana -= 50;
+                                    }
                                 }
                                 break;
 
