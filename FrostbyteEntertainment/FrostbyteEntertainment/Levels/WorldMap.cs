@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Frostbyte;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics.PackedVector;
 
 namespace Frostbyte.Levels
 {
@@ -18,24 +19,22 @@ namespace Frostbyte.Levels
 
         private static List<Vector2> LevelPositions = null;
 
-
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
-            l.Theme = Element.DEFAULT;
+            l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
             levelCompleted = false;
 
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
-            /** load music */
             //This.Game.AudioManager.AddBackgroundMusic("title");
             //This.Game.AudioManager.PlayBackgroundMusic("title");
 
-            if (LevelPositions == null)
+            if (visited == 0)
             {
                 LevelPositions = new List<Vector2>(new Vector2[]{
-                    new Vector2(10, 10),
+                    new Vector2(470, 200),
                     new Vector2(50, 25),
                     new Vector2(50, 80),
                     new Vector2(125, 100),
@@ -43,19 +42,23 @@ namespace Frostbyte.Levels
                 });
             }
 
-            Text title = new Text("titletext", "text", visited.ToString());
+            Sprite s = new Sprite("map", new Actor(l.GetAnimation("WorldMap.anim")));
+            s.ZOrder = int.MinValue;
+
+            /*Text title = new Text("titletext", "text", visited.ToString());
             title.CenterOn(new Vector2(v.Width / 2, 100));
-            title.Static = true;
-            title.DisplayColor = Color.Chartreuse;
+            title.DisplayColor = Color.Chartreuse;*/
 
-            /*if (visited < LevelPositions.Count)
+            context.GetTexture("regen");
+            ConcentricCircles c = new ConcentricCircles("cc", 75, 75);
+            //c.SpawnPoint = new Vector2(v.Width / 2, v.Height / 2);
+            c.ZOrder = 100;
+
+            if (visited < LevelPositions.Count)
             {
-                title.CenterOn(LevelPositions[visited]);
-            }*/
+                c.SpawnPoint = LevelPositions[visited];
+            }
             visited++;
-
-            ConcentricCircles c = new ConcentricCircles("cc", 32, 32);
-            c.SpawnPoint = new Vector2(v.Width / 2, v.Height / 2);
         }
 
         internal static void Update()
