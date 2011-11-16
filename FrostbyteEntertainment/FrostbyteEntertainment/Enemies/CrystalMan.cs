@@ -32,12 +32,12 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         protected override void updateAttack()
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
     }
 }

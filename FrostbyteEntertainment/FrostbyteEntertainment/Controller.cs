@@ -98,7 +98,7 @@ namespace Frostbyte
         internal GamePadController(PlayerIndex ix)
         {
             input = ix;
-            mCurrentControllerState = GamePad.GetState(PlayerIndex.One);
+            mCurrentControllerState = GamePad.GetState(input);
             mLastControllerState = mCurrentControllerState;
         }
         #endregion
@@ -114,7 +114,7 @@ namespace Frostbyte
         public void Update()
         {
             mLastControllerState = mCurrentControllerState;
-            mCurrentControllerState = GamePad.GetState(PlayerIndex.One);
+            mCurrentControllerState = GamePad.GetState(input);
         }
 
         public GamePadState getRawState()
@@ -332,11 +332,11 @@ namespace Frostbyte
         {
             get
             {
-                if (CurrentButtons.BigButton == ButtonState.Pressed)
+                if (CurrentButtons.RightStick == ButtonState.Pressed)
                 {
                     return ReleasableButtonState.Pressed;
                 }
-                else if (LastButtons.BigButton == ButtonState.Pressed && CurrentButtons.BigButton == ButtonState.Released)
+                else if (LastButtons.RightStick == ButtonState.Pressed && CurrentButtons.RightStick == ButtonState.Released)
                 {
                     return ReleasableButtonState.Clicked;
                 }
