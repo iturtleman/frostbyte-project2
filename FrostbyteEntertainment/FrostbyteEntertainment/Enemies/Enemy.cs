@@ -23,6 +23,8 @@ namespace Frostbyte
         //protected EnemyStatus Status = EnemyStatus.Wander;
         internal IPersonality Personality;
         internal string MovementAudioName;
+        internal ProgressBar healthBar;
+        private static Vector2 barSize = new Vector2(100, 20);
         #endregion Variables
 
         #region Properties
@@ -34,6 +36,7 @@ namespace Frostbyte
         public Enemy(string name, Actor actor, float speed, int _health)
             : base(name, actor)
         {
+            
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
             (This.Game.LoadingLevel as FrostbyteLevel).enemies.Add(this);
@@ -41,6 +44,23 @@ namespace Frostbyte
             Speed = speed;
             Health = _health;
             CollidesWithBackground = true;
+
+            #region HealthBar
+            healthBar = new ProgressBar("Health_" + Name, MaxHealth,
+                Color.DarkRed, Color.Firebrick, Color.Black, barSize);
+            healthBar.Pos = Pos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(0, -20);
+            healthBar.Static = true;
+            healthBar.Value = MaxHealth;
+
+            HealthChanged += delegate(object obj, int value)
+            {
+                healthBar.Value = value;
+                if (value == 0)
+                {
+                    This.Game.CurrentLevel.RemoveSprite(healthBar);
+                }
+            };
+            #endregion
         }
 
         private void die()
@@ -103,6 +123,9 @@ namespace Frostbyte
                         break;
                 }
                 #endregion
+
+                healthBar.Pos = Pos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(0, -20);
+
             }
 
             updateAttack();

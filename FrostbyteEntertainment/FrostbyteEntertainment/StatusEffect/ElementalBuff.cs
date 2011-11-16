@@ -31,8 +31,9 @@ namespace Frostbyte
                     element = This.Game.CurrentLevel.GetTexture("fire");
                     break;
             }
-            particleEmitter = new ParticleEmitter(1000, particleEffect, element);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter = new ParticleEmitter(800, particleEffect, element);
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = 60;
             particleEmitter.blendState = BlendState.AlphaBlend;
             #endregion            
         }

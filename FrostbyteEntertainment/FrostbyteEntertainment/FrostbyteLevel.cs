@@ -276,7 +276,7 @@ namespace Frostbyte
 
             List<Sprite> livingPlayers = (This.Game.CurrentLevel as FrostbyteLevel).allies.
                 Where(x => x.State != SpriteState.Dead).ToList();
-            if (livingPlayers.Count == 0)
+            if (!(Theme == Element.Normal || Theme == Element.DEFAULT) && livingPlayers.Count == 0)
             {
                 foreach (WorldObject sprites in mWorldObjects)
                 {
