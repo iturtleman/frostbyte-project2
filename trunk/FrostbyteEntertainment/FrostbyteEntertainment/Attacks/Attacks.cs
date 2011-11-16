@@ -365,16 +365,19 @@ namespace Frostbyte
 
 
                 // Lightning Strike
-                for (int j = 0; j < 200; j++)
+                if (i % 2 == 0)
                 {
-                    Vector2 directionToTarget = particleEmitter.GroundPos - particleTopPosition;
-                    directionToTarget.Normalize();
-                    double directionAngle2 = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection2 = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2));
+                    for (int j = 0; j < 200; j++)
+                    {
+                        Vector2 directionToTarget = particleEmitter.GroundPos - particleTopPosition;
+                        directionToTarget.Normalize();
+                        double directionAngle2 = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection2 = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2));
 
-                    particleTopPosition += directionToTarget * 2 + randDirection2 * 3;
+                        particleTopPosition += directionToTarget * 2 + randDirection2 * 3;
 
-                    particleEmitter.createParticles(Vector2.Zero, Vector2.Zero, particleTopPosition, 8f, 50);
+                        particleEmitter.createParticles(Vector2.Zero, Vector2.Zero, particleTopPosition, 8f, 85);
+                    }
                 }
 
                 // Ground Spread
@@ -407,6 +410,9 @@ namespace Frostbyte
 
 
             #endregion Generate Lightning Strike and Ground Spread and Deal Damage
+
+            while (particleEmitter.ActiveParticleCount > 0)
+                yield return false;
 
             particleEmitter.Remove();
             This.Game.CurrentLevel.RemoveSprite(particleEmitter);
