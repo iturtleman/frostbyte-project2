@@ -55,6 +55,8 @@ namespace Frostbyte.Levels
             #endregion load textures
 
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 2));
+            Collision.Lists.Add(new KeyValuePair<int, int>(1, 3));
+            Collision.Lists.Add(new KeyValuePair<int, int>(2, 3));
         }
 
         internal static void Unload()

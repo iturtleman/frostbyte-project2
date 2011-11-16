@@ -42,6 +42,8 @@ namespace Frostbyte.Characters
             CollidesWithBackground = true;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
+
+            CollisionList = 3;
         }
         #endregion
 
@@ -360,10 +362,7 @@ namespace Frostbyte.Characters
                 if (controller.Sword > 0)
                 {
                     #region Start Melee Attack
-                    float range = 450.0f;
-                    List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).enemies;
-                    Sprite target = GetClosestTarget(targets, range);
-                    mAttacks.Add(Attacks.Melee(target, this, 25, 0, 50).GetEnumerator());
+                    mAttacks.Add(Attacks.Melee(this, 25, 0, 50).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;

@@ -98,9 +98,8 @@ namespace Frostbyte
         /// Performs Melee Attack
         /// </summary>
         /// <returns>returns true when finished</returns>
-        public static IEnumerable<bool> Melee(Sprite _target, OurSprite _attacker, int baseDamage, int attackFrame, int attackRange)
+        public static IEnumerable<bool> Melee(OurSprite _attacker, int baseDamage, int attackFrame, int attackRange)
         {
-            OurSprite target = (OurSprite)_target;
             OurSprite attacker = _attacker;
             bool hasAttacked = false;
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
@@ -124,18 +123,26 @@ namespace Frostbyte
                 if (!isLoopOne)
                     break;
 
-                if (target != null)
+                if (!hasAttacked && attacker.Frame == attackFrame && Collision.CollisionData.Count > 0)
                 {
-                    Vector2 dirToEnemy = (target.GroundPos - attacker.GroundPos);
-                    dirToEnemy.Normalize();
-
-                    if (!hasAttacked &&
-                        attacker.Frame == attackFrame &&
-                        Vector2.DistanceSquared(target.GroundPos, attacker.GroundPos) < attackRange * attackRange &&
-                        Math.Abs(Math.Acos(Vector2.Dot(attacker.Direction, dirToEnemy))) <= Math.PI / 3)
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(attacker, out collidedWith);
+                    if (collidedWith != null)
                     {
-                        Damage(attacker, target, baseDamage);
-                        hasAttacked = true;
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (!hasAttacked && (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy))))
+                            {
+                                Vector2 dirToEnemy = detectedCollision.Item2.GroundPos - attacker.GroundPos;
+                                dirToEnemy.Normalize();
+                                if (attacker.Direction == dirToEnemy || Math.Abs(Math.Acos(Vector2.Dot(attacker.Direction, dirToEnemy))) <= Math.PI / 3)
+                                {
+                                    Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                    hasAttacked = true;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
                 yield return false;
