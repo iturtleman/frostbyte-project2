@@ -259,7 +259,7 @@ namespace Frostbyte
         {
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("regen");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("evil");
             ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
             particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
             particleEmitterTrigger.blendState = BlendState.Additive;

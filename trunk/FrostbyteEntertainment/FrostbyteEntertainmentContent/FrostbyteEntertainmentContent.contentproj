@@ -505,6 +505,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Textures\map.png">
+      <Name>map</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\evil.png">
+      <Name>evil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Textures\earthquake.png">
       <Name>earthquake</Name>
       <Importer>TextureImporter</Importer>
