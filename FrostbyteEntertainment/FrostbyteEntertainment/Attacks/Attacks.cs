@@ -76,6 +76,24 @@ namespace Frostbyte
             target.Health -= damage;
         }
 
+
+        //private static float originalSpeed;
+        //private static TimeSpan slowStart = new TimeSpan(0,0,0);
+        //private static bool isSlowed = false;
+
+        private static void Slow(OurSprite target, float slowMultiplier, TimeSpan slowDuration)
+        {
+            if (!target.isSlowed)
+            {
+                target.slowDuration = slowDuration;
+                target.isSlowed = true;
+                target.originalSpeed = target.Speed;
+                target.slowStart = This.gameTime.TotalGameTime;
+                target.Speed *= slowMultiplier;
+            }
+
+        }
+
         /// <summary>
         /// Performs Melee Attack
         /// </summary>
@@ -322,7 +340,7 @@ namespace Frostbyte
             }
 
 
-            #region Generate Lightning Strike and Ground Spread
+            #region Generate Lightning Strike and Ground Spread and Deal Damage
 
             
 
@@ -372,7 +390,6 @@ namespace Frostbyte
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
                                 Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
-                                break;
                             }
                         }
                     }
@@ -382,7 +399,7 @@ namespace Frostbyte
 
 
 
-            #endregion Generate Lightning Strike and Ground Spread
+            #endregion Generate Lightning Strike and Ground Spread and Deal Damage
 
             particleEmitter.Remove();
             This.Game.CurrentLevel.RemoveSprite(particleEmitter);
@@ -515,7 +532,7 @@ namespace Frostbyte
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
                                 Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
-                                break;
+                                Slow((detectedCollision.Item2 as OurSprite), 0.5f, new TimeSpan(0, 0, 5));
                             }
                         }
                     }

@@ -15,7 +15,14 @@ namespace Frostbyte
         public bool isAttackAnimDone = true;
         public int startAttackDistance = 0;
         protected List<IEnumerator<bool>> mAttacks = new List<IEnumerator<bool>>();
+        internal float originalSpeed;
+        internal TimeSpan slowStart = new TimeSpan(0, 0, 0);
+        internal TimeSpan slowDuration = new TimeSpan(0, 0, 0);
+        internal bool isSlowed = false;
+
         #endregion Attacking Variables
+
+
 
 
         internal OurSprite(string name, Actor actor)
@@ -586,6 +593,13 @@ namespace Frostbyte
                 attack.Dispose();
                 mAttacks.Remove(attack);
             }
+
+            if (isSlowed && This.gameTime.TotalGameTime >= slowStart + slowDuration )
+            {
+                isSlowed = false;
+                Speed = originalSpeed;
+            }
+
 
         }
         #endregion Update
