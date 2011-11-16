@@ -499,8 +499,8 @@ namespace Frostbyte.Characters
                 {
                     PreviousPos = Pos;
 
-                    Pos.X += controller.Movement.X * 3 * Speed;
-                    Pos.Y -= controller.Movement.Y * 3 * Speed;
+                    Pos.X += Math.Sign(controller.Movement.X) * Math.Min(Math.Abs(controller.Movement.X), .8f) * 1.25f * 3 * Speed;
+                    Pos.Y -= Math.Sign(controller.Movement.Y) * Math.Min(Math.Abs(controller.Movement.Y), .8f) * 1.25f * 3 * Speed;
 
                     Vector2 newDirection = controller.Movement;
                     newDirection.Y *= -1;

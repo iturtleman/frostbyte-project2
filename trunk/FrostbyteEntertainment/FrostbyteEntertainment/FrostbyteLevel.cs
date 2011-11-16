@@ -103,13 +103,9 @@ namespace Frostbyte
             "Intro",
             "WorldMap",
             "Earth",
-            "WorldMap",
             "Lightning",
-            "WorldMap",
             "Water",
-            "WorldMap",
             "Fire",
-            "WorldMap",
             "Final",
             "Credits"
         };
