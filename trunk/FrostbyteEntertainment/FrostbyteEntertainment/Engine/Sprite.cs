@@ -235,19 +235,13 @@ namespace Frostbyte
             }
             if (Visible == true && State != SpriteState.Dead && frame.Image != null)
             {
+                Vector2 peg = GetAnimation().AnimationPeg;
                 This.Game.spriteBatch.Draw(
                         frame.Image,
-                        Pos +
-                            (Hflip ?
-                                Vflip ?
-                                    new Vector2(GetAnimation().AnimationPeg.X, GetAnimation().AnimationPeg.Y)
-                                    : new Vector2(GetAnimation().AnimationPeg.X, -GetAnimation().AnimationPeg.Y)
-                                :
-                                Vflip ?
-                                     new Vector2(-GetAnimation().AnimationPeg.X,GetAnimation().AnimationPeg.Y)
-                                    : new Vector2(-GetAnimation().AnimationPeg.X,-GetAnimation().AnimationPeg.Y)
-                                    ) +
-                            Center-Center*Scale//this places scaling in the correct spot (i think)
+                        Pos -
+                            peg + /// \todo need some sort of notion of offset form centerpoint for the item that is not the animation peg so that we know the origin of the image.
+                            Center-Center*Scale + //this places scaling in the correct spot (i think)
+                            (Hflip ? frame.MirrorOffset * 2 : -frame.MirrorOffset)
                         ,
                         new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frame.Width, frame.Height),
                         mColor,

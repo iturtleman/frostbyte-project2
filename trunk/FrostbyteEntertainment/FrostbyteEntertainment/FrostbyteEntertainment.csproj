@@ -718,10 +718,12 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-diagdown.anim">
       <Link>Content\Sprites\worm-spew-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-diagup.anim">
       <Link>Content\Sprites\worm-spew-diagup.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-down.anim">
       <Link>Content\Sprites\worm-spew-down.anim</Link>
@@ -730,6 +732,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-right.anim">
       <Link>Content\Sprites\worm-spew-right.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-spew-up.anim">
       <Link>Content\Sprites\worm-spew-up.anim</Link>

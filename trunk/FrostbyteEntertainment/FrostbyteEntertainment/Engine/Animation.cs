@@ -98,14 +98,15 @@ namespace Frostbyte
                 //Image's width and height
                 sf.Width = int.Parse(frame.Attribute("Width").Value);
                 sf.Height = int.Parse(frame.Attribute("Height").Value);
-
-
-                var point = frame.Attribute("AnimationPeg").Value.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                float pegX = float.Parse(point.First());
-                float pegY = float.Parse(point.Last());
-
+                
                 /** Set the animation Peg*/
-                sf.AnimationPeg = new Vector2(pegX /*+ (float)sf.Width / 2*/, pegY /*+ (float)sf.Height / 2*/);
+                sf.AnimationPeg = Index2D.Parse(frame.Attribute("AnimationPeg").Value).Vector;
+
+                //add the mirror offset if there is one
+                if (frame.Attribute("MirrorOffset") != null)
+                {
+                    sf.MirrorOffset = Index2D.Parse(frame.Attribute("MirrorOffset").Value).Vector;
+                }
 
                 int idCount = 0;
                 foreach (var collision in frame.Descendants("Collision"))
