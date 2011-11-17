@@ -193,7 +193,7 @@ namespace Frostbyte
             #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
             {
-                if (target != null)
+                if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
@@ -479,7 +479,7 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
-                if (target != null)
+                if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
@@ -644,7 +644,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
-                attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
+                if(target.GroundPos != attacker.GroundPos)
+                    attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
 
@@ -781,7 +782,7 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
-                if (target != null)
+                if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
