@@ -350,12 +350,14 @@ namespace Frostbyte
 
             #region Generate Lightning Strike and Ground Spread and Deal Damage
 
-
+            if (This.Game.AudioManager.soundEffects["Effects/Lightning_Strike"].Play())
+            {
+                yield return false;
+            }
 
             for (int i = 0; i < 165; i++)
             {
                 particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
-
                 //Generate Start Position Ball
                 for (int j = 0; j < 2; j++)
                 {
@@ -413,12 +415,11 @@ namespace Frostbyte
                 yield return false;
             }
 
-
-
             #endregion Generate Lightning Strike and Ground Spread and Deal Damage
-
             while (particleEmitter.ActiveParticleCount > 0)
+            {
                 yield return false;
+            }
 
             particleEmitter.Remove();
             This.Game.CurrentLevel.RemoveSprite(particleEmitter);
@@ -507,6 +508,11 @@ namespace Frostbyte
 
 
             #region Generate Earthquake
+
+            if (This.Game.AudioManager.soundEffects["Effects/Earthquake"].Play())
+            {
+                yield return false;
+            }
 
             for (int i = 0; i < 165; i++)
             {

@@ -76,7 +76,7 @@ namespace Frostbyte
             }
         }
 
-        internal void PlaySoundEffect(string name, float volume=1f)
+        internal void PlaySoundEffect(string name, float volume=.2f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name,out se))
@@ -87,7 +87,7 @@ namespace Frostbyte
             }
         }
 
-        internal void InitializeLoopingSoundEffect(string name, float volume=1f)
+        internal void InitializeLoopingSoundEffect(string name, float volume=.2f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name, out se))
