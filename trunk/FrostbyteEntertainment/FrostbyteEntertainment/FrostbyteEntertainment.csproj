@@ -478,6 +478,26 @@
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-diagdown.anim">
+      <Link>Content\Sprites\crystalman-idle-broken-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-diagup.anim">
+      <Link>Content\Sprites\crystalman-idle-broken-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-down.anim">
+      <Link>Content\Sprites\crystalman-idle-broken-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-right.anim">
+      <Link>Content\Sprites\crystalman-idle-broken-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-up.anim">
+      <Link>Content\Sprites\crystalman-idle-broken-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-diagdown.anim">
       <Link>Content\Sprites\crystalman-idle-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -498,8 +518,36 @@
       <Link>Content\Sprites\crystalman-idle-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-diagdown.anim">
+      <Link>Content\Sprites\crystalman-shatter-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-diagup.anim">
+      <Link>Content\Sprites\crystalman-shatter-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-down.anim">
+      <Link>Content\Sprites\crystalman-shatter-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-right.anim">
+      <Link>Content\Sprites\crystalman-shatter-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-up.anim">
+      <Link>Content\Sprites\crystalman-shatter-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-in-broken.anim">
+      <Link>Content\Sprites\crystalman-teleport-in-broken.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-in.anim">
       <Link>Content\Sprites\crystalman-teleport-in.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-out-broken.anim">
+      <Link>Content\Sprites\crystalman-teleport-out-broken.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-out.anim">
