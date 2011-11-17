@@ -317,7 +317,13 @@ namespace Frostbyte.Characters
 
                                 else if (attackCounter.Count == 2)
                                 {
-
+                                    if (Mana >= 50)
+                                    {
+                                        #region Fire Tier 2
+                                        mAttacks.Add(Attacks.FireRing(this, this, 1, 0).GetEnumerator());
+                                        #endregion Fire Tier 2
+                                        Mana -= 50;
+                                    }
                                 }
 
                                 else

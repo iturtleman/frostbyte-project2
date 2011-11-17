@@ -350,9 +350,9 @@ namespace Frostbyte
 
             #region Generate Lightning Strike and Ground Spread and Deal Damage
 
-            
 
-            for (int i = 0; i < 165; i++ )
+
+            for (int i = 0; i < 165; i++)
             {
                 particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
 
@@ -361,7 +361,7 @@ namespace Frostbyte
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
-                    particleEmitter.createParticles(randDirection * 30, -randDirection * 3, particleTopPosition, 25f, This.Game.rand.Next(100,1200));
+                    particleEmitter.createParticles(randDirection * 30, -randDirection * 3, particleTopPosition, 25f, This.Game.rand.Next(100, 1200));
                 }
 
 
@@ -427,7 +427,7 @@ namespace Frostbyte
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
             attacker.isAttackAnimDone = true;
-            
+
             yield return true;
         }
 
@@ -651,7 +651,7 @@ namespace Frostbyte
             }
             #endregion Shoot Attack
 
-            
+
 
             #region Generate Rock Shower
 
@@ -661,7 +661,7 @@ namespace Frostbyte
                 particleEmitterRocks.GroundPos = target.GroundPos;
 
                 // Dust Cloud
-                for (int j = 0; j < rockParticleEmitterRadius / 8 ; j++)
+                for (int j = 0; j < rockParticleEmitterRadius / 8; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
@@ -680,7 +680,7 @@ namespace Frostbyte
                 if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
                 {
                     Damage(attacker, target, baseDamage);
-                    Slow(target, 0.5f, new TimeSpan(0,0,1));
+                    Slow(target, 0.5f, new TimeSpan(0, 0, 1));
                 }
 
                 //if the attack frame has passed then allow the attacker to move
@@ -710,6 +710,244 @@ namespace Frostbyte
 
             yield return true;
         }
-    
+
+        /// <summary>
+        /// Performs Fire Ring Attack
+        /// </summary>
+        /// <param name="_target">The target for the projectile to attack</param>
+        /// <param name="_attacker">The sprite initiating the attack</param>
+        /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
+        /// <param name="_attackFrame">The frame that the attack begins on</param>
+        /// <returns>Returns true when finished</returns>
+        public static IEnumerable<bool> FireRing(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Fire)
+        {
+            #region Variables
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            attacker.State = SpriteState.Attacking;
+            int FrameCount = setAnimationReturnFrameCount(attacker);
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+            ParticleEmitter particleEmitterFire = new ParticleEmitter(4000, particleEffect, This.Game.CurrentLevel.GetTexture("fire darker"));
+            particleEmitterFire.effectTechnique = "FadeAtXPercent";
+            particleEmitterFire.fadeStartPercent = .75f;
+            particleEmitterFire.blendState = BlendState.AlphaBlend;
+            particleEmitterFire.ZOrder = 1;
+            (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).Radius = 140;
+            (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            ParticleEmitter particleEmitterSkywardRing = new ParticleEmitter(4000, particleEffect, fire);
+            particleEmitterSkywardRing.effectTechnique = "FadeAtXPercent";
+            particleEmitterSkywardRing.blendState = BlendState.Additive;
+            particleEmitterSkywardRing.fadeStartPercent = .8f;
+            particleEmitterSkywardRing.ZOrder = 2;
+            (particleEmitterSkywardRing.collisionObjects.First() as Collision_BoundingCircle).Radius = 140;
+            (particleEmitterSkywardRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            Texture2D redfire = This.Game.CurrentLevel.GetTexture("red fire");
+            Texture2D smoke = This.Game.CurrentLevel.GetTexture("smoke");
+            ParticleEmitter particleEmitterRedFire = new ParticleEmitter(1500, particleEffect, redfire, smoke);
+            particleEmitterRedFire.effectTechnique = "ChangePicAndFadeAtXPercent";
+            particleEmitterRedFire.blendState = BlendState.AlphaBlend;
+            particleEmitterRedFire.changePicPercent = .2f;
+            particleEmitterRedFire.fadeStartPercent = .9f;
+            particleEmitterRedFire.ZOrder = 3;
+            (particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle).Radius = 140;
+            (particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            ParticleEmitter particleEmitterDOT = new ParticleEmitter(1500, particleEffect, fire);
+            particleEmitterDOT.effectTechnique = "NoSpecialEffect";
+            particleEmitterDOT.blendState = BlendState.Additive;
+            particleEmitterDOT.ZOrder = 4;
+            (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle).Radius = 140;
+            (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            Dictionary<OurSprite, TimeSpan> DOT = new Dictionary<OurSprite, TimeSpan>();
+            #endregion Variables
+
+            attacker.isAttackAnimDone = false;
+            attacker.Rewind();
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                if (target != null)
+                    attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
+                attacker.State = SpriteState.Attacking;
+                setAnimationReturnFrameCount(attacker);
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            if (target != null)
+            {
+                particleEmitterFire.GroundPos = target.GroundPos;
+                particleEmitterRedFire.GroundPos = target.GroundPos;
+                particleEmitterSkywardRing.GroundPos = target.GroundPos;
+            }
+            else
+            {
+                particleEmitterFire.GroundPos = attacker.GroundPos + 300 * initialDirection;
+                particleEmitterRedFire.GroundPos = attacker.GroundPos + 300 * initialDirection;
+                particleEmitterSkywardRing.GroundPos = attacker.GroundPos + 300 * initialDirection;
+            }
+
+
+            #region Generate Fire Ring and Attack
+
+            for (int i = 0; i < 165; i++)
+            {
+                //Skyward Flames
+                if ((double)i % 5 == 0)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 1 * Math.PI + Math.PI * 2;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -100);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
+                        particleEmitterRedFire.createParticles(velocity, acceleration, particleEmitterRedFire.GroundPos + randDirection * This.Game.rand.Next(0, 140), 10f, This.Game.rand.Next(100, 1200));
+                    }
+                }
+
+                //Circle Firing
+                if ((double)i % 3 == 0)
+                {
+                    for (double j = 0; j < 30; j += .3f)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                        Vector2 velocity = -randDirection * 100;
+                        Vector2 acceleration = -randDirection * 70;
+                        particleEmitterFire.createParticles(velocity, acceleration, particleEmitterFire.GroundPos + randDirection * 140, 17f, This.Game.rand.Next(100, 1200));
+                    }
+                }
+
+                //Skyward Ring
+                if ((double)i % 2 == 0)
+                {
+                    for (double j = 0; j < 35; j += .3f)
+                    {
+                        double positionAngle = (((double)i + j % 35.0) / 35.0) * Math.PI * 2;
+                        Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 140, (float)Math.Sin(positionAngle) * This.Game.rand.Next(120, 140) / 1.7f) + particleEmitterSkywardRing.GroundPos;
+                        Vector2 direction = particleEmitterSkywardRing.GroundPos - position;
+                        direction.Normalize();
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -75);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
+                        particleEmitterSkywardRing.createParticles(velocity, acceleration, position, This.Game.rand.Next(5, 20), This.Game.rand.Next(400, 600));
+                    }
+                }
+
+                //Add Enemies to DOT Dictionary
+                if (i % 10 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitterFire, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                if (!DOT.ContainsKey((OurSprite)detectedCollision.Item2))
+                                    DOT.Add((OurSprite)detectedCollision.Item2, new TimeSpan(0, 0, 2) + This.gameTime.TotalGameTime);
+                                else
+                                    DOT[(OurSprite)detectedCollision.Item2] = new TimeSpan(0, 0, 2) + This.gameTime.TotalGameTime;
+                            }
+                        }
+                    }
+                }
+
+                //Deal Damage, Remove DOT's That Have Timed Out, and Create Particles on Enemies
+                if ((double)i % 18 == 0)
+                {
+                    List<OurSprite> removeDOT = new List<OurSprite>();
+                    foreach (KeyValuePair<OurSprite, TimeSpan> dottedTarget in DOT)
+                    {
+                        Damage(attacker, dottedTarget.Key, baseDamage);
+                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
+                            removeDOT.Add(dottedTarget.Key);
+
+                        //Create Particles
+                        for (int j = 0; j < 5; j++)
+                        {
+                            double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                            Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                            Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                            particleEmitterDOT.createParticles(velocity, acceleration, dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, (int)(dottedTarget.Key.GetCollision()[0] as Collision_BoundingCircle).Radius), 10f, This.Game.rand.Next(100, 500));
+                        }
+                    }
+                    foreach (OurSprite dottedTarget in removeDOT)
+                        DOT.Remove(dottedTarget);
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                    attacker.isAttackAnimDone = true;
+
+                yield return false;
+            }
+
+            int count = 0;
+            while (particleEmitterFire.ActiveParticleCount > 0 || particleEmitterRedFire.ActiveParticleCount > 0 || particleEmitterSkywardRing.ActiveParticleCount > 0 || DOT.Count > 0)
+            {
+                if ((double)count % 18 == 0)
+                {
+                    //Deal Damage, Remove DOT's That Have Timed Out, and Create Particles on Enemies
+                    List<OurSprite> removeDOT = new List<OurSprite>();
+                    foreach (KeyValuePair<OurSprite, TimeSpan> dottedTarget in DOT)
+                    {
+                        Damage(attacker, dottedTarget.Key, baseDamage);
+                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
+                            removeDOT.Add(dottedTarget.Key);
+
+                        //Create Particles
+                        for (int j = 0; j < 5; j++)
+                        {
+                            double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                            Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                            Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                            particleEmitterDOT.createParticles(velocity, acceleration, dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, (int)(dottedTarget.Key.GetCollision()[0] as Collision_BoundingCircle).Radius), 10f, This.Game.rand.Next(100, 500));
+                        }
+                    }
+                    foreach (OurSprite dottedTarget in removeDOT)
+                        DOT.Remove(dottedTarget);
+                }
+
+                count++;
+
+                yield return false;
+            }
+
+            #endregion Generate Fire Ring and Attack
+
+            particleEmitterFire.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterFire);
+            attacker.particleEmitters.Remove(particleEmitterFire);
+
+            particleEmitterRedFire.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterRedFire);
+            attacker.particleEmitters.Remove(particleEmitterRedFire);
+
+            particleEmitterSkywardRing.Remove();
+            This.Game.CurrentLevel.RemoveSprite(particleEmitterSkywardRing);
+            attacker.particleEmitters.Remove(particleEmitterSkywardRing);
+
+            attacker.State = SpriteState.Idle;
+            setAnimationReturnFrameCount(attacker);
+            attacker.isAttackAnimDone = true;
+
+            yield return true;
+        }
     }
 }
