@@ -42,6 +42,8 @@ namespace Frostbyte.Characters
             CollidesWithBackground = true;
 
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Lightning_Strike");
+            This.Game.AudioManager.AddSoundEffect("Effects/Earthquake");
 
             CollisionList = 3;
         }
@@ -232,6 +234,8 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.LightningStrike(this, this, 10, 0).GetEnumerator());
                                         #endregion Lightning Tier 2
                                         Mana -= 50;
+
+                                        
                                     }
                                 }
 
