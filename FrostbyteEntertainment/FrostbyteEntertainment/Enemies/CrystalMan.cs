@@ -18,6 +18,18 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("crystalman-idle-up.anim"),
             This.Game.CurrentLevel.GetAnimation("crystalman-teleport-in.anim"),
             This.Game.CurrentLevel.GetAnimation("crystalman-teleport-out.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-in-broken.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-out-broken.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-up.anim"),
         };
 
         #endregion Variables

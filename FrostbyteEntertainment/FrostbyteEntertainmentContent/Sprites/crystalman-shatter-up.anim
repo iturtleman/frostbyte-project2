@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1872,1144" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="0,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="156,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="312,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="468,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="624,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="780,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="936,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1092,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1248,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1404,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1560,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1716,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1872,1287" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="0,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="156,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="312,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="468,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="624,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="780,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="936,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1092,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1248,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1404,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1560,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1716,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="1872,1430" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="0,1573" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-shatter" FrameDelay="20" Width="156" Height="143" TLPos="156,1573" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+</Animation>

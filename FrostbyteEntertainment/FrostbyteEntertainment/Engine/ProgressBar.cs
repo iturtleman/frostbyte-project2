@@ -45,6 +45,14 @@ namespace Frostbyte
                         value);
             } 
         }
+        /// <summary>
+        /// The width of the overall bar
+        /// </summary>
+        internal float Width { get { return size.X; } set { size.X = value; } }
+        /// <summary>
+        /// The height of the overall bar
+        /// </summary>
+        internal float Height { get { return size.Y; } set { size.Y = value; } }
 
         Texture2D border;
         Texture2D fill;

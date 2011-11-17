@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="425" TLPos="0,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="425" TLPos="244,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="451" TLPos="488,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="447" TLPos="732,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="425" TLPos="976,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="425" TLPos="1220,0" AnimationPeg="0,0" />
-  <Frame SpriteSheet="crystalman-teleport-in" FrameDelay="20" Width="244" Height="425" TLPos="1464,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="0,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="156,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="312,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="468,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="624,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="780,0" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="0,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="156,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="312,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="468,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="624,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="780,143" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="0,286" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalman-teleport" FrameDelay="20" Width="156" Height="143" TLPos="156,286" AnimationPeg="0,0"><Collision Type="Circle" Pos="7,112" Radius="50"/></Frame>
 </Animation>

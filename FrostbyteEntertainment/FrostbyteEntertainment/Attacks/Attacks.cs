@@ -616,13 +616,14 @@ namespace Frostbyte
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+            List<CollisionObject> collisions = target.GetCollision();
 
             Effect particleEffectDust = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
             ParticleEmitter particleEmitterDust = new ParticleEmitter(500, particleEffectDust, earthquake);
             particleEmitterDust.effectTechnique = "NoSpecialEffect";
             particleEmitterDust.blendState = BlendState.AlphaBlend;
-            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = (target.GetCollision()[0] as Collision_BoundingCircle).Radius + 20;
+            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
             (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             particleEmitterDust.ZOrder = 10;
 
@@ -631,7 +632,7 @@ namespace Frostbyte
             ParticleEmitter particleEmitterRocks = new ParticleEmitter(4000, particleEffectRocks, boulder);
             particleEmitterRocks.effectTechnique = "NoSpecialEffect";
             particleEmitterRocks.blendState = BlendState.AlphaBlend;
-            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = (target.GetCollision()[0] as Collision_BoundingCircle).Radius + 20;
+            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
             (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             float rockParticleEmitterRadius = (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius;
             particleEmitterRocks.ZOrder = 1;
