@@ -163,7 +163,7 @@ namespace Frostbyte
         /// \todo complete checkBackgroundCollisions
     }
 
-    internal abstract class Boss : Enemy
+    internal abstract partial class Boss : Enemy
     {
         internal Boss(string name, Actor actor, float speed, int health)
             : base(name, actor, speed, health)

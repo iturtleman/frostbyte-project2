@@ -56,4 +56,8 @@ namespace Frostbyte
         }
         
     }
+    internal abstract partial class Boss : Enemy
+    {
+        
+    }
 }
