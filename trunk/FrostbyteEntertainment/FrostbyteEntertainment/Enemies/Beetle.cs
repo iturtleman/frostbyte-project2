@@ -43,7 +43,6 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
             This.Game.AudioManager.AddSoundEffect("Effects/Beetle_Move");
-            //This.Game.AudioManager.soundEffects["Effects/Beetle_Move"].
 
             if (MovementAudioName == null)
             {
