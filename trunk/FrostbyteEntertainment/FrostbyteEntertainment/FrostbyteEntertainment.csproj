@@ -627,6 +627,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\rock.anim">
       <Link>Content\Sprites\rock.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\shield_opaque.anim">
       <Link>Content\Sprites\shield_opaque.anim</Link>
