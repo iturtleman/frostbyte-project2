@@ -75,6 +75,7 @@ namespace Frostbyte
 
         #region Internal Properties
 
+        internal static float EllipsePerspectiveModifier { get { return 1.7f; } }
         internal BlendState blendState = BlendState.AlphaBlend;
 
         /// <summary>
