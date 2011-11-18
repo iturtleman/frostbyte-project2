@@ -78,6 +78,8 @@ namespace Frostbyte
         /// The ammount that we will scale off the y coordinate 
         /// Useage: circle(x,y/EllipsePerspectiveModifier)
         /// </summary>
+        internal static float EllipsePerspectiveModifier { get { return 1.7f; } } 
+
         internal BlendState blendState = BlendState.AlphaBlend;
 
         /// <summary>
