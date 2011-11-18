@@ -171,6 +171,7 @@ namespace Frostbyte
         public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Element elem = Element.Normal)
         {
             #region Variables
+            Level l = This.Game.CurrentLevel;
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
@@ -278,7 +279,7 @@ namespace Frostbyte
             #endregion Finish attacking after all particles are dead
 
             particleEmitter.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitter);
+            l.RemoveSprite(particleEmitter);
             attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.State = SpriteState.Idle;
@@ -298,14 +299,15 @@ namespace Frostbyte
         public static IEnumerable<bool> LightningStrike(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
         {
             #region Variables
+            Level l = This.Game.CurrentLevel;
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            Effect particleEffect = l.GetEffect("ParticleSystem");
+            Texture2D lightning = l.GetTexture("sparkball");
             ParticleEmitter particleEmitter = new ParticleEmitter(10000, particleEffect, lightning);
             particleEmitter.ZOrder = int.MaxValue;
             particleEmitter.effectTechnique = "NoSpecialEffect";
@@ -422,7 +424,7 @@ namespace Frostbyte
             }
 
             particleEmitter.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitter);
+            l.RemoveSprite(particleEmitter);
             attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.State = SpriteState.Idle;
@@ -443,34 +445,38 @@ namespace Frostbyte
         public static IEnumerable<bool> Earthquake(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
         {
             #region Variables
+            Level l = This.Game.CurrentLevel;
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
+            Effect particleEffect = l.GetEffect("ParticleSystem");
+            Texture2D earthquake = l.GetTexture("earthquake");
             ParticleEmitter particleEmitterDust = new ParticleEmitter(500, particleEffect, earthquake);
             particleEmitterDust.effectTechnique = "NoSpecialEffect";
             particleEmitterDust.blendState = BlendState.AlphaBlend;
-            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
-            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            Collision_BoundingCircle c = (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 125;
+            c.createDrawPoints();
 
-            Texture2D earthquakeRock = This.Game.CurrentLevel.GetTexture("Earthquake Rock");
+            Texture2D earthquakeRock = l.GetTexture("Earthquake Rock");
             ParticleEmitter particleEmitterRocks = new ParticleEmitter(200, particleEffect, earthquakeRock);
             particleEmitterRocks.effectTechnique = "NoSpecialEffect";
             particleEmitterRocks.blendState = BlendState.AlphaBlend;
-            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
-            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            c = (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 125;
+            c.createDrawPoints();
 
-            //Texture2D earthquakeRock = This.Game.CurrentLevel.GetTexture("Earthquake Rock");
+            //Texture2D earthquakeRock = l.GetTexture("Earthquake Rock");
             ParticleEmitter particleEmitterRing = new ParticleEmitter(2000, particleEffect, earthquakeRock);
             particleEmitterRing.effectTechnique = "FadeAtXPercent";
             particleEmitterRing.fadeStartPercent = 0f;
             particleEmitterRing.blendState = BlendState.Additive;
-            (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
-            (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            c=(particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 125;
+            c.createDrawPoints();
             #endregion Variables
 
             attacker.isAttackAnimDone = false;
@@ -575,15 +581,15 @@ namespace Frostbyte
             #endregion Generate Earthquake
 
             particleEmitterDust.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterDust);
+            l.RemoveSprite(particleEmitterDust);
             attacker.particleEmitters.Remove(particleEmitterDust);
 
             particleEmitterRocks.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterRocks);
+            l.RemoveSprite(particleEmitterRocks);
             attacker.particleEmitters.Remove(particleEmitterRocks);
 
             particleEmitterRing.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterRing);
+            l.RemoveSprite(particleEmitterRing);
             attacker.particleEmitters.Remove(particleEmitterRing);
 
             attacker.State = SpriteState.Idle;
@@ -611,6 +617,7 @@ namespace Frostbyte
             }
 
             #region Variables
+            Level l = This.Game.CurrentLevel;
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
@@ -618,23 +625,25 @@ namespace Frostbyte
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             List<CollisionObject> collisions = target.GetCollision();
 
-            Effect particleEffectDust = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D earthquake = This.Game.CurrentLevel.GetTexture("earthquake");
+            Effect particleEffectDust = l.GetEffect("ParticleSystem");
+            Texture2D earthquake = l.GetTexture("earthquake");
             ParticleEmitter particleEmitterDust = new ParticleEmitter(500, particleEffectDust, earthquake);
             particleEmitterDust.effectTechnique = "NoSpecialEffect";
             particleEmitterDust.blendState = BlendState.AlphaBlend;
-            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
-            (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            Collision_BoundingCircle c = (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
+            c.createDrawPoints();
             particleEmitterDust.ZOrder = 10;
 
-            Effect particleEffectRocks = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+            Effect particleEffectRocks = l.GetEffect("ParticleSystem");
+            Texture2D boulder = l.GetTexture("boulder");
             ParticleEmitter particleEmitterRocks = new ParticleEmitter(4000, particleEffectRocks, boulder);
             particleEmitterRocks.effectTechnique = "NoSpecialEffect";
             particleEmitterRocks.blendState = BlendState.AlphaBlend;
-            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
-            (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-            float rockParticleEmitterRadius = (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle).Radius;
+            c=(particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
+            c.createDrawPoints();
+            float rockParticleEmitterRadius = c.Radius;
             particleEmitterRocks.ZOrder = 1;
 
             #endregion Variables
@@ -704,11 +713,11 @@ namespace Frostbyte
             #endregion Generate Rock Shower
 
             particleEmitterDust.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterDust);
+            l.RemoveSprite(particleEmitterDust);
             attacker.particleEmitters.Remove(particleEmitterDust);
 
             particleEmitterRocks.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterRocks);
+            l.RemoveSprite(particleEmitterRocks);
             attacker.particleEmitters.Remove(particleEmitterRocks);
 
 
@@ -730,47 +739,51 @@ namespace Frostbyte
         public static IEnumerable<bool> FireRing(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Fire)
         {
             #region Variables
+            Level l = This.Game.CurrentLevel;
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
             int FrameCount = setAnimationReturnFrameCount(attacker);
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
-            ParticleEmitter particleEmitterFire = new ParticleEmitter(4000, particleEffect, This.Game.CurrentLevel.GetTexture("fire darker"));
+            Effect particleEffect = l.GetEffect("ParticleSystem");
+            Texture2D fire = l.GetTexture("fire");
+            ParticleEmitter particleEmitterFire = new ParticleEmitter(4000, particleEffect, l.GetTexture("fire darker"));
             particleEmitterFire.effectTechnique = "FadeAtXPercent";
             particleEmitterFire.fadeStartPercent = .75f;
             particleEmitterFire.blendState = BlendState.AlphaBlend;
             particleEmitterFire.ZOrder = 1;
-            (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).Radius = 115;
-            (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            Collision_BoundingCircle c = (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 115;
+            c.createDrawPoints();
 
             ParticleEmitter particleEmitterSkywardRing = new ParticleEmitter(4000, particleEffect, fire);
             particleEmitterSkywardRing.effectTechnique = "FadeAtXPercent";
             particleEmitterSkywardRing.blendState = BlendState.Additive;
             particleEmitterSkywardRing.fadeStartPercent = .8f;
             particleEmitterSkywardRing.ZOrder = 2;
-            (particleEmitterSkywardRing.collisionObjects.First() as Collision_BoundingCircle).Radius = 115;
-            (particleEmitterSkywardRing.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            c.Radius = 115;
+            c.createDrawPoints();
 
-            Texture2D redfire = This.Game.CurrentLevel.GetTexture("red fire");
-            Texture2D smoke = This.Game.CurrentLevel.GetTexture("smoke");
+            Texture2D redfire = l.GetTexture("red fire");
+            Texture2D smoke = l.GetTexture("smoke");
             ParticleEmitter particleEmitterRedFire = new ParticleEmitter(1500, particleEffect, redfire, smoke);
             particleEmitterRedFire.effectTechnique = "ChangePicAndFadeAtXPercent";
             particleEmitterRedFire.blendState = BlendState.AlphaBlend;
             particleEmitterRedFire.changePicPercent = .2f;
             particleEmitterRedFire.fadeStartPercent = .9f;
             particleEmitterRedFire.ZOrder = 3;
-            (particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle).Radius = 115;
-            (particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            c=(particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 115;
+            c.createDrawPoints();
 
             ParticleEmitter particleEmitterDOT = new ParticleEmitter(1500, particleEffect, fire);
             particleEmitterDOT.effectTechnique = "NoSpecialEffect";
             particleEmitterDOT.blendState = BlendState.Additive;
             particleEmitterDOT.ZOrder = 4;
-            (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle).Radius = 115;
-            (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            c = (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = 115;
+            c.createDrawPoints();
 
             Vector2 collisionOffset = new Vector2(0, 15);
 
@@ -895,7 +908,7 @@ namespace Frostbyte
                     foreach (KeyValuePair<OurSprite, TimeSpan> dottedTarget in DOT)
                     {
                         Damage(attacker, dottedTarget.Key, baseDamage);
-                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
+                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(l as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
                             removeDOT.Add(dottedTarget.Key);
 
                         //Create Particles
@@ -935,7 +948,7 @@ namespace Frostbyte
                     foreach (KeyValuePair<OurSprite, TimeSpan> dottedTarget in DOT)
                     {
                         Damage(attacker, dottedTarget.Key, baseDamage);
-                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
+                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(l as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
                             removeDOT.Add(dottedTarget.Key);
 
                         //Create Particles
@@ -966,15 +979,15 @@ namespace Frostbyte
             #endregion Generate Fire Ring and Attack
 
             particleEmitterFire.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterFire);
+            l.RemoveSprite(particleEmitterFire);
             attacker.particleEmitters.Remove(particleEmitterFire);
 
             particleEmitterRedFire.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterRedFire);
+            l.RemoveSprite(particleEmitterRedFire);
             attacker.particleEmitters.Remove(particleEmitterRedFire);
 
             particleEmitterSkywardRing.Remove();
-            This.Game.CurrentLevel.RemoveSprite(particleEmitterSkywardRing);
+            l.RemoveSprite(particleEmitterSkywardRing);
             attacker.particleEmitters.Remove(particleEmitterSkywardRing);
 
             attacker.State = SpriteState.Idle;

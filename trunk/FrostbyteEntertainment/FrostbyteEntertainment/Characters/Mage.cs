@@ -98,6 +98,7 @@ namespace Frostbyte.Characters
         /// </summary>
         private void attack()
         {
+            Level l = This.Game.CurrentLevel;
             if (isAttackAnimDone)
             {
                 if (controller.LaunchAttack == ReleasableButtonState.Clicked)
@@ -117,8 +118,8 @@ namespace Frostbyte.Characters
                                         int attackRange = 11;
 
                                         //Create Earth Tier 1 Particle Emmiter
-                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                                        Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+                                        Effect particleEffect = l.GetEffect("ParticleSystem");
+                                        Texture2D boulder = l.GetTexture("boulder");
                                         ParticleEmitter particleEarthTier1 = new ParticleEmitter(1000, particleEffect, boulder);
                                         particleEarthTier1.effectTechnique = "NoSpecialEffect";
                                         particleEarthTier1.blendState = BlendState.AlphaBlend;
@@ -189,8 +190,8 @@ namespace Frostbyte.Characters
                                         int attackRange = 3;
 
                                         //Create Lightning Tier 1 Particle Emmiter
-                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                                        Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+                                        Effect particleEffect = l.GetEffect("ParticleSystem");
+                                        Texture2D lightning = l.GetTexture("sparkball");
                                         ParticleEmitter particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
                                         particleLightningTier1.effectTechnique = "NoSpecialEffect";
                                         particleLightningTier1.blendState = BlendState.Additive;
@@ -278,8 +279,8 @@ namespace Frostbyte.Characters
                                         int attackRange = 11;
 
                                         //Create Fire Tier 1 Particle Emmiter
-                                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                                        Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+                                        Effect particleEffect = l.GetEffect("ParticleSystem");
+                                        Texture2D fire = l.GetTexture("fire");
                                         ParticleEmitter particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
                                         particleFireTier1.effectTechnique = "NoSpecialEffect";
                                         particleFireTier1.blendState = BlendState.AlphaBlend;
