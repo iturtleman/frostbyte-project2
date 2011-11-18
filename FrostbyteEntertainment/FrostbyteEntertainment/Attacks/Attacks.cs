@@ -996,5 +996,138 @@ namespace Frostbyte
 
             yield return true;
         }
+
+        /// <summary>
+        /// Performs Fire Pillar Attack
+        /// </summary>
+        public static IEnumerable<bool> FirePillar(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
+        {
+
+            if (_target == null)
+            {
+                yield return true;
+            }
+
+            #region Variables
+            Level l = This.Game.CurrentLevel;
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            attacker.State = SpriteState.Attacking;
+            int FrameCount = setAnimationReturnFrameCount(attacker);
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+            List<CollisionObject> collisions = target.GetCollision();
+
+            Effect particleEffectDust = l.GetEffect("ParticleSystem");
+            Texture2D fire = l.GetTexture("fire");
+            ParticleEmitter particleEmitterFire = new ParticleEmitter(500, particleEffectDust, fire);
+            particleEmitterFire.effectTechnique = "NoSpecialEffect";
+            particleEmitterFire.blendState = BlendState.Additive;
+            Collision_BoundingCircle c = (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
+            c.createDrawPoints();
+            particleEmitterFire.ZOrder = 10;
+
+
+            float radius = c.Radius;
+            #endregion Variables
+
+            attacker.isAttackAnimDone = false;
+            attacker.Rewind();
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                if (target.GroundPos != attacker.GroundPos)
+                    attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
+                attacker.State = SpriteState.Attacking;
+                setAnimationReturnFrameCount(attacker);
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            #region Generate Fire Pillar
+
+            for (int i = 0; i < 165; i++)
+            {
+                particleEmitterFire.GroundPos = target.GroundPos;
+
+                // Cloud
+                /*Vector2 velocity = new Vector2(1, .5f);
+                Vector2 acceleration = new Vector2(0, -2f);
+                for (int j = 0; j < radius / 8; j++)
+                {
+                    particleEmitterFire.createParticles(velocity * 500,
+                                                        acceleration * 500,
+                                                        particleEmitterFire.GroundPos + new Vector2(-radius, -175),
+                                                        15f,
+                                                        This.Game.rand.Next(500, 550));
+                }*/
+
+                // Pillar
+                for (int j = 0; j < 5; j++)
+                {
+                    Vector2 velocity = new Vector2(This.Game.rand.Next(-10,10), 700);
+                    Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), 100);
+                    particleEmitterFire.createParticles(velocity,
+                                                        acceleration,
+                                                        particleEmitterFire.GroundPos + new Vector2(This.Game.rand.Next((int)-radius, (int)radius), -175),
+                                                        50f,
+                                                        This.Game.rand.Next(150, 225));
+                }
+
+                //working on this
+                /*if (i % 1 == 0)
+                {
+                    for (double j = 0; j < 5; j += 1f)
+                    {
+                        double positionAngle = (((double)i + j % 5.0) / 5.0) * Math.PI * 2;
+                        Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 140, (float)Math.Sin(positionAngle) * This.Game.rand.Next(120, 140) / ParticleEmitter.EllipsePerspectiveModifier) + particleEmitterSkywardRing.GroundPos;
+                        Vector2 direction = particleEmitterFire.GroundPos - position;
+                        direction.Normalize();
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -75);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
+                        particleEmitterFire.createParticles(velocity,
+                                                                   acceleration,
+                                                                   position,
+                                                                   This.Game.rand.Next(5, 20),
+                                                                   This.Game.rand.Next(400, 600));
+                    }
+                }*/
+
+                //Deal Damage
+                if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    Damage(attacker, target, baseDamage);
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                    attacker.isAttackAnimDone = true;
+
+                yield return false;
+            }
+
+            while (particleEmitterFire.ActiveParticleCount > 0)
+                yield return false;
+
+            #endregion Generate Fire Pillar
+
+            particleEmitterFire.Remove();
+            l.RemoveSprite(particleEmitterFire);
+            attacker.particleEmitters.Remove(particleEmitterFire);
+
+
+            attacker.State = SpriteState.Idle;
+            setAnimationReturnFrameCount(attacker);
+            attacker.isAttackAnimDone = true;
+
+            yield return true;
+        }
     }
 }
