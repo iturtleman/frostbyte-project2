@@ -85,6 +85,7 @@ namespace Frostbyte.Enemies
                         {
                             mAttacks.Add(Attacks.Melee(this, 5, 18).GetEnumerator());
                             attackStartTime = This.gameTime.TotalGameTime;
+                            break;
                         }
                     }
                 }
