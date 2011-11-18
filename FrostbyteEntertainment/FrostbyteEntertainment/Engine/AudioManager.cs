@@ -76,15 +76,14 @@ namespace Frostbyte
             }
         }
 
-        internal void PlaySoundEffect(string name, float volume=.2f)
+        internal bool PlaySoundEffect(string name, float volume=.2f)
         {
             SoundEffect se;
             if (soundEffects.TryGetValue(name,out se))
             {
-                var sound = se.CreateInstance();
-                sound.Volume = volume;
-                sound.Play();
+                return se.Play(volume,0f,0f);
             }
+            return false;
         }
 
         internal void InitializeLoopingSoundEffect(string name, float volume=.2f)
