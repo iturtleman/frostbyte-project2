@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Frostbyte.Enemies
 {
 
-    internal partial class Worm : Frostbyte.Enemy
+    internal partial class Worm : Frostbyte.Boss
     {
         #region Variables
         static List<Animation> Animations = new List<Animation>(){
@@ -19,11 +19,11 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-diagdown.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-right.anim"),
@@ -43,11 +43,11 @@ namespace Frostbyte.Enemies
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Earth;
-            // Personality = new UndergroundAttackPersonality();
-            Personality = new DartPersonality(this);
+            Personality = new UndergroundAttackPersonality(this);
         }
 
         private bool changeState = false;
+        private bool isSubmerged = false;
 
         protected override void updateMovement()
         {
@@ -60,7 +60,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttackAnimDone)
+            if (isAttackAnimDone && !isSubmerged)
             {
                 float range = 450.0f;
                 List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
@@ -97,7 +97,7 @@ namespace Frostbyte.Enemies
                                                   {
                                                       particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                tangent * -i * 40,
-                                                                                               particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                               particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
                                                                                                1.5f,
                                                                                                300);
                                                   }

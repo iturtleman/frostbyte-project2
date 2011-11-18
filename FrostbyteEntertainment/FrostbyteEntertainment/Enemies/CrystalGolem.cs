@@ -79,7 +79,7 @@ namespace Frostbyte.Enemies
                                                   {
                                                       particleEmitter.createParticles(-direction * projectileSpeed*30,
                                                                                                   Vector2.Zero,
-                                                                                                  particleEmitter.GroundPos + tangent * i * 1.7f - directionNormal * (Math.Abs(i) * 7) + directionNormal * positionOffset,
+                                                                                                  particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - directionNormal * (Math.Abs(i) * 7) + directionNormal * positionOffset,
                                                                                                   25,
                                                                                                   1000);
                                                   }

@@ -152,7 +152,7 @@ namespace Frostbyte
 
         private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
-            if (triggered.Values.All(on => on))
+            if (triggered.Count > 0 && triggered.Values.All(on => on))
                 {
                     return new TriggerMultipleTargetEventArgs(triggered.Keys.ToList());
                 }
@@ -180,11 +180,17 @@ namespace Frostbyte
             base.TriggerCondition += TriggerCondition;
             base.TriggerEffect += TriggerEffect;
 
+            playersInRange = new List<Sprite>();
+
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("regen");
-            ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
+            Texture2D regen = This.Game.CurrentLevel.GetTexture("regen");
+            Texture2D evil = This.Game.CurrentLevel.GetTexture("evil");
+            particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, regen, evil);
+            particleEmitterTrigger.effectTechnique = "ChangePicAndFadeAtPercent";
+            particleEmitterTrigger.fadeStartPercent = 0.9f;
+            (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).Radius = GetAnimation().Height / 2;
+            (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).createDrawPoints();
             particleEmitterTrigger.blendState = BlendState.Additive;
             particleEmitters.Add(particleEmitterTrigger);
             #endregion
@@ -195,19 +201,19 @@ namespace Frostbyte
                 delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
                     int numLayers = 5;
-                    int size = attacker.GetAnimation().Height;
+                    int maxRadius = attacker.GetAnimation().Height / 2;
                     for (int i = 0; i < numLayers; i++)
                     {
-                        double radius = (i + 1) * size / numLayers;
+                        double radius = (i + 1) * maxRadius / numLayers;
                         double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
-                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
+                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta) / ParticleEmitter.EllipsePerspectiveModifier));
                         Vector2 velocity = new Vector2(-origin.Y, origin.X);
 
                         velocity.Normalize();
                         particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
                                         (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
-                                        attacker.Pos + attacker.Center + origin,
-                                        size / numLayers - 1,
+                                        attacker.GroundPos + origin + new Vector2(0, maxRadius / ParticleEmitter.EllipsePerspectiveModifier),
+                                        maxRadius / numLayers - 1,
                                         1000);
                     }
                 },
@@ -227,17 +233,35 @@ namespace Frostbyte
         }
 
         private List<Sprite> playersInRange;
+        private ParticleEmitter particleEmitterTrigger;
 
         private new void TriggerUpdate()
         {
-            playersInRange = GetTargetsInRange((This.Game.CurrentLevel as FrostbyteLevel).allies, GetAnimation().Height);
+            playersInRange.Clear();
+            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+            Collision.CollisionData.TryGetValue(particleEmitterTrigger, out collidedWith);
+            if (collidedWith != null)
+            {
+                foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                {
+                    if (detectedCollision.Item2 is Player)
+                    {
+                        playersInRange.Add(detectedCollision.Item2 as Player);
+                    }
+                }
+            }
         }
 
         private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
             if (playersInRange.Count > 0)
             {
+                particleEmitterTrigger.changePicPercent = 0;
                 return new TriggerMultipleTargetEventArgs(playersInRange);
+            }
+            else
+            {
+                particleEmitterTrigger.changePicPercent = 1;
             }
             return null;
         }
@@ -263,6 +287,8 @@ namespace Frostbyte
             ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
             particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
             particleEmitterTrigger.blendState = BlendState.Additive;
+            (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).Radius = GetAnimation().Height / 2;
+            (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).createDrawPoints();
             particleEmitters.Add(particleEmitterTrigger);
             #endregion
             Random rand = new Random();
@@ -272,10 +298,10 @@ namespace Frostbyte
                 delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                 {
                     int numLayers = 5;
-                    int size = attacker.GetAnimation().Height;
+                    int maxRadius = attacker.GetAnimation().Height / 2;
                     for (int i = 0; i < numLayers; i++)
                     {
-                        double radius = (i + 1) * size / numLayers;
+                        double radius = (i + 1) * maxRadius / numLayers;
                         double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
                         Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
                         Vector2 velocity = new Vector2(-origin.Y, origin.X);
@@ -283,8 +309,8 @@ namespace Frostbyte
                         velocity.Normalize();
                         particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
                                         (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
-                                        attacker.Pos + attacker.Center + origin,
-                                        size / numLayers - 1,
+                                        attacker.GroundPos + origin,
+                                        maxRadius / numLayers - 1,
                                         1000);
                     }
                 },

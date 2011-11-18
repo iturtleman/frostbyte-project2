@@ -24,7 +24,7 @@ namespace Frostbyte
         internal IPersonality Personality;
         internal string MovementAudioName;
         internal ProgressBar healthBar;
-        private static Vector2 barSize = new Vector2(100, 20);
+        private static Vector2 barSize = new Vector2(50, 10);
         #endregion Variables
 
         #region Properties
@@ -124,7 +124,7 @@ namespace Frostbyte
                 }
                 #endregion
 
-                var anim =healthBar.GetAnimation();
+                var anim = healthBar.GetAnimation();
                 healthBar.Pos = GroundPos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
 
             }
@@ -161,5 +161,24 @@ namespace Frostbyte
 
         /// \todo create projectile class (projectiles modify health of enemies/players) 
         /// \todo complete checkBackgroundCollisions
+    }
+
+    internal abstract class Boss : Enemy
+    {
+        internal Boss(string name, Actor actor, float speed, int health)
+            : base(name, actor, speed, health)
+        {
+            Enabled = true;
+        }
+
+        internal bool Enabled;
+
+        internal override void Update()
+        {
+            if (Enabled)
+            {
+                base.Update();
+            }
+        }
     }
 }
