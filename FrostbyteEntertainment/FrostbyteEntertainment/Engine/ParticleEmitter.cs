@@ -74,9 +74,10 @@ namespace Frostbyte
         #endregion Private Variables
 
         #region Internal Properties
-        
-        internal static float EllipsePerspectiveModifier { get { return 1.7f; } }
-
+        /// <summary>
+        /// The ammount that we will scale off the y coordinate 
+        /// Useage: circle(x,y/EllipsePerspectiveModifier)
+        /// </summary>
         internal BlendState blendState = BlendState.AlphaBlend;
 
         /// <summary>

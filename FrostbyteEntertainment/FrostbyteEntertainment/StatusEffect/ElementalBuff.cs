@@ -10,13 +10,13 @@ namespace Frostbyte
     internal class ElementalBuff : StatusEffect
     {
         internal ElementalBuff(Element e)
-            :base(new TimeSpan(0,0,42), LevelFunctions.DoNothing)
+            : base(new TimeSpan(0, 0, 42), LevelFunctions.DoNothing)
         {
             Element = e;
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D element = This.Game.CurrentLevel.GetTexture("regen");
-            switch(e)
+            switch (e)
             {
                 case Frostbyte.Element.Earth:
                     element = This.Game.CurrentLevel.GetTexture("boulder");
@@ -32,10 +32,28 @@ namespace Frostbyte
                     break;
             }
             particleEmitter = new ParticleEmitter(800, particleEffect, element);
-            particleEmitter.effectTechnique = "FadeAtXPercent";
-            particleEmitter.fadeStartPercent = 60;
-            particleEmitter.blendState = BlendState.AlphaBlend;
-            #endregion            
+            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.fadeStartPercent = .6f;
+            switch (Element)
+            {
+                case Frostbyte.Element.Earth:
+                    particleEmitter.blendState = BlendState.AlphaBlend;
+
+                    break;
+                case Frostbyte.Element.Lightning:
+                    particleEmitter.blendState = BlendState.Additive;
+
+                    break;
+                case Frostbyte.Element.Water:
+                    particleEmitter.blendState = BlendState.Additive;
+
+                    break;
+                case Frostbyte.Element.Fire:
+                    particleEmitter.blendState = BlendState.AlphaBlend;
+
+                    break;
+            }
+            #endregion
         }
 
         Element Element = Element.Normal;
@@ -43,43 +61,44 @@ namespace Frostbyte
         internal override void Draw(Sprite target)
         {
             base.Draw(target);
-
-            Random rand = new Random();
-            int numLayers = 3;
-            int size = target.GetAnimation().Height;
-            int scale = size;
-            switch (Element)
+            if (count % 5 == 0)
             {
-                case Frostbyte.Element.Earth:
-                    scale /= 2;
-                    break;
-                case Frostbyte.Element.Lightning:
-                    scale *= 1;
-                    break;
-                case Frostbyte.Element.Water:
-                    scale *= 1;
-                    break;
-                case Frostbyte.Element.Fire:
-                    scale *= 1;
-                    break;
-            }
-            for (int i = 0; i < numLayers; i++)
-            {
-                double radius = (i + 1) * size / (numLayers*2);
-                double theta = rand.NextDouble() * 3 * Element.GetHashCode() * Math.PI - Math.PI;
-                if (rand.Next() % 2 == 0)
-                    theta = -theta;
-                Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
-                Vector2 velocity = new Vector2(-origin.Y, origin.X);
+                Random rand = new Random();
+                int numLayers = 1;
+                int size = target.GetAnimation().Height;
+                int scale = size;
+                switch (Element)
+                {
+                    case Frostbyte.Element.Earth:
+                        scale /= 5;
+                        break;
+                    case Frostbyte.Element.Lightning:
+                        scale /= 2;
+                        break;
+                    case Frostbyte.Element.Water:
+                        scale /= 2;
+                        break;
+                    case Frostbyte.Element.Fire:
+                        scale /= 2;
+                        break;
+                }
+                for (int i = 0; i < numLayers; i++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                    Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                    Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                    int radius = target.GetAnimation().Width;
 
-                velocity.Normalize();
-                particleEmitter.createParticles(
-                    new Vector2(0, -10 * (i + 1)),
-                    (velocity ) / new Vector2((float)radius, (float)radius) * 100,
-                    target.Pos + target.Center + origin,
-                    scale / numLayers - 1,
-                    500);
+                    velocity.Normalize();
+                    particleEmitter.createParticles(velocity,
+                                                    acceleration,
+                                                    target.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                    scale,
+                                                    This.Game.rand.Next(100, 500));
+                }
             }
+            count++;
         }
     }
 }

@@ -125,7 +125,7 @@ namespace Frostbyte
                 #endregion
 
                 var anim =healthBar.GetAnimation();
-                healthBar.Pos = Pos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -healthBar.Height);
+                healthBar.Pos = GroundPos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
 
             }
 

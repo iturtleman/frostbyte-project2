@@ -30,7 +30,11 @@ namespace Frostbyte
         /// Particle emmitter if we want the effect to sparkle
         /// </summary>
         internal ParticleEmitter particleEmitter;
-       
+
+        /// <summary>
+        /// The number of times this has been drawn.
+        /// </summary>
+        protected int count=0;
         #endregion Variables
 
         internal StatusEffect(TimeSpan time, Behavior effect)
