@@ -928,7 +928,7 @@ namespace Frostbyte
             int count = 0;
             while (particleEmitterFire.ActiveParticleCount > 0 || particleEmitterRedFire.ActiveParticleCount > 0 || particleEmitterSkywardRing.ActiveParticleCount > 0 || DOT.Count > 0)
             {
-                if ((double)count % 18 == 0)
+                if (count % 18 == 0)
                 {
                     //Deal Damage, Remove DOT's That Have Timed Out, and Create Particles on Enemies
                     List<OurSprite> removeDOT = new List<OurSprite>();
