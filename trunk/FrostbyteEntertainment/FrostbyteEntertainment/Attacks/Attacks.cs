@@ -362,7 +362,7 @@ namespace Frostbyte
                 for (int j = 0; j < 2; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitter.createParticles(randDirection * 30, -randDirection * 3, particleTopPosition, 25f, This.Game.rand.Next(100, 1200));
                 }
 
@@ -387,7 +387,7 @@ namespace Frostbyte
                 for (int j = 0; j < 30; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitter.createParticles(randDirection * 170, -randDirection * 90, particleEmitter.GroundPos, 2f, This.Game.rand.Next(400, 1500));
                 }
 
@@ -520,7 +520,7 @@ namespace Frostbyte
                 for (int j = 0; j < 1; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitterRocks.createParticles(new Vector2(0, -200), new Vector2(0, 800), particleEmitterRocks.GroundPos + randDirection * This.Game.rand.Next(0, 150), 4f, This.Game.rand.Next(100, 400));
                 }
 
@@ -528,7 +528,7 @@ namespace Frostbyte
                 for (int j = 0; j < 5; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitterDust.createParticles(new Vector2(0, -10), new Vector2(0, -5), particleEmitterDust.GroundPos + randDirection * This.Game.rand.Next(0, 150), 35f, This.Game.rand.Next(300, 1200));
                 }
 
@@ -540,7 +540,7 @@ namespace Frostbyte
                     for (double j = 0; j < maxLength; j += .15f)
                     {
                         double directionAngle2 = (((j + startPos) % 50) / 50) * 2 * Math.PI;
-                        Vector2 circlePoint = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2) / 1.7f);
+                        Vector2 circlePoint = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2) / ParticleEmitter.EllipsePerspectiveModifier);
                         particleEmitterRing.createParticles(new Vector2(0, -30), new Vector2(0, -35), particleEmitterRing.GroundPos + circlePoint * 150, 4f, This.Game.rand.Next(1100, 1200));
                     }
                 }
@@ -672,7 +672,7 @@ namespace Frostbyte
                 for (int j = 0; j < rockParticleEmitterRadius / 8; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitterDust.createParticles(new Vector2(0, -6), new Vector2(0, -5), particleEmitterDust.GroundPos + new Vector2(0, -175) + randDirection * This.Game.rand.Next(0, (int)(rockParticleEmitterRadius * 1.4f)), 15f, This.Game.rand.Next(300, 1200));
                 }
 
@@ -680,7 +680,7 @@ namespace Frostbyte
                 for (int j = 0; j < rockParticleEmitterRadius / 8; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitterRocks.createParticles(new Vector2(0, 275), new Vector2(10, 50), particleEmitterRocks.GroundPos + new Vector2(0, -175) + randDirection * This.Game.rand.Next(0, (int)rockParticleEmitterRadius), 5f, This.Game.rand.Next(300, 600));
                 }
 
@@ -821,7 +821,7 @@ namespace Frostbyte
                     for (int j = 0; j < 10; j++)
                     {
                         double directionAngle = This.Game.rand.NextDouble() * 1 * Math.PI + Math.PI * 2;
-                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                         Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -100);
                         Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
                         particleEmitterRedFire.createParticles(velocity,
@@ -838,7 +838,7 @@ namespace Frostbyte
                     for (double j = 0; j < 30; j += .3f)
                     {
                         double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                         Vector2 velocity = -randDirection * 100;
                         Vector2 acceleration = -randDirection * 70;
                         particleEmitterFire.createParticles(velocity, 
@@ -855,7 +855,7 @@ namespace Frostbyte
                     for (double j = 0; j < 35; j += .3f)
                     {
                         double positionAngle = (((double)i + j % 35.0) / 35.0) * Math.PI * 2;
-                        Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 140, (float)Math.Sin(positionAngle) * This.Game.rand.Next(120, 140) / 1.7f) + particleEmitterSkywardRing.GroundPos;
+                        Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 140, (float)Math.Sin(positionAngle) * This.Game.rand.Next(120, 140) / ParticleEmitter.EllipsePerspectiveModifier) + particleEmitterSkywardRing.GroundPos;
                         Vector2 direction = particleEmitterSkywardRing.GroundPos - position;
                         direction.Normalize();
                         Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -75);
@@ -902,7 +902,7 @@ namespace Frostbyte
                         for (int j = 0; j < 5; j++)
                         {
                             double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                             Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             List<CollisionObject> collisionList = dottedTarget.Key.GetCollision();
@@ -942,7 +942,7 @@ namespace Frostbyte
                         for (int j = 0; j < 5; j++)
                         {
                             double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
+                            Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                             Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             List<CollisionObject> collisionList = dottedTarget.Key.GetCollision();
