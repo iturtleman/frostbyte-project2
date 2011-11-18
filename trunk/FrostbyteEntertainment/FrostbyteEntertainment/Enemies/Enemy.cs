@@ -36,10 +36,10 @@ namespace Frostbyte
         public Enemy(string name, Actor actor, float speed, int _health)
             : base(name, actor)
         {
-            
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
-            (This.Game.LoadingLevel as FrostbyteLevel).enemies.Add(this);
+            l.enemies.Add(this);
             EndBehavior = die;
             Speed = speed;
             Health = _health;
@@ -48,7 +48,7 @@ namespace Frostbyte
             #region HealthBar
             healthBar = new ProgressBar("Health_" + Name, MaxHealth,
                 Color.DarkRed, Color.Firebrick, Color.Black, barSize);
-            healthBar.Pos = Pos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(0, -20);
+            healthBar.Pos = Pos - l.Camera.Pos + new Vector2(0, -20);
             healthBar.Static = true;
             healthBar.Value = MaxHealth;
 
@@ -65,16 +65,18 @@ namespace Frostbyte
 
         private void die()
         {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             // Remove Sprite
-            This.Game.CurrentLevel.RemoveSprite(this);
+            l.RemoveSprite(this);
 
             // Remove enemy from target list so that we don't target blank space where an enemy died
-            (This.Game.CurrentLevel as FrostbyteLevel).enemies.Remove(this);
+            l.enemies.Remove(this);
 
         }
 
         public void update()
         {
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             //necessary for collision
             if(this.CollidesWithBackground)
                 previousFootPos = this.GroundPos;
@@ -125,7 +127,7 @@ namespace Frostbyte
                 #endregion
 
                 var anim = healthBar.GetAnimation();
-                healthBar.Pos = GroundPos - (This.Game.CurrentLevel as FrostbyteLevel).Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
+                healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
 
             }
 
@@ -137,7 +139,7 @@ namespace Frostbyte
                 this.EndBehavior();
                 return;
             }
-            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            List<Sprite> targets = l.allies;
             if (MovementAudioName != null)
             {
                 if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)
