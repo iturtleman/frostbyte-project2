@@ -156,6 +156,7 @@ namespace Frostbyte
 
         internal static void Draw(Matrix transformation)
         {
+            Level l = This.Game.CurrentLevel;
             if (ShowCollisionData)
             {
                 float height = This.Game.GraphicsDevice.Viewport.Height;
@@ -166,7 +167,7 @@ namespace Frostbyte
                 basicEffect.VertexColorEnabled = true;
 
 
-                foreach (WorldObject world in This.Game.CurrentLevel.mWorldObjects)
+                foreach (WorldObject world in l.mWorldObjects)
                 {
                     foreach (CollisionObject collisionObject in world.GetCollision())
                     {
@@ -174,7 +175,7 @@ namespace Frostbyte
                     }
                 }
 
-                var BG = This.Game.CurrentLevel.Background;
+                var BG = l.Background;
                 if (BG != null)
                     foreach (var col in BG.GetCollision())
                     {
