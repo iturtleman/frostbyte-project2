@@ -74,8 +74,9 @@ namespace Frostbyte
         #endregion Private Variables
 
         #region Internal Properties
-
+        
         internal static float EllipsePerspectiveModifier { get { return 1.7f; } }
+
         internal BlendState blendState = BlendState.AlphaBlend;
 
         /// <summary>
@@ -99,6 +100,10 @@ namespace Frostbyte
                     m_effectTechnique = "FadeAtXPercent";
             }
         }
+
+        /// <summary>
+        /// Percent between 0 and 1
+        /// </summary>
         internal float fadeStartPercent
         {
             get
@@ -116,6 +121,10 @@ namespace Frostbyte
                 effect.Parameters["xFadeStartPercent"].SetValue(m_fadeStartPercent);
             }
         }
+
+        /// <summary>
+        /// Percent between 0 and 1
+        /// </summary>
         internal float changePicPercent
         {
             get
@@ -211,6 +220,12 @@ namespace Frostbyte
             }
         }
 
+        /// <summary>
+        /// Create Particles
+        /// </summary>
+        /// <param name="startPosition">Position in Relation to World Coordinates</param>
+        /// <param name="size">2 = 4x4 square; 10 = 20x20 square</param>
+        /// <param name="timeToLive">Time to Live in Milliseconds</param>
         internal void createParticles(Vector2 velocity, Vector2 acceleration, Vector2 startPosition, float size, int timeToLive)
         {
             if (numOfActiveParticles < maxNumOfParticles)
