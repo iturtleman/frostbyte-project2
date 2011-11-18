@@ -336,10 +336,10 @@ namespace Frostbyte
     internal class UndergroundAttackPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
-        private Enemy master;
+        private Enemies.Worm master;
         private IEnumerator mStates;
 
-        internal UndergroundAttackPersonality(Enemy master)
+        internal UndergroundAttackPersonality(Enemies.Worm master)
         {
             this.master = master;
             mStates = States().GetEnumerator();
@@ -353,18 +353,56 @@ namespace Frostbyte
         public IEnumerable States()
         {
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-            float[] distances = new float[3] { 1000f, 150f, 100f };
-            while (!master.camp(targets, float.PositiveInfinity, 100f))
+
+            while (!master.camp(targets, 100, float.PositiveInfinity))
             {
                 yield return null;
             }
+            #region Surface
+            master.SetAnimation(17);
+            master.Rewind();
+            while (master.Frame != master.FrameCount() - 1)
+            {
+                yield return null;
+            }
+            master.IsSubmerged = false;
+            #endregion
             while (true)
             {
-                while (!master.charge(targets, float.PositiveInfinity, 1f))
+                if (master.IsSubmerged)
                 {
-                    yield return null;
+                    while (!master.delayedTeleport(new TimeSpan(0, 0, 5),
+                        new Rectangle((int)master.Pos.X, (int)master.Pos.Y, 100, 100)))
+                    {
+                        yield return null;
+                    }
+                    #region Surface
+                    master.SetAnimation(17);
+                    master.Rewind();
+                    while (master.Frame != master.FrameCount() - 1)
+                    {
+                        yield return null;
+                    }
+                    master.IsSubmerged = false;
+                    #endregion
                 }
-
+                else
+                {
+                    TimeSpan attackEnd = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 5);
+                    while (This.gameTime.TotalGameTime < attackEnd)
+                    {
+                        yield return null;
+                    }
+                    #region Submerge
+                    master.SetAnimation(16);
+                    master.Rewind();
+                    while (master.Frame != master.FrameCount() - 1)
+                    {
+                        yield return null;
+                    }
+                    master.IsSubmerged = true;
+                    #endregion
+                }
                 yield return null;
             }
         }
@@ -794,6 +832,27 @@ namespace Frostbyte
                 ths.Direction.Normalize();
                 dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
                 ths.movementStartTime = This.gameTime.TotalGameTime;
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Move off-screen for `duration` seconds, then teleport to a random point within a rectangle
+        /// </summary>
+        internal static bool delayedTeleport(this Enemy ths, TimeSpan wait, Rectangle bounds)
+        {
+            if (ths.Personality.Status != EnemyStatus.Frozen)
+            {
+                ths.movementStartTime = This.gameTime.TotalGameTime;
+                ths.Personality.Status = EnemyStatus.Frozen;
+            }
+
+            else if (This.gameTime.TotalGameTime >= ths.movementStartTime + wait)
+            {
+                ths.Personality.Status = EnemyStatus.Wander;
+                ths.GroundPos = new Vector2(bounds.X + RNG.Next(bounds.Width), bounds.Y + RNG.Next(bounds.Height));
                 return true;
             }
 

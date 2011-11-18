@@ -18,20 +18,20 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),  // 4
             This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),  // 9
             This.Game.CurrentLevel.GetAnimation("worm-spew-down.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-diagdown.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-right.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-spew-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-spew-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-spew-up.anim"),  // 14
             This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-submerge.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-surface-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("worm-submerge.anim"),  // Go-underground
+            This.Game.CurrentLevel.GetAnimation("worm-surface-down.anim"),  // Go-above-ground
             This.Game.CurrentLevel.GetAnimation("worm-vomit.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-die.anim"),
         };
@@ -44,10 +44,12 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Earth;
             Personality = new UndergroundAttackPersonality(this);
+            SetAnimation(15);
+            IsSubmerged = true;
         }
 
         private bool changeState = false;
-        private bool isSubmerged = false;
+        internal bool IsSubmerged;
 
         protected override void updateMovement()
         {
@@ -60,7 +62,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (isAttackAnimDone && !isSubmerged)
+            if (isAttackAnimDone && !IsSubmerged)
             {
                 float range = 450.0f;
                 List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;

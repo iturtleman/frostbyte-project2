@@ -83,6 +83,7 @@ namespace Frostbyte
 
             if (isAttackAnimDone)
             {
+                Vector2 previousDirection = Direction;
                 PreviousPos = Pos;
                 updateMovement();
 
@@ -90,41 +91,44 @@ namespace Frostbyte
                 if (this.CollidesWithBackground)
                     checkBackgroundCollisions();
 
-                #region update animation facing direction
-                switch (Orientation)
+                if (Direction != previousDirection)
                 {
-                    case Orientations.Down:
-                        SetAnimation(0 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Down_Right:
-                        Hflip = false;
-                        SetAnimation(1 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Down_Left:
-                        Hflip = true;
-                        SetAnimation(1 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Right:
-                        Hflip = false;
-                        SetAnimation(2 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Left:
-                        Hflip = true;
-                        SetAnimation(2 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up_Right:
-                        Hflip = false;
-                        SetAnimation(3 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up_Left:
-                        Hflip = true;
-                        SetAnimation(3 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up:
-                        SetAnimation(4 + 5 * State.GetHashCode());
-                        break;
+                    #region update animation facing direction
+                    switch (Orientation)
+                    {
+                        case Orientations.Down:
+                            SetAnimation(0 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Down_Right:
+                            Hflip = false;
+                            SetAnimation(1 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Down_Left:
+                            Hflip = true;
+                            SetAnimation(1 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Right:
+                            Hflip = false;
+                            SetAnimation(2 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Left:
+                            Hflip = true;
+                            SetAnimation(2 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up_Right:
+                            Hflip = false;
+                            SetAnimation(3 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up_Left:
+                            Hflip = true;
+                            SetAnimation(3 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up:
+                            SetAnimation(4 + 5 * State.GetHashCode());
+                            break;
+                    }
+                    #endregion
                 }
-                #endregion
 
                 var anim = healthBar.GetAnimation();
                 healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
