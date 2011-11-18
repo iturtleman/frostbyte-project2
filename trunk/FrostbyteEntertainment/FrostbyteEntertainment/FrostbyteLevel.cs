@@ -53,8 +53,8 @@ namespace Frostbyte
 
         int IComparer<Sprite>.Compare(Sprite x, Sprite y)
         {
-            double lx = (x.Pos - origin.Pos).LengthSquared();
-            double ly = (y.Pos - origin.Pos).LengthSquared();
+            double lx = (x.GroundPos - origin.GroundPos).LengthSquared();
+            double ly = (y.GroundPos - origin.GroundPos).LengthSquared();
             if (lx > ly)
             {
                 return 1;

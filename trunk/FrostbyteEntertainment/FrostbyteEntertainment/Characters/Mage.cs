@@ -143,7 +143,7 @@ namespace Frostbyte.Characters
                                                                       {
                                                                           particleEmitter.createParticles(-direction * projectileSpeed * .75f,
                                                                                                                    tangent * -i * 40,
-                                                                                                                   particleEmitter.GroundPos + tangent * i * 1.7f + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                                                   particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
                                                                                                                    1.5f,
                                                                                                                    300);
                                                                       }
@@ -213,7 +213,7 @@ namespace Frostbyte.Characters
                                                                       {
                                                                           particleEmitter.createParticles(-direction * projectileSpeed * 5,
                                                                                                                       tangent * -i * 40,
-                                                                                                                      particleEmitter.GroundPos + tangent * i * 1.7f - direction * (Math.Abs(i) * 7),
+                                                                                                                      particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - direction * (Math.Abs(i) * 7),
                                                                                                                       4,
                                                                                                                       300);
                                                                       }
@@ -458,7 +458,7 @@ namespace Frostbyte.Characters
 
                         currentTarget = findMinimum(GetTargetsInRange(
                             l.enemies,
-                            This.Game.GraphicsDevice.Viewport.Width));
+                            This.Game.GraphicsDevice.Viewport.Width / 2));
 
                         if (currentTarget != null)
                         {
@@ -498,7 +498,10 @@ namespace Frostbyte.Characters
                     target.Pos = (target.CenteredOn(currentTarget) - l.Camera.Pos) * l.Camera.Zoom;
                 }
 
-                if (!l.enemies.Contains(currentTarget) && !l.allies.Contains(currentTarget) && !l.obstacles.Contains(currentTarget))//makes it a little faster
+                if (!(l.enemies.Contains(currentTarget) ||
+                    l.allies.Contains(currentTarget) ||
+                    (l.obstacles.Contains(currentTarget) &&
+                        currentTarget.GetType().IsAssignableFrom(typeof(TargetableObstacle)))))
                 {
                     cancelTarget();
                 }
