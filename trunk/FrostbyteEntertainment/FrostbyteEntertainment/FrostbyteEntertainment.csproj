@@ -797,6 +797,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-surface-down.anim">
       <Link>Content\Sprites\worm-surface-down.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\worm-underground.anim">
       <Link>Content\Sprites\worm-underground.anim</Link>
