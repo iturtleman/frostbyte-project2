@@ -352,7 +352,7 @@ namespace Frostbyte
 
             #region Generate Lightning Strike and Ground Spread and Deal Damage
 
-            if (This.Game.AudioManager.PlaySoundEffect("Lightning_Strike"))
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike"))
             {
                 yield return false;
             }
@@ -515,7 +515,7 @@ namespace Frostbyte
 
             #region Generate Earthquake
 
-            if (This.Game.AudioManager.PlaySoundEffect("Earthquake"))
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Earthquake"))
             {
                 yield return false;
             }
