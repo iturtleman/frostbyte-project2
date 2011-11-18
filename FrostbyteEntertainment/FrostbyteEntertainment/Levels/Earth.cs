@@ -36,16 +36,6 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
 
-
-            context.GetTexture("regen");
-            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2);
-            t.SpawnOn(mage);
-            t.SpawnPoint.Y -= Tile.TileSize * 2;
-
-            SetRespawnTrigger sp = new SetRespawnTrigger("trigger", Tile.TileSize / 2, Tile.TileSize / 2, l.allies);
-            sp.SpawnOn(mage);
-            sp.SpawnPoint.Y -= Tile.TileSize * 2;
-
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
             #endregion loadeffects etc
