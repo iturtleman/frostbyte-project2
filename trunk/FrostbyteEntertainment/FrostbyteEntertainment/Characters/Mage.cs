@@ -255,7 +255,50 @@ namespace Frostbyte.Characters
                             case Element.Water:
                                 if (attackCounter.Count == 1)
                                 {
+                                    if (Mana >= 10)
+                                    {
+                                        #region Water Tier 1
 
+                                        int attackRange = 11;
+
+                                        //Create Earth Tier 1 Particle Emmiter
+                                        Effect particleEffect = l.GetEffect("ParticleSystem");
+                                        Texture2D snowflake = l.GetTexture("water");
+                                        ParticleEmitter particleWaterTier1 = new ParticleEmitter(500, particleEffect, snowflake);
+                                        particleWaterTier1.effectTechnique = "NoSpecialEffect";
+                                        particleWaterTier1.blendState = BlendState.Additive;
+                                        (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                                        (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                                        particleEmitters.Add(particleWaterTier1);
+
+                                        mAttacks.Add(Attacks.T1Projectile(currentTarget,
+                                                                  this,
+                                                                  20,
+                                                                  0,
+                                                                  new TimeSpan(0, 0, 0, 1, 150),
+                                                                  attackRange,
+                                                                  9f,
+                                                                  false,
+                                                                  delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                                                  {
+                                                                      Random randPosition = new Random();
+                                                                      particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                                                      Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                                      for (int i = -5; i < 6; i++)
+                                                                      {
+                                                                          particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                                                                   tangent * -i * 40,
+                                                                                                                   particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                                                   10.0f,
+                                                                                                                   This.Game.rand.Next(10, 300));
+                                                                      }
+                                                                  },
+                                                                  particleWaterTier1,
+                                                                  Element.Earth
+                                                                  ).GetEnumerator());
+                                        #endregion Water Tier 1
+                                        Mana -= 10;
+                                    }
                                 }
 
                                 else if (attackCounter.Count == 2)
