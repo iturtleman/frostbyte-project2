@@ -905,7 +905,13 @@ namespace Frostbyte
                             Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
                             Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
-                            particleEmitterDOT.createParticles(velocity, acceleration, dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, (int)(dottedTarget.Key.GetCollision()[0] as Collision_BoundingCircle).Radius), 10f, This.Game.rand.Next(100, 500));
+                            List<CollisionObject> collisionList = dottedTarget.Key.GetCollision();
+                            int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                            particleEmitterDOT.createParticles(velocity,
+                                                               acceleration,
+                                                               dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                               10f, 
+                                                               This.Game.rand.Next(100, 500));
                         }
                     }
                     foreach (OurSprite dottedTarget in removeDOT)
@@ -939,7 +945,13 @@ namespace Frostbyte
                             Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / 1.7f);
                             Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
                             Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
-                            particleEmitterDOT.createParticles(velocity, acceleration, dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, (int)(dottedTarget.Key.GetCollision()[0] as Collision_BoundingCircle).Radius), 10f, This.Game.rand.Next(100, 500));
+                            List<CollisionObject> collisionList = dottedTarget.Key.GetCollision();
+                            int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                            particleEmitterDOT.createParticles(velocity,
+                                                               acceleration,
+                                                               dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                               10f,
+                                                               This.Game.rand.Next(100, 500));
                         }
                     }
                     foreach (OurSprite dottedTarget in removeDOT)
