@@ -24,8 +24,6 @@ namespace Frostbyte.Levels
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
 
-            Enemies.CrystalMan cm = new Enemies.CrystalMan("rawr", mage.SpawnPoint);
-
             Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")), PlayerIndex.Two, new Color(114, 255, 255));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(72 * 64, 8 * 64);
             mage2.Speed = 1;
