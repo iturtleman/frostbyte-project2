@@ -19,14 +19,14 @@
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="3072,1536" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="3328,1536" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="3584,1536" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="3840,1536" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="0,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="256,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="512,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="768,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1024,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1280,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
-  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1536,1792" AnimationPeg="-42,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="3840,1536" AnimationPeg="-12,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="0,1792" AnimationPeg="-12,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="256,1792" AnimationPeg="-25,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="512,1792" AnimationPeg="-25,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="768,1792" AnimationPeg="-25,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1024,1792" AnimationPeg="-25,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1280,1792" AnimationPeg="-12,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
+  <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1536,1792" AnimationPeg="-12,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="1792,1792" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="2048,1792" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>
   <Frame SpriteSheet="crystalgolem-attack" FrameDelay="10" Width="256" Height="256" TLPos="2304,1792" AnimationPeg="0,0"><Collision Type="Circle" Pos="128,175" Radius="50"/></Frame>

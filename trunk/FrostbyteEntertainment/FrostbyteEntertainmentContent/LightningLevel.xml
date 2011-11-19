@@ -6042,4 +6042,5 @@
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6368,5792" />
   <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="4576,3296" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6368,5792" />
+  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="ag" Pos="4480,512" />
 </Level>
