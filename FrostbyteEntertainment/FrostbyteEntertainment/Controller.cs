@@ -107,7 +107,7 @@ namespace Frostbyte
         private PlayerIndex input;
         private GamePadState mLastControllerState;
         protected GamePadState mCurrentControllerState;
-        private float InteractElementThreshold = 0.6f;
+        private float InteractElementThreshold = 0.4f;
         #endregion
 
         #region Methods
