@@ -147,10 +147,12 @@
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
     <Compile Include="Levels\WorldMap.cs" />
-    <Compile Include="Obstacles\Obstacle.cs" />
-    <Compile Include="Obstacles\Chest.cs" />
-    <Compile Include="Obstacles\Door.cs" />
-    <Compile Include="Obstacles\Rock.cs" />
+    <Compile Include="Objects\DiaryEntry.cs" />
+    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\Obstacle.cs" />
+    <Compile Include="Objects\Chest.cs" />
+    <Compile Include="Objects\Door.cs" />
+    <Compile Include="Objects\Rock.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Shared\Beetle.cs" />
@@ -205,7 +207,7 @@
     <Compile Include="Target.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileHelper.cs" />
-    <Compile Include="Obstacles\Trigger.cs" />
+    <Compile Include="Objects\Trigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Bat_Move.wav">
@@ -279,6 +281,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Earth.txt">
+      <Link>Content\Story\Earth.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Final.txt">
+      <Link>Content\Story\Final.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Fire.txt">
+      <Link>Content\Story\Fire.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Intro.txt">
+      <Link>Content\Story\Intro.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Lightning.txt">
+      <Link>Content\Story\Lightning.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Water.txt">
+      <Link>Content\Story\Water.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Audio\Effects\Beetle_Move.wav" />
     <Content Include="Content\Audio\Effects\Earthquake.wav" />
     <Content Include="Content\Audio\Effects\Lightning_Strike.wav" />
@@ -318,7 +344,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\antibody.anim">
       <Link>Content\Sprites\antibody.anim</Link>
@@ -552,6 +577,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-teleport-out.anim">
       <Link>Content\Sprites\crystalman-teleport-out.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\diary-entry.anim">
+      <Link>Content\Sprites\diary-entry.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\door.anim">

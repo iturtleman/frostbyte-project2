@@ -19,6 +19,8 @@ namespace Frostbyte.Levels
 
             l.HUD.LoadCommon();
 
+            l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
+
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")), PlayerIndex.One ,new Color(255, 0, 0));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
             mage.Speed = 1;

@@ -83,6 +83,8 @@ namespace Frostbyte
         internal List<Sprite> enemies = new List<Sprite>();
         internal List<Sprite> obstacles = new List<Sprite>();
 
+        internal IEnumerator<string> DiaryEntries = null;
+
         internal TileList TileMap = new TileList();
 
         /// <summary>
@@ -449,12 +451,10 @@ namespace Frostbyte
                 if (elem.Attribute("Orientation") != null)
                 {
                     var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector, (Orientations)Enum.Parse(typeof(Orientations), elem.Attribute("Orientation").Value) });
-                    Console.WriteLine(obj);
                 }
                 else
                 {
                     var obj = Activator.CreateInstance(t, new object[] { elem.Attribute("Name").Value, Index2D.Parse(elem.Attribute("Pos").Value).Vector });
-                    Console.WriteLine(obj);
                 }
             }
         }

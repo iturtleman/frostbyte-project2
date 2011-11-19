@@ -625,6 +625,33 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Story\Earth.txt">
+      <Name>Earth</Name>
+    </None>
+    <None Include="Story\Final.txt">
+      <Name>Final</Name>
+    </None>
+    <None Include="Story\Fire.txt">
+      <Name>Fire</Name>
+    </None>
+    <None Include="Story\Intro.txt">
+      <Name>Intro</Name>
+    </None>
+    <None Include="Story\Lightning.txt">
+      <Name>Lightning</Name>
+    </None>
+    <None Include="Story\Water.txt">
+      <Name>Water</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\diary-entry.png">
+      <Name>diary-entry</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
