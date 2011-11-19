@@ -47,6 +47,38 @@ namespace Frostbyte
             This.Game.AudioManager.Stop();
         }
 
+        internal static IEnumerable<string> LoadLevelNotes(string levelName)
+        {
+            string entrySeparator = @"(?:\r?\n){3,}";  // At least three newlines separate each entry.
+
+            Random rand = new Random();
+            string[] errorNotes = new string[]{
+                "* The diary page is charred beyond recognition.",
+                "* You pick up pieces of what was once a diary. It seems monsters have since trampled and torn the pages.",
+                "* As you reach down for the pages, the wind whisks them away and they disappear from your sight."
+            };
+
+            string[] notes;
+            try
+            {
+                string text = System.IO.File.ReadAllText(String.Format("Content/Story/{0}.txt", levelName));
+                notes = System.Text.RegularExpressions.Regex.Split(text, entrySeparator);
+            }
+            catch (Exception){
+                notes = new string[] { };
+            }  // Just display one of the error messages each time instead.
+
+            foreach (string note in notes)
+            {
+                yield return note;
+            }
+
+            while (true)
+            {
+                yield return errorNotes[rand.Next(errorNotes.Length)];
+            }
+        }
+
         /// <summary>
         /// Spawns Enemies created by the EnemyFactory at random locations on the screen
         /// </summary>

@@ -9,13 +9,16 @@ namespace Frostbyte
 {
     internal class Item : Sprite
     {
-        internal Item(string name, Actor actor, Actor iconActor)
+        internal Item(string name, Actor actor, Actor iconActor=null)
             : base(name, actor)
         {
-            Icon = new ItemIcon(name + "_Icon", iconActor);
+            if (iconActor != null)
+            {
+                Icon = new ItemIcon(name + "_Icon", iconActor);
+            }
         }
 
-        internal Sprite Icon;
+        internal Sprite Icon = null;
 
         private class ItemIcon : Sprite
         {

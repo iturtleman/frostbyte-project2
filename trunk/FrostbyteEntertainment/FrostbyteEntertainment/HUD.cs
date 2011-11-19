@@ -95,7 +95,7 @@ namespace Frostbyte
 
         internal void ScrollText(string s)
         {
-            if (scroller != null)
+            if (scroller != null && s != null)
             {
                 scroller.ScrollText(s);
             }

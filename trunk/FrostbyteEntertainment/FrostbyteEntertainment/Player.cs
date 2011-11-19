@@ -65,21 +65,32 @@ namespace Frostbyte
         internal List<Item> ItemBag;
 
         /// <summary>
-        /// 
+        /// Pick up an item from the ground. Remove the item itself from the screen and
+        /// place it in the bag, if it has an icon.
         /// </summary>
         /// <param name="i"></param>
-        /// <returns>Returns true if the item was picked up, false if not.</returns>
+        /// <returns>Return true if the item was picked up, false if not.</returns>
         protected bool PickUpItem(Item i)
         {
             if (ItemBag.Count < ItemBagCapacity)
             {
                 This.Game.CurrentLevel.RemoveSprite(i);
-                ItemBag.Add(i);
+                if (i.Icon != null)
+                {
+                    ItemBag.Add(i);
+                }
                 return true;
             }
             return false;
         }
         #endregion
+
+        protected void ReadDiaryEntry()
+        {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            l.DiaryEntries.MoveNext();
+            l.HUD.ScrollText(l.DiaryEntries.Current);
+        }
 
         internal override void Regen()
         {

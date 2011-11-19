@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Frostbyte;
+using Frostbyte.Obstacles;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Levels
@@ -18,7 +19,7 @@ namespace Frostbyte.Levels
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
-            l.Theme = Element.DEFAULT;
+            l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
             levelCompleted = false;
 

@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 
+using Frostbyte.Obstacles;
+
 namespace Frostbyte.Characters
 {
     class Mage : Player
@@ -455,6 +457,13 @@ namespace Frostbyte.Characters
                     {
                         Item i = (target as Obstacles.Chest).Open();
                         PickUpItem(i);
+                        return;
+                    }
+                    else if (target is Obstacles.DiaryEntry)
+                    {
+                        This.Game.CurrentLevel.RemoveSprite(target);
+                        ReadDiaryEntry();
+                        return;
                     }
                 }
             }
