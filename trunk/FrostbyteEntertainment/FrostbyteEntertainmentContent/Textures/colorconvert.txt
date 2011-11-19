@@ -1,0 +1,3 @@
+convert input.gif -separate -swap 1,2 -combine output.gif
+
+I guess that 1 and 2 refer to green and blue channels, 0 is red.

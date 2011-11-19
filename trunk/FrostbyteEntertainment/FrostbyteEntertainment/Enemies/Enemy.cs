@@ -32,11 +32,10 @@ namespace Frostbyte
         protected Element ElementType { get; set; }
         #endregion
 
-
         public Enemy(string name, Actor actor, float speed, int _health)
             : base(name, actor)
         {
-            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            FrostbyteLevel l = This.Game.LoadingLevel as FrostbyteLevel;
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
             l.enemies.Add(this);
