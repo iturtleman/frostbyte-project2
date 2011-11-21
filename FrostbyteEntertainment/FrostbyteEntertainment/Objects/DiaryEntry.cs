@@ -8,12 +8,12 @@ namespace Frostbyte.Obstacles
 {
     class DiaryEntry : OnScreenObject
     {
-        internal DiaryEntry(string name)
+        public DiaryEntry(string name)
             : base(name, new Actor(This.Game.LoadingLevel.GetAnimation("diary-entry.anim")))
         {
         }
 
-        internal DiaryEntry(string name, Vector2 initialPosition)
+        public DiaryEntry(string name, Vector2 initialPosition)
             : this(name)
         {
             SpawnPoint = initialPosition;
