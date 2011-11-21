@@ -106,6 +106,7 @@ namespace Frostbyte
             "Intro",
             "WorldMap",
             "Earth",
+            "Earth",
             "WorldMap",
             "Lightning",
             "WorldMap",
@@ -156,7 +157,7 @@ namespace Frostbyte
         };
 
         internal FrostbyteLevel(string n, LoadBehavior loadBehavior, Behavior updateBehavior,
-            Behavior endBehavior, Condition winCondition=null)
+            Behavior endBehavior, Condition winCondition = null)
             : base(n, loadBehavior, updateBehavior, endBehavior, winCondition)
         {
             if (winCondition == null)
@@ -357,54 +358,62 @@ namespace Frostbyte
 
         internal override void Draw(GameTime gameTime, bool drawAfter = false)
         {
-            #region Draw Base Tiles
-            //draw base tiles
-            This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera.GetTransformation(This.Game.GraphicsDevice));
-
             List<Tile> drawLater = new List<Tile>();
-            for (int y = (int)Math.Floor(StartDraw.Y); y < (int)Math.Ceiling(EndDraw.Y); y++)
-            {
-                for (int x = (int)Math.Floor(StartDraw.X); x < (int)Math.Ceiling(EndDraw.X); x++)
-                {
-                    Tile toDraw;
-                    TileMap.TryGetValue(x, y, out toDraw);
 
-                    //toDraw.Draw();
-                    if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner || toDraw.Type == TileTypes.DEFAULT || toDraw.Type == TileTypes.TopArea))
-                        toDraw.Draw();
-                    else
+            if (TileMap.HasItems)
+            {
+                #region Draw Base Tiles
+                //draw base tiles
+                This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera.GetTransformation(This.Game.GraphicsDevice));
+
+                for (int y = (int)Math.Floor(StartDraw.Y); y < (int)Math.Ceiling(EndDraw.Y); y++)
+                {
+                    for (int x = (int)Math.Floor(StartDraw.X); x < (int)Math.Ceiling(EndDraw.X); x++)
                     {
-                        drawLater.Add(toDraw);
-                        if (toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner)
+                        Tile toDraw;
+                        TileMap.TryGetValue(x, y, out toDraw);
+
+                        //toDraw.Draw();
+                        if (!(toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner || toDraw.Type == TileTypes.DEFAULT || toDraw.Type == TileTypes.TopArea))
+                            toDraw.Draw();
+                        else
                         {
-                            //if it's somethign that needs floor draw me a floor piece
-                            Tile t = new Tile()
+                            drawLater.Add(toDraw);
+                            if (toDraw.Type == TileTypes.Bottom || toDraw.Type == TileTypes.BottomConvexCorner)
                             {
-                                Type = TileTypes.Floor,
-                                FloorType = TileTypes.Floor,
-                                Orientation = Orientations.Down,
-                                GridCell = toDraw.GridCell,
-                            };
-                            t.Draw();
+                                //if it's somethign that needs floor draw me a floor piece
+                                Tile t = new Tile()
+                                {
+                                    Type = TileTypes.Floor,
+                                    FloorType = TileTypes.Floor,
+                                    Orientation = Orientations.Down,
+                                    GridCell = toDraw.GridCell,
+                                };
+                                t.Draw();
+                            }
                         }
                     }
                 }
-            }
-            This.Game.spriteBatch.End();
-            #endregion
 
+                This.Game.spriteBatch.End();
+
+                #endregion
+            }
             base.Draw(gameTime, true);
 
-            This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera.GetTransformation(This.Game.GraphicsDevice));
-
-            //draw covering tiles
-            foreach (Tile tile in drawLater)
+            if (TileMap.HasItems)
             {
-                tile.Draw();
+                #region draw covering tiles
+                This.Game.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera.GetTransformation(This.Game.GraphicsDevice));
+                foreach (Tile tile in drawLater)
+                {
+                    tile.Draw();
+                }
+
+                This.Game.spriteBatch.End();
+                #endregion draw covering tiles
+
             }
-
-            This.Game.spriteBatch.End();
-
             #region Draw Static Sprites
             if (staticSprites.Count > 0)
             {
@@ -421,6 +430,12 @@ namespace Frostbyte
 
         }
 
+        internal override void Unload()
+        {
+            TileMap.Clear();
+            
+            base.Unload();
+        }
 
         private void createParticlesInCircle(ParticleEmitter emitter, int maxNumToCreate, float radius, Vector2 circleOrigin)
         {

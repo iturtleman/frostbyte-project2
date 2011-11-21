@@ -207,7 +207,7 @@ namespace Frostbyte
             }
         }
 
-        internal void Unload()
+        internal virtual void Unload()
         {
             This.Game.Content.Unload();
             This.Game.AudioManager.Stop();
