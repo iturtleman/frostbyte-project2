@@ -583,6 +583,10 @@
       <Link>Content\Sprites\diary-entry.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\door-closed.anim">
+      <Link>Content\Sprites\door-closed.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\door.anim">
       <Link>Content\Sprites\door.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -651,6 +655,106 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\key.anim">
       <Link>Content\Sprites\key.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-diagdown.anim">
+      <Link>Content\Sprites\player1-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-diagup.anim">
+      <Link>Content\Sprites\player1-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-down.anim">
+      <Link>Content\Sprites\player1-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-right.anim">
+      <Link>Content\Sprites\player1-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-up.anim">
+      <Link>Content\Sprites\player1-attack-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-diagdown.anim">
+      <Link>Content\Sprites\player1-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-diagup.anim">
+      <Link>Content\Sprites\player1-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-down.anim">
+      <Link>Content\Sprites\player1-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-right.anim">
+      <Link>Content\Sprites\player1-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-up.anim">
+      <Link>Content\Sprites\player1-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-spellcast-diagdown.anim">
+      <Link>Content\Sprites\player1-spellcast-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-spellcast-diagup.anim">
+      <Link>Content\Sprites\player1-spellcast-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-spellcast-down.anim">
+      <Link>Content\Sprites\player1-spellcast-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-spellcast-right.anim">
+      <Link>Content\Sprites\player1-spellcast-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-spellcast-up.anim">
+      <Link>Content\Sprites\player1-spellcast-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-swordcast-diagdown.anim">
+      <Link>Content\Sprites\player1-swordcast-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-swordcast-diagup.anim">
+      <Link>Content\Sprites\player1-swordcast-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-swordcast-down.anim">
+      <Link>Content\Sprites\player1-swordcast-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-swordcast-right.anim">
+      <Link>Content\Sprites\player1-swordcast-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-swordcast-up.anim">
+      <Link>Content\Sprites\player1-swordcast-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-diagdown.anim">
+      <Link>Content\Sprites\player1-walk-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-diagup.anim">
+      <Link>Content\Sprites\player1-walk-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-down.anim">
+      <Link>Content\Sprites\player1-walk-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-right.anim">
+      <Link>Content\Sprites\player1-walk-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-up.anim">
+      <Link>Content\Sprites\player1-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\rock.anim">

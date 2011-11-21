@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="700,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="875,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1050,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1225,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1400,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1575,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1750,1120" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="0,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="175,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="350,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="525,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="700,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="875,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1050,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1225,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1400,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1575,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1750,1280" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="0,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="175,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="350,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="525,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="700,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="875,1440" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1050,1440" AnimationPeg="0,0" />
+</Animation>

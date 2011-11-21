@@ -21,9 +21,6 @@ namespace Frostbyte
 
         #endregion Attacking Variables
 
-
-
-
         internal OurSprite(string name, Actor actor)
             : base(name, actor)
         {

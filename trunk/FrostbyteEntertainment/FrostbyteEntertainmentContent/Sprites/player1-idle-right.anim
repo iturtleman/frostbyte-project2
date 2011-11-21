@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1575,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1750,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1925,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2100,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2275,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2450,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2625,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2800,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2975,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3150,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3325,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3500,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3675,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3850,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="0,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="175,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="350,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="525,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="700,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="875,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1050,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1225,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1400,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1575,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1750,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="1925,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2100,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2275,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2450,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2625,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2800,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="2975,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3150,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3325,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3500,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3675,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="3850,640" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="0,800" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-idle" FrameDelay="20" Width="175" Height="160" TLPos="175,800" AnimationPeg="0,0" />
+</Animation>
