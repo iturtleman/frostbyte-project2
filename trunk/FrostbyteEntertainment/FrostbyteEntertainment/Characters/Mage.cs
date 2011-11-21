@@ -580,7 +580,7 @@ namespace Frostbyte.Characters
 
                 }
 
-                if (currentTarget != null)
+                if (currentTarget != null && currentTarget.Visible)
                 {
                     target.Visible = true;
                     target.Pos = (target.CenteredOn(currentTarget) - l.Camera.Pos) * l.Camera.Zoom;

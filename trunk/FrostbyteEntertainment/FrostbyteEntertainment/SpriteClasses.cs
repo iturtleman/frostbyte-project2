@@ -18,7 +18,6 @@ namespace Frostbyte
         internal TimeSpan slowStart = new TimeSpan(0, 0, 0);
         internal TimeSpan slowDuration = new TimeSpan(0, 0, 0);
         internal bool isSlowed = false;
-
         #endregion Attacking Variables
 
         internal OurSprite(string name, Actor actor)
@@ -556,6 +555,11 @@ namespace Frostbyte
             StartAnim();
         }
         #endregion Spawnpoint
+
+        internal void StopAttacks()
+        {
+            mAttacks.Clear();
+        }
 
         #region Update
         internal override void Update()

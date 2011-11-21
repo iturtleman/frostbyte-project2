@@ -69,12 +69,6 @@ namespace Frostbyte
             base.TriggerCondition += TriggerCondition;
             base.TriggerEffect += TriggerEffect;
 
-            triggered = new Dictionary<Sprite, bool>();
-            foreach (Sprite s in party)
-            {
-                triggered.Add(s, false);
-            }
-
             triggerRect = new Rectangle(
                 0,
                 0,
@@ -108,6 +102,15 @@ namespace Frostbyte
 
         private new void TriggerUpdate()
         {
+            if (triggered == null)
+            {
+                triggered = new Dictionary<Sprite, bool>();
+                foreach (Sprite s in party)
+                {
+                    triggered.Add(s, false);
+                }
+            }
+
             triggerRect.X = (int)(Pos.X + GetAnimation().Width * (1 - triggerRectScale));
             triggerRect.Y = (int)(Pos.Y + GetAnimation().Height * (1 - triggerRectScale));
             foreach (Sprite target in this.GetTargetsInRectangle(party, triggerRect))
