@@ -221,6 +221,7 @@ namespace Frostbyte
             Collision.Lists.Clear();
             Collision.Buckets.Clear();
             Collision.CollisionData.Clear();
+            GC.Collect();
             EndBehavior();
         }
 
