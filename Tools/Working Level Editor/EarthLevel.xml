@@ -5388,9 +5388,12 @@
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="5088,1120" />
   <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="7776,2784" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="7776,2848" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="2336,3168" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="4960,3616" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="4256,4000" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="6240,5280" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="1376,5600" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5728,7264" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="7776,2784" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="7776,2976" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="1376,5600" />
