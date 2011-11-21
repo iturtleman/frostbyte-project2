@@ -381,7 +381,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Fire Tier 3
-                                        mAttacks.Add(Attacks.FirePillar(this, this, 100, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 0).GetEnumerator());
                                         #endregion Fire Tier 3
                                         Mana -= 50;
                                     }
