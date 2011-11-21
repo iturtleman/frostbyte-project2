@@ -14,14 +14,12 @@ namespace Frostbyte.Levels
     {
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
-        private static bool levelCompleted = false;
 
         internal static void Load(Level context)
         {
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
-            levelCompleted = false;
 
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
@@ -35,7 +33,7 @@ namespace Frostbyte.Levels
             title.DisplayColor = Color.Chartreuse;
 
             context.GetTexture("regen");
-            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width, v.Height);
+            RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width);
             t.SpawnPoint = new Vector2(v.Width / 2, v.Height);
         }
 
@@ -50,20 +48,8 @@ namespace Frostbyte.Levels
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
             {
                 // Go to next
-                levelCompleted = true;
+                (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;
             }
-        }
-
-        internal static bool CompletionCondition()
-        {
-            return levelCompleted;
-        }
-
-        internal static void Unload()
-        {
-            string levelname = FrostbyteLevel.LevelProgression[0];
-            This.Game.LoadLevel(levelname);
-            This.Game.SetCurrentLevel(levelname);
         }
     }
 }

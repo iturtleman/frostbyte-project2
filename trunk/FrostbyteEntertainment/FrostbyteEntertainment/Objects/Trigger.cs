@@ -36,7 +36,7 @@ namespace Frostbyte
         internal Trigger(string name, int width, int height)
             : base(name, new Actor(new DummyAnimation(name, width, height)))
         {
-            Center = new Vector2(width / 2, height / 4);
+            Center = new Vector2(width / 2, height / 2);
             UpdateBehavior += Update;
         }
 
@@ -76,7 +76,7 @@ namespace Frostbyte
             }
 
             triggerRect = new Rectangle(
-                0, 
+                0,
                 0,
                 (int)(GetAnimation().Width * triggerRectScale),
                 (int)(GetAnimation().Height * triggerRectScale));
@@ -88,7 +88,7 @@ namespace Frostbyte
         /// <param name="name">Sprite name of Trigger</param>
         /// <param name="initialPos">Position of Trigger</param>
         /// <param name="orientation">Trigger's orientation/direction</param>
-        public PartyCrossTrigger(string name, Vector2 initialPosition, Orientations orientation=Orientations.Up)
+        public PartyCrossTrigger(string name, Vector2 initialPosition, Orientations orientation = Orientations.Up)
             : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
         {
             Orientation = orientation;
@@ -125,7 +125,7 @@ namespace Frostbyte
                 float ub = cross(normalDir, targetDir);
                 float u = (ua / ub);
 
-                
+
                 if (u > 0)
                 {
                     float cos = this.Direction.X * targetDir.X + this.Direction.Y * targetDir.Y;
@@ -153,10 +153,10 @@ namespace Frostbyte
         private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
             if (triggered.Count > 0 && triggered.Values.All(on => on))
-                {
-                    return new TriggerMultipleTargetEventArgs(triggered.Keys.ToList());
-                }
-                return null;
+            {
+                return new TriggerMultipleTargetEventArgs(triggered.Keys.ToList());
+            }
+            return null;
         }
 
         private new void TriggerEffect(object ths, TriggerEventArgs args)
@@ -171,16 +171,59 @@ namespace Frostbyte
         #endregion
     }
 
-    internal class RestorePlayerHealthTrigger : Trigger
+    internal class SimpleDistanceTrigger : Trigger
     {
-        internal RestorePlayerHealthTrigger(string name, int width, int height)
+        internal SimpleDistanceTrigger(string name, int width, int height)
             : base(name, width, height)
         {
             base.TriggerUpdate += TriggerUpdate;
-            base.TriggerCondition += TriggerCondition;
+            collisionObjects.Add(new Collision_AABB(1, Vector2.Zero, new Vector2(width, height)));
+        }
+
+        internal SimpleDistanceTrigger(string name, int radius)
+            : base(name, radius * 2, radius * 2)
+        {
+            base.TriggerUpdate += TriggerUpdate;
+            collisionObjects.Add(new Collision_BoundingCircle(1, Vector2.Zero, radius));
+            this.CollisionList = 2;
+        }
+
+        internal List<Sprite> SpritesInRange = new List<Sprite>();
+        internal List<CollisionObject> collisionObjects = new List<CollisionObject>();
+
+        private new void TriggerUpdate()
+        {
+            SpritesInRange.Clear();
+            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+            Collision.CollisionData.TryGetValue(this, out collidedWith);
+            if (collidedWith != null)
+            {
+                foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                {
+                    if (detectedCollision.Item2 is Player)
+                    {
+                        SpritesInRange.Add(detectedCollision.Item2 as Player);
+                    }
+                }
+            }
+        }
+
+        internal override List<CollisionObject> GetCollision()
+        {
+            return collisionObjects;
+        }
+    }
+
+    internal class RestorePlayerHealthTrigger : SimpleDistanceTrigger
+    {
+        internal RestorePlayerHealthTrigger(string name, int radius)
+            : base(name, radius)
+        {
+            base.TriggerUpdate = TriggerUpdate;
+            base.TriggerCondition = TriggerCondition;
             base.TriggerEffect += TriggerEffect;
 
-            playersInRange = new List<Sprite>();
+            SpritesInRange = new List<Sprite>();
 
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
@@ -204,14 +247,14 @@ namespace Frostbyte
                     int maxRadius = attacker.GetAnimation().Height / 2;
                     for (int i = 0; i < numLayers; i++)
                     {
-                        double radius = (i + 1) * maxRadius / numLayers;
+                        double spawnRadius = (i + 1) * maxRadius / numLayers;
                         double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
-                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta) / ParticleEmitter.EllipsePerspectiveModifier));
+                        Vector2 origin = new Vector2((float)(spawnRadius * Math.Cos(theta)), (float)(spawnRadius * Math.Sin(theta) / ParticleEmitter.EllipsePerspectiveModifier));
                         Vector2 velocity = new Vector2(-origin.Y, origin.X);
 
                         velocity.Normalize();
                         particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
-                                        (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
+                                        (velocity * velocity) / new Vector2((float)spawnRadius, (float)spawnRadius) * 100,
                                         attacker.GroundPos + origin + new Vector2(0, maxRadius / ParticleEmitter.EllipsePerspectiveModifier),
                                         maxRadius / numLayers - 1,
                                         1000);
@@ -227,37 +270,19 @@ namespace Frostbyte
         /// <param name="initialPos">Position of Trigger</param>
         /// <param name="orientation">Trigger's orientation/direction</param>
         public RestorePlayerHealthTrigger(string name, Vector2 initialPosition)
-            : this(name, Tile.TileSize, Tile.TileSize)
+            : this(name, Tile.TileSize / 2)
         {
             SpawnPoint = initialPosition;
         }
 
-        private List<Sprite> playersInRange;
         private ParticleEmitter particleEmitterTrigger;
-
-        private new void TriggerUpdate()
-        {
-            playersInRange.Clear();
-            List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
-            Collision.CollisionData.TryGetValue(particleEmitterTrigger, out collidedWith);
-            if (collidedWith != null)
-            {
-                foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
-                {
-                    if (detectedCollision.Item2 is Player)
-                    {
-                        playersInRange.Add(detectedCollision.Item2 as Player);
-                    }
-                }
-            }
-        }
 
         private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
-            if (playersInRange.Count > 0)
+            if (SpritesInRange.Count > 0)
             {
                 particleEmitterTrigger.changePicPercent = 0;
-                return new TriggerMultipleTargetEventArgs(playersInRange);
+                return new TriggerMultipleTargetEventArgs(SpritesInRange);
             }
             else
             {
@@ -269,17 +294,60 @@ namespace Frostbyte
         private new void TriggerEffect(object ths, TriggerEventArgs args)
         {
             //This.Game.AudioManager.PlaySoundEffect("regen");
-            foreach (Player p in playersInRange)
+            foreach (Player p in SpritesInRange)
             {
                 p.Regen();
             }
         }
     }
 
+    internal class SetRespawnTrigger : SimpleDistanceTrigger
+    {
+        internal SetRespawnTrigger(string name, int radius, List<Sprite> party)
+            : base(name, radius)
+        {
+            this.party = party;
+            base.TriggerCondition += TriggerCondition;
+            base.TriggerEffect += TriggerEffect;
+        }
+
+        /// <summary>
+        /// Constructor for the Level Editor
+        /// </summary>
+        /// <param name="name">Sprite name of Trigger</param>
+        /// <param name="initialPos">Position of Trigger</param>
+        /// <param name="orientation">Trigger's orientation/direction</param>
+        public SetRespawnTrigger(string name, Vector2 initialPosition)
+            : this(name, Tile.TileSize / 2, (This.Game.LoadingLevel as FrostbyteLevel).allies)
+        {
+            SpawnPoint = initialPosition;
+        }
+
+        private List<Sprite> party;
+
+        private new TriggerMultipleTargetEventArgs TriggerCondition()
+        {
+            if(SpritesInRange.Count != 0)
+            {
+                return new TriggerMultipleTargetEventArgs(party);
+            }
+            return null;
+        }
+
+        private new void TriggerEffect(object ths, TriggerEventArgs args)
+        {
+            foreach (Player p in party)
+            {
+                p.SpawnPoint = p.CenteredOn(this);
+            }
+            this.Enabled = false;
+        }
+    }
+
     internal class ConcentricCircles : OurSprite
     {
-        internal ConcentricCircles(string name, int width, int height)
-            : base(name, new Actor(new DummyAnimation(name, width, height)))
+        internal ConcentricCircles(string name, int radius)
+            : base(name, new Actor(new DummyAnimation(name, radius * 2, radius * 2)))
         {
             #region Particles
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
@@ -301,63 +369,31 @@ namespace Frostbyte
                     int maxRadius = attacker.GetAnimation().Height / 2;
                     for (int i = 0; i < numLayers; i++)
                     {
-                        double radius = (i + 1) * maxRadius / numLayers;
+                        double spawnRadius = (i + 1) * maxRadius / numLayers;
                         double theta = rand.NextDouble() * 2 * Math.PI - Math.PI;
-                        Vector2 origin = new Vector2((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)));
+                        Vector2 origin = new Vector2((float)(spawnRadius * Math.Cos(theta)), (float)(spawnRadius * Math.Sin(theta)));
                         Vector2 velocity = new Vector2(-origin.Y, origin.X);
 
                         velocity.Normalize();
                         particleEmitter.createParticles(new Vector2(0, -10 * (i + 1)),
-                                        (velocity * velocity) / new Vector2((float)radius, (float)radius) * 100,
+                                        (velocity * velocity) / new Vector2((float)spawnRadius, (float)spawnRadius) * 100,
                                         attacker.GroundPos + origin,
                                         maxRadius / numLayers - 1,
                                         1000);
                     }
                 },
                 particleEmitterTrigger).GetEnumerator());
-        }
-    }
 
-    internal class SetRespawnTrigger : Trigger
-    {
-        internal SetRespawnTrigger(string name, int width, int height, List<Sprite> party)
-            : base(name, width, height)
-        {
-            this.party = party;
-            base.TriggerCondition += TriggerCondition;
-            base.TriggerEffect += TriggerEffect;
+            collisionObjects.Add(new Collision_BoundingCircle(1,Vector2.Zero, radius));
+            this.CollisionList = 2;
         }
 
-        /// <summary>
-        /// Constructor for the Level Editor
-        /// </summary>
-        /// <param name="name">Sprite name of Trigger</param>
-        /// <param name="initialPos">Position of Trigger</param>
-        /// <param name="orientation">Trigger's orientation/direction</param>
-        public SetRespawnTrigger(string name, Vector2 initialPosition)
-            : this(name, Tile.TileSize, Tile.TileSize, (This.Game.LoadingLevel as FrostbyteLevel).allies)
-        {
-            SpawnPoint = initialPosition;
-        }
 
-        private List<Sprite> party;
+        internal List<CollisionObject> collisionObjects = new List<CollisionObject>();
 
-        private new TriggerMultipleTargetEventArgs TriggerCondition()
+        internal override List<CollisionObject> GetCollision()
         {
-            if (this.GetTargetsInRange(party, GetAnimation().Height).Count > 0)
-            {
-                return new TriggerMultipleTargetEventArgs(party);
-            }
-            return null;
-        }
-
-        private new void TriggerEffect(object ths, TriggerEventArgs args)
-        {
-            foreach (Player p in party)
-            {
-                p.SpawnPoint = p.CenteredOn(this);
-            }
-            this.Enabled = false;
+            return collisionObjects;
         }
     }
 }

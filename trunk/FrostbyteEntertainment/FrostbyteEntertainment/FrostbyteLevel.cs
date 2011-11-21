@@ -102,13 +102,19 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            //"Intro",
-            //"WorldMap",
-            //"Earth",
+            "TitleScreen",
+            "Intro",
+            "WorldMap",
+            "Earth",
+            "WorldMap",
             "Lightning",
+            "WorldMap",
             "Water",
+            "WorldMap",
             "Fire",
+            "WorldMap",
             "Final",
+            "WorldMap",
             "Credits"
         };
 
@@ -116,6 +122,9 @@ namespace Frostbyte
         /// Retains progress through our levels
         /// </summary>
         internal static int CurrentStage = 0;
+
+        internal Vector2? ExitPortalSpawnPoint = null;
+        internal bool LevelCompleted = false;
         #endregion
 
         #region Properties
@@ -147,16 +156,54 @@ namespace Frostbyte
         };
 
         internal FrostbyteLevel(string n, LoadBehavior loadBehavior, Behavior updateBehavior,
-            Behavior endBehavior, Condition winCondition)
+            Behavior endBehavior, Condition winCondition=null)
             : base(n, loadBehavior, updateBehavior, endBehavior, winCondition)
         {
+            if (winCondition == null)
+            {
+                WinCondition = delegate() { return LevelCompleted; };
+            }
         }
         #endregion
 
         #region Methods
+        internal void SpawnExitPortal()
+        {
+            if (ExitPortalSpawnPoint.HasValue)
+            {
+
+                SimpleDistanceTrigger t = new SimpleDistanceTrigger("portal", Tile.TileSize / 2);
+                t.CenterOn(ExitPortalSpawnPoint.Value);
+                t.TriggerCondition = delegate()
+                {
+                    if (t.SpritesInRange.Count > 0)
+                    {
+                        return new TriggerEventArgs();
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                };
+
+                t.TriggerEffect += delegate(Object o, TriggerEventArgs args)
+                {
+                    LevelCompleted = true;
+                };
+
+                ConcentricCircles c = new ConcentricCircles("circles", Tile.TileSize / 2);
+                c.CenterOn(ExitPortalSpawnPoint.Value);
+            }
+            else
+            {
+                LevelCompleted = true;  // No place to put the portal, just send them on.
+            }
+        }
+
         internal override void Load(Level context)
         {
             base.Load(context);
+            LevelCompleted = false;
             foreach (WorldObject s in ToAdd)
             {
                 OurSprite o = s as OurSprite;

@@ -8,16 +8,18 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Frostbyte
 {
     #region HUD Themes
-    interface HUDTheme
+    interface IHUDTheme
     {
         Color TextColor { get; }
+        SpriteFont TextFont { get; }
         Color TransparentBackgroundColor { get; }
     }
 
-    internal class GenericTheme : HUDTheme
+    internal class GenericTheme : IHUDTheme
     {
         protected byte Alpha = 90;
         public virtual Color TextColor { get { return Color.White; } }
+        public virtual SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Text"); } }
         public Color TransparentBackgroundColor
         {
             get
@@ -64,14 +66,14 @@ namespace Frostbyte
         {
         }
 
-        internal HUD(HUDTheme theme)
+        internal HUD(IHUDTheme theme)
         {
             this.theme = theme;
         }
         #endregion
 
         #region Variables
-        private HUDTheme theme;
+        private IHUDTheme theme;
         private TextScroller scroller;
         List<PlayerHUD> playerHUDS = new List<PlayerHUD>();
         private static Vector2 barSize = new Vector2(100, 20);
@@ -104,7 +106,7 @@ namespace Frostbyte
 
         private class PlayerHUD
         {
-            internal PlayerHUD(HUDTheme theme, Player p, int xOffset, int yOffset)
+            internal PlayerHUD(IHUDTheme theme, Player p, int xOffset, int yOffset)
             {
                 #region Name
                 Text name = new Text("player_name_" + p.Name, "Text", p.Name);
@@ -195,7 +197,7 @@ namespace Frostbyte
 
         private class ItemArea : Sprite
         {
-            internal ItemArea(string name, HUDTheme theme, List<Item> ItemBag)
+            internal ItemArea(string name, IHUDTheme theme, List<Item> ItemBag)
                 : base(name, new Actor(new DummyAnimation(name,
                     (int)HUD.barSize.X, (int)HUD.barSize.Y * 2)))
             {
@@ -207,7 +209,7 @@ namespace Frostbyte
                 this.ItemBag = ItemBag;
             }
 
-            private HUDTheme theme;
+            private IHUDTheme theme;
             private Texture2D background;
 
             private static Vector2 itemSpacing = new Vector2(3, 2);
@@ -244,7 +246,7 @@ namespace Frostbyte
 
     internal class TextScroller : Sprite
     {
-        internal TextScroller(string name, HUDTheme theme)
+        internal TextScroller(string name, IHUDTheme theme)
             : this(name, theme, This.Game.GraphicsDevice.Viewport.Width - FrostbyteLevel.BORDER_WIDTH,
                 This.Game.GraphicsDevice.Viewport.Height - 2 * FrostbyteLevel.BORDER_HEIGHT)
         {
@@ -255,7 +257,7 @@ namespace Frostbyte
         {
         }
 
-        internal TextScroller(string name, HUDTheme theme, int width, int height)
+        internal TextScroller(string name, IHUDTheme theme, int width, int height)
             : base(name, new Actor(new DummyAnimation(name,width, height)))
         {
             ZOrder = 100;
@@ -269,7 +271,7 @@ namespace Frostbyte
         internal int MaxCharactersPerLine = 62;
         internal int TextSpacing = 2;
         internal bool SplitOnWhitespace = true;
-        private HUDTheme theme;
+        private IHUDTheme theme;
         private List<char> buffer = new List<char>();
         private List<Text> onScreen = new List<Text>();
         private Texture2D background;
@@ -280,7 +282,7 @@ namespace Frostbyte
         #region Methods
         internal void ScrollText(string s)
         {
-            buffer.AddRange(s);
+            buffer.AddRange(s.Replace("\r\n", "\n"));
             buffer.AddRange("\n\n");
         }
         #endregion
@@ -314,20 +316,35 @@ namespace Frostbyte
                     onScreen.Last().Pos.Y + onScreen.Last().GetAnimation().Height + TextSpacing <
                         Pos.Y + GetAnimation().Height - onScreen.Last().GetAnimation().Height)
                 {
-                    buffer = buffer.SkipWhile(x => char.IsWhiteSpace(x)).ToList();
-                    IEnumerable<char> pendingDisplay = buffer.Take(MaxCharactersPerLine + 1).
-                        Reverse();
-                    if (SplitOnWhitespace)
+                    int width = GetAnimation().Width;
+                    string toDisplay;
+
+                    if (String.Join("", buffer.Take(2)) == "\n\n")
                     {
-                        // Find first instance of whitespace at end
-                        pendingDisplay = pendingDisplay.SkipWhile(x => !char.IsWhiteSpace(x));
+                        toDisplay = " ";
+                        buffer.RemoveRange(0, 2);
+                    }
+                    else
+                    {
+                        buffer = buffer.SkipWhile(x => char.IsWhiteSpace(x)).ToList();
+                        IEnumerable<char> pendingDisplay = buffer.TakeWhile((ch, ix) =>
+                            theme.TextFont.MeasureString(
+                                String.Join("", buffer.Take(ix + 1)).Trim()).X < width &&
+                            ch != '\n');
+
+                        if (SplitOnWhitespace &&
+                            buffer.Count > pendingDisplay.Count() &&
+                            buffer[pendingDisplay.Count()] != '\n')
+                        {
+                            // Find first instance of whitespace at end
+                            pendingDisplay = pendingDisplay.Reverse().SkipWhile(x => !char.IsWhiteSpace(x)).Reverse();
+                        }
+
+                        toDisplay = String.Join("", pendingDisplay).Trim();
+                        buffer.RemoveRange(0, pendingDisplay.Count());
                     }
 
-                    string toDisplay = pendingDisplay.Reverse().
-                        Aggregate("", (s, c) => s + c).Trim(); // Convert to string and trim whitespace
-                    buffer.RemoveRange(0, pendingDisplay.Count());
-
-                    Text line = new Text("text", "Text", toDisplay);
+                    Text line = new Text("text", theme.TextFont, toDisplay.ToString());
                     line.DisplayColor = theme.TextColor;
                     line.Pos = new Vector2(Pos.X, Pos.Y + GetAnimation().Height - line.GetAnimation().Height);
                     line.Static = true;

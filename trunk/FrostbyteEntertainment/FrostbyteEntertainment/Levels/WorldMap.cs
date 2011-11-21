@@ -15,7 +15,6 @@ namespace Frostbyte.Levels
     {
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
-        private static bool levelCompleted = false;
         private static int visited = 0;
 
         private static List<Vector2> LevelPositions = null;
@@ -25,7 +24,6 @@ namespace Frostbyte.Levels
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
-            levelCompleted = false;
 
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
@@ -35,11 +33,11 @@ namespace Frostbyte.Levels
             if (visited == 0)
             {
                 LevelPositions = new List<Vector2>(new Vector2[]{
-                    new Vector2(470, 200),
-                    new Vector2(50, 25),
-                    new Vector2(50, 80),
-                    new Vector2(125, 100),
-                    new Vector2(285, 40)
+                    new Vector2(530, 170),
+                    new Vector2(815, 238),
+                    new Vector2(525, 570),
+                    new Vector2(170, 445),
+                    new Vector2(525, 406)
                 });
             }
 
@@ -51,7 +49,7 @@ namespace Frostbyte.Levels
             title.DisplayColor = Color.Chartreuse;*/
 
             context.GetTexture("regen");
-            ConcentricCircles c = new ConcentricCircles("cc", 75, 75);
+            ConcentricCircles c = new ConcentricCircles("cc", 75 / 2);
             //c.SpawnPoint = new Vector2(v.Width / 2, v.Height / 2);
             c.ZOrder = 100;
 
@@ -73,19 +71,8 @@ namespace Frostbyte.Levels
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
             {
                 // Go to next
-                levelCompleted = true;
+                (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;
             }
-        }
-
-        internal static bool CompletionCondition()
-        {
-            return levelCompleted;
-        }
-
-        internal static void Unload()
-        {
-            string nextlevel = LevelFunctions.LoadNextLevel();
-            This.Game.SetCurrentLevel(nextlevel);
         }
     }
 }
