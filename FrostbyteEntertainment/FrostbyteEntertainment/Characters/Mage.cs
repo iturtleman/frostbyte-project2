@@ -13,15 +13,43 @@ namespace Frostbyte.Characters
 {
     class Mage : Player
     {
+        static List<Animation> Animations = new List<Animation>(){
+            This.Game.CurrentLevel.GetAnimation("player1-idle-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-idle-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-idle-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-idle-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-idle-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-walk-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-walk-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-walk-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-walk-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-walk-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-attack-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-attack-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-attack-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-attack-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-attack-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-spellcast-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-spellcast-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-spellcast-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-spellcast-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-spellcast-up.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-swordcast-down.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-swordcast-diagdown.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-swordcast-right.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-swordcast-diagup.anim"),
+            This.Game.CurrentLevel.GetAnimation("player1-swordcast-up.anim"),
+        };
+
         #region Constructors
         public Mage(string name, Actor actor, Color targetColor)
-            : this(name, actor, PlayerIndex.One, targetColor)
+            : this(name, PlayerIndex.One, targetColor)
         {
             CollidesWithBackground = true;
         }
 
-        internal Mage(string name, Actor actor, PlayerIndex input, Color targetColor)
-            : base(name, actor)
+        internal Mage(string name, PlayerIndex input, Color targetColor)
+            : base(name, new Actor(Animations))
         {
             if (GamePad.GetState(input).IsConnected)
             {

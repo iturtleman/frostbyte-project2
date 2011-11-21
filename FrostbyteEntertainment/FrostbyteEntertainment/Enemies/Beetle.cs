@@ -60,9 +60,11 @@ namespace Frostbyte.Enemies
 
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             Sprite target = GetClosestTarget(targets, float.MaxValue);
-            if (target != null)
+            if (target != null && target.GetCollision().Count>0 && GetCollision().Count>0)
             {
-                float attackRadius = ((target.GetCollision()[0] as Collision_BoundingCircle).Radius + (this.GetCollision()[0] as Collision_BoundingCircle).Radius) * .92f;
+                float theirRad = (target.GetCollision().FirstOrDefault() as Collision_BoundingCircle).Radius;
+                float rad = (target.GetCollision().FirstOrDefault() as Collision_BoundingCircle).Radius;
+                float attackRadius = (rad + theirRad) * .92f;
                 if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) > attackRadius * attackRadius)
                 {
                     Personality.Update();

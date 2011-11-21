@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="0,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="175,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="350,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="525,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="700,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="875,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1050,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1225,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1400,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1575,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1750,320" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="0,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="175,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="350,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="525,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="700,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="875,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1050,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1225,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1400,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1575,480" AnimationPeg="0,0" />
+  <Frame SpriteSheet="player1-spellcast" FrameDelay="20" Width="175" Height="160" TLPos="1750,480" AnimationPeg="0,0" />
+</Animation>

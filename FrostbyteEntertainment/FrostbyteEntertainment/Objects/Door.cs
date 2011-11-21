@@ -8,8 +8,13 @@ namespace Frostbyte.Obstacles
 {
     internal class Door : Obstacle
     {
+        static List<Animation> Animations = new List<Animation>(){
+            This.Game.CurrentLevel.GetAnimation("door-closed.anim"),
+            This.Game.CurrentLevel.GetAnimation("door.anim"),
+        };
+
         public Door(string name)
-            : base(name, new Actor(new Animation("door.anim")))
+            : base(name, new Actor(Animations))
         {
             ZOrder = int.MinValue;
             This.Game.AudioManager.AddSoundEffect("Effects/Door_Open");
