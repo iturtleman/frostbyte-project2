@@ -233,7 +233,7 @@ namespace Frostbyte
                     mLastUpdate = new GameTime(gameTime.TotalGameTime, gameTime.ElapsedGameTime);
                 }
             }
-            if (Visible == true && State != SpriteState.Dead && frame.Image != null)
+            if (Visible == true && State != SpriteState.Dead && frame.Image != null && !frame.Image.IsDisposed)
             {
                 Vector2 peg = GetAnimation().AnimationPeg;
                 This.Game.spriteBatch.Draw(

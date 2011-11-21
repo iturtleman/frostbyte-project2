@@ -25,7 +25,7 @@ namespace Frostbyte
         internal static int CellWidth { get; set; }
 
         //Tuple value defs: 1=Key's Collision Object;  2=WorldObject that collided with Key;  3=Value 2's Key that Collided
-        internal static Dictionary<WorldObject, List<Tuple<CollisionObject, WorldObject, CollisionObject>>> CollisionData;
+        internal static Dictionary<WorldObject, List<Tuple<CollisionObject, WorldObject, CollisionObject>>> CollisionData = new Dictionary<WorldObject,List<Tuple<CollisionObject,WorldObject,CollisionObject>>>();
         internal static bool ShowCollisionData { get; set; }
         internal static BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
 

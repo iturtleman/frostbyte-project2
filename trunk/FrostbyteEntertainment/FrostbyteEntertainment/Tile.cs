@@ -289,7 +289,7 @@ namespace Frostbyte
 
             #endregion setup
 
-            if (GridCell != null && Image != null)
+            if (GridCell != null && Image != null && !Image.IsDisposed)
             {
                 This.Game.spriteBatch.Draw(
                         Image,
