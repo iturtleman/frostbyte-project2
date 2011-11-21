@@ -534,8 +534,8 @@
   </tile>
   <tile id="4">
    <properties>
-    <property name="Name" value="Diary"/>
-    <property name="Type" value="Frostbyte.Obstacles.Diary"/>
+    <property name="Name" value="Diary Entry"/>
+    <property name="Type" value="Frostbyte.Obstacles.DiaryEntry"/>
    </properties>
   </tile>
   <tile id="5">
@@ -74732,7 +74732,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="77"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -76770,7 +76770,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="77"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -85258,7 +85258,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="77"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
