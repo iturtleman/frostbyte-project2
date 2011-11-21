@@ -174,9 +174,18 @@ namespace Frostbyte
             : base(name, actor, speed, health)
         {
             Enabled = true;
+
+            HealthChanged += delegate(object boss, int value)
+            {
+                if (value != MaxHealth)
+                {
+                    AtArms = true;
+                }
+            };
         }
 
         internal bool Enabled;
+        internal bool AtArms = false;
 
         internal override void Update()
         {

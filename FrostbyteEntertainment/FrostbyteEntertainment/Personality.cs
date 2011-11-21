@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using System.Collections;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte
 {
@@ -354,7 +355,7 @@ namespace Frostbyte
         {
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
 
-            while (!master.camp(targets, 100, float.PositiveInfinity))
+            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
             {
                 yield return null;
             }
@@ -371,12 +372,19 @@ namespace Frostbyte
             {
                 if (master.IsSubmerged)
                 {
-                    while (!master.delayedTeleport(new TimeSpan(0, 0, 5),
-                        new Rectangle((int)master.Pos.X, (int)master.Pos.Y, 100, 100)))
+                    Camera cam = This.Game.CurrentLevel.Camera;
+                    Viewport v = This.Game.GraphicsDevice.Viewport;
+                    while (!master.delayedTeleport(new TimeSpan(0, 0, 2),
+                        new Rectangle(
+                            (int)(cam.Pos.X * cam.Zoom),
+                            (int)(cam.Pos.Y * cam.Zoom),
+                            (int)(v.Width * cam.Zoom),
+                            (int)(v.Height* cam.Zoom))))
                     {
                         yield return null;
                     }
                     #region Surface
+                    master.Visible = true;
                     master.SetAnimation(17);
                     master.Rewind();
                     while (master.Frame != master.FrameCount() - 1)
@@ -388,19 +396,20 @@ namespace Frostbyte
                 }
                 else
                 {
-                    TimeSpan attackEnd = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 5);
-                    while (This.gameTime.TotalGameTime < attackEnd)
+                    while (!master.freeze(new TimeSpan(0, 0, 5)))
                     {
                         yield return null;
                     }
                     #region Submerge
+                    master.IsSubmerged = true;
+                    master.StopAttacks();
                     master.SetAnimation(16);
                     master.Rewind();
                     while (master.Frame != master.FrameCount() - 1)
                     {
                         yield return null;
                     }
-                    master.IsSubmerged = true;
+                    master.Visible = false;
                     #endregion
                 }
                 yield return null;

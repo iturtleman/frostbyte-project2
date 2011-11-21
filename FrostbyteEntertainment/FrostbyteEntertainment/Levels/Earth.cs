@@ -36,11 +36,6 @@ namespace Frostbyte.Levels
             mage2.Speed = 1;
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
-
-            /*PartyCrossTrigger t = new PartyCrossTrigger("party", 64, 64, l.allies);
-            t.Orientation = Orientations.Up;
-            t.SpawnOn(mage);
-            t.SpawnPoint.Y -= 128;*/
             
 
             This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
@@ -60,19 +55,6 @@ namespace Frostbyte.Levels
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 2));
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 3));
             Collision.Lists.Add(new KeyValuePair<int, int>(2, 3));
-        }
-
-        private static bool levelCompleted = false;
-
-        internal static bool CompletionCondition()
-        {
-            return levelCompleted;
-        }
-
-        internal static void Unload()
-        {
-            string nextlevel = LevelFunctions.LoadNextLevel();
-            This.Game.SetCurrentLevel(nextlevel);
         }
     }
 }

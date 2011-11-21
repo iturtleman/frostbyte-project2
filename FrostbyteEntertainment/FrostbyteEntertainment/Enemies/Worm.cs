@@ -38,7 +38,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Worm(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 10)
+            : base(name, new Actor(Animations), 1, 1000)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
