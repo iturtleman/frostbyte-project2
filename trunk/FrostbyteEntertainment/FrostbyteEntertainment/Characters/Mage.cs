@@ -378,7 +378,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 50)
+                                    if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Fire Tier 3
                                         mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 0).GetEnumerator());
