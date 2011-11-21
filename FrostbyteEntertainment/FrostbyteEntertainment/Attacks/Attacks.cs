@@ -908,7 +908,7 @@ namespace Frostbyte
                     foreach (KeyValuePair<OurSprite, TimeSpan> dottedTarget in DOT)
                     {
                         Damage(attacker, dottedTarget.Key, baseDamage);
-                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !(l as FrostbyteLevel).enemies.Contains(dottedTarget.Key))
+                        if (dottedTarget.Value < This.gameTime.TotalGameTime || !((l as FrostbyteLevel).enemies.Contains(dottedTarget.Key) || (l as FrostbyteLevel).allies.Contains(dottedTarget.Key)))
                             removeDOT.Add(dottedTarget.Key);
 
                         //Create Particles
@@ -1227,7 +1227,7 @@ namespace Frostbyte
             }
 
             //continue drawing dot until it is expired
-            for (int i = 0; DOTStart + new TimeSpan(0, 0, 5) > This.gameTime.TotalGameTime; i++)
+            for (int i = 0; DOTStart + new TimeSpan(0, 0, 5) > This.gameTime.TotalGameTime && ((l as FrostbyteLevel).enemies.Contains(target) || (l as FrostbyteLevel).allies.Contains(target)); i++)
             {
                 if (i % 18 == 0)
                 {
