@@ -106,7 +106,6 @@ namespace Frostbyte
             "Intro",
             "WorldMap",
             "Earth",
-            "Earth",
             "WorldMap",
             "Lightning",
             "WorldMap",
