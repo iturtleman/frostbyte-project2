@@ -161,9 +161,14 @@ namespace Frostbyte
         {
             get
             {
-                if (GetCollision().Count > 0)
+                CollisionObject o = GetCollision().FirstOrDefault();
+                if (o is Collision_BoundingCircle)
                 {
-                    return (this.GetCollision()[0] as Collision_BoundingCircle).Center + Pos;
+                    return (o as Collision_BoundingCircle).Center + Pos;
+                }
+                else if (o is Collision_AABB)
+                {
+                    return (o as Collision_AABB).BR / new Vector2(2, 1) + Pos;
                 }
                 else
                 {
@@ -172,9 +177,14 @@ namespace Frostbyte
             }
             set
             {
-                if (GetCollision().Count > 0)
+                CollisionObject o = GetCollision().FirstOrDefault();
+                if (o is Collision_BoundingCircle)
                 {
-                    Pos = value - (this.GetCollision()[0] as Collision_BoundingCircle).Center;
+                    Pos = value - (o as Collision_BoundingCircle).Center;
+                }
+                else if (o is Collision_AABB)
+                {
+                    Pos = value - (o as Collision_AABB).BR / new Vector2(2, 1);
                 }
                 else
                 {
@@ -186,14 +196,16 @@ namespace Frostbyte
         {
             get
             {
-                if (GetCollision().Count > 0)
+                CollisionObject o = GetCollision().FirstOrDefault();
+                if (o is Collision_BoundingCircle)
                 {
-                    return (this.GetCollision()[0] as Collision_BoundingCircle).Radius;
+                    return (o as Collision_BoundingCircle).Radius;
                 }
-                else
+                else if (o is Collision_AABB)
                 {
-                    return 18f;
+                    return (o as Collision_AABB).BR.X / 2;
                 }
+                return Center.X / 2;
             }
         }
         #endregion Properties

@@ -38,7 +38,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Worm(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 1000)
+            : base(name, new Actor(Animations), 1, 10)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -50,6 +50,12 @@ namespace Frostbyte.Enemies
 
         private bool changeState = false;
         internal bool IsSubmerged;
+
+        protected override void Die()
+        {
+            (This.Game.CurrentLevel as FrostbyteLevel).SpawnExitPortal();
+            base.Die();
+        }
 
         protected override void updateMovement()
         {

@@ -21,30 +21,13 @@ namespace Frostbyte.Levels
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 
+            l.ExitPortalSpawnPoint = new Vector2(7776, 2700);
+
             Characters.Mage mage = new Characters.Mage("Player 1", new Actor(l.GetAnimation("shield_opaque.anim")), PlayerIndex.One ,new Color(255, 0, 0));
-            mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
-            //mage.SpawnPoint = new Vector2(7776, 2700);
+            //mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 119 * Tile.TileSize);
+            mage.SpawnPoint = new Vector2(7776, 2700);
             mage.Speed = 1;
             l.HUD.AddPlayer(mage);
-
-            Obstacles.DiaryEntry d1 = new Obstacles.DiaryEntry("diary");
-            d1.SpawnOn(mage);
-            d1.SpawnPoint.Y -= Tile.TileSize;
-
-            Obstacles.DiaryEntry d2 = new Obstacles.DiaryEntry("diary");
-            d2.SpawnOn(mage);
-            d2.SpawnPoint.Y -= Tile.TileSize;
-            d2.SpawnPoint.X -= Tile.TileSize;
-
-            Obstacles.DiaryEntry d3 = new Obstacles.DiaryEntry("diary");
-            d3.SpawnOn(mage);
-            d3.SpawnPoint.Y -= Tile.TileSize;
-            d3.SpawnPoint.X += Tile.TileSize;
-
-            Obstacles.DiaryEntry d4 = new Obstacles.DiaryEntry("diary");
-            d4.SpawnOn(mage);
-            d4.SpawnPoint.Y -= Tile.TileSize;
-            d4.SpawnPoint.Y -= 2*Tile.TileSize;
 
             /*Characters.Mage mage2 = new Characters.Mage("Player 2", new Actor(l.GetAnimation("shield_opaque.anim")), PlayerIndex.Two, new Color(114, 255, 255));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
@@ -74,6 +57,13 @@ namespace Frostbyte.Levels
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 2));
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 3));
             Collision.Lists.Add(new KeyValuePair<int, int>(2, 3));
+        }
+
+        private static bool levelCompleted = false;
+
+        internal static bool CompletionCondition()
+        {
+            return levelCompleted;
         }
 
         internal static void Unload()

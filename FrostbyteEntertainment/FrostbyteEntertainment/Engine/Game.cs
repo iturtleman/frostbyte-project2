@@ -93,7 +93,7 @@ namespace Frostbyte
         /// <summary>
         /// Gets the index of the current level being played.
         /// </summary>
-        int LevelIndex
+        internal int LevelIndex
         {
             get
             {
@@ -193,7 +193,7 @@ namespace Frostbyte
             // todo: use this.Content to load your game content here
             LoadResources();
 
-            SetCurrentLevel("TitleScreen");
+            SetCurrentLevel(null);
         }
         #endregion Initialization
 
@@ -293,6 +293,11 @@ namespace Frostbyte
         /// <param name="name"></param>
         internal void SetCurrentLevel(string name)
         {
+            if (name == null)
+            {
+                name = mLevels[0].Name;
+            }
+
             //if this is the expected level to load load it.
             if (mNextLevel >= 0 && mLevels[mNextLevel].Name == name)
             {

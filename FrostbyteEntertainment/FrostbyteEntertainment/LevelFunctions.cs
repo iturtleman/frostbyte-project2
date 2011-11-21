@@ -23,11 +23,18 @@ namespace Frostbyte
             This.Game.SetCurrentLevel("StageClear");
         }
 
+        internal static void UnloadLevel()
+        {
+            string nextlevel = LoadNextLevel();
+            This.Game.SetCurrentLevel(nextlevel);
+        }
+
         internal static string LoadNextLevel()
         {
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
-            int ix = FrostbyteLevel.LevelProgression.IndexOf(l.Name);
-            string nextlevel = FrostbyteLevel.LevelProgression[(ix + 1) % FrostbyteLevel.LevelProgression.Count];
+            int ix = This.Game.LevelIndex;//FrostbyteLevel.LevelProgression.IndexOf(l.Name);
+            string nextlevel = FrostbyteLevel.LevelProgression[(FrostbyteLevel.CurrentStage + 1) % FrostbyteLevel.LevelProgression.Count];
+            FrostbyteLevel.CurrentStage++;
             This.Game.LoadLevel(nextlevel);
             return nextlevel;
         }

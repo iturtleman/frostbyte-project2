@@ -39,7 +39,7 @@ namespace Frostbyte
             Personality = new WanderingMinstrelPersonality(this);
             UpdateBehavior = update;
             l.enemies.Add(this);
-            EndBehavior = die;
+            EndBehavior = Die;
             Speed = speed;
             Health = _health;
             CollidesWithBackground = true;
@@ -62,7 +62,7 @@ namespace Frostbyte
             #endregion
         }
 
-        private void die()
+        protected virtual void Die()
         {
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             // Remove Sprite
