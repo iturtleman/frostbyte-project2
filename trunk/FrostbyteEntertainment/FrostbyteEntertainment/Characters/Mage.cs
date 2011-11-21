@@ -496,6 +496,7 @@ namespace Frostbyte.Characters
                     else if (target is Obstacles.DiaryEntry)
                     {
                         This.Game.CurrentLevel.RemoveSprite(target);
+                        obstacles.Remove(target);
                         ReadDiaryEntry();
                         return;
                     }
