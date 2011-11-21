@@ -474,7 +474,7 @@ namespace Frostbyte
             particleEmitterRing.effectTechnique = "FadeAtXPercent";
             particleEmitterRing.fadeStartPercent = 0f;
             particleEmitterRing.blendState = BlendState.Additive;
-            c=(particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle);
+            c = (particleEmitterRing.collisionObjects.First() as Collision_BoundingCircle);
             c.Radius = 125;
             c.createDrawPoints();
             #endregion Variables
@@ -631,7 +631,7 @@ namespace Frostbyte
             particleEmitterDust.effectTechnique = "NoSpecialEffect";
             particleEmitterDust.blendState = BlendState.AlphaBlend;
             Collision_BoundingCircle c = (particleEmitterDust.collisionObjects.First() as Collision_BoundingCircle);
-            c.Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
+            c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
             c.createDrawPoints();
             particleEmitterDust.ZOrder = 10;
 
@@ -640,8 +640,8 @@ namespace Frostbyte
             ParticleEmitter particleEmitterRocks = new ParticleEmitter(4000, particleEffectRocks, boulder);
             particleEmitterRocks.effectTechnique = "NoSpecialEffect";
             particleEmitterRocks.blendState = BlendState.AlphaBlend;
-            c=(particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle);
-            c.Radius = collisions.Count>0?(collisions[0] as Collision_BoundingCircle).Radius + 20:100;
+            c = (particleEmitterRocks.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
             c.createDrawPoints();
             float rockParticleEmitterRadius = c.Radius;
             particleEmitterRocks.ZOrder = 1;
@@ -654,7 +654,7 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
-                if(target.GroundPos != attacker.GroundPos)
+                if (target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimationReturnFrameCount(attacker);
@@ -773,7 +773,7 @@ namespace Frostbyte
             particleEmitterRedFire.changePicPercent = .2f;
             particleEmitterRedFire.fadeStartPercent = .9f;
             particleEmitterRedFire.ZOrder = 3;
-            c=(particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle);
+            c = (particleEmitterRedFire.collisionObjects.First() as Collision_BoundingCircle);
             c.Radius = 115;
             c.createDrawPoints();
 
@@ -838,9 +838,9 @@ namespace Frostbyte
                         Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -100);
                         Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
                         particleEmitterRedFire.createParticles(velocity,
-                                                               acceleration, 
-                                                               particleEmitterRedFire.GroundPos + randDirection * This.Game.rand.Next(0, 140) + collisionOffset, 
-                                                               10f, 
+                                                               acceleration,
+                                                               particleEmitterRedFire.GroundPos + randDirection * This.Game.rand.Next(0, 140) + collisionOffset,
+                                                               10f,
                                                                This.Game.rand.Next(100, 1200));
                     }
                 }
@@ -854,10 +854,10 @@ namespace Frostbyte
                         Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                         Vector2 velocity = -randDirection * 100;
                         Vector2 acceleration = -randDirection * 70;
-                        particleEmitterFire.createParticles(velocity, 
+                        particleEmitterFire.createParticles(velocity,
                                                             acceleration,
-                                                            particleEmitterFire.GroundPos + randDirection * 140 + collisionOffset, 
-                                                            17f, 
+                                                            particleEmitterFire.GroundPos + randDirection * 140 + collisionOffset,
+                                                            17f,
                                                             This.Game.rand.Next(100, 1200));
                     }
                 }
@@ -875,7 +875,7 @@ namespace Frostbyte
                         Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
                         particleEmitterSkywardRing.createParticles(velocity,
                                                                    acceleration,
-                                                                   position + collisionOffset, 
+                                                                   position + collisionOffset,
                                                                    This.Game.rand.Next(5, 20),
                                                                    This.Game.rand.Next(400, 600));
                     }
@@ -923,7 +923,7 @@ namespace Frostbyte
                             particleEmitterDOT.createParticles(velocity,
                                                                acceleration,
                                                                dottedTarget.Key.GroundPos + randDirection * This.Game.rand.Next(0, radius),
-                                                               10f, 
+                                                               10f,
                                                                This.Game.rand.Next(100, 500));
                         }
                     }
@@ -1017,18 +1017,30 @@ namespace Frostbyte
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             List<CollisionObject> collisions = target.GetCollision();
 
-            Effect particleEffectDust = l.GetEffect("ParticleSystem");
+            Effect particleEffect = l.GetEffect("ParticleSystem");
             Texture2D fire = l.GetTexture("fire");
-            ParticleEmitter particleEmitterFire = new ParticleEmitter(500, particleEffectDust, fire);
+            ParticleEmitter particleEmitterFire = new ParticleEmitter(3000, particleEffect, fire);
             particleEmitterFire.effectTechnique = "NoSpecialEffect";
             particleEmitterFire.blendState = BlendState.Additive;
             Collision_BoundingCircle c = (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle);
             c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
             c.createDrawPoints();
-            particleEmitterFire.ZOrder = 10;
+            particleEmitterFire.ZOrder = 1;
 
+            ParticleEmitter particleEmitterGroundFire = new ParticleEmitter(2000, particleEffect, fire);
+            particleEmitterGroundFire.effectTechnique = "FadeAtXPercent";
+            particleEmitterGroundFire.fadeStartPercent = .6f;
+            particleEmitterGroundFire.blendState = BlendState.Additive;
+            particleEmitterGroundFire.ZOrder = 2;
 
-            float radius = c.Radius;
+            Texture2D maroonfire = l.GetTexture("maroon fire");
+            ParticleEmitter particleEmitterGroundRedFire = new ParticleEmitter(2000, particleEffect, maroonfire);
+            particleEmitterGroundRedFire.effectTechnique = "NoSpecialEffect";
+            particleEmitterGroundRedFire.fadeStartPercent = .6f;
+            particleEmitterGroundRedFire.blendState = BlendState.AlphaBlend;
+            particleEmitterGroundRedFire.ZOrder = 3;
+
+            TimeSpan DOTStart = new TimeSpan();
             #endregion Variables
 
             attacker.isAttackAnimDone = false;
@@ -1052,58 +1064,159 @@ namespace Frostbyte
             #endregion Shoot Attack
 
             #region Generate Fire Pillar
-
             for (int i = 0; i < 165; i++)
             {
                 particleEmitterFire.GroundPos = target.GroundPos;
 
-                // Cloud
-                /*Vector2 velocity = new Vector2(1, .5f);
-                Vector2 acceleration = new Vector2(0, -2f);
-                for (int j = 0; j < radius / 8; j++)
+                //Swirl
+                if (i < 100)
                 {
-                    particleEmitterFire.createParticles(velocity * 500,
-                                                        acceleration * 500,
-                                                        particleEmitterFire.GroundPos + new Vector2(-radius, -175),
-                                                        15f,
-                                                        This.Game.rand.Next(500, 550));
-                }*/
-
-                // Pillar
-                for (int j = 0; j < 5; j++)
-                {
-                    Vector2 velocity = new Vector2(This.Game.rand.Next(-10,10), 700);
-                    Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), 100);
-                    particleEmitterFire.createParticles(velocity,
-                                                        acceleration,
-                                                        particleEmitterFire.GroundPos + new Vector2(This.Game.rand.Next((int)-radius, (int)radius), -175),
-                                                        50f,
-                                                        This.Game.rand.Next(150, 225));
+                    for (float j = 0; j < 60.0f; j += 60.0f / 6.0f)
+                    {
+                        for (float k = i; k < i + 1; k += .1f)
+                        {
+                            double positionAngle = (((k + j) % 60.0) / 60.0) * Math.PI * 2.0;
+                            Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 150.0f * ((float)(100.0f - k) / 100.0f),
+                                                           (float)Math.Sin(positionAngle) * 150.0f * ((float)(100.0f - k) / 100.0f) / ParticleEmitter.EllipsePerspectiveModifier - k * 2.5f) + particleEmitterFire.GroundPos;
+                            Vector2 direction = particleEmitterFire.GroundPos - position;
+                            Vector2 velocity = direction / .200f;
+                            particleEmitterFire.createParticles(velocity,
+                                                                Vector2.Zero,
+                                                                position + direction * (float)This.Game.rand.Next(0, (int)velocity.Length() / 16) / direction.Length(),
+                                                                12,
+                                                                150);
+                        }
+                        j += 60.0f / 6.0f;
+                        for (float k = i; k < i + 1; k += .1f)
+                        {
+                            double positionAngle = (((k + j) % 60.0) / 60.0) * Math.PI * 2.0;
+                            Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 150.0f * ((float)(100.0f - k) / 100.0f),
+                                                           (float)Math.Sin(positionAngle) * 150.0f * ((float)(100.0f - k) / 100.0f) / ParticleEmitter.EllipsePerspectiveModifier - k * 2.5f) + particleEmitterFire.GroundPos;
+                            Vector2 direction = particleEmitterFire.GroundPos - position;
+                            Vector2 velocity = direction / .200f;
+                            particleEmitterGroundRedFire.createParticles(velocity,
+                                                                Vector2.Zero,
+                                                                position + direction * (float)This.Game.rand.Next(0, (int)velocity.Length() / 16) / direction.Length(),
+                                                                12,
+                                                                150);
+                        }
+                    }
                 }
 
-                //working on this
-                /*if (i % 1 == 0)
+
+                if (i == 100)
                 {
-                    for (double j = 0; j < 5; j += 1f)
+                    particleEmitterGroundFire.GroundPos = target.GroundPos - new Vector2(0, 250);
+                    particleEmitterGroundRedFire.GroundPos = target.GroundPos - new Vector2(0, 250);
+                }
+
+                //Strike
+                if (i >= 100 && i < 107)
+                {
+                    for (int j = 0; j < 20; j++)
                     {
-                        double positionAngle = (((double)i + j % 5.0) / 5.0) * Math.PI * 2;
-                        Vector2 position = new Vector2((float)Math.Cos(positionAngle) * 140, (float)Math.Sin(positionAngle) * This.Game.rand.Next(120, 140) / ParticleEmitter.EllipsePerspectiveModifier) + particleEmitterSkywardRing.GroundPos;
-                        Vector2 direction = particleEmitterFire.GroundPos - position;
-                        direction.Normalize();
-                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -75);
-                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -200);
-                        particleEmitterFire.createParticles(velocity,
-                                                                   acceleration,
-                                                                   position,
-                                                                   This.Game.rand.Next(5, 20),
-                                                                   This.Game.rand.Next(400, 600));
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
+                        if (target.GroundPos != particleEmitterGroundFire.GroundPos)
+                        {
+                            Vector2 direction = target.GroundPos - particleEmitterGroundFire.GroundPos;
+                            direction.Normalize();
+                            Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                            particleEmitterGroundFire.createParticles(Vector2.Zero,
+                                                                   direction * 500 + randDirection * 500,
+                                                                   particleEmitterGroundFire.GroundPos + tangent * This.Game.rand.Next(-15, 15),
+                                                                   20,
+                                                                   500);
+                            particleEmitterGroundFire.GroundPos += direction;
+                        }
                     }
-                }*/
+                    for (int j = 0; j < 20; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle));
+                        if (target.GroundPos != particleEmitterGroundFire.GroundPos)
+                        {
+                            Vector2 direction = target.GroundPos - particleEmitterGroundFire.GroundPos;
+                            direction.Normalize();
+                            Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                            particleEmitterGroundRedFire.createParticles(Vector2.Zero,
+                                                                   direction * 500 + randDirection * 500,
+                                                                   particleEmitterGroundFire.GroundPos + tangent * This.Game.rand.Next(-15, 15),
+                                                                   20,
+                                                                   300);
+                            particleEmitterGroundFire.GroundPos += direction;
+                        }
+                    }
+                }
+
+                //Explode
+                if (i >= 108)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        particleEmitterGroundFire.createParticles(-randDirection * 200,
+                                                               -randDirection * 300 - new Vector2(0, 800),
+                                                               particleEmitterGroundFire.GroundPos + new Vector2(This.Game.rand.Next(-60, 60), 0),
+                                                               20,
+                                                               400);
+                    }
+                    for (int j = 0; j < 10; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        particleEmitterGroundRedFire.createParticles(-randDirection * 200,
+                                                               -randDirection * 300 - new Vector2(0, 800),
+                                                               particleEmitterGroundFire.GroundPos + new Vector2(This.Game.rand.Next(-60, 60), 0),
+                                                               20,
+                                                               200);
+                    }
+                }
 
                 //Deal Damage
-                if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
+                if (i == 107)
                 {
-                    Damage(attacker, target, baseDamage);
+                    Damage(attacker, target, baseDamage / 2);
+                    DOTStart = This.gameTime.TotalGameTime;
+                }
+
+
+                //Draw DOT and deal damage
+                if (i > 107 && i % 18 == 0)
+                {
+                    Damage(attacker, target, baseDamage / 35);
+
+                    //Create Particles
+                    for (int j = 0; j < 3; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        List<CollisionObject> collisionList = target.GetCollision();
+                        int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                        particleEmitterGroundFire.createParticles(velocity,
+                                                           acceleration,
+                                                           target.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                           10f,
+                                                           This.Game.rand.Next(400, 800));
+                    }
+                    //Create Particles
+                    for (int j = 0; j < 3; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        List<CollisionObject> collisionList = target.GetCollision();
+                        int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                        particleEmitterGroundRedFire.createParticles(velocity,
+                                                           acceleration,
+                                                           target.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                           10f,
+                                                           This.Game.rand.Next(400, 800));
+                    }
                 }
 
                 //if the attack frame has passed then allow the attacker to move
@@ -1113,7 +1226,48 @@ namespace Frostbyte
                 yield return false;
             }
 
-            while (particleEmitterFire.ActiveParticleCount > 0)
+            //continue drawing dot until it is expired
+            for (int i = 0; DOTStart + new TimeSpan(0, 0, 5) > This.gameTime.TotalGameTime; i++)
+            {
+                if (i % 18 == 0)
+                {
+                    Damage(attacker, target, baseDamage / 35);
+
+                    //Create Particles
+                    for (int j = 0; j < 3; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        List<CollisionObject> collisionList = target.GetCollision();
+                        int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                        particleEmitterGroundFire.createParticles(velocity,
+                                                           acceleration,
+                                                           target.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                           10f,
+                                                           This.Game.rand.Next(400, 800));
+                    }
+                    //Create Particles
+                    for (int j = 0; j < 3; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
+                        List<CollisionObject> collisionList = target.GetCollision();
+                        int radius = (int)(collisionList.Count > 0 ? (collisionList[0] as Collision_BoundingCircle).Radius + 20 : 40);
+                        particleEmitterGroundRedFire.createParticles(velocity,
+                                                           acceleration,
+                                                           target.GroundPos + randDirection * This.Game.rand.Next(0, radius),
+                                                           10f,
+                                                           This.Game.rand.Next(400, 800));
+                    }
+                }
+                yield return false;
+            }
+
+            while (particleEmitterFire.ActiveParticleCount > 0 || particleEmitterGroundFire.ActiveParticleCount > 0 || particleEmitterGroundRedFire.ActiveParticleCount > 0)
                 yield return false;
 
             #endregion Generate Fire Pillar
@@ -1122,6 +1276,13 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitterFire);
             attacker.particleEmitters.Remove(particleEmitterFire);
 
+            particleEmitterGroundFire.Remove();
+            l.RemoveSprite(particleEmitterGroundFire);
+            attacker.particleEmitters.Remove(particleEmitterGroundFire);
+
+            particleEmitterGroundRedFire.Remove();
+            l.RemoveSprite(particleEmitterGroundRedFire);
+            attacker.particleEmitters.Remove(particleEmitterGroundRedFire);
 
             attacker.State = SpriteState.Idle;
             setAnimationReturnFrameCount(attacker);
