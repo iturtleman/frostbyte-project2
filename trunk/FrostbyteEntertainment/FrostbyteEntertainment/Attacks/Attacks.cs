@@ -21,34 +21,154 @@ namespace Frostbyte
             switch (attacker.Orientation)
             {
                 case Orientations.Down:
-                    attacker.SetAnimation(0 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(15);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(20);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(0 + 5 * attacker.State.GetHashCode());
+                    }
+
                     break;
                 case Orientations.Down_Right:
                     attacker.Hflip = false;
-                    attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(16);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(21);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
+                    }
+
                     break;
                 case Orientations.Down_Left:
                     attacker.Hflip = true;
-                    attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(16);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(21);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(1 + 5 * attacker.State.GetHashCode());
+                    }
+
                     break;
                 case Orientations.Right:
                     attacker.Hflip = false;
-                    attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(17);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(22);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
+                    }
+
                     break;
                 case Orientations.Left:
                     attacker.Hflip = true;
-                    attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(17);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(22);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
+                    }
+                    
                     break;
                 case Orientations.Up_Right:
                     attacker.Hflip = false;
-                    attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(18);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(23);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
+                    }
+                    
                     break;
                 case Orientations.Up_Left:
                     attacker.Hflip = true;
-                    attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(18);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(23);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
+                    }
+                    
                     break;
                 case Orientations.Up:
-                    attacker.SetAnimation(4 + 5 * attacker.State.GetHashCode());
+                    if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
+                    {
+                        attacker.SetAnimation(19);
+                    }
+
+                    else if (attacker is Frostbyte.Characters.Mage && ((attacker as Frostbyte.Characters.Mage).attackTier == 2 ||
+                       (attacker as Frostbyte.Characters.Mage).attackTier == 2))
+                    {
+                        attacker.SetAnimation(24);
+                    }
+
+                    else
+                    {
+                        attacker.SetAnimation(4 + 5 * attacker.State.GetHashCode());
+                    }
+                    
                     break;
             }
         }
@@ -109,6 +229,13 @@ namespace Frostbyte
             attacker.Rewind();
 
             attacker.isAttackAnimDone = false;
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 0;
+            }
+
+  
             for(int i = 0; i < 150; i++)
             {
                 attacker.State = SpriteState.Attacking;
@@ -185,6 +312,11 @@ namespace Frostbyte
             attacker.Rewind();
 
             attacker.isAttackAnimDone = false;
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 1;
+            }
 
             #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
@@ -317,6 +449,11 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = false;
             attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 2;
+            }
 
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
@@ -480,6 +617,11 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = false;
             attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 2;
+            }
 
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
@@ -652,6 +794,11 @@ namespace Frostbyte
             attacker.isAttackAnimDone = false;
             attacker.Rewind();
 
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 3;
+            }
+
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
@@ -795,6 +942,11 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = false;
             attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 2;
+            }
 
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
@@ -1049,6 +1201,11 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = false;
             attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 3;
+            }
 
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
