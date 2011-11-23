@@ -107,7 +107,8 @@ namespace Frostbyte.Enemies
                                                                                                300);
                                                   }
                                               },
-                                              particleEmitterEarth).GetEnumerator());
+                                              particleEmitterEarth,
+                                              Vector2.Zero).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
                 }
             }

@@ -82,7 +82,8 @@ namespace Frostbyte.Enemies
                                                                           rand.Next(500, 1000));
                                                   }
                                               },
-                                              particleEmitterIce).GetEnumerator());
+                                              particleEmitterIce,
+                                              new Vector2(0, 0)).GetEnumerator());
                 }
             }
         }
