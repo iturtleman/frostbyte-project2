@@ -379,7 +379,7 @@ namespace Frostbyte
                             (int)(cam.Pos.X * cam.Zoom),
                             (int)(cam.Pos.Y * cam.Zoom),
                             (int)(v.Width * cam.Zoom),
-                            (int)(v.Height* cam.Zoom))))
+                            (int)(v.Height * cam.Zoom))))
                     {
                         yield return null;
                     }
@@ -417,6 +417,38 @@ namespace Frostbyte
             }
         }
     }
+
+    internal class ShiningPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemies.CrystalMan master;
+        private IEnumerator mStates;
+
+        internal ShiningPersonality(Enemies.CrystalMan master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+
+            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
+            {
+                yield return null;
+            }
+            while (true)
+            {
+            }
+        }
+    }
+
     #endregion
 
     internal static class EnemyAI

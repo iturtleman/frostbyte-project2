@@ -35,6 +35,9 @@ namespace Frostbyte.Enemies
             This.Game.CurrentLevel.GetAnimation("worm-vomit.anim"),
             This.Game.CurrentLevel.GetAnimation("worm-die.anim"),
         };
+        private bool changeState = false;
+        internal bool HasVomited = false;
+        internal bool IsSubmerged;
         #endregion Variables
 
         public Worm(string name, Vector2 initialPos)
@@ -47,11 +50,7 @@ namespace Frostbyte.Enemies
             SetAnimation(15);
             IsSubmerged = true;
         }
-
-        private bool changeState = false;
-        internal bool HasVomited = false;
-        internal bool IsSubmerged;
-
+        
         protected override void Die()
         {
             (This.Game.CurrentLevel as FrostbyteLevel).SpawnExitPortal();
