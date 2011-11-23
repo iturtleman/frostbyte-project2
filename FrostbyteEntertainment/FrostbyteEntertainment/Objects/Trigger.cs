@@ -401,4 +401,17 @@ namespace Frostbyte
             return collisionObjects;
         }
     }
+
+    internal class NextLevelPortal : ConcentricCircles
+    {
+        internal NextLevelPortal(string name, int radius)
+            : base(name, radius)
+        {
+            UpdateBehavior = Update;
+        }
+
+        private new void Update()
+        {
+        }
+    }
 }
