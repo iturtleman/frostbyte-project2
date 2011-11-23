@@ -81,6 +81,7 @@ namespace Frostbyte.Characters
 
         #region Variables
         internal IController controller;
+        internal int attackTier;
         private Sprite target;
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
