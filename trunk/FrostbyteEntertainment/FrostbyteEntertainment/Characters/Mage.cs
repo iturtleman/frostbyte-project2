@@ -160,7 +160,7 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.T1Projectile(currentTarget,
                                                                   this,
                                                                   20,
-                                                                  0,
+                                                                  10,
                                                                   new TimeSpan(0, 0, 0, 1, 150),
                                                                   attackRange,
                                                                   9f,
@@ -192,7 +192,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 20)
                                     {
                                         #region Earth Tier 2
-                                        mAttacks.Add(Attacks.Earthquake(this, this, 10, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.Earthquake(this, this, 10, 10).GetEnumerator());
                                         #endregion Earth Tier 2
                                         Mana -= 20;
                                     }
@@ -203,7 +203,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Earth Tier 3
-                                        mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 10).GetEnumerator());
                                         #endregion Earth Tier 3
                                         Mana -= 50;
                                     }
@@ -232,7 +232,7 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.T1Projectile(currentTarget,
                                                                   this,
                                                                   20,
-                                                                  0,
+                                                                  10,
                                                                   new TimeSpan(0, 0, 0, 1, 250),
                                                                   attackRange,
                                                                   8f,
@@ -262,11 +262,11 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Lightning Tier 2
-                                        mAttacks.Add(Attacks.LightningStrike(this, this, 10, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(this, this, 10, 10).GetEnumerator());
                                         #endregion Lightning Tier 2
                                         Mana -= 50;
 
-                                        
+
                                     }
                                 }
 
@@ -275,7 +275,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Lightning Tier 3
-                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 10).GetEnumerator());
                                         #endregion Lightning Tier 3
                                         Mana -= 50;
                                     }
@@ -304,7 +304,7 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.T1Projectile(currentTarget,
                                                                   this,
                                                                   20,
-                                                                  0,
+                                                                  10,
                                                                   new TimeSpan(0, 0, 0, 1, 150),
                                                                   attackRange,
                                                                   9f,
@@ -365,7 +365,7 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.T1Projectile(currentTarget,
                                                                   this,
                                                                   30,
-                                                                  0,
+                                                                  10,
                                                                   new TimeSpan(0, 0, 0, 0, 750),
                                                                   attackRange,
                                                                   9f,
@@ -398,7 +398,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Fire Tier 2
-                                        mAttacks.Add(Attacks.FireRing(this, this, 1, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.FireRing(this, this, 1, 10).GetEnumerator());
                                         #endregion Fire Tier 2
                                         Mana -= 50;
                                     }
@@ -409,7 +409,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Fire Tier 3
-                                        mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 0).GetEnumerator());
+                                        mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 10).GetEnumerator());
                                         #endregion Fire Tier 3
                                         Mana -= 50;
                                     }
@@ -458,7 +458,7 @@ namespace Frostbyte.Characters
                 if (controller.Sword > 0)
                 {
                     #region Start Melee Attack
-                    mAttacks.Add(Attacks.Melee(this, 25, 0).GetEnumerator());
+                    mAttacks.Add(Attacks.Melee(this, 25, 10).GetEnumerator());
                     This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
                     #endregion Start Melee Attack
                     return;
@@ -606,14 +606,54 @@ namespace Frostbyte.Characters
                     Vector2 newDirection = controller.Movement;
                     newDirection.Y *= -1;
                     Direction = newDirection;
-
-                    State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
                 }
                 #endregion Movement
 
                 //perform collision detection with background
                 if (this.CollidesWithBackground)
+                {
                     checkBackgroundCollisions();
+                    if (PreviousPos == Pos)
+                        State = SpriteState.Idle;
+                    else
+                        State = SpriteState.Moving;
+                }
+
+                #region update animation facing direction
+                switch (Orientation)
+                {
+                    case Orientations.Down:
+                        SetAnimation(0 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Down_Right:
+                        Hflip = false;
+                        SetAnimation(1 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Down_Left:
+                        Hflip = true;
+                        SetAnimation(1 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Right:
+                        Hflip = false;
+                        SetAnimation(2 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Left:
+                        Hflip = true;
+                        SetAnimation(2 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Up_Right:
+                        Hflip = false;
+                        SetAnimation(3 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Up_Left:
+                        Hflip = true;
+                        SetAnimation(3 + 5 * State.GetHashCode());
+                        break;
+                    case Orientations.Up:
+                        SetAnimation(4 + 5 * State.GetHashCode());
+                        break;
+                }
+                #endregion
 
                 attack();
 

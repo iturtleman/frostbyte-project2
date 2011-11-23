@@ -16,7 +16,7 @@ namespace Frostbyte
         /// Sets correctly oriented animation and returns number of frames in animation
         /// </summary>
         /// <returns>returns number of frames in animation</returns>
-        private static int setAnimationReturnFrameCount(OurSprite attacker)
+        private static void setAnimation(OurSprite attacker)
         {
             switch (attacker.Orientation)
             {
@@ -51,8 +51,6 @@ namespace Frostbyte
                     attacker.SetAnimation(4 + 5 * attacker.State.GetHashCode());
                     break;
             }
-
-            return attacker.FrameCount();
         }
 
         /// <summary>
@@ -103,25 +101,21 @@ namespace Frostbyte
         {
             OurSprite attacker = _attacker;
             bool hasAttacked = false;
-            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
 
             attacker.Rewind();
 
             attacker.isAttackAnimDone = false;
-
-            bool isLoopOne = false;
-            do
+            for(int i = 0; i < 150; i++)
             {
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
-                if (attacker.Frame == 0)
-                    isLoopOne = !isLoopOne;
-
-                if (!isLoopOne)
+                if (attacker.Frame == FrameCount - 1)
                     break;
 
                 if (!hasAttacked && attacker.Frame == attackFrame && Collision.CollisionData.Count > 0)
@@ -147,12 +141,12 @@ namespace Frostbyte
                     }
                 }
                 yield return false;
-            } while (isLoopOne);
+            }
 
             attacker.isAttackAnimDone = true;
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
 
             yield return true;
         }
@@ -175,7 +169,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             Vector2 direction = new Vector2();
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(new Vector2(), new Vector2());
@@ -197,7 +192,8 @@ namespace Frostbyte
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -283,7 +279,7 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
 
             yield return true;
         }
@@ -303,7 +299,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             Effect particleEffect = l.GetEffect("ParticleSystem");
@@ -327,7 +324,8 @@ namespace Frostbyte
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -428,7 +426,7 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -449,7 +447,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             Effect particleEffect = l.GetEffect("ParticleSystem");
@@ -488,7 +487,8 @@ namespace Frostbyte
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -593,7 +593,7 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitterRing);
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -621,7 +621,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             List<CollisionObject> collisions = target.GetCollision();
 
@@ -657,7 +658,8 @@ namespace Frostbyte
                 if (target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -722,7 +724,7 @@ namespace Frostbyte
 
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -743,7 +745,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             Effect particleEffect = l.GetEffect("ParticleSystem");
@@ -799,7 +802,8 @@ namespace Frostbyte
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -991,7 +995,7 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitterSkywardRing);
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -1002,7 +1006,6 @@ namespace Frostbyte
         /// </summary>
         public static IEnumerable<bool> FirePillar(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
         {
-
             if (_target == null)
             {
                 yield return true;
@@ -1013,7 +1016,8 @@ namespace Frostbyte
             OurSprite target = (OurSprite)_target;
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
-            int FrameCount = setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             List<CollisionObject> collisions = target.GetCollision();
 
@@ -1052,7 +1056,8 @@ namespace Frostbyte
                 if (target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
                 attacker.State = SpriteState.Attacking;
-                setAnimationReturnFrameCount(attacker);
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -1285,7 +1290,7 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitterGroundRedFire);
 
             attacker.State = SpriteState.Idle;
-            setAnimationReturnFrameCount(attacker);
+            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
