@@ -13,7 +13,7 @@ namespace Frostbyte.Levels
         {
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.Earth;
-            This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
+            This.Game.AudioManager.AddBackgroundMusic("Music/OldEarthBoss");
             XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
 
