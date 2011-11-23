@@ -327,7 +327,14 @@ namespace Frostbyte
 
                 if (attacker.Frame == attackFrame)
                 {
-                    direction = attacker.Direction;
+                    if (target == null)
+                    {
+                        direction = initialDirection;
+                    }
+                    else
+                    {
+                        direction = attacker.Direction;
+                    }
                     direction.Normalize();
                     attackStartTime = This.gameTime.TotalGameTime;
                     break;

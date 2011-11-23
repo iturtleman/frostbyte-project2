@@ -49,6 +49,7 @@ namespace Frostbyte.Enemies
         }
 
         private bool changeState = false;
+        internal bool HasVomited = false;
         internal bool IsSubmerged;
 
         protected override void Die()
@@ -70,50 +71,78 @@ namespace Frostbyte.Enemies
         {
             if (isAttackAnimDone && !IsSubmerged)
             {
-                float range = 450.0f;
-                List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-                Sprite target = GetClosestTarget(targets, range);
-                if (target != null)
+                if (HasVomited || This.Game.rand.Next(4) != 0)
                 {
-                    int attackRange = 11;
+                    #region Spew
+                    float range = 450.0f;
+                    List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+                    Sprite target = GetClosestTarget(targets, range);
+                    if (target != null)
+                    {
+                        int attackRange = 11;
 
-                    //Create Particle Emitter
-                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                    Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
-                    ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, boulder);
-                    particleEmitterEarth.effectTechnique = "NoSpecialEffect";
-                    particleEmitterEarth.blendState = BlendState.AlphaBlend;
-                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                    particleEmitters.Add(particleEmitterEarth);
+                        //Create Particle Emitter
+                        Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                        Texture2D boulder = This.Game.CurrentLevel.GetTexture("boulder");
+                        ParticleEmitter particleEmitterEarth = new ParticleEmitter(1000, particleEffect, boulder);
+                        particleEmitterEarth.effectTechnique = "NoSpecialEffect";
+                        particleEmitterEarth.blendState = BlendState.AlphaBlend;
+                        (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                        (particleEmitterEarth.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                        particleEmitters.Add(particleEmitterEarth);
 
+                        Vector2 oldDirection = Direction;
+                        double angle = Math.Atan2(Direction.Y, Direction.X);
+                        for (int x = 0; x < 3; x++)
+                        {
 
-                    mAttacks.Add(Attacks.T1Projectile(target,
-                                              this,
-                                              5,
-                                              41,
-                                              new TimeSpan(0, 0, 0, 1, 750),
-                                              attackRange,
-                                              6f,
-                                              false,
-                                              delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                                              {
-                                                  Random randPosition = new Random();
-                                                  particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
-                                                  Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                  for (int i = -5; i < 6; i++)
-                                                  {
-                                                      particleEmitter.createParticles(-direction * projectileSpeed * 5,
-                                                                                               tangent * -i * 40,
-                                                                                               particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
-                                                                                               1.5f,
-                                                                                               300);
-                                                  }
-                                              },
-                                              particleEmitterEarth,
-                                              Vector2.Zero).GetEnumerator());
+                            mAttacks.Add(Attacks.T1Projectile(target,
+                                                      this,
+                                                      5,
+                                                      41,
+                                                      new TimeSpan(0, 0, 0, 1, 750),
+                                                      attackRange,
+                                                      6f,
+                                                      false,
+                                                      delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                                      {
+                                                          Random randPosition = new Random();
+                                                          particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                                          Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                                          for (int i = -5; i < 6; i++)
+                                                          {
+                                                              particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                                                                                       tangent * -i * 40,
+                                                                                                       particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                                       1.5f,
+                                                                                                       300);
+                                                          }
+                                                      },
+                                                      particleEmitterEarth,
+                                                      Vector2.Zero).GetEnumerator());
+                        }
+                    }
+                    #endregion
+                }
+                else
+                {
+                    mAttacks.Add(Vomit().GetEnumerator());
                 }
             }
+        }
+
+        private IEnumerable<bool> Vomit()
+        {
+            Rewind();
+            isAttackAnimDone = false;
+            while (Frame != FrameCount() - 1)
+            {
+                SetAnimation(18);
+                yield return false;
+            }
+            isAttackAnimDone = true;
+            HasVomited = true;
+            yield return true;
         }
     }
 }

@@ -391,6 +391,7 @@ namespace Frostbyte
                     {
                         yield return null;
                     }
+                    master.HasVomited = false;
                     master.IsSubmerged = false;
                     #endregion
                 }
