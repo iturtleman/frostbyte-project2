@@ -344,6 +344,7 @@ namespace Frostbyte
         {
             this.master = master;
             mStates = States().GetEnumerator();
+            This.Game.AudioManager.AddSoundEffect("Effects/Worm_Spawn");
         }
 
         public void Update()
@@ -359,10 +360,18 @@ namespace Frostbyte
             {
                 yield return null;
             }
+            master.setAtArms();
+
             #region Surface
+            This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn");
             master.SetAnimation(17);
             master.Rewind();
             while (master.Frame != master.FrameCount() - 1)
+            {
+                yield return null;
+            }
+            master.SetAnimation(0);
+            while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
             }
@@ -384,10 +393,16 @@ namespace Frostbyte
                         yield return null;
                     }
                     #region Surface
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn");
                     master.Visible = true;
                     master.SetAnimation(17);
                     master.Rewind();
                     while (master.Frame != master.FrameCount() - 1)
+                    {
+                        yield return null;
+                    }
+                    master.SetAnimation(0);
+                    while (!master.freeze(new TimeSpan(0, 0, 1)))
                     {
                         yield return null;
                     }

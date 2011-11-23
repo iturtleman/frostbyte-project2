@@ -53,10 +53,13 @@ namespace Frostbyte
 
             HealthChanged += delegate(object obj, int value)
             {
-                healthBar.Value = value;
-                if (value == 0)
+                if (healthBar != null)
                 {
-                    This.Game.CurrentLevel.RemoveSprite(healthBar);
+                    healthBar.Value = value;
+                    if (value == 0)
+                    {
+                        This.Game.CurrentLevel.RemoveSprite(healthBar);
+                    }
                 }
             };
             #endregion
@@ -128,10 +131,11 @@ namespace Frostbyte
                     }
                     #endregion
                 }
+            }
 
-                var anim = healthBar.GetAnimation();
-                healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(Center.X - healthBar.Width / 2, -(healthBar.Height+GetAnimation().Height/2));
-
+            if (healthBar != null)
+            {
+                healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(-healthBar.Width / 2, -(healthBar.Height + GetAnimation().Height / 2));
             }
 
             updateAttack();
@@ -177,15 +181,24 @@ namespace Frostbyte
 
             HealthChanged += delegate(object boss, int value)
             {
-                if (value != MaxHealth)
+                if (!AtArms && value != MaxHealth)
                 {
-                    AtArms = true;
+                    setAtArms();
                 }
             };
+
+            This.Game.LoadingLevel.RemoveSprite(healthBar);
+            healthBar = null;
         }
 
         internal bool Enabled;
         internal bool AtArms = false;
+
+        internal void setAtArms()
+        {
+            AtArms = true;
+            (This.Game.LoadingLevel as FrostbyteLevel).HUD.AddBossHealthBar(this);
+        }
 
         internal override void Update()
         {

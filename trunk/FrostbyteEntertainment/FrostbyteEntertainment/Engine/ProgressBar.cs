@@ -15,7 +15,7 @@ namespace Frostbyte
         }
 
         internal ProgressBar(string name, int maxValue, Color borderColor, Color fillColor, Color backgroundColor, Vector2 size)
-            : base(name, new Actor(new DummyAnimation()))
+            : base(name, new Actor(new DummyAnimation(name, size)))
         {
             this.MaxValue = maxValue;
             this.size = size;

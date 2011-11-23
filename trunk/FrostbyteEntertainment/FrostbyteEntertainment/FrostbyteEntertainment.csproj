@@ -229,12 +229,18 @@
       <Link>Content\Audio\Effects\Golem_Move.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\LevelAwaits.wav">
+      <Link>Content\Audio\Effects\LevelAwaits.wav</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Circle.mp3">
       <Link>Content\Audio\Effects\Lightning_Circle.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Loop.wav">
       <Link>Content\Audio\Effects\Lightning_Loop.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Regen.wav">
+      <Link>Content\Audio\Effects\Regen.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Spider_Move.mp3">
       <Link>Content\Audio\Effects\Spider_Move.mp3</Link>
@@ -251,6 +257,9 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Wasp_Move.mp3">
       <Link>Content\Audio\Effects\Wasp_Move.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Worm_Spawn.wav">
+      <Link>Content\Audio\Effects\Worm_Spawn.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\EarthBG.mp3">
       <Link>Content\Audio\Music\EarthBG.mp3</Link>

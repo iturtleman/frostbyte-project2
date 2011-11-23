@@ -190,9 +190,10 @@ namespace Frostbyte
                 {
                     LevelCompleted = true;
                 };
-
-                ConcentricCircles c = new ConcentricCircles("circles", Tile.TileSize / 2);
+                NextLevelPortal c = new NextLevelPortal("next_level", Tile.TileSize / 2);
                 c.CenterOn(ExitPortalSpawnPoint.Value);
+                This.Game.AudioManager.AddSoundEffect("Effects/Regen");
+                This.Game.AudioManager.PlaySoundEffect("Effects/Regen");
             }
             else
             {

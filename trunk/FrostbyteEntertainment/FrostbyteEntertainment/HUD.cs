@@ -75,7 +75,8 @@ namespace Frostbyte
         #region Variables
         private IHUDTheme theme;
         private TextScroller scroller;
-        List<PlayerHUD> playerHUDS = new List<PlayerHUD>();
+        private List<ProgressBar> bossHealthBars = new List<ProgressBar>();
+        private List<PlayerHUD> playerHUDS = new List<PlayerHUD>();
         private static Vector2 barSize = new Vector2(100, 20);
         private static Vector2 barSpacing = new Vector2(10, 2);
         #endregion
@@ -93,6 +94,34 @@ namespace Frostbyte
         {
             int xoffset = 80 + playerHUDS.Count * (int)(barSize.X + barSpacing.X);
             playerHUDS.Add(new PlayerHUD(theme, p, xoffset, 10));
+        }
+
+        internal void AddBossHealthBar(Boss b)
+        {
+            ProgressBar lastPlayerHealth = playerHUDS.Last().healthBar;
+            Vector2 size = new Vector2(This.Game.GraphicsDevice.Viewport.Width * 0.8f, barSize.Y * 1.5f);
+            ProgressBar healthBar = new ProgressBar(b.Name + "_health", b.MaxHealth, 
+                    Color.DarkRed, Color.Firebrick, Color.Black, size);
+            healthBar.Pos = new Vector2(
+                (This.Game.GraphicsDevice.Viewport.Width - size.X) / 2,
+                This.Game.GraphicsDevice.Viewport.Height - size.Y * 2);
+            healthBar.Static = true;
+            healthBar.Value = b.MaxHealth;
+
+            b.HealthChanged += delegate(object obj, int value)
+            {
+                healthBar.Value = value;
+            };
+            bossHealthBars.Add(healthBar);
+        }
+
+        internal void RemoveBossHealthBar(Boss b)
+        {
+            foreach (ProgressBar p in bossHealthBars.FindAll(p => p.Name == b.Name + "_health"))
+            {
+                This.Game.CurrentLevel.RemoveSprite(p);
+                bossHealthBars.Remove(p);
+            }
         }
 
         internal void ScrollText(string s)
