@@ -263,7 +263,8 @@ namespace Frostbyte
                                         1000);
                     }
                 },
-                particleEmitterTrigger).GetEnumerator());
+                particleEmitterTrigger,
+                Vector2.Zero).GetEnumerator());
         }
 
         /// <summary>
@@ -385,7 +386,8 @@ namespace Frostbyte
                                         1000);
                     }
                 },
-                particleEmitterTrigger).GetEnumerator());
+                particleEmitterTrigger,
+                Vector2.Zero).GetEnumerator());
 
             collisionObjects.Add(new Collision_BoundingCircle(1,Vector2.Zero, radius));
             this.CollisionList = 2;

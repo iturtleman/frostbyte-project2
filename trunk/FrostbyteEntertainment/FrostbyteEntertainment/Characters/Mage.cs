@@ -181,6 +181,7 @@ namespace Frostbyte.Characters
                                                                       }
                                                                   },
                                                                   particleEarthTier1,
+                                                                  new Vector2(0, -38),
                                                                   Element.Earth
                                                                   ).GetEnumerator());
                                         #endregion Earth Tier 1
@@ -251,6 +252,7 @@ namespace Frostbyte.Characters
                                                                       }
                                                                   },
                                                                   particleLightningTier1,
+                                                                  new Vector2(0, -38),
                                                                   Element.Lightning
                                                                   ).GetEnumerator());
                                         #endregion Lightning Tier 1
@@ -266,8 +268,6 @@ namespace Frostbyte.Characters
                                         mAttacks.Add(Attacks.LightningStrike(this, this, 10, 10).GetEnumerator());
                                         #endregion Lightning Tier 2
                                         Mana -= 50;
-
-
                                     }
                                 }
 
@@ -325,6 +325,7 @@ namespace Frostbyte.Characters
                                                                       }
                                                                   },
                                                                   particleWaterTier1,
+                                                                  new Vector2(0, -38),
                                                                   Element.Earth
                                                                   ).GetEnumerator());
                                         #endregion Water Tier 1
@@ -387,6 +388,7 @@ namespace Frostbyte.Characters
                                                                       }
                                                                   },
                                                                   particleFireTier1,
+                                                                  new Vector2(0, -38),
                                                                   Element.Fire
                                                                   ).GetEnumerator());
                                         #endregion Fire Tier 1

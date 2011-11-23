@@ -104,7 +104,8 @@ namespace Frostbyte.Enemies
                                                                                                   300);
                                                   }
                                               },
-                                              particleEmitterLightning).GetEnumerator());
+                                              particleEmitterLightning,
+                                              Vector2.Zero).GetEnumerator());
                 }
             }
         }

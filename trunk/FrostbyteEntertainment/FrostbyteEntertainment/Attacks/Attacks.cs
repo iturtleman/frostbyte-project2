@@ -272,9 +272,6 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = true;
 
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
-
             yield return true;
         }
 
@@ -289,7 +286,7 @@ namespace Frostbyte
         /// <param name="_attackRange">The distance from the target that the projectile must come within to be considered a hit</param>
         /// <param name="_projectileSpeed">The speed of the projectile</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Element elem = Element.Normal)
+        public static IEnumerable<bool> T1Projectile(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Vector2 spawnOffset, Element elem = Element.Normal)
         {
             #region Variables
             Level l = This.Game.CurrentLevel;
@@ -305,9 +302,10 @@ namespace Frostbyte
             ParticleEmitter particleEmitter = _particleEmitter;
 
             bool damageDealt = false;
+            bool isLoopOne = true;
             #endregion Variables
 
-            particleEmitter.GroundPos = attacker.GroundPos;
+            particleEmitter.GroundPos = attacker.GroundPos + spawnOffset;
 
             attacker.Rewind();
 
@@ -380,7 +378,13 @@ namespace Frostbyte
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
-                    attacker.isAttackAnimDone = true;
+                {
+                    if (attacker is Player)
+                    {
+                        attacker.isAttackAnimDone = true;
+                        isLoopOne = false;
+                    }
+                }
 
                 //make sure magic cannot go through walls
                 Vector2 previousPosition = particleEmitter.GroundPos;
@@ -397,6 +401,12 @@ namespace Frostbyte
             }
             #endregion Emit Particles until particle hits target or wall or time to live runs out
 
+            //if the attack frame has passed then allow the attacker to move
+            while (attacker.Frame < FrameCount - 1 && isLoopOne)
+            {
+                yield return false;
+            }
+
             attacker.isAttackAnimDone = true;
 
             #region Finish attacking after all particles are dead
@@ -409,9 +419,6 @@ namespace Frostbyte
             particleEmitter.Remove();
             l.RemoveSprite(particleEmitter);
             attacker.particleEmitters.Remove(particleEmitter);
-
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
 
             yield return true;
         }
@@ -562,8 +569,6 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitter);
             attacker.particleEmitters.Remove(particleEmitter);
 
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -734,8 +739,6 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitterRing);
             attacker.particleEmitters.Remove(particleEmitterRing);
 
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -869,9 +872,6 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitterRocks);
             attacker.particleEmitters.Remove(particleEmitterRocks);
 
-
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -1146,8 +1146,6 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitterSkywardRing);
             attacker.particleEmitters.Remove(particleEmitterSkywardRing);
 
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
@@ -1446,8 +1444,6 @@ namespace Frostbyte
             l.RemoveSprite(particleEmitterGroundRedFire);
             attacker.particleEmitters.Remove(particleEmitterGroundRedFire);
 
-            attacker.State = SpriteState.Idle;
-            setAnimation(attacker);
             attacker.isAttackAnimDone = true;
 
             yield return true;
