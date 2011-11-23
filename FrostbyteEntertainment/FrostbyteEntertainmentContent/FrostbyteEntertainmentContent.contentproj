@@ -168,11 +168,6 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Audio\Music\EarthBoss.mp3">
-      <Name>EarthBoss</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
     <Compile Include="Audio\Music\GenericBoss.mp3">
       <Name>GenericBoss</Name>
       <Importer>Mp3Importer</Importer>
@@ -693,6 +688,20 @@
       <Name>player1-walk</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Music\TitleScreenBG.mp3">
+      <Name>TitleScreenBG</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Music\OldEarthBoss.mp3">
+      <Name>OldEarthBoss</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
