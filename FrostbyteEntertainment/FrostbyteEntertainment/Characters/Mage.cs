@@ -614,47 +614,50 @@ namespace Frostbyte.Characters
                 if (this.CollidesWithBackground)
                 {
                     checkBackgroundCollisions();
+                }
+
+                if (isAttackAnimDone)
+                {
                     if (PreviousPos == Pos)
                         State = SpriteState.Idle;
                     else
                         State = SpriteState.Moving;
+                    #region update animation facing direction
+                    switch (Orientation)
+                    {
+                        case Orientations.Down:
+                            SetAnimation(0 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Down_Right:
+                            Hflip = false;
+                            SetAnimation(1 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Down_Left:
+                            Hflip = true;
+                            SetAnimation(1 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Right:
+                            Hflip = false;
+                            SetAnimation(2 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Left:
+                            Hflip = true;
+                            SetAnimation(2 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up_Right:
+                            Hflip = false;
+                            SetAnimation(3 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up_Left:
+                            Hflip = true;
+                            SetAnimation(3 + 5 * State.GetHashCode());
+                            break;
+                        case Orientations.Up:
+                            SetAnimation(4 + 5 * State.GetHashCode());
+                            break;
+                    }
+                    #endregion
                 }
-
-                #region update animation facing direction
-                switch (Orientation)
-                {
-                    case Orientations.Down:
-                        SetAnimation(0 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Down_Right:
-                        Hflip = false;
-                        SetAnimation(1 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Down_Left:
-                        Hflip = true;
-                        SetAnimation(1 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Right:
-                        Hflip = false;
-                        SetAnimation(2 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Left:
-                        Hflip = true;
-                        SetAnimation(2 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up_Right:
-                        Hflip = false;
-                        SetAnimation(3 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up_Left:
-                        Hflip = true;
-                        SetAnimation(3 + 5 * State.GetHashCode());
-                        break;
-                    case Orientations.Up:
-                        SetAnimation(4 + 5 * State.GetHashCode());
-                        break;
-                }
-                #endregion
 
                 attack();
 
