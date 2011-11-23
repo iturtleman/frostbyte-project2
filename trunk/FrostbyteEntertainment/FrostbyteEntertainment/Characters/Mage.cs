@@ -134,6 +134,7 @@ namespace Frostbyte.Characters
             {
                 if (controller.LaunchAttack == ReleasableButtonState.Clicked)
                 {
+                    #region Release Attacks
                     if (attackCounter.Count != 0)
                     {
                         switch (attackCounter.First())
@@ -422,6 +423,7 @@ namespace Frostbyte.Characters
 
                         attackCounter.Clear();
                     }
+                    #endregion
                 }
 
                 else if (controller.Earth == ReleasableButtonState.Clicked)
