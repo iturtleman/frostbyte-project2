@@ -752,6 +752,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-right.anim">
       <Link>Content\Sprites\player1-walk-right.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-walk-up.anim">
       <Link>Content\Sprites\player1-walk-up.anim</Link>
