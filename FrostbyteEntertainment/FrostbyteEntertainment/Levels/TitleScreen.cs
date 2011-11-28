@@ -27,7 +27,7 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG");
 
-            Text title = new Text("titletext", "text", "Welcome. Please Press Enter/Start.");
+            Text title = new Text("titletext", "Fonts/Title", "Welcome. Please Press Enter/Start.");
             title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));
             title.Static = true;
             title.DisplayColor = Color.Chartreuse;
@@ -43,6 +43,7 @@ namespace Frostbyte.Levels
             if (LevelInitTime == TimeSpan.MinValue)
             {
                 LevelInitTime = gameTime.TotalGameTime;
+                
             }
 
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)

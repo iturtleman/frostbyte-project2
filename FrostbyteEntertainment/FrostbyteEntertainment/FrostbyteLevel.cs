@@ -30,12 +30,22 @@ namespace Frostbyte
             {
                 GlobalController = new KeyboardController();
             }
+            This.Cheats.AddCheat("DisableBackgroundCollision");
         }
 
         protected override void Update(GameTime gameTime)
         {
             GlobalController.Update();
             base.Update(gameTime);
+
+            if (GlobalController.GetKeypress(Keys.Home) == ReleasableButtonState.Clicked)
+            {
+                This.Cheats.Enabled = !This.Cheats.Enabled;
+            }
+            if (GlobalController.GetKeypress(Keys.PageUp) == ReleasableButtonState.Clicked)
+            {
+                This.Cheats.GetCheat("DisableBackgroundCollision").Toggle();
+            }
         }
     }
 

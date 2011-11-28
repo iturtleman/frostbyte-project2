@@ -89,6 +89,21 @@ namespace Frostbyte
         /// </summary>
         Vector2 Movement { get; }
 
+        /// <summary>
+        /// Return the state of a pressed key. If there are no "keys" on the
+        /// controller, return ReleasableButtonState.Released
+        /// </summary>
+        /// <param name="key">The key to check for</param>
+        /// <returns></returns>
+        ReleasableButtonState GetKeypress(Keys key);
+
+        /// <summary>
+        /// Return the raw current state of the controller.
+        /// Context dependent, must be casted to base type.
+        /// </summary>
+        /// <returns></returns>
+        Object GetRawState();
+
         ReleasableButtonState NextLevel { get; }
     }
 
@@ -117,7 +132,12 @@ namespace Frostbyte
             mCurrentControllerState = GamePad.GetState(input);
         }
 
-        public GamePadState getRawState()
+        public ReleasableButtonState GetKeypress(Keys key)
+        {
+            return ReleasableButtonState.Released;
+        }
+
+        public Object GetRawState()
         {
             return mCurrentControllerState;
         }
@@ -371,6 +391,24 @@ namespace Frostbyte
             mLastControllerState = mCurrentControllerState;
             mCurrentControllerState = Keyboard.GetState();
         }
+
+        public ReleasableButtonState GetKeypress(Keys key)
+        {
+            if (mCurrentControllerState.IsKeyDown(key))
+            {
+                return ReleasableButtonState.Pressed;
+            }
+            else if (mLastControllerState.IsKeyDown(key) && mCurrentControllerState.IsKeyUp(key))
+            {
+                return ReleasableButtonState.Clicked;
+            }
+            return ReleasableButtonState.Released;
+        }
+
+        public Object GetRawState()
+        {
+            return mCurrentControllerState;
+        }
         #endregion
 
         #region Properties
@@ -380,16 +418,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.S))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.S) && mCurrentControllerState.IsKeyUp(Keys.S))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.S);
             }
         }
 
@@ -397,16 +426,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.D))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.D) && mCurrentControllerState.IsKeyUp(Keys.D))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.D);
             }
         }
 
@@ -414,16 +434,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.A))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.A) && mCurrentControllerState.IsKeyUp(Keys.A))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.A);
             }
         }
 
@@ -431,16 +442,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.W))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.W) && mCurrentControllerState.IsKeyUp(Keys.W))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.W);
             }
         }
 
@@ -448,16 +450,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.Space))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.Space) && mCurrentControllerState.IsKeyUp(Keys.Space))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.Space);
             }
         }
 
@@ -465,16 +458,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.Z))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.Z) && mCurrentControllerState.IsKeyUp(Keys.Z))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.Z);
             }
         }
 
@@ -482,16 +466,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.Enter))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.Enter) && mCurrentControllerState.IsKeyUp(Keys.Enter))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.Enter);
             }
         }
 
@@ -499,16 +474,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.C))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.C) && mCurrentControllerState.IsKeyUp(Keys.C))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.C);
             }
         }
 
@@ -568,16 +534,7 @@ namespace Frostbyte
         {
             get
             {
-                if (mCurrentControllerState.IsKeyDown(Keys.F12))
-                {
-                    return ReleasableButtonState.Pressed;
-                }
-                else if (mLastControllerState.IsKeyDown(Keys.F12) && mCurrentControllerState.IsKeyUp(Keys.F12))
-                {
-                    return ReleasableButtonState.Clicked;
-                }
-
-                return ReleasableButtonState.Released;
+                return GetKeypress(Keys.F12);
             }
         }
 

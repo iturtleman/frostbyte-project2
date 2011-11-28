@@ -44,6 +44,8 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
             This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
 
+            l.HUD.FadeText("The Jungle");
+
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
             #endregion loadeffects etc
