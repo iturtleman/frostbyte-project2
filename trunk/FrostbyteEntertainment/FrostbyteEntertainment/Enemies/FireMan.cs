@@ -10,8 +10,8 @@ namespace Frostbyte.Enemies
     internal partial class FireMan : Frostbyte.Enemy
     {
         #region Variables
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("antibody.anim")
+        static List<String> Animations = new List<String>(){
+           "antibody.anim"
         };
 
         #endregion Variables

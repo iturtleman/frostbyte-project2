@@ -151,7 +151,6 @@ namespace Frostbyte
                     }
                 }
 
-
                 Frames.Add(sf);
             }
         }

@@ -10,26 +10,26 @@ namespace Frostbyte.Enemies
     internal partial class CrystalMan : Frostbyte.Boss
     {
         #region Variables
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-in.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-out.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-idle-broken-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-in-broken.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-teleport-out-broken.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalman-shatter-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "crystalman-idle-down.anim",
+           "crystalman-idle-diagdown.anim",
+           "crystalman-idle-right.anim",
+           "crystalman-idle-diagup.anim",
+           "crystalman-idle-up.anim",
+           "crystalman-teleport-in.anim",
+           "crystalman-teleport-out.anim",
+           "crystalman-idle-broken-down.anim",
+           "crystalman-idle-broken-diagdown.anim",
+           "crystalman-idle-broken-right.anim",
+           "crystalman-idle-broken-diagup.anim",
+           "crystalman-idle-broken-up.anim",
+           "crystalman-teleport-in-broken.anim",
+           "crystalman-teleport-out-broken.anim",
+           "crystalman-shatter-down.anim",
+           "crystalman-shatter-diagdown.anim",
+           "crystalman-shatter-right.anim",
+           "crystalman-shatter-diagup.anim",
+           "crystalman-shatter-up.anim",
         };
         private bool changeState = false;
         #endregion Variables

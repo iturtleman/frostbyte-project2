@@ -28,6 +28,7 @@ namespace Frostbyte
         /// List of all the Actor's animations.
         /// </summary>
         internal List<Animation> Animations = new List<Animation>();
+
         #endregion
 
         #region Constructor
@@ -39,6 +40,14 @@ namespace Frostbyte
         public Actor(List<Animation> anims)
         {
             Animations = anims;
+        }
+
+        public Actor(List<string> anims)
+        {
+            foreach (var anim in anims)
+            {
+                Animations.Add(This.Game.CurrentLevel.GetAnimation(anim));
+            }
         }
         #endregion
     }

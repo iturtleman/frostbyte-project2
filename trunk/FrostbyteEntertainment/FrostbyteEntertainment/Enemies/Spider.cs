@@ -15,22 +15,22 @@ namespace Frostbyte.Enemies
         bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("spider-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-walk-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-walk-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-walk-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-walk-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-walk-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-attack-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-attack-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-attack-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-attack-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("spider-attack-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "spider-idle-down.anim",
+           "spider-idle-diagdown.anim",
+           "spider-idle-right.anim",
+           "spider-idle-diagup.anim",
+           "spider-idle-up.anim",
+           "spider-walk-down.anim",
+           "spider-walk-diagdown.anim",
+           "spider-walk-right.anim",
+           "spider-walk-diagup.anim",
+           "spider-walk-up.anim",
+           "spider-attack-down.anim",
+           "spider-attack-diagdown.anim",
+           "spider-attack-right.anim",
+           "spider-attack-diagup.anim",
+           "spider-attack-up.anim",
         };
 
         #endregion Variables

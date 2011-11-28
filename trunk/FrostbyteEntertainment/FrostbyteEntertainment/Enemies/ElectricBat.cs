@@ -15,22 +15,22 @@ namespace Frostbyte.Enemies
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         #region Variables
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("bat-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "bat-down.anim",
+           "bat-diagdown.anim",
+           "bat-right.anim",
+           "bat-diagup.anim",
+           "bat-up.anim",
+           "bat-down.anim",
+           "bat-diagdown.anim",
+           "bat-right.anim",
+           "bat-diagup.anim",
+           "bat-up.anim",
+           "bat-down.anim",
+           "bat-diagdown.anim",
+           "bat-right.anim",
+           "bat-diagup.anim",
+           "bat-up.anim",
         };
 
         #endregion Variables

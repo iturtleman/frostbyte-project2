@@ -17,22 +17,22 @@ namespace Frostbyte.Enemies
         bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("beetle-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-walk-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-walk-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-walk-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-walk-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-walk-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-attack-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-attack-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-attack-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-attack-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("beetle-attack-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "beetle-idle-down.anim",
+           "beetle-idle-diagdown.anim",
+           "beetle-idle-right.anim",
+           "beetle-idle-diagup.anim",
+           "beetle-idle-up.anim",
+           "beetle-walk-down.anim",
+           "beetle-walk-diagdown.anim",
+           "beetle-walk-right.anim",
+           "beetle-walk-diagup.anim",
+           "beetle-walk-up.anim",
+           "beetle-attack-down.anim",
+           "beetle-attack-diagdown.anim",
+           "beetle-attack-right.anim",
+           "beetle-attack-diagup.anim",
+           "beetle-attack-up.anim",
         };
         #endregion Variables
 
