@@ -245,6 +245,8 @@ namespace Frostbyte
                 if (attacker.Frame == FrameCount - 1)
                     break;
 
+                attacker.isAttackAnimDone = false;
+
                 if (!hasAttacked && attacker.Frame == attackFrame && Collision.CollisionData.Count > 0)
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
@@ -319,6 +321,8 @@ namespace Frostbyte
             #region Shoot Tier 1 at attackFrame
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -345,8 +349,12 @@ namespace Frostbyte
             #endregion Shoot Tier 1 at attackFrame
 
             #region Emit Particles until particle hits target or wall or time to live runs out
+
+            bool isAttackAnimDone = false;
+
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
+
                 if (isHoming && target != null)
                 {
                     direction = target.GroundPos - particleEmitter.GroundPos;
@@ -390,8 +398,12 @@ namespace Frostbyte
                     {
                         attacker.isAttackAnimDone = true;
                         isLoopOne = false;
+                        isAttackAnimDone = true;
                     }
                 }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
 
                 //make sure magic cannot go through walls
                 Vector2 previousPosition = particleEmitter.GroundPos;
@@ -411,6 +423,7 @@ namespace Frostbyte
             //if the attack frame has passed then allow the attacker to move
             while (attacker.Frame < FrameCount - 1 && isLoopOne)
             {
+                attacker.isAttackAnimDone = false;
                 yield return false;
             }
 
@@ -472,6 +485,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -500,6 +515,8 @@ namespace Frostbyte
 
 
             #region Generate Lightning Strike and Ground Spread and Deal Damage
+
+            bool isAttackAnimDone = false;
 
             if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike"))
             {
@@ -561,7 +578,14 @@ namespace Frostbyte
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
+                {
                     attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if(!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
+
 
                 yield return false;
             }
@@ -638,6 +662,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -669,6 +695,8 @@ namespace Frostbyte
 
             #region Generate Earthquake
 
+            bool isAttackAnimDone = false;
+            
             if (This.Game.AudioManager.PlaySoundEffect("Effects/Earthquake"))
             {
                 yield return false;
@@ -724,7 +752,13 @@ namespace Frostbyte
                 }
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
+                {
                     attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
 
                 yield return false;
             }
@@ -812,6 +846,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterDust.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -827,9 +863,9 @@ namespace Frostbyte
             }
             #endregion Shoot Attack
 
-
-
             #region Generate Rock Shower
+
+            bool isAttackAnimDone = false;
 
             for (int i = 0; i < 165; i++)
             {
@@ -861,7 +897,13 @@ namespace Frostbyte
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
+                {
                     attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
 
                 yield return false;
             }
@@ -958,6 +1000,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target != null && target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -988,6 +1032,8 @@ namespace Frostbyte
 
 
             #region Generate Fire Ring and Attack
+
+            bool isAttackAnimDone = false;
 
             for (int i = 0; i < 165; i++)
             {
@@ -1096,7 +1142,13 @@ namespace Frostbyte
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
+                {
                     attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
 
                 yield return false;
             }
@@ -1215,6 +1267,8 @@ namespace Frostbyte
             #region Shoot Attack
             while (attacker.Frame < FrameCount)
             {
+                attacker.isAttackAnimDone = false;
+
                 if (target.GroundPos != attacker.GroundPos)
                     attacker.Direction = target.GroundPos - particleEmitterFire.GroundPos;
                 attacker.State = SpriteState.Attacking;
@@ -1231,6 +1285,9 @@ namespace Frostbyte
             #endregion Shoot Attack
 
             #region Generate Fire Pillar
+
+            bool isAttackAnimDone = false;
+
             for (int i = 0; i < 165; i++)
             {
                 particleEmitterFire.GroundPos = target.GroundPos;
@@ -1388,7 +1445,13 @@ namespace Frostbyte
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
+                {
                     attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
 
                 yield return false;
             }
