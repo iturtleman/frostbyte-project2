@@ -19,7 +19,7 @@ namespace Frostbyte.Levels
             l.DiaryEntries.MoveNext();
 
             This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG", 0.1f);
 
             Viewport v = This.Game.GraphicsDevice.Viewport;
             scroller = new TextScroller("intro_text", v.Width * 3 / 4, v.Height * 3 / 4);

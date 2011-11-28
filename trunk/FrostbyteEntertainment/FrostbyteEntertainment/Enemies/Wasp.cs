@@ -12,9 +12,6 @@ namespace Frostbyte.Enemies
     internal partial class Wasp : Frostbyte.Enemy
     {
         #region Variables
-
-        bool changeState = false;
-
         static List<String> Animations = new List<String>(){
            "wasp-idle-down.anim",
            "wasp-idle-diagdown.anim",
@@ -54,10 +51,6 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
             Personality.Update();
         }
 

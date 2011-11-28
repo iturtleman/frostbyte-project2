@@ -51,7 +51,8 @@ namespace Frostbyte
             UpdateBehavior = () => { };
             EndBehavior = () => { };
         }
-        internal Level(string n, LoadBehavior loadBehavior, Behavior updateBehavior, Behavior endBehavior, Condition winCondition)
+        internal Level(string n, LoadBehavior loadBehavior, Behavior updateBehavior,
+            Behavior endBehavior, Condition winCondition)
         {
             mName = n;
             LoadBehavior = loadBehavior;
@@ -152,7 +153,8 @@ namespace Frostbyte
 
         internal virtual void Load(Level context)
         {
-            This.Game.AudioManager.Stop();
+            This.Game.AudioManager.Pause();
+            This.Game.AudioManager.BackgroundMusicVolume = 1;
             mWorldObjects.Clear();
             mActors.Clear();
             mAnims.Clear();
@@ -210,7 +212,7 @@ namespace Frostbyte
         internal virtual void Unload()
         {
             This.Game.Content.Unload();
-            This.Game.AudioManager.Stop();
+            This.Game.AudioManager.Pause();
             This.Game.AudioManager.Clear();
             mWorldObjects.Clear();
             mTextures.Clear();

@@ -13,8 +13,6 @@ namespace Frostbyte.Enemies
     internal partial class FireAnt : Frostbyte.Enemy
     {
         #region Variables
-
-        bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<String> Animations = new List<String>(){
@@ -38,11 +36,6 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
-
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             Sprite target = GetClosestTarget(targets, float.MaxValue);
             if (target != null)

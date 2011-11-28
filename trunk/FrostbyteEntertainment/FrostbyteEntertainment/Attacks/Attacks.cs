@@ -1683,7 +1683,7 @@ namespace Frostbyte
                 yield return false;
             }
 
-            for (int i = 0; i < 165; i++)
+            for (int i = 0; i < 100; i++)
             {
                 // Ground Spread
                 for (int j = 0; j < 30; j++)

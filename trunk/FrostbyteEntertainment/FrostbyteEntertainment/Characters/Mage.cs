@@ -586,6 +586,7 @@ namespace Frostbyte.Characters
             if (Health == 0)
             {
                 State = SpriteState.Dead;
+                Pos = Vector2.Zero;
             }
             else
             {

@@ -35,7 +35,6 @@ namespace Frostbyte.Enemies
            "worm-vomit.anim",
            "worm-die.anim",
         };
-        private bool changeState = false;
         internal bool HasVomited = false;
         internal bool IsSubmerged;
         #endregion Variables
@@ -61,10 +60,6 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
             Personality.Update();
         }
 

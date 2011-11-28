@@ -33,6 +33,12 @@ namespace Frostbyte
             This.Cheats.AddCheat("DisableBackgroundCollision");
         }
 
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+            SetCurrentLevel(FrostbyteLevel.LevelProgression[0]);
+        }
+
         protected override void Update(GameTime gameTime)
         {
             GlobalController.Update();
@@ -112,11 +118,11 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            "TitleScreen",
+            /*"TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
-            "WorldMap",
+            "WorldMap",*/
             "Lightning",
             "WorldMap",
             "Water",

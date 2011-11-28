@@ -33,7 +33,7 @@ namespace Frostbyte
             }
         }
 
-        internal void PlayBackgroundMusic(string name)
+        internal void PlayBackgroundMusic(string name, float volume=0f)
         {
             Song s; 
             if (backgroundMusic.TryGetValue(name,out s))
@@ -41,7 +41,19 @@ namespace Frostbyte
                 try
                 {
                     MediaPlayer.IsRepeating = true;
-                    MediaPlayer.Play(s);
+                    if (MediaPlayer.Queue.ActiveSong != null &&
+                        MediaPlayer.Queue.ActiveSong.Name == s.Name)
+                    {
+                        MediaPlayer.Resume();
+                    }
+                    else
+                    {
+                        MediaPlayer.Play(s);
+                    }
+                    if (volume != 0)
+                    {
+                        MediaPlayer.Volume = volume;
+                    }
                 }
                 catch (InvalidOperationException)
                 {
@@ -125,6 +137,11 @@ namespace Frostbyte
         }
 
         internal void Pause()
+        {
+            MediaPlayer.Pause();
+        }
+
+        internal void PlayPause()
         {
             if (MediaPlayer.State == MediaState.Playing)
             {

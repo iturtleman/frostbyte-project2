@@ -345,6 +345,7 @@ namespace Frostbyte
             this.master = master;
             mStates = States().GetEnumerator();
             This.Game.AudioManager.AddSoundEffect("Effects/Worm_Spawn");
+            This.Game.AudioManager.AddBackgroundMusic("Music/OldEarthBoss");
         }
 
         public void Update()
@@ -363,7 +364,9 @@ namespace Frostbyte
             master.setAtArms();
 
             #region Surface
-            This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+            This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .05f);
             master.SetAnimation(17);
             master.Rewind();
             while (master.Frame != master.FrameCount() - 1)
@@ -393,7 +396,7 @@ namespace Frostbyte
                         yield return null;
                     }
                     #region Surface
-                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn");
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .1f);
                     master.Visible = true;
                     master.SetAnimation(17);
                     master.Rewind();
@@ -426,6 +429,7 @@ namespace Frostbyte
                         yield return null;
                     }
                     master.Visible = false;
+                    master.Pos = Vector2.Zero;
                     #endregion
                 }
                 yield return null;
@@ -458,8 +462,78 @@ namespace Frostbyte
             {
                 yield return null;
             }
+            master.setAtArms();
+
+            #region Surface
+            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+            This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .05f);
+            master.SetAnimation(17);
+            master.Rewind();
+            while (master.Frame != master.FrameCount() - 1)
+            {
+                yield return null;
+            }
+            master.SetAnimation(0);
+            while (!master.freeze(new TimeSpan(0, 0, 1)))
+            {
+                yield return null;
+            }
+            //master.IsSubmerged = false;
+            #endregion
             while (true)
             {
+                /*if (master.IsSubmerged)
+                {
+                    Camera cam = This.Game.CurrentLevel.Camera;
+                    Viewport v = This.Game.GraphicsDevice.Viewport;
+                    while (!master.delayedTeleport(new TimeSpan(0, 0, 2),
+                        new Rectangle(
+                            (int)(cam.Pos.X * cam.Zoom),
+                            (int)(cam.Pos.Y * cam.Zoom),
+                            (int)(v.Width * cam.Zoom),
+                            (int)(v.Height * cam.Zoom))))
+                    {
+                        yield return null;
+                    }
+                    #region Surface
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .1f);
+                    master.Visible = true;
+                    master.SetAnimation(17);
+                    master.Rewind();
+                    while (master.Frame != master.FrameCount() - 1)
+                    {
+                        yield return null;
+                    }
+                    master.SetAnimation(0);
+                    while (!master.freeze(new TimeSpan(0, 0, 1)))
+                    {
+                        yield return null;
+                    }
+                    master.HasVomited = false;
+                    master.IsSubmerged = false;
+                    #endregion
+                }
+                else
+                {
+                    while (!master.freeze(new TimeSpan(0, 0, 5)))
+                    {
+                        yield return null;
+                    }
+                    #region Submerge
+                    master.IsSubmerged = true;
+                    master.StopAttacks();
+                    master.SetAnimation(16);
+                    master.Rewind();
+                    while (master.Frame != master.FrameCount() - 1)
+                    {
+                        yield return null;
+                    }
+                    master.Visible = false;
+                    master.Pos = Vector2.Zero;
+                    #endregion
+                }*/
+                yield return null;
             }
         }
     }

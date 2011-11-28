@@ -125,7 +125,7 @@ namespace Frostbyte
         /// The next level (for loading)
         /// </summary>
         int mNextLevel = -1;
-        int mCurrentLevel;/**< Current Level index. */
+        int mCurrentLevel = -1;/**< Current Level index. */
         AudioManager mAudioManager = new AudioManager();
         List<Level> mLevels = new List<Level>();
         internal Random rand = new Random();
@@ -292,7 +292,7 @@ namespace Frostbyte
         /// <param name="name"></param>
         internal void SetCurrentLevel(string name)
         {
-            if (name == null)
+            if (name == null && mCurrentLevel < 0)
             {
                 name = mLevels[0].Name;
             }
