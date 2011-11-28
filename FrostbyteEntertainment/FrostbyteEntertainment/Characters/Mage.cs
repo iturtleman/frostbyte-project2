@@ -102,6 +102,7 @@ namespace Frostbyte.Characters
             {
                 controller = new GamePadController(input);
             }
+      
             else
             {
                 controller = new KeyboardController();
