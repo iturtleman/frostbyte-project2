@@ -33,6 +33,8 @@ namespace Frostbyte.Levels
 
             This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG");
 
+            l.HUD.FadeText("The Caves");
+
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
             #endregion loadeffects etc

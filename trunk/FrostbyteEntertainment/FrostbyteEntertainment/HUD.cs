@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections;
 
 namespace Frostbyte
 {
@@ -11,6 +12,7 @@ namespace Frostbyte
     interface IHUDTheme
     {
         Color TextColor { get; }
+        SpriteFont TitleFont { get; }
         SpriteFont TextFont { get; }
         Color TransparentBackgroundColor { get; }
     }
@@ -19,8 +21,9 @@ namespace Frostbyte
     {
         protected byte Alpha = 90;
         public virtual Color TextColor { get { return Color.White; } }
-        public virtual SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Text"); } }
-        public Color TransparentBackgroundColor
+        public virtual SpriteFont TitleFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Title"); } }
+        public virtual SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Default"); } }
+        public virtual Color TransparentBackgroundColor
         {
             get
             {
@@ -33,28 +36,41 @@ namespace Frostbyte
 
     internal class EarthTheme : GenericTheme
     {
-        public override Color TextColor { get { return Color.BurlyWood; } }
-
+        public override Color TextColor { get { return Color.Black; } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Earth"); } }
+        public override Color TransparentBackgroundColor
+        {
+            get
+            {
+                Color transp = Color.BurlyWood;
+                transp.A = Alpha;
+                return transp;
+            }
+        }
     }
 
     internal class LightningTheme : GenericTheme
     {
         public override Color TextColor { get { return Color.Lavender; } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Lightning"); } }
     }
 
     internal class WaterTheme : GenericTheme
     {
         public override Color TextColor { get { return Color.LightSkyBlue; } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Water"); } }
     }
 
     internal class FireTheme : GenericTheme
     {
         public override Color TextColor { get { return Color.Firebrick; } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Fire"); } }
     }
 
     internal class FinalTheme : GenericTheme
     {
         public override Color TextColor { get { return Color.Blue; } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Final"); } }
     }
     #endregion Themes
 
@@ -75,6 +91,7 @@ namespace Frostbyte
         #region Variables
         private IHUDTheme theme;
         private TextScroller scroller;
+        private TextFader fader;
         private List<ProgressBar> bossHealthBars = new List<ProgressBar>();
         private List<PlayerHUD> playerHUDS = new List<PlayerHUD>();
         private static Vector2 barSize = new Vector2(100, 20);
@@ -84,10 +101,16 @@ namespace Frostbyte
         #region Methods
         internal void LoadCommon()
         {
+            Viewport v = This.Game.GraphicsDevice.Viewport;
             scroller = new TextScroller("scroller", theme);
             scroller.Pos = new Vector2(FrostbyteLevel.BORDER_WIDTH / 2,
-                This.Game.GraphicsDevice.Viewport.Height - scroller.GetAnimation().Height);
+                v.Height - scroller.GetAnimation().Height);
             scroller.Static = true;
+
+            fader = new TextFader("fader", theme);
+            fader.Pos = new Vector2(v.Width - 10, 10);
+            fader.Anchor = Orientations.Up_Right;
+            fader.Static = true;
         }
 
         internal void AddPlayer(Player p)
@@ -129,6 +152,14 @@ namespace Frostbyte
             if (scroller != null && s != null)
             {
                 scroller.ScrollText(s);
+            }
+        }
+
+        internal void FadeText(string s)
+        {
+            if (fader != null && s != null)
+            {
+                fader.FadeText(s);
             }
         }
         #endregion
@@ -269,6 +300,145 @@ namespace Frostbyte
                         icon.Draw(gameTime);
                     }
                 }
+            }
+        }
+    }
+
+    internal class TextFader : Sprite
+    {
+        internal TextFader(string name, IHUDTheme theme)
+            : this(name, theme, 0, 0)
+        {
+        }
+
+        internal TextFader(string name, int width, int height)
+            : this(name, new GenericTheme(), width, height)
+        {
+        }
+
+        internal TextFader(string name, IHUDTheme theme, int width, int height)
+            : base(name, new Actor(new DummyAnimation(name, width, height)))
+        {
+            ZOrder = 100;
+            UpdateBehavior = update;
+            this.theme = theme;
+            Center = new Vector2(0, 0);
+            Anchor = Orientations.Left;
+
+            pendingText = new Queue<string>();
+            mStates = States().GetEnumerator();
+
+            toDisplay = new Text("fader_text", theme.TextFont, "");
+            toDisplay.Visible = false;
+            toDisplay.DisplayColor = theme.TextColor;
+            toDisplay.Static = true;
+            toDisplay.ZOrder = 101;
+        }
+
+        private int MaxCharacters = 30;
+        private IHUDTheme theme;
+        private IEnumerator mStates;
+        private Queue<string> pendingText;
+        private Text toDisplay;
+
+        private float mAlpha;
+        private float mFadeIncrement = 0.01f;
+        private TimeSpan mFadeDelay = new TimeSpan(0, 0, 0, 1);
+
+        internal Orientations Anchor { get; set; }
+
+        internal void FadeText(string text)
+        {
+            text = String.Join("", text.Take(MaxCharacters)).Trim();
+            if (!String.IsNullOrEmpty(text))
+            {
+                pendingText.Enqueue(text);
+            }
+        }
+
+        internal void update()
+        {
+            mStates.MoveNext();
+        }
+
+        private IEnumerable States()
+        {
+            while (true)
+            {
+                if (pendingText.Count > 0)
+                {
+                    toDisplay.Content = pendingText.Dequeue();
+                    Vector2 displayPos = new Vector2();
+
+                    // X values
+                    switch(Anchor){
+                        case Orientations.Right:
+                            displayPos.X = Pos.X - toDisplay.GetAnimation().Width;
+                            break;
+                        case Orientations.Up_Right:
+                            goto case Orientations.Right;
+                        case Orientations.Down_Right:
+                            goto case Orientations.Right;
+                        case Orientations.Left:
+                            goto default;
+                        case Orientations.Up_Left:
+                            goto case Orientations.Left;
+                        case Orientations.Down_Left:
+                            goto case Orientations.Left;
+                        default:
+                            displayPos.X = Pos.X;
+                            break;
+                    }
+
+                    // Y values
+                    switch (Anchor)
+                    {
+                        case Orientations.Down:
+                            displayPos.Y = Pos.Y - toDisplay.GetAnimation().Height;
+                            break;
+                        case Orientations.Down_Left:
+                            goto case Orientations.Down;
+                        case Orientations.Down_Right:
+                            goto case Orientations.Down;
+                        case Orientations.Up:
+                            goto default;
+                        case Orientations.Up_Left:
+                            goto case Orientations.Up;
+                        case Orientations.Up_Right:
+                            goto case Orientations.Up;
+                        default:
+                            displayPos.Y = Pos.Y;
+                            break;
+                    }
+                    toDisplay.Pos = displayPos;
+                    toDisplay.Visible = true;
+
+                    mAlpha = 0;
+                    toDisplay.DisplayColor = (theme.TextColor * mAlpha);
+                    
+                    foreach (string type in new string[] { "in", "out" })
+                    {
+                        // Leave faded in (or out) for mFadeDelay time
+                        TimeSpan endTime = This.gameTime.TotalGameTime + mFadeDelay;
+                        while (This.gameTime.TotalGameTime < endTime)
+                        {
+                            yield return null;
+                        }
+
+                        while (mAlpha >= 0 && mAlpha <= 1)
+                        {
+                            toDisplay.DisplayColor = (theme.TextColor * mAlpha);
+                            mAlpha += mFadeIncrement;
+                            yield return null;
+                        }
+
+                        mAlpha -= mFadeIncrement;  // Put it back within alpha range
+                        mFadeIncrement *= -1;  // Reverse fade direction
+                    }
+                    toDisplay.Visible = false;
+                }
+
+                yield return null;
             }
         }
     }

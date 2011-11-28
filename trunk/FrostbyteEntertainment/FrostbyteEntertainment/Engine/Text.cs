@@ -9,21 +9,39 @@ namespace Frostbyte
 {
     class Text : Sprite
     {
-        SpriteFont font;
-        internal string Content { get; set; }
+        internal SpriteFont Font;
+        private string mContent;
         internal Color DisplayColor { get; set; }
+
+        internal string Content
+        {
+            get
+            {
+                return mContent;
+            }
+
+            set
+            {
+                mContent = value;
+                setSize();
+            }
+        }
 
         internal Text(string name, string fontname, string content) :
             this(name, This.Game.Content.Load<SpriteFont>(fontname), content)
         {
         }
 
-        internal Text(string name, SpriteFont font, string content) :
+        internal Text(string name, SpriteFont Font, string content) :
             base(name, new Actor(new DummyAnimation(name)))
         {
-            this.font = font;
+            this.Font = Font;
             Content = content;
-            Vector2 size = font.MeasureString(content);
+        }
+
+        private void setSize()
+        {
+            Vector2 size = Font.MeasureString(mContent);
             mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame].Width = (int)size.X;
             mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame].Height = (int)size.Y;
             Center = size / new Vector2(2, 2);
@@ -31,7 +49,10 @@ namespace Frostbyte
 
         internal override void Draw(GameTime gameTime)
         {
-            This.Game.spriteBatch.DrawString(font, Content, Pos, DisplayColor);
+            if (Visible)
+            {
+                This.Game.spriteBatch.DrawString(Font, mContent, Pos, DisplayColor);
+            }
         }
     }
 }

@@ -281,6 +281,34 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Default.bmp">
+      <Link>Content\Fonts\Default.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Earth.bmp">
+      <Link>Content\Fonts\Earth.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Final.bmp">
+      <Link>Content\Fonts\Final.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Fire.bmp">
+      <Link>Content\Fonts\Fire.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Lightning.bmp">
+      <Link>Content\Fonts\Lightning.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Title.bmp">
+      <Link>Content\Fonts\Title.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Fonts\Water.bmp">
+      <Link>Content\Fonts\Water.bmp</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\LightningLevel.xml">
       <Link>Content\LightningLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

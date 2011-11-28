@@ -93,7 +93,7 @@ namespace Frostbyte
         /// <param name="numEnemies">Number of enemies</param>
         internal static void Spawn(EnemyFactory constructEnemy, int numEnemies)
         {
-            if (!This.Cheats.SpawnEnemies.Enabled)
+            if (!This.Cheats.GetCheat("SpawnEnemies").Enabled)
             {
                 Level l = This.Game.CurrentLevel;
                 for (int i = 0; i < numEnemies; i++)
@@ -115,7 +115,7 @@ namespace Frostbyte
         /// <param name="position"></param>
         internal static void Spawn(EnemyFactory constructEnemy, int numEnemies, Vector2 position)
         {
-            if (!This.Cheats.SpawnEnemies.Enabled)
+            if (!This.Cheats.GetCheat("SpawnEnemies").Enabled)
             {
                 double radius = 160f;
                 double angleInc = (1.5 * Math.PI) / numEnemies;

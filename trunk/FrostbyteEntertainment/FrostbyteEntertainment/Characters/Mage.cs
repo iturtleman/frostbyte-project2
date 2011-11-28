@@ -13,6 +13,7 @@ namespace Frostbyte.Characters
 {
     class Mage : Player
     {
+        #region Animations
         static List<Animation> Animations = new List<Animation>(){
             This.Game.CurrentLevel.GetAnimation("player1-idle-down.anim"),
             This.Game.CurrentLevel.GetAnimation("player1-idle-diagdown.anim"),
@@ -40,12 +41,58 @@ namespace Frostbyte.Characters
             This.Game.CurrentLevel.GetAnimation("player1-swordcast-diagup.anim"),
             This.Game.CurrentLevel.GetAnimation("player1-swordcast-up.anim"),
         };
+        #endregion
+
+        #region Cheats
+        internal class SpeedUpCheat : Cheats.ICheat
+        {
+            internal SpeedUpCheat(OurSprite m, float newSpeed)
+            {
+                master = m;
+                baseSpeed = m.Speed;
+                this.newSpeed = newSpeed;
+            }
+
+            private OurSprite master;
+            private float baseSpeed;
+            private float newSpeed;
+
+            public bool Enabled
+            {
+                get
+                {
+                    return master.Speed == newSpeed;
+                }
+            }
+
+            public void Enable()
+            {
+                master.Speed = newSpeed;
+            }
+
+            public void Disable()
+            {
+                master.Speed = baseSpeed;
+            }
+
+            public void Toggle()
+            {
+                if (Enabled)
+                {
+                    Disable();
+                }
+                else
+                {
+                    Enable();
+                }
+            }
+        }
+        #endregion
 
         #region Constructors
         public Mage(string name, Actor actor, Color targetColor)
             : this(name, PlayerIndex.One, targetColor)
         {
-            CollidesWithBackground = true;
         }
 
         internal Mage(string name, PlayerIndex input, Color targetColor)
@@ -74,6 +121,8 @@ namespace Frostbyte.Characters
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Lightning_Strike");
             This.Game.AudioManager.AddSoundEffect("Effects/Earthquake");
+
+            This.Cheats.AddCheat("SpeedUp_" + Name, new SpeedUpCheat(this, Speed * 2));
 
             CollisionList = 3;
         }
@@ -513,6 +562,15 @@ namespace Frostbyte.Characters
         {
             controller.Update();
 
+            if (controller.GetKeypress(Keys.LeftControl) == ReleasableButtonState.Pressed)
+            {
+                This.Cheats.GetCheat("SpeedUp_" + Name).Enable();
+            }
+            else
+            {
+                This.Cheats.GetCheat("SpeedUp_" + Name).Disable();
+            }
+
             if (currentTarget != null && !currentTarget.Visible)
             {
                 cancelTarget();
@@ -615,7 +673,7 @@ namespace Frostbyte.Characters
                 #endregion Movement
 
                 //perform collision detection with background
-                if (this.CollidesWithBackground)
+                if (this.CollidesWithBackground && !This.Cheats.GetCheat("DisableBackgroundCollision").Enabled)
                 {
                     checkBackgroundCollisions();
                 }
