@@ -1520,6 +1520,129 @@ namespace Frostbyte
         }
 
         /// <summary>
+        /// Performs Ground Clap Attack
+        /// </summary>
+        /// <param name="_target"></param>
+        /// <param name="attacker"></param>
+        /// <param name="baseDamage"></param>
+        /// <param name="attackFrame"></param>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        public static IEnumerable<bool> Freeze(Sprite _target, OurSprite attacker, int attackFrame, Element elem = Element.Water)
+        {
+
+            if (_target == null)
+            {
+                yield return true;
+            }
+
+            #region Variables
+            Level l = This.Game.CurrentLevel;
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            attacker.State = SpriteState.Attacking;
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+            List<CollisionObject> collisions = target.GetCollision();
+
+            Effect particleEffect = l.GetEffect("ParticleSystem");
+            Texture2D ice = l.GetTexture("ice");
+            ParticleEmitter particleEmitterIce = new ParticleEmitter(500, particleEffect, ice);
+            particleEmitterIce.effectTechnique = "NoSpecialEffect";
+            particleEmitterIce.blendState = BlendState.Additive;
+            Collision_BoundingCircle c = (particleEmitterIce.collisionObjects.First() as Collision_BoundingCircle);
+            c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
+            c.createDrawPoints();
+            float particleEmitterRadius = c.Radius;
+
+            #endregion Variables
+
+            attacker.isAttackAnimDone = false;
+            attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 3;
+            }
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                attacker.isAttackAnimDone = false;
+
+                if (target.GroundPos != attacker.GroundPos)
+                    attacker.Direction = target.GroundPos - particleEmitterIce.GroundPos;
+                attacker.State = SpriteState.Attacking;
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            #region Generate Freeze
+
+            bool isAttackAnimDone = false;
+
+            for (int i = 0; i < 165; i++)
+            {
+                particleEmitterIce.GroundPos = target.GroundPos;
+
+                // Ice
+                //for (int j = 0; j < particleEmitterRadius / 8; j++)
+                //{
+                //    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                //    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                //    particleEmitterIce.createParticles(new Vector2(0, -6), new Vector2(0, -5), particleEmitterIce.GroundPos + randDirection * This.Game.rand.Next(0, (int)(particleEmitterRadius * 1.4f)), 15f, This.Game.rand.Next(300, 1200));
+                //}
+                for (int j = 0; j < 3; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                    particleEmitterIce.createParticles(randDirection * 20,
+                                                           randDirection * 10 - new Vector2(0, 50),
+                                                           particleEmitterIce.GroundPos + randDirection*This.Game.rand.Next(5, (int)particleEmitterRadius),
+                                                           This.Game.rand.Next(5,20),
+                                                           600);
+                }
+
+                //Freeze Target
+                Slow(target, 0.0f, new TimeSpan(0, 0, 1));
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                {
+                    attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
+
+                yield return false;
+            }
+
+            while (particleEmitterIce.ActiveParticleCount > 0)
+                yield return false;
+
+            #endregion Generate Freeze
+
+            particleEmitterIce.Remove();
+            l.RemoveSprite(particleEmitterIce);
+            attacker.particleEmitters.Remove(particleEmitterIce);
+
+            attacker.isAttackAnimDone = true;
+
+            yield return true;
+        }
+
+        /// <summary>
         /// Performs Poison Vomit attack for Worm
         /// </summary>
         /// <param name="_target">The target for the projectile to attack</param>
