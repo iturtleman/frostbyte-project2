@@ -770,6 +770,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\Music\WorldMapBG.mp3">
+      <Name>WorldMapBG</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Textures\ice.png">
       <Name>ice</Name>
       <Importer>TextureImporter</Importer>

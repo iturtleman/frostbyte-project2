@@ -476,7 +476,7 @@ namespace Frostbyte
         private Texture2D background;
 
         private int tickCount = 0;
-        internal int TicksPerScroll = 2;
+        internal int TicksPerScroll = 3;
 
         #region Methods
         internal void ScrollText(string s)

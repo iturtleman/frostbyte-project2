@@ -343,6 +343,7 @@
     <Content Include="Content\Audio\Effects\Lightning_Strike.wav" />
     <Content Include="Content\Audio\Music\OldEarthBoss.mp3" />
     <Content Include="Content\Audio\Music\TitleScreenBG.mp3" />
+    <Content Include="Content\Audio\Music\WorldMapBG.mp3" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
@@ -711,6 +712,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-attack-up.anim">
       <Link>Content\Sprites\player1-attack-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-diagdown.anim">
       <Link>Content\Sprites\player1-idle-diagdown.anim</Link>
