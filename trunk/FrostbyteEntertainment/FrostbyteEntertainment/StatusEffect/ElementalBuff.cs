@@ -25,7 +25,7 @@ namespace Frostbyte
                     element = This.Game.CurrentLevel.GetTexture("sparkball");
                     break;
                 case Frostbyte.Element.Water:
-                    element = This.Game.CurrentLevel.GetTexture("water stream");
+                    element = This.Game.CurrentLevel.GetTexture("water");
                     break;
                 case Frostbyte.Element.Fire:
                     element = This.Game.CurrentLevel.GetTexture("fire");
@@ -65,7 +65,7 @@ namespace Frostbyte
             {
                 Random rand = new Random();
                 int numLayers = 1;
-                int size = target.GetAnimation().Height;
+                int size = 36;
                 int scale = size;
                 switch (Element)
                 {
@@ -88,7 +88,7 @@ namespace Frostbyte
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     Vector2 velocity = new Vector2(This.Game.rand.Next(-10, 10), -10);
                     Vector2 acceleration = new Vector2(This.Game.rand.Next(-10, 10), -10);
-                    int radius = target.GetAnimation().Width;
+                    int radius = size;
 
                     velocity.Normalize();
                     particleEmitter.createParticles(velocity,
