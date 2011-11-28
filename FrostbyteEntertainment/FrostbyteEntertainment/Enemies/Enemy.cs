@@ -83,17 +83,49 @@ namespace Frostbyte
             if(this.CollidesWithBackground)
                 previousFootPos = this.GroundPos;
 
+            Vector2 previousDirection = Direction;
+            SpriteState previousState = State;
+
             if (isAttackAnimDone)
             {
-                Vector2 previousDirection = Direction;
                 PreviousPos = Pos;
                 updateMovement();
 
                 //perform collision detection with background
                 if (this.CollidesWithBackground)
                     checkBackgroundCollisions();
+            }
 
-                if (Direction != previousDirection)
+            if (healthBar != null)
+            {
+                healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(-healthBar.Width / 2, -(healthBar.Height + GetAnimation().Height / 2));
+            }
+
+            updateAttack();
+
+
+            if (Health <= 0)
+            {
+                this.EndBehavior();
+                return;
+            }
+            List<Sprite> targets = l.allies;
+            if (MovementAudioName != null)
+            {
+                if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)
+                {
+                    if (PreviousPos != Pos)
+                    {
+                        This.Game.AudioManager.PlayLoopingSoundEffect(MovementAudioName);
+                    }
+                }
+            }
+
+            if (isAttackAnimDone)
+            {
+                State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
+
+                if (Direction != previousDirection || previousState != State)
                 {
                     #region update animation facing direction
                     switch (Orientation)
@@ -132,32 +164,6 @@ namespace Frostbyte
                     #endregion
                 }
             }
-
-            if (healthBar != null)
-            {
-                healthBar.Pos = GroundPos - l.Camera.Pos + new Vector2(-healthBar.Width / 2, -(healthBar.Height + GetAnimation().Height / 2));
-            }
-
-            updateAttack();
-
-
-            if (Health <= 0)
-            {
-                this.EndBehavior();
-                return;
-            }
-            List<Sprite> targets = l.allies;
-            if (MovementAudioName != null)
-            {
-                if (GetClosestTarget(targets, This.Game.GraphicsDevice.Viewport.Width * 1.5f) != null)
-                {
-                    if (PreviousPos != Pos)
-                    {
-                        This.Game.AudioManager.PlayLoopingSoundEffect(MovementAudioName);
-                    }
-                }
-            }
-            State = PreviousPos == Pos ? SpriteState.Idle : SpriteState.Moving;
         }
 
         /// \todo what is this for?
