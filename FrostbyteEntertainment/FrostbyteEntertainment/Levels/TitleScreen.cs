@@ -24,8 +24,8 @@ namespace Frostbyte.Levels
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
             /** load music */
-            This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG");
+            //This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
+            //This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG");
 
             Text title = new Text("titletext", "Fonts/Title", "Welcome. Please Press Enter/Start.");
             title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));

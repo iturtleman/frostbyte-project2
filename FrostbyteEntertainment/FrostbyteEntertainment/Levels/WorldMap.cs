@@ -25,10 +25,12 @@ namespace Frostbyte.Levels
             l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
 
+            This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
+
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
-            //This.Game.AudioManager.AddBackgroundMusic("title");
-            //This.Game.AudioManager.PlayBackgroundMusic("title");
+            This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WorldMapBG");
 
             if (visited == 0)
             {
