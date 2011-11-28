@@ -377,7 +377,7 @@ namespace Frostbyte.Characters
                                                                   },
                                                                   particleWaterTier1,
                                                                   new Vector2(0, -38),
-                                                                  Element.Earth
+                                                                  Element.Water
                                                                   ).GetEnumerator());
                                         #endregion Water Tier 1
                                         Mana -= 10;
