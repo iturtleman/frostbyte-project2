@@ -391,7 +391,13 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-
+                                    if (Mana >= 30 && currentTarget != null && !(currentTarget is Player))
+                                    {
+                                        #region Water Tier 3
+                                        mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
+                                        #endregion Water Tier 3
+                                        Mana -= 30;
+                                    }
                                 }
                                 break;
 
