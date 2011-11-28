@@ -11,22 +11,22 @@ namespace Frostbyte.Enemies
     internal partial class IceGolem : Golem
     {
         #region Variables
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-walk-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-walk-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-walk-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-walk-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-walk-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-attack-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-attack-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-attack-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-attack-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("crystalgolem-attack-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "crystalgolem-idle-down.anim",
+           "crystalgolem-idle-diagdown.anim",
+           "crystalgolem-idle-right.anim",
+           "crystalgolem-idle-diagup.anim",
+           "crystalgolem-idle-up.anim",
+           "crystalgolem-walk-down.anim",
+           "crystalgolem-walk-diagdown.anim",
+           "crystalgolem-walk-right.anim",
+           "crystalgolem-walk-diagup.anim",
+           "crystalgolem-walk-up.anim",
+           "crystalgolem-attack-down.anim",
+           "crystalgolem-attack-diagdown.anim",
+           "crystalgolem-attack-right.anim",
+           "crystalgolem-attack-diagup.anim",
+           "crystalgolem-attack-up.anim",
         };
         #endregion Variables
 

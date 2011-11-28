@@ -15,27 +15,27 @@ namespace Frostbyte.Enemies
         bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
-        static List<Animation> Animations = new List<Animation>(){
-                This.Game.CurrentLevel.GetAnimation("golem-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-walk-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-walk-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-walk-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-walk-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-walk-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-attack-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-attack-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-attack-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-attack-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("golem-attack-up.anim"),
+        static List<String> Animations = new List<String>(){
+               "golem-idle-down.anim",
+           "golem-idle-diagdown.anim",
+           "golem-idle-right.anim",
+           "golem-idle-diagup.anim",
+           "golem-idle-up.anim",
+           "golem-walk-down.anim",
+           "golem-walk-diagdown.anim",
+           "golem-walk-right.anim",
+           "golem-walk-diagup.anim",
+           "golem-walk-up.anim",
+           "golem-attack-down.anim",
+           "golem-attack-diagdown.anim",
+           "golem-attack-right.anim",
+           "golem-attack-diagup.anim",
+           "golem-attack-up.anim",
         };
 
         #endregion Variables
 
-        public Golem(string name, Vector2 initialPos, List<Animation> anims = null)
+        public Golem(string name, Vector2 initialPos, List<String> anims = null)
             : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
         {
             movementStartTime = new TimeSpan(0, 0, 1);

@@ -17,8 +17,8 @@ namespace Frostbyte.Enemies
         bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("antibody.anim"),
+        static List<String> Animations = new List<String>(){
+           "antibody.anim",
         };
         #endregion Variables
 

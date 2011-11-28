@@ -13,27 +13,27 @@ namespace Frostbyte.Enemies
     internal partial class Worm : Frostbyte.Boss
     {
         #region Variables
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("worm-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-idle-up.anim"),  // 4
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),  // 9
-            This.Game.CurrentLevel.GetAnimation("worm-spew-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-spew-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-spew-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-spew-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-spew-up.anim"),  // 14
-            This.Game.CurrentLevel.GetAnimation("worm-underground.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-submerge.anim"),  // Go-underground
-            This.Game.CurrentLevel.GetAnimation("worm-surface-down.anim"),  // Go-above-ground
-            This.Game.CurrentLevel.GetAnimation("worm-vomit.anim"),
-            This.Game.CurrentLevel.GetAnimation("worm-die.anim"),
+        static List<String> Animations = new List<String>(){
+           "worm-idle-down.anim",
+           "worm-idle-diagdown.anim",
+           "worm-idle-right.anim",
+           "worm-idle-diagup.anim",
+           "worm-idle-up.anim",  // 4
+           "worm-underground.anim",
+           "worm-underground.anim",
+           "worm-underground.anim",
+           "worm-underground.anim",
+           "worm-underground.anim",  // 9
+           "worm-spew-down.anim",
+           "worm-spew-diagdown.anim",
+           "worm-spew-right.anim",
+           "worm-spew-diagup.anim",
+           "worm-spew-up.anim",  // 14
+           "worm-underground.anim",
+           "worm-submerge.anim",  // Go-underground
+           "worm-surface-down.anim",  // Go-above-ground
+           "worm-vomit.anim",
+           "worm-die.anim",
         };
         private bool changeState = false;
         internal bool HasVomited = false;

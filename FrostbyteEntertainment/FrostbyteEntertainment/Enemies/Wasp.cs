@@ -15,22 +15,22 @@ namespace Frostbyte.Enemies
 
         bool changeState = false;
 
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-idle-up.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-attack-down.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-attack-diagdown.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-attack-right.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-attack-diagup.anim"),
-            This.Game.CurrentLevel.GetAnimation("wasp-attack-up.anim"),
+        static List<String> Animations = new List<String>(){
+           "wasp-idle-down.anim",
+           "wasp-idle-diagdown.anim",
+           "wasp-idle-right.anim",
+           "wasp-idle-diagup.anim",
+           "wasp-idle-up.anim",
+           "wasp-idle-down.anim",
+           "wasp-idle-diagdown.anim",
+           "wasp-idle-right.anim",
+           "wasp-idle-diagup.anim",
+           "wasp-idle-up.anim",
+           "wasp-attack-down.anim",
+           "wasp-attack-diagdown.anim",
+           "wasp-attack-right.anim",
+           "wasp-attack-diagup.anim",
+           "wasp-attack-up.anim",
         };
 
         #endregion Variables
