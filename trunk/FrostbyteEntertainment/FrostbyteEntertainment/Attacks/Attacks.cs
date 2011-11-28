@@ -1581,7 +1581,7 @@ namespace Frostbyte
 
             bool isAttackAnimDone = false;
 
-            for (int i = 0; i < 165; i++)
+            for (int i = 0; i < 225; i++)
             {
                 particleEmitterIce.GroundPos = target.GroundPos;
 
@@ -1597,8 +1597,16 @@ namespace Frostbyte
                                                            600);
                 }
 
+                // Snow
+                for (int j = 0; j < particleEmitterRadius / 7; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                    particleEmitterIce.createParticles(new Vector2(0, 50), new Vector2(10, 40), particleEmitterIce.GroundPos + new Vector2(0, This.Game.rand.Next(-175,-50)) + randDirection * This.Game.rand.Next(0, (int)particleEmitterRadius), 5f, This.Game.rand.Next(500, 800));
+                }
+
                 //Freeze Target
-                Slow(target, 0.0f, new TimeSpan(0, 0, 1));
+                Slow(target, 0.0f, new TimeSpan(0, 0, 0, 0, 500));
 
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
