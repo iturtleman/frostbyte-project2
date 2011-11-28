@@ -112,7 +112,7 @@ namespace Frostbyte
                     {
                         attacker.SetAnimation(2 + 5 * attacker.State.GetHashCode());
                     }
-                    
+
                     break;
                 case Orientations.Up_Right:
                     attacker.Hflip = false;
@@ -131,7 +131,7 @@ namespace Frostbyte
                     {
                         attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
                     }
-                    
+
                     break;
                 case Orientations.Up_Left:
                     attacker.Hflip = true;
@@ -150,7 +150,7 @@ namespace Frostbyte
                     {
                         attacker.SetAnimation(3 + 5 * attacker.State.GetHashCode());
                     }
-                    
+
                     break;
                 case Orientations.Up:
                     if (attacker is Frostbyte.Characters.Mage && (attacker as Frostbyte.Characters.Mage).attackTier == 1)
@@ -168,7 +168,7 @@ namespace Frostbyte
                     {
                         attacker.SetAnimation(4 + 5 * attacker.State.GetHashCode());
                     }
-                    
+
                     break;
             }
         }
@@ -235,8 +235,8 @@ namespace Frostbyte
                 (attacker as Frostbyte.Characters.Mage).attackTier = 0;
             }
 
-  
-            for(int i = 0; i < 150; i++)
+
+            for (int i = 0; i < 150; i++)
             {
                 attacker.State = SpriteState.Attacking;
                 setAnimation(attacker);
@@ -394,12 +394,9 @@ namespace Frostbyte
                 //if the attack frame has passed then allow the attacker to move
                 if (attacker.Frame >= FrameCount - 1)
                 {
-                    if (attacker is Player)
-                    {
-                        attacker.isAttackAnimDone = true;
-                        isLoopOne = false;
-                        isAttackAnimDone = true;
-                    }
+                    attacker.isAttackAnimDone = true;
+                    isLoopOne = false;
+                    isAttackAnimDone = true;
                 }
 
                 if (!isAttackAnimDone)
@@ -583,7 +580,7 @@ namespace Frostbyte
                     isAttackAnimDone = true;
                 }
 
-                if(!isAttackAnimDone)
+                if (!isAttackAnimDone)
                     attacker.isAttackAnimDone = false;
 
 
@@ -696,7 +693,7 @@ namespace Frostbyte
             #region Generate Earthquake
 
             bool isAttackAnimDone = false;
-            
+
             if (This.Game.AudioManager.PlaySoundEffect("Effects/Earthquake"))
             {
                 yield return false;
@@ -1520,14 +1517,8 @@ namespace Frostbyte
         }
 
         /// <summary>
-        /// Performs Ground Clap Attack
+        /// Performs Freeze Attack
         /// </summary>
-        /// <param name="_target"></param>
-        /// <param name="attacker"></param>
-        /// <param name="baseDamage"></param>
-        /// <param name="attackFrame"></param>
-        /// <param name="elem"></param>
-        /// <returns></returns>
         public static IEnumerable<bool> Freeze(Sprite _target, OurSprite attacker, int attackFrame, Element elem = Element.Water)
         {
 
@@ -1595,20 +1586,14 @@ namespace Frostbyte
                 particleEmitterIce.GroundPos = target.GroundPos;
 
                 // Ice
-                //for (int j = 0; j < particleEmitterRadius / 8; j++)
-                //{
-                //    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                //    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
-                //    particleEmitterIce.createParticles(new Vector2(0, -6), new Vector2(0, -5), particleEmitterIce.GroundPos + randDirection * This.Game.rand.Next(0, (int)(particleEmitterRadius * 1.4f)), 15f, This.Game.rand.Next(300, 1200));
-                //}
                 for (int j = 0; j < 3; j++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
                     particleEmitterIce.createParticles(randDirection * 20,
                                                            randDirection * 10 - new Vector2(0, 50),
-                                                           particleEmitterIce.GroundPos + randDirection*This.Game.rand.Next(5, (int)particleEmitterRadius),
-                                                           This.Game.rand.Next(5,20),
+                                                           particleEmitterIce.GroundPos + randDirection * This.Game.rand.Next(5, (int)particleEmitterRadius),
+                                                           This.Game.rand.Next(5, 20),
                                                            600);
                 }
 
