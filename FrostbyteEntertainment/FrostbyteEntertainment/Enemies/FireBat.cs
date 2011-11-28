@@ -11,7 +11,6 @@ namespace Frostbyte.Enemies
 {
     internal partial class FireBat : Frostbyte.Enemy
     {
-        bool changeState = false;
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         #region Variables
@@ -54,10 +53,6 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
             Personality.Update();
         }
 

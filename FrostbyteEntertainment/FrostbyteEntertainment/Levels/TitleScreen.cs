@@ -24,8 +24,8 @@ namespace Frostbyte.Levels
             Viewport v = This.Game.GraphicsDevice.Viewport;
 
             /** load music */
-            //This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
-            //This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG");
+            This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG", 0.1f);
 
             Text title = new Text("titletext", "Fonts/Title", "Welcome. Please Press Enter/Start.");
             title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));
@@ -48,8 +48,11 @@ namespace Frostbyte.Levels
 
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
             {
-                // Go to next
                 (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;
+            }
+            else if ((This.Game as FrostbyteGame).GlobalController.GetKeypress(Keys.B) == ReleasableButtonState.Clicked)
+            {
+                This.Game.AudioManager.Pause();
             }
         }
     }

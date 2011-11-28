@@ -13,7 +13,6 @@ namespace Frostbyte.Levels
         {
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.Earth;
-            This.Game.AudioManager.AddBackgroundMusic("Music/OldEarthBoss");
             XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
 
@@ -32,17 +31,13 @@ namespace Frostbyte.Levels
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(108 * Tile.TileSize, 121 * Tile.TileSize);
-            //mage2.SpawnPoint = new Vector2(7776, 2684);
+            mage2.SpawnPoint = new Vector2(7756, 2684);
             mage2.Speed = 1;
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
             
-
-            This.Game.AudioManager.AddBackgroundMusic("Music/GenericBoss");
             This.Game.AudioManager.AddBackgroundMusic("Music/EarthBG");
-
-            This.Game.AudioManager.BackgroundMusicVolume = 0.1f;
-            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBG", 0.1f);
 
             l.HUD.FadeText("The Jungle");
 

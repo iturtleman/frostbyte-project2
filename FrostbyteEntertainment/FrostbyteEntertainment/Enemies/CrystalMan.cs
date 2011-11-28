@@ -9,33 +9,8 @@ namespace Frostbyte.Enemies
 {
     internal partial class CrystalMan : Frostbyte.Boss
     {
-        #region Variables
-        static List<String> Animations = new List<String>(){
-           "crystalman-idle-down.anim",
-           "crystalman-idle-diagdown.anim",
-           "crystalman-idle-right.anim",
-           "crystalman-idle-diagup.anim",
-           "crystalman-idle-up.anim",
-           "crystalman-teleport-in.anim",
-           "crystalman-teleport-out.anim",
-           "crystalman-idle-broken-down.anim",
-           "crystalman-idle-broken-diagdown.anim",
-           "crystalman-idle-broken-right.anim",
-           "crystalman-idle-broken-diagup.anim",
-           "crystalman-idle-broken-up.anim",
-           "crystalman-teleport-in-broken.anim",
-           "crystalman-teleport-out-broken.anim",
-           "crystalman-shatter-down.anim",
-           "crystalman-shatter-diagdown.anim",
-           "crystalman-shatter-right.anim",
-           "crystalman-shatter-diagup.anim",
-           "crystalman-shatter-up.anim",
-        };
-        private bool changeState = false;
-        #endregion Variables
-
-        public CrystalMan(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 1000)
+        public CrystalMan(string name, Vector2 initialPosition, float radius=64*6)
+            : base(name, new Actor(new DummyAnimation()), 20, 1000)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -51,16 +26,48 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            if (changeState)
-            {
-                movementStartTime = TimeSpan.MaxValue;
-            }
             Personality.Update();
         }
 
         protected override void updateAttack()
         {
-            
+
         }
+    }
+
+    internal partial class Crystal : OurSprite
+    {
+        #region Variables
+        static List<String> Animations = new List<String>(){
+           "crystalman-idle-down.anim",
+           "crystalman-idle-diagdown.anim",
+           "crystalman-idle-right.anim",
+           "crystalman-idle-diagup.anim",
+           "crystalman-idle-up.anim",  // 4
+           "crystalman-teleport-in.anim",
+           "crystalman-teleport-out.anim",
+           "crystalman-idle-broken-down.anim",
+           "crystalman-idle-broken-diagdown.anim",
+           "crystalman-idle-broken-right.anim",
+           "crystalman-idle-broken-diagup.anim",
+           "crystalman-idle-broken-up.anim",  // 11
+           "crystalman-teleport-in-broken.anim",
+           "crystalman-teleport-out-broken.anim",
+           "crystalman-shatter-down.anim",
+           "crystalman-shatter-diagdown.anim",
+           "crystalman-shatter-right.anim",
+           "crystalman-shatter-diagup.anim",
+           "crystalman-shatter-up.anim",  // 18
+           "crystalman-empty.anim",
+        };
+        #endregion Variables
+
+        public Crystal(string name, Vector2 initialPosition)
+            : base(name, new Actor(Animations))
+        {
+
+        }
+
+
     }
 }

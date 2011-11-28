@@ -26,11 +26,7 @@ namespace Frostbyte.Levels
             LevelInitTime = TimeSpan.MinValue;
 
             This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
-
-            Viewport v = This.Game.GraphicsDevice.Viewport;
-
-            This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/WorldMapBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WorldMapBG", 0.1f);
 
             if (visited == 0)
             {
@@ -52,7 +48,6 @@ namespace Frostbyte.Levels
 
             context.GetTexture("regen");
             ConcentricCircles c = new ConcentricCircles("cc", 75 / 2);
-            //c.SpawnPoint = new Vector2(v.Width / 2, v.Height / 2);
             c.ZOrder = 100;
 
             if (visited < LevelPositions.Count)

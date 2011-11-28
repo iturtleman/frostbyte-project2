@@ -214,12 +214,18 @@
       <Link>Content\Audio\Effects\Bat_Move.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Beetle_Move.mp3">
+      <Link>Content\Audio\Effects\Beetle_Move.mp3</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Chest_Open.wav">
       <Link>Content\Audio\Effects\Chest_Open.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Door_Open.wav">
       <Link>Content\Audio\Effects\Door_Open.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Earthquake.wav">
+      <Link>Content\Audio\Effects\Earthquake.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Golem_Attack.mp3">
       <Link>Content\Audio\Effects\Golem_Attack.mp3</Link>
@@ -238,6 +244,9 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Loop.wav">
       <Link>Content\Audio\Effects\Lightning_Loop.wav</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Strike.wav">
+      <Link>Content\Audio\Effects\Lightning_Strike.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Regen.wav">
       <Link>Content\Audio\Effects\Regen.wav</Link>
@@ -271,6 +280,12 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\LightningBG.mp3">
       <Link>Content\Audio\Music\LightningBG.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\OldEarthBoss.mp3">
+      <Link>Content\Audio\Music\OldEarthBoss.mp3</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\TitleScreenBG.mp3">
+      <Link>Content\Audio\Music\TitleScreenBG.mp3</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\WaterBG.mp3">
       <Link>Content\Audio\Music\WaterBG.mp3</Link>
@@ -338,11 +353,6 @@
       <Link>Content\Story\Water.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Audio\Effects\Beetle_Move.wav" />
-    <Content Include="Content\Audio\Effects\Earthquake.wav" />
-    <Content Include="Content\Audio\Effects\Lightning_Strike.wav" />
-    <Content Include="Content\Audio\Music\OldEarthBoss.mp3" />
-    <Content Include="Content\Audio\Music\TitleScreenBG.mp3" />
     <Content Include="Content\Audio\Music\WorldMapBG.mp3" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
