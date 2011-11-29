@@ -553,6 +553,10 @@
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-empty.anim">
+      <Link>Content\Sprites\crystalman-empty.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-broken-diagdown.anim">
       <Link>Content\Sprites\crystalman-idle-broken-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -784,6 +784,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sprites\crystalman-empty.png">
+      <Name>crystalman-empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Audio\Effects\Fire_T1.wav">
       <Name>Fire_T1</Name>
       <Importer>WavImporter</Importer>

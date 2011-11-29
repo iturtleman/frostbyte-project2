@@ -353,20 +353,10 @@ namespace Frostbyte
             mStates.MoveNext();
         }
 
-        public IEnumerable States()
+        public IEnumerable Surface()
         {
-            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-
-            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
-            {
-                yield return null;
-            }
-            master.setAtArms();
-
-            #region Surface
-            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
-            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
             This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .05f);
+            master.Visible = true;
             master.SetAnimation(17);
             master.Rewind();
             while (master.Frame != master.FrameCount() - 1)
@@ -378,8 +368,39 @@ namespace Frostbyte
             {
                 yield return null;
             }
+            master.HasVomited = false;
             master.IsSubmerged = false;
-            #endregion
+        }
+
+        private IEnumerable Submerge()
+        {
+            master.IsSubmerged = true;
+            master.StopAttacks();
+            master.SetAnimation(16);
+            master.Rewind();
+            while (master.Frame != master.FrameCount() - 1)
+            {
+                master.SetAnimation(16);
+                yield return null;
+            }
+            master.Visible = false;
+            master.Pos = Vector2.Zero;
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+
+            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
+            {
+                yield return null;
+            }
+            master.setAtArms();
+            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            foreach (Object o in Surface()) { yield return null; }
+
             while (true)
             {
                 if (master.IsSubmerged)
@@ -395,42 +416,14 @@ namespace Frostbyte
                     {
                         yield return null;
                     }
-                    #region Surface
-                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .1f);
-                    master.Visible = true;
-                    master.SetAnimation(17);
-                    master.Rewind();
-                    while (master.Frame != master.FrameCount() - 1)
-                    {
-                        yield return null;
-                    }
-                    master.SetAnimation(0);
-                    while (!master.freeze(new TimeSpan(0, 0, 1)))
-                    {
-                        yield return null;
-                    }
-                    master.HasVomited = false;
-                    master.IsSubmerged = false;
-                    #endregion
+
+                    foreach (Object o in Surface()) { yield return null; }
                 }
                 else
                 {
-                    while (!master.freeze(new TimeSpan(0, 0, 5)))
-                    {
-                        yield return null;
-                    }
-                    #region Submerge
-                    master.IsSubmerged = true;
-                    master.StopAttacks();
-                    master.SetAnimation(16);
-                    master.Rewind();
-                    while (master.Frame != master.FrameCount() - 1)
-                    {
-                        yield return null;
-                    }
-                    master.Visible = false;
-                    master.Pos = Vector2.Zero;
-                    #endregion
+                    while (!master.freeze(new TimeSpan(0, 0, 5))) { yield return null; }
+
+                    foreach (Object o in Submerge()) { yield return null; }
                 }
                 yield return null;
             }
@@ -441,7 +434,10 @@ namespace Frostbyte
     {
         public EnemyStatus Status { get; set; }
         private Enemies.CrystalMan master;
+        private Enemies.Crystal currentCrystal;
         private IEnumerator mStates;
+
+        private int EMPTY_CRYSTAL { get { return 19; } }
 
         internal ShiningPersonality(Enemies.CrystalMan master)
         {
@@ -454,87 +450,112 @@ namespace Frostbyte
             mStates.MoveNext();
         }
 
-        public IEnumerable States()
+        public IEnumerable TeleportIn()
         {
-            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-
-            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
+            currentCrystal.SetAnimation(5);
+            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
+            currentCrystal.Rewind();
+            while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
             {
+                currentCrystal.SetAnimation(5);
                 yield return null;
             }
-            master.setAtArms();
-
-            #region Surface
-            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
-            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
-            This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .05f);
-            master.SetAnimation(17);
-            master.Rewind();
-            while (master.Frame != master.FrameCount() - 1)
-            {
-                yield return null;
-            }
-            master.SetAnimation(0);
+            currentCrystal.SetAnimation(0);
+            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
             }
-            //master.IsSubmerged = false;
-            #endregion
-            while (true)
+        }
+
+        public IEnumerable TeleportOut()
+        {
+            currentCrystal.SetAnimation(6);
+            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
+            currentCrystal.Rewind();
+            while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
             {
-                /*if (master.IsSubmerged)
-                {
-                    Camera cam = This.Game.CurrentLevel.Camera;
-                    Viewport v = This.Game.GraphicsDevice.Viewport;
-                    while (!master.delayedTeleport(new TimeSpan(0, 0, 2),
-                        new Rectangle(
-                            (int)(cam.Pos.X * cam.Zoom),
-                            (int)(cam.Pos.Y * cam.Zoom),
-                            (int)(v.Width * cam.Zoom),
-                            (int)(v.Height * cam.Zoom))))
-                    {
-                        yield return null;
-                    }
-                    #region Surface
-                    This.Game.AudioManager.PlaySoundEffect("Effects/Worm_Spawn", .1f);
-                    master.Visible = true;
-                    master.SetAnimation(17);
-                    master.Rewind();
-                    while (master.Frame != master.FrameCount() - 1)
-                    {
-                        yield return null;
-                    }
-                    master.SetAnimation(0);
-                    while (!master.freeze(new TimeSpan(0, 0, 1)))
-                    {
-                        yield return null;
-                    }
-                    master.HasVomited = false;
-                    master.IsSubmerged = false;
-                    #endregion
-                }
-                else
-                {
-                    while (!master.freeze(new TimeSpan(0, 0, 5)))
-                    {
-                        yield return null;
-                    }
-                    #region Submerge
-                    master.IsSubmerged = true;
-                    master.StopAttacks();
-                    master.SetAnimation(16);
-                    master.Rewind();
-                    while (master.Frame != master.FrameCount() - 1)
-                    {
-                        yield return null;
-                    }
-                    master.Visible = false;
-                    master.Pos = Vector2.Zero;
-                    #endregion
-                }*/
+                currentCrystal.SetAnimation(6);
                 yield return null;
             }
+            currentCrystal.SetAnimation(EMPTY_CRYSTAL);
+            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
+            while (!master.freeze(new TimeSpan(0, 0, 1)))
+            {
+                yield return null;
+            }
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            Random rng = new Random();
+
+            while (master.Crystals == null || master.Crystals.Count == 0)
+            {
+                yield return null;
+            }
+            currentCrystal = master.Crystals[0];
+
+
+            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
+            {
+                foreach (Enemies.Crystal crystal in master.Crystals)
+                {
+                    crystal.SetAnimation(EMPTY_CRYSTAL);
+                    crystal.Scale = master.Width / crystal.GetAnimation().Width;
+                }
+                yield return null;
+            }
+            master.setAtArms();
+            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            while (true)
+            {
+                foreach (Object o in TeleportIn())
+                {
+                    if (currentCrystal.State == SpriteState.Dead)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
+
+                while (!master.freeze(new TimeSpan(0, 0, 5)))
+                {
+                    if (currentCrystal.State == SpriteState.Dead)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
+
+                foreach (Object o in TeleportOut())
+                {
+                    if (currentCrystal.State == SpriteState.Dead)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
+
+                if (currentCrystal.State == SpriteState.Dead)
+                {
+                    master.Crystals.Remove(currentCrystal);
+                }
+
+                if (master.Crystals.Count == 0)
+                {
+                    break;
+                }
+
+                currentCrystal = master.Crystals[rng.Next(master.Crystals.Count)];
+
+                yield return null;
+            }
+
+            master.Health = 0;
         }
     }
 
