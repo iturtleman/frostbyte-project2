@@ -864,7 +864,7 @@ namespace Frostbyte
             Sprite target = ths.GetClosestTarget(targets);
             if (target == null) return false;
 
-            while (Vector2.DistanceSquared(ths.GroundPos, target.GroundPos) >= wanderRadius * wanderRadius)
+            if (Vector2.DistanceSquared(ths.GroundPos, target.GroundPos) >= wanderRadius * wanderRadius)
             {
                 ths.Direction = target.GroundPos - ths.GroundPos;
                 ths.Direction.Normalize();
