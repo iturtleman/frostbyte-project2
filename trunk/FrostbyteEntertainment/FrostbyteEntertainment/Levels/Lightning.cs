@@ -33,7 +33,7 @@ namespace Frostbyte.Levels
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
 
-            This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG", 0.3f);
 
             l.HUD.FadeText("The Caves");
 

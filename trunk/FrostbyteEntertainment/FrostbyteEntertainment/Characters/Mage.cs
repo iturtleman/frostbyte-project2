@@ -122,6 +122,11 @@ namespace Frostbyte.Characters
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Lightning_Strike");
             This.Game.AudioManager.AddSoundEffect("Effects/Earthquake");
+            This.Game.AudioManager.AddSoundEffect("Effects/Lightning_T1");
+            This.Game.AudioManager.AddSoundEffect("Effects/Water_T1");
+            This.Game.AudioManager.AddSoundEffect("Effects/Fire_T1");
+            This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
+            
 
             This.Cheats.AddCheat("SpeedUp_" + Name, new SpeedUpCheat(this, Speed * 2));
 
@@ -236,6 +241,7 @@ namespace Frostbyte.Characters
                                                                   Element.Earth
                                                                   ).GetEnumerator());
                                         #endregion Earth Tier 1
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Earth_T1", .1f);
                                         Mana -= 10;
                                     }
                                 }
@@ -307,6 +313,8 @@ namespace Frostbyte.Characters
                                                                   Element.Lightning
                                                                   ).GetEnumerator());
                                         #endregion Lightning Tier 1
+                                        
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_T1", .1f);
                                         Mana -= 10;
                                     }
                                 }
@@ -380,6 +388,7 @@ namespace Frostbyte.Characters
                                                                   Element.Water
                                                                   ).GetEnumerator());
                                         #endregion Water Tier 1
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T1");
                                         Mana -= 10;
                                     }
                                 }
@@ -449,6 +458,7 @@ namespace Frostbyte.Characters
                                                                   Element.Fire
                                                                   ).GetEnumerator());
                                         #endregion Fire Tier 1
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T1", .2f);
                                         Mana -= 10;
                                     }
                                 }
