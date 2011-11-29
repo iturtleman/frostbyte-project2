@@ -9,13 +9,18 @@ namespace Frostbyte.Enemies
 {
     internal partial class CrystalMan : Frostbyte.Boss
     {
-        public CrystalMan(string name, Vector2 initialPosition, float radius=64*6)
+        List<Crystal> crystals = new List<Crystal>();
+
+        public CrystalMan(string name, Vector2 initialPosition)
             : base(name, new Actor(new DummyAnimation()), 20, 1000)
         {
+            //float radius = 64 * 6;
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
             Personality = new ShiningPersonality(this);
+
+
         }
 
         protected override void Die()
