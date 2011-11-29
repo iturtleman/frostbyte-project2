@@ -67,7 +67,7 @@ namespace Frostbyte.Enemies
         {
             if (isAttackAnimDone && !IsSubmerged)
             {
-                if (HasVomited || This.Game.rand.Next(1) != 0)
+                if (HasVomited || This.Game.rand.Next(4) != 0)
                 {
                     #region Spew
                     float range = 450.0f;

@@ -9,18 +9,21 @@ namespace Frostbyte.Enemies
 {
     internal partial class CrystalMan : Frostbyte.Boss
     {
-        List<Crystal> crystals = new List<Crystal>();
+        internal List<Crystal> Crystals;
+        internal float Width { get { return 128; } }
+
+        float radius = 64 * 7;
+        static int numOuterCrystals { get { return 5; } }
+        static int crystalHealth { get { return 100; } }
 
         public CrystalMan(string name, Vector2 initialPosition)
-            : base(name, new Actor(new DummyAnimation()), 20, 1000)
+            : base(name, new Actor(new DummyAnimation()), 20, crystalHealth * (numOuterCrystals + 1))
         {
-            //float radius = 64 * 6;
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
+
             Personality = new ShiningPersonality(this);
-
-
         }
 
         protected override void Die()
@@ -29,8 +32,32 @@ namespace Frostbyte.Enemies
             base.Die();
         }
 
+        protected void updateHealth(object cryst, int health)
+        {
+            // Update health to sum of each of its crystals' health
+            Health = Crystals.Sum(x => x.Health);
+        }
+
         protected override void updateMovement()
         {
+            if (Crystals == null)
+            {
+                Crystals = new List<Crystal>();
+
+                Crystal inner = new Crystal("crystal_center", Pos, crystalHealth, this);
+                Crystals.Add(inner);
+                inner.HealthChanged += new HealthChangedHandler(updateHealth);
+
+                for (int x = 0; x < numOuterCrystals; x++)
+                {
+                    double angle = 2 * Math.PI * x / numOuterCrystals - Math.PI / 2;
+                    Vector2 offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * radius;
+                    Crystal outer = new Crystal("crystal_" + x, Pos + offset, crystalHealth, this);
+                    Crystals.Add(outer);
+                    outer.HealthChanged += new HealthChangedHandler(updateHealth);
+                    outer.Direction = -offset;
+                }
+            }
             Personality.Update();
         }
 
@@ -40,7 +67,7 @@ namespace Frostbyte.Enemies
         }
     }
 
-    internal partial class Crystal : OurSprite
+    internal class Crystal : Enemy
     {
         #region Variables
         static List<String> Animations = new List<String>(){
@@ -67,12 +94,37 @@ namespace Frostbyte.Enemies
         };
         #endregion Variables
 
-        public Crystal(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations))
+        CrystalMan master;
+
+        public Crystal(string name, Vector2 initialPosition, int health, CrystalMan master)
+            : base(name, new Actor(Animations), 0, health)
+        {
+            this.master = master;
+            SpawnPoint = initialPosition;
+            Pos = SpawnPoint;
+
+            HealthChanged += new HealthChangedHandler(delegate(object o, int value)
+            {
+                if (Health == 0)
+                {
+                    State = SpriteState.Dead;
+                }
+                else if (Health <= MaxHealth * 0.5)
+                {
+                    // REPLACE TO BROKEN ANIMATIONS HERE
+                    mActor.Animations[19] = mActor.Animations[18];
+                }
+            });
+        }
+
+        protected override void updateMovement()
+        {
+            //Console.WriteLine(Pos);
+        }
+
+        protected override void updateAttack()
         {
 
         }
-
-
     }
 }
