@@ -25,8 +25,6 @@ namespace Frostbyte
 
             MaxHealth = 100;
             Health = MaxHealth;
-
-            ItemBag = new List<Item>();
         }
 
         #region Targeting
@@ -62,7 +60,7 @@ namespace Frostbyte
 
         #region Items
         internal int ItemBagCapacity { get { return 10; } }
-        internal List<Item> ItemBag;
+        internal static List<Item> ItemBag = new List<Item>();
 
         /// <summary>
         /// Pick up an item from the ground. Remove the item itself from the screen and

@@ -28,7 +28,7 @@ namespace Frostbyte.Enemies
         };
         #endregion Variables
         public RockGolem(string name, Vector2 initialPos)
-            : base(name, initialPos, Animations)
+            : base(name, initialPos, 100, Animations)
         {
             ElementType = Element.Earth;
         }

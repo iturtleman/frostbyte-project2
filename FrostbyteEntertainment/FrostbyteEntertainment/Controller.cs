@@ -260,11 +260,11 @@ namespace Frostbyte
                 // Only trigger spells when Left Trigger is pressed
                 if (mCurrentControllerState.Triggers.Left <= InteractElementThreshold)
                 {
-                    if (CurrentButtons.B == ButtonState.Pressed)
+                    if (CurrentButtons.A == ButtonState.Pressed)
                     {
                         return ReleasableButtonState.Pressed;
                     }
-                    else if (LastButtons.B == ButtonState.Pressed && CurrentButtons.B == ButtonState.Released)
+                    else if (LastButtons.A == ButtonState.Pressed && CurrentButtons.A == ButtonState.Released)
                     {
                         return ReleasableButtonState.Clicked;
                     }
