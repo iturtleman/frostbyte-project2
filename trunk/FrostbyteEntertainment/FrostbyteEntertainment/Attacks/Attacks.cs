@@ -652,7 +652,7 @@ namespace Frostbyte
 
             bool isAttackAnimDone = false;
 
-            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike", .4f))
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike"))
             {
                 yield return false;
             }
@@ -1647,6 +1647,149 @@ namespace Frostbyte
             particleEmitterGroundRedFire.Remove();
             l.RemoveSprite(particleEmitterGroundRedFire);
             attacker.particleEmitters.Remove(particleEmitterGroundRedFire);
+
+            attacker.isAttackAnimDone = true;
+
+            yield return true;
+        }
+
+        /// <summary>
+        /// Performs Water Push Attack
+        /// </summary>
+        public static IEnumerable<bool> WaterPush(OurSprite attacker, int attackFrame, Element elem = Element.Water)
+        {
+            #region Variables
+            Level l = This.Game.CurrentLevel;
+            attacker.State = SpriteState.Attacking;
+            setAnimation(attacker);
+            int FrameCount = attacker.FrameCount();
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+
+            Effect particleEffect = l.GetEffect("ParticleSystem");
+            Texture2D lightning = l.GetTexture("sparkball");
+            Texture2D water = l.GetTexture("water");
+            ParticleEmitter particleEmitter = new ParticleEmitter(5000, particleEffect, water);
+            particleEmitter.ZOrder = 2;
+            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.blendState = BlendState.AlphaBlend;
+            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+
+            ParticleEmitter particleEmitterDarkBlue = new ParticleEmitter(7000, particleEffect, water);
+            particleEmitterDarkBlue.ZOrder = 1;
+            particleEmitterDarkBlue.effectTechnique = "NoSpecialEffect";
+            particleEmitterDarkBlue.blendState = BlendState.AlphaBlend;
+            #endregion Variables
+
+            attacker.isAttackAnimDone = false;
+            attacker.Rewind();
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 2;
+            }
+
+            #region Shoot Attack
+            while (attacker.Frame < FrameCount)
+            {
+                attacker.isAttackAnimDone = false;
+
+                attacker.State = SpriteState.Attacking;
+                setAnimation(attacker);
+                FrameCount = attacker.FrameCount();
+
+                if (attacker.Frame == attackFrame)
+                {
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Attack
+
+            particleEmitter.GroundPos = attacker.GroundPos;
+
+            #region Generate Wave
+
+            bool isAttackAnimDone = false;
+
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike"))
+            {
+                yield return false;
+            }
+
+            for (int i = 0; i < 185; i++)
+            {
+                // Ground Spread
+                if (i < 145)
+                {
+                    for (int j = 0; j < 30; j++)
+                    {
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        float multiplier = (((float)i % 15f) / 15f) + .5f;
+                        particleEmitterDarkBlue.createParticles(randDirection * 40 * multiplier, randDirection * 50 * multiplier, particleEmitter.GroundPos + new Vector2(0, 30), 20 * (2f - multiplier), This.Game.rand.Next(1100, 1200));
+                    }
+                }
+
+                // Geyser
+                for (int j = 0; j < 20; j++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                    particleEmitter.createParticles(new Vector2(0, -550) - randDirection * 10, new Vector2(This.Game.rand.Next(-250,250), 1000) - randDirection * 10, particleEmitter.GroundPos + new Vector2(0,30) + randDirection * This.Game.rand.Next(0, 30), 10f, This.Game.rand.Next(800, 1000));
+                }
+
+                //Deal Damage
+                if (i % 3 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                OurSprite target = (detectedCollision.Item2 as OurSprite);
+                                target.previousFootPos = target.GroundPos;
+                                Vector2 DirectionToWaterPush = target.GroundPos - particleEmitter.GroundPos;
+                                DirectionToWaterPush.Normalize();
+                                target.GroundPos += DirectionToWaterPush * 2;
+                                (detectedCollision.Item2 as OurSprite).checkBackgroundCollisions();
+                            }
+                        }
+                    }
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                {
+                    attacker.isAttackAnimDone = true;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
+
+
+                yield return false;
+            }
+
+            #endregion Generate Lightning Strike and Ground Spread and Deal Damage
+
+            while (particleEmitter.ActiveParticleCount > 0 || particleEmitterDarkBlue.ActiveParticleCount > 0)
+            {
+                yield return false;
+            }
+
+            particleEmitter.Remove();
+            l.RemoveSprite(particleEmitter);
+            attacker.particleEmitters.Remove(particleEmitter);
+
+            particleEmitterDarkBlue.Remove();
+            l.RemoveSprite(particleEmitterDarkBlue);
+            attacker.particleEmitters.Remove(particleEmitterDarkBlue);
 
             attacker.isAttackAnimDone = true;
 
