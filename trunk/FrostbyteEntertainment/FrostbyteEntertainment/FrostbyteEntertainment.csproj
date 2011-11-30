@@ -355,8 +355,12 @@
     </Content>
     <Content Include="Content\Audio\Effects\Earth_T1.wav" />
     <Content Include="Content\Audio\Effects\Fire_T1.wav" />
+    <Content Include="Content\Audio\Effects\Fire_T3.wav" />
     <Content Include="Content\Audio\Effects\Lightning_T1.wav" />
+    <Content Include="Content\Audio\Effects\RockShower.wav" />
     <Content Include="Content\Audio\Effects\Water_T1.wav" />
+    <Content Include="Content\Audio\Effects\Water_T2.wav" />
+    <Content Include="Content\Audio\Effects\Water_T3.wav" />
     <Content Include="Content\Audio\Music\WorldMapBG.mp3" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />

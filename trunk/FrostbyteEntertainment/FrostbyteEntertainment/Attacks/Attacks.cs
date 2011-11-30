@@ -652,7 +652,7 @@ namespace Frostbyte
 
             bool isAttackAnimDone = false;
 
-            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike"))
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike", .8f))
             {
                 yield return false;
             }

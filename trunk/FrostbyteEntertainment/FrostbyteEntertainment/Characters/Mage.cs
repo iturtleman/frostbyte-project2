@@ -122,9 +122,14 @@ namespace Frostbyte.Characters
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Lightning_Strike");
             This.Game.AudioManager.AddSoundEffect("Effects/Earthquake");
+            This.Game.AudioManager.AddSoundEffect("Effects/RockShower");
             This.Game.AudioManager.AddSoundEffect("Effects/Lightning_T1");
             This.Game.AudioManager.AddSoundEffect("Effects/Water_T1");
+            This.Game.AudioManager.AddSoundEffect("Effects/Water_T2");
+            This.Game.AudioManager.AddSoundEffect("Effects/Water_T3");
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T1");
+            This.Game.AudioManager.AddSoundEffect("Effects/Fire_T2");
+            This.Game.AudioManager.AddSoundEffect("Effects/Fire_T3");
             This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
             
 
@@ -264,6 +269,7 @@ namespace Frostbyte.Characters
                                         #region Earth Tier 3
                                         mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 10).GetEnumerator());
                                         #endregion Earth Tier 3
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/RockShower");
                                         Mana -= 50;
                                     }
                                 }
@@ -400,8 +406,10 @@ namespace Frostbyte.Characters
                                         #region Water Tier 2
                                         mAttacks.Add(Attacks.WaterPush(this, 10).GetEnumerator());
                                         #endregion Water Tier 2
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T2", .1f);
                                         Mana -= 80;
                                     }
+
                                 }
 
                                 else
@@ -411,6 +419,7 @@ namespace Frostbyte.Characters
                                         #region Water Tier 3
                                         mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
                                         #endregion Water Tier 3
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T3");
                                         Mana -= 30;
                                     }
                                 }
@@ -476,6 +485,7 @@ namespace Frostbyte.Characters
                                         #region Fire Tier 2
                                         mAttacks.Add(Attacks.FireRing(this, this, 1, 10).GetEnumerator());
                                         #endregion Fire Tier 2
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T2", .05f);
                                         Mana -= 50;
                                     }
                                 }
@@ -487,6 +497,7 @@ namespace Frostbyte.Characters
                                         #region Fire Tier 3
                                         mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 10).GetEnumerator());
                                         #endregion Fire Tier 3
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T3");
                                         Mana -= 50;
                                     }
                                 }
