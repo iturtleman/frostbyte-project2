@@ -556,6 +556,11 @@ namespace Frostbyte
         }
         #endregion Spawnpoint
 
+        #region Properties
+        //Elemental Properties
+        internal Element ElementType { get; set; }
+        #endregion
+
         internal void StopAttacks()
         {
             mAttacks.Clear();

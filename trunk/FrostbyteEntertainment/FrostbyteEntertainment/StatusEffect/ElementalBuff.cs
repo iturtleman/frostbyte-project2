@@ -56,7 +56,7 @@ namespace Frostbyte
             #endregion
         }
 
-        Element Element = Element.Normal;
+        internal Element Element = Element.Normal;
 
         internal override void Draw(Sprite target)
         {

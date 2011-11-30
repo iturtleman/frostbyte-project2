@@ -27,11 +27,6 @@ namespace Frostbyte
         private static Vector2 barSize = new Vector2(50, 10);
         #endregion Variables
 
-        #region Properties
-        //Elemental Properties
-        protected Element ElementType { get; set; }
-        #endregion
-
         public Enemy(string name, Actor actor, float speed, int _health)
             : base(name, actor)
         {

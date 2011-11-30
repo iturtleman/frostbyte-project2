@@ -179,18 +179,155 @@ namespace Frostbyte
         /// <param name="attacker">The attacking object</param>
         /// <param name="target">The target of the attack</param>
         /// <param name="baseDamage">The attack's base damage</param>
-        private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0)
+        private static void Damage(OurSprite attacker, OurSprite target, int baseDamage = 0, Element elem = Element.Normal)
         {
             int damage = baseDamage;
-            foreach (StatusEffect e in attacker.StatusEffects)
+            //apply status effects for normal type attacs
+			if(elem==Element.Normal)
+			{
+			foreach (StatusEffect e in attacker.StatusEffects)
             {
                 //add effect of elemental buffs
                 if (e is ElementalBuff)
                 {
-                    damage += 2 * baseDamage;
+                    ElementalBuff eb = e as ElementalBuff;
+                    ///same type no damage
+                    if (target.ElementType == eb.Element)
+                        continue;
+                    switch (target.ElementType)
+                    {
+                        case Element.Earth:
+                            switch (eb.Element)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage);
+                                    break;
+                            }
+                            break;
+                        case Element.Fire:
+                            switch (eb.Element)
+                            {
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Lightning:
+                            switch (eb.Element)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Water:
+                            switch (eb.Element)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Normal:
+                            damage += baseDamage;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                /// \todo fill this out better
             }
+			}
+			else // this handles elemental attacks (same as above but with element instead of buff
+			{
+				switch (target.ElementType)
+                    {
+                        case Element.Earth:
+                            switch (elem)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage);
+                                    break;
+                            }
+                            break;
+                        case Element.Fire:
+                            switch (elem)
+                            {
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Lightning:
+                            switch (elem)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                                case Element.Water:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Water:
+                            switch (elem)
+                            {
+                                case Element.Fire:
+                                    damage += (int)(baseDamage * 0.5);
+                                    break;
+                                case Element.Lightning:
+                                    damage += (int)(baseDamage );
+                                    break;
+                                case Element.Earth:
+                                    damage += (int)(baseDamage * 1.5);
+                                    break;
+                            }
+                            break;
+                        case Element.Normal:
+                            damage += baseDamage;
+                            break;
+                        default:
+                            break;
+                    }
+			}
             target.Health -= damage;
         }
 
@@ -1602,7 +1739,7 @@ namespace Frostbyte
                 {
                     double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
                     Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
-                    particleEmitterIce.createParticles(new Vector2(0, 50), new Vector2(10, 40), particleEmitterIce.GroundPos + new Vector2(0, This.Game.rand.Next(-175,-50)) + randDirection * This.Game.rand.Next(0, (int)particleEmitterRadius), 5f, This.Game.rand.Next(500, 800));
+                    particleEmitterIce.createParticles(new Vector2(0, 50), new Vector2(10, 40), particleEmitterIce.GroundPos + new Vector2(0, This.Game.rand.Next(-175, -50)) + randDirection * This.Game.rand.Next(0, (int)particleEmitterRadius), 5f, This.Game.rand.Next(500, 800));
                 }
 
                 //Freeze Target
