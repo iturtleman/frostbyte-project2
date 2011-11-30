@@ -266,19 +266,19 @@ namespace Frostbyte
                 {
                     if (player.Pos.X < min.X)
                     {
-                        min.X = player.Pos.X;
+                        min.X = (int)player.Pos.X;
                     }
                     if (player.Pos.Y < min.Y)
                     {
-                        min.Y = player.Pos.Y;
+                        min.Y = (int)player.Pos.Y;
                     }
                     if (player.Pos.X + player.GetAnimation().Width > max.X)
                     {
-                        max.X = player.Pos.X + player.GetAnimation().Width;
+                        max.X = (int)(player.Pos.X + player.GetAnimation().Width);
                     }
                     if (player.Pos.Y + player.GetAnimation().Height > max.Y)
                     {
-                        max.Y = player.Pos.Y + player.GetAnimation().Height;
+                        max.Y = (int)(player.Pos.Y + player.GetAnimation().Height);
                     }
                 }
                 #endregion
