@@ -40,12 +40,12 @@ namespace Frostbyte.Enemies
             Personality = new DartPersonality(this);
             ElementType = Element.Normal;
 
-            This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
             This.Game.AudioManager.AddSoundEffect("Effects/Wasp_Move");
             if (MovementAudioName == null)
             {
-                MovementAudioName = "Effects/Wasp_Move";
-                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+                //MovementAudioName = "Effects/Wasp_Move";
+                //This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
             }
         }
 
@@ -102,7 +102,7 @@ namespace Frostbyte.Enemies
                                               },
                                               particleEmitterEarth,
                                               Vector2.Zero).GetEnumerator());
-                    This.Game.AudioManager.PlaySoundEffect("Effects/Wasp_Attack");
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Earth_T1");
                 }
             }
         }
