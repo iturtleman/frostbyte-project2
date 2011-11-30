@@ -55,6 +55,7 @@ namespace Frostbyte.Enemies
             FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             l.HUD.RemoveBossHealthBar(this);
             l.SpawnExitPortal();
+            Personality = new DiePersonality(this, 19);
             base.Die();
         }
 

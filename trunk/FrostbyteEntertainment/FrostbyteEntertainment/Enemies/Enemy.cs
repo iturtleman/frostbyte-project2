@@ -199,6 +199,10 @@ namespace Frostbyte
         internal bool Enabled;
         internal bool AtArms = false;
 
+        protected override void Die()
+        {
+        }
+
         internal void setAtArms()
         {
             AtArms = true;

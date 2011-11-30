@@ -119,7 +119,8 @@ namespace Frostbyte
                 Vector3 normalDir = Vector3.Cross(new Vector3(this.Direction, 0), new Vector3(0, 0, -1));
                 Vector3 targetDir = new Vector3(target.Pos - target.PreviousPos, 0);
                 targetDir.Normalize();
-                Vector3 pmq = new Vector3(target.PreviousPos + target.Center, 0) - new Vector3(this.Pos + this.Center, 0);
+                Vector3 pmq = new Vector3(target.PreviousPos + target.Center, 0) -
+                    new Vector3(this.Pos + new Vector2(this.Center.X, 0), 0);  // The top of the trigger
 
                 float ta = cross(pmq, targetDir);
                 float tb = cross(normalDir, targetDir);
