@@ -111,7 +111,7 @@ namespace Frostbyte
         /// </summary>
         internal void checkBackgroundCollisions()
         {
-            if (Vector2.DistanceSquared(previousFootPos, GroundPos) <= 1)
+            if (Vector2.DistanceSquared(previousFootPos, GroundPos) <= 1f)
             {
                 GroundPos = previousFootPos;
                 return;
@@ -186,7 +186,7 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1.9f)
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 2.5f)
                 this.GroundPos = footPos;
             else if (isMoved)
             {
@@ -292,7 +292,7 @@ namespace Frostbyte
                                                                                      new Vector2(tileStartPosX + This.CellSize + collisionRadius, tileStartPosY + This.CellSize / 2)));
                             }
                             break;
-                        case TileTypes.Corner: //top convex corner wall
+                        case TileTypes.Corner: //top concave corner wall
                             //add nothing because it is not possible to hit
                             break;
                         default:
