@@ -66,6 +66,10 @@ namespace Frostbyte
             // Remove Sprite
             l.RemoveSprite(this);
 
+            foreach (ParticleEmitter p in particleEmitters)
+                p.Remove();
+            this.particleEmitters.Clear();
+
             // Remove enemy from target list so that we don't target blank space where an enemy died
             l.enemies.Remove(this);
 
