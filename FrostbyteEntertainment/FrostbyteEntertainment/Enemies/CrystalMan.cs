@@ -15,6 +15,7 @@ namespace Frostbyte.Enemies
         float radius = 64 * 7;
         static int numOuterCrystals { get { return 5; } }
         static int crystalHealth { get { return 100; } }
+        internal TimeSpan attackWait = TimeSpan.MaxValue;
 
         public CrystalMan(string name, Vector2 initialPosition)
             : base(name, new Actor(new DummyAnimation()), 20, crystalHealth * (numOuterCrystals + 1))
@@ -38,32 +39,41 @@ namespace Frostbyte.Enemies
             Health = Crystals.Sum(x => x.Health);
         }
 
+        private void init()
+        {
+            Crystals = new List<Crystal>();
+
+            Crystal inner = new Crystal("crystal_center", Pos, crystalHealth, this);
+            Crystals.Add(inner);
+            inner.HealthChanged += new HealthChangedHandler(updateHealth);
+
+            for (int x = 0; x < numOuterCrystals; x++)
+            {
+                double angle = 2 * Math.PI * x / numOuterCrystals - Math.PI / 2;
+                Vector2 offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * radius;
+                Crystal outer = new Crystal("crystal_" + x, Pos + offset, crystalHealth, this);
+                Crystals.Add(outer);
+                outer.HealthChanged += new HealthChangedHandler(updateHealth);
+                outer.Direction = -offset;
+            }
+        }
+
         protected override void updateMovement()
         {
             if (Crystals == null)
             {
-                Crystals = new List<Crystal>();
-
-                Crystal inner = new Crystal("crystal_center", Pos, crystalHealth, this);
-                Crystals.Add(inner);
-                inner.HealthChanged += new HealthChangedHandler(updateHealth);
-
-                for (int x = 0; x < numOuterCrystals; x++)
-                {
-                    double angle = 2 * Math.PI * x / numOuterCrystals - Math.PI / 2;
-                    Vector2 offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * radius;
-                    Crystal outer = new Crystal("crystal_" + x, Pos + offset, crystalHealth, this);
-                    Crystals.Add(outer);
-                    outer.HealthChanged += new HealthChangedHandler(updateHealth);
-                    outer.Direction = -offset;
-                }
+                init();
             }
             Personality.Update();
         }
 
         protected override void updateAttack()
         {
-
+            if (isAttackAnimDone && attackWait < This.gameTime.TotalGameTime)
+            {
+                attackWait = TimeSpan.MaxValue;
+                mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 10, 0).GetEnumerator());
+            }
         }
     }
 
@@ -117,14 +127,12 @@ namespace Frostbyte.Enemies
             });
         }
 
-        protected override void updateMovement()
-        {
-            //Console.WriteLine(Pos);
-        }
-
         protected override void updateAttack()
         {
+        }
 
+        protected override void updateMovement()
+        {
         }
     }
 }

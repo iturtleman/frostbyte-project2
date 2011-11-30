@@ -334,6 +334,43 @@ namespace Frostbyte
     }
 
     #region Bosses
+    internal class DiePersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+
+        private Boss master;
+        private int deathAnimation;
+        private IEnumerator mStates;
+
+        internal DiePersonality(Boss master, int DeathAnimation)
+        {
+            this.master = master;
+            deathAnimation = DeathAnimation;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            master.Rewind();
+            while (master.Frame != master.FrameCount() - 1)
+            {
+                master.SetAnimation(deathAnimation);
+                yield return null;
+            }
+            master.StopAnim();
+            while (true)
+            {
+                yield return null;
+            }
+        }
+    }
+
+
     internal class UndergroundAttackPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -361,6 +398,7 @@ namespace Frostbyte
             master.Rewind();
             while (master.Frame != master.FrameCount() - 1)
             {
+                master.SetAnimation(17);
                 yield return null;
             }
             master.SetAnimation(0);
@@ -436,6 +474,7 @@ namespace Frostbyte
         private Enemies.CrystalMan master;
         private Enemies.Crystal currentCrystal;
         private IEnumerator mStates;
+        private static Random rng = new Random();
 
         private int EMPTY_CRYSTAL { get { return 19; } }
 
@@ -453,7 +492,6 @@ namespace Frostbyte
         public IEnumerable TeleportIn()
         {
             currentCrystal.SetAnimation(5);
-            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
             currentCrystal.Rewind();
             while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
             {
@@ -461,17 +499,17 @@ namespace Frostbyte
                 yield return null;
             }
             currentCrystal.SetAnimation(0);
-            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
             }
+            master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, rng.Next(5));
         }
 
         public IEnumerable TeleportOut()
         {
+            master.attackWait = TimeSpan.MaxValue;
             currentCrystal.SetAnimation(6);
-            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
             currentCrystal.Rewind();
             while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
             {
@@ -479,7 +517,6 @@ namespace Frostbyte
                 yield return null;
             }
             currentCrystal.SetAnimation(EMPTY_CRYSTAL);
-            currentCrystal.Scale = master.Width / currentCrystal.GetAnimation().Width;
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
@@ -503,7 +540,6 @@ namespace Frostbyte
                 foreach (Enemies.Crystal crystal in master.Crystals)
                 {
                     crystal.SetAnimation(EMPTY_CRYSTAL);
-                    crystal.Scale = master.Width / crystal.GetAnimation().Width;
                 }
                 yield return null;
             }
@@ -550,7 +586,7 @@ namespace Frostbyte
                     break;
                 }
 
-                currentCrystal = master.Crystals[rng.Next(master.Crystals.Count)];
+                currentCrystal = master.Crystals.GetRandomElement();//[rng.Next(master.Crystals.Count)];
 
                 yield return null;
             }
