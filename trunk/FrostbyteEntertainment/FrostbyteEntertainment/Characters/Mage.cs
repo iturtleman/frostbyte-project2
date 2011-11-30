@@ -395,12 +395,12 @@ namespace Frostbyte.Characters
 
                                 else if (attackCounter.Count == 2)
                                 {
-                                    if (Mana >= 30)
+                                    if (Mana >= 80)
                                     {
                                         #region Water Tier 2
                                         mAttacks.Add(Attacks.WaterPush(this, 10).GetEnumerator());
                                         #endregion Water Tier 2
-                                        Mana -= 30;
+                                        Mana -= 80;
                                     }
                                 }
 
