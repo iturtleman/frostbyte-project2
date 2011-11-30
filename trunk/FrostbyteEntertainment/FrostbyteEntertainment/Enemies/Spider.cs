@@ -76,7 +76,7 @@ namespace Frostbyte.Enemies
                     {
                         if (detectedCollision.Item2 is Player)
                         {
-                            mAttacks.Add(Attacks.Melee(this, 5, 18).GetEnumerator());
+                            mAttacks.Add(Attacks.Melee(this, 5, 9).GetEnumerator());
                             attackStartTime = This.gameTime.TotalGameTime;
                             break;
                         }
