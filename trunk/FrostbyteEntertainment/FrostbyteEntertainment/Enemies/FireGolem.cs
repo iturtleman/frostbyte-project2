@@ -31,7 +31,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public FireGolem(string name, Vector2 initialPos)
-            : base(name, initialPos, Animations)
+            : base(name, initialPos, 200, Animations)
         {
             ElementType = Element.Fire;
             Personality = new StrictSentinelPersonality(this);

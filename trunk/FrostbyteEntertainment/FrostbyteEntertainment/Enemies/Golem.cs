@@ -33,8 +33,8 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        public Golem(string name, Vector2 initialPos, List<String> anims = null)
-            : base(name, new Actor(anims == null ? Animations : anims), 1, 1000)
+        public Golem(string name, Vector2 initialPos, int health, List<String> anims = null)
+            : base(name, new Actor(anims == null ? Animations : anims), 1, health)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new SentinelPersonality(this);
@@ -75,7 +75,7 @@ namespace Frostbyte.Enemies
                     {
                         if (detectedCollision.Item2 is Player)
                         {
-                            mAttacks.Add(Attacks.Melee(this, 20, 18).GetEnumerator());
+                            mAttacks.Add(Attacks.Melee(this, 15, 18).GetEnumerator());
                             attackStartTime = This.gameTime.TotalGameTime;
                             This.Game.AudioManager.PlaySoundEffect("Effects/Golem_Attack");
                             break;

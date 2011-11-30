@@ -48,7 +48,7 @@ namespace Frostbyte.Enemies
             int health = int.Parse(e.Attribute("Health").Value);
             Index2D pos = Index2D.Parse(e.Attribute("Pos").Value);
             Microsoft.Xna.Framework.Vector2 initpos = new Microsoft.Xna.Framework.Vector2(pos.X, pos.Y);
-            Golem g = new Golem(name, initpos);
+            Golem g = new Golem(name, initpos, health);
 #endif
             return g;
         }

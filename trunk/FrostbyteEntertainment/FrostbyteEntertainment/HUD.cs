@@ -96,6 +96,7 @@ namespace Frostbyte
         private List<PlayerHUD> playerHUDS = new List<PlayerHUD>();
         private static Vector2 barSize = new Vector2(100, 20);
         private static Vector2 barSpacing = new Vector2(10, 2);
+        private ItemArea items;
         #endregion
 
         #region Methods
@@ -108,9 +109,15 @@ namespace Frostbyte
             scroller.Static = true;
 
             fader = new TextFader("fader", theme);
-            fader.Pos = new Vector2(v.Width - 10, 10);
+            fader.Pos = new Vector2(v.Width - 10, v.Height -10 - 30);
             fader.Anchor = Orientations.Up_Right;
             fader.Static = true;
+
+            #region ItemBag
+            items = new ItemArea("Items", theme);
+            items.Pos = new Vector2(890,10);
+            items.Static = true;
+            #endregion
         }
 
         internal void AddPlayer(Player p)
@@ -210,12 +217,7 @@ namespace Frostbyte
                 };
                 #endregion
 
-                #region ItemBag
-                items = new ItemArea("Items_" + p.Name, theme, p.ItemBag);
-                items.Pos = new Vector2(xOffset,
-                    manaBar.Pos.Y + barSize.Y + barSpacing.Y);
-                items.Static = true;
-                #endregion
+                
             }
 
             ~PlayerHUD()
@@ -227,7 +229,6 @@ namespace Frostbyte
             #region Variables
             internal ProgressBar healthBar;
             internal ProgressBar manaBar;
-            internal ItemArea items;
 
 
             internal int Health
@@ -257,7 +258,7 @@ namespace Frostbyte
 
         private class ItemArea : Sprite
         {
-            internal ItemArea(string name, IHUDTheme theme, List<Item> ItemBag)
+            internal ItemArea(string name, IHUDTheme theme)
                 : base(name, new Actor(new DummyAnimation(name,
                     (int)HUD.barSize.X, (int)HUD.barSize.Y * 2)))
             {
@@ -265,8 +266,6 @@ namespace Frostbyte
                 this.theme = theme;
                 background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
                 background.SetData(new Color[] { theme.TransparentBackgroundColor });
-
-                this.ItemBag = ItemBag;
             }
 
             private IHUDTheme theme;
@@ -274,8 +273,6 @@ namespace Frostbyte
 
             private static Vector2 itemSpacing = new Vector2(3, 2);
             private static int itemsPerRow = 5;
-
-            private List<Item> ItemBag;
 
             internal override void Draw(GameTime gameTime)
             {
@@ -287,11 +284,11 @@ namespace Frostbyte
                         (int)GetAnimation().Width,
                         (int)GetAnimation().Height), Color.White);
 
-                if (ItemBag.Count > 0)
+                if (Player.ItemBag.Count > 0)
                 {
-                    for (int x = 0; x < ItemBag.Count; x++)
+                    for (int x = 0; x < Player.ItemBag.Count; x++)
                     {
-                        Sprite icon = ItemBag[x].Icon;
+                        Sprite icon = Player.ItemBag[x].Icon;
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
                             (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
@@ -447,7 +444,7 @@ namespace Frostbyte
     {
         internal TextScroller(string name, IHUDTheme theme)
             : this(name, theme, This.Game.GraphicsDevice.Viewport.Width - FrostbyteLevel.BORDER_WIDTH,
-                This.Game.GraphicsDevice.Viewport.Height - 2 * FrostbyteLevel.BORDER_HEIGHT)
+                This.Game.GraphicsDevice.Viewport.Height - (int)(2.5f * FrostbyteLevel.BORDER_HEIGHT))
         {
         }
 
