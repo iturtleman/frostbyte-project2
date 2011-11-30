@@ -104,7 +104,7 @@ namespace Frostbyte
         #endregion Targeting
 
         #region Collision
-        protected Vector2 previousFootPos = Vector2.Zero;
+        internal Vector2 previousFootPos = Vector2.Zero;
 
         /// <summary>
         /// Check for collision with background and move enemy out of collision with background until no collisions exist
