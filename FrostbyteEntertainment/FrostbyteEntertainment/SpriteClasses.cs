@@ -186,7 +186,7 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 2.5f)
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 2.7f)
                 this.GroundPos = footPos;
             else if (isMoved)
             {
