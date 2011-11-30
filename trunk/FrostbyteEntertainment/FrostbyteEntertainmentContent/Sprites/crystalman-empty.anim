@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="crystalman-empty" FrameDelay="20" Width="242" Height="422" TLPos="0,0" AnimationPeg="0,0"/>
+  <Frame SpriteSheet="crystalman-empty" FrameDelay="20" Width="156" Height="143" TLPos="0,0" AnimationPeg="0,0"/>
 </Animation>
