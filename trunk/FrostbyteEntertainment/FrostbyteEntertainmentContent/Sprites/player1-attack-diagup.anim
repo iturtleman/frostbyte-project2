@@ -10,7 +10,7 @@
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="350,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="525,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="700,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
-  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="875,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,70" Radius="53"/></Frame>
+  <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="875,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="78"/></Frame>
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1050,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1225,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
   <Frame SpriteSheet="player1-attack" FrameDelay="20" Width="175" Height="160" TLPos="1400,960" AnimationPeg="0,0" MirrorOffset="-3,0"><Collision Type="Circle" Pos="87,110" Radius="23"/></Frame>
