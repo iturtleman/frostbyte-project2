@@ -133,7 +133,7 @@
     <Compile Include="Enemies\Wasp.cs" />
     <Compile Include="Enemies\WaterBlobBoss.cs" />
     <Compile Include="Enemies\Worm.cs" />
-    <Compile Include="Enemies\Yeti.cs" />
+    <Compile Include="Enemies\FrostOwl.cs" />
     <Compile Include="Engine\ParticleEmitter.cs" />
     <Compile Include="Engine\Polygon.cs" />
     <Compile Include="Engine\ProgressBar.cs" />
@@ -143,9 +143,12 @@
     <Compile Include="Items\Diary.cs" />
     <Compile Include="Levels\Credits.cs" />
     <Compile Include="Levels\Earth.cs" />
+    <Compile Include="Levels\Final.cs" />
+    <Compile Include="Levels\Fire.cs" />
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
+    <Compile Include="Levels\Water.cs" />
     <Compile Include="Levels\WorldMap.cs" />
     <Compile Include="Objects\DiaryEntry.cs" />
     <Compile Include="Objects\Object.cs" />
@@ -600,6 +603,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-right.anim">
       <Link>Content\Sprites\crystalman-idle-right.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-idle-up.anim">
       <Link>Content\Sprites\crystalman-idle-up.anim</Link>
