@@ -43,7 +43,7 @@ namespace Frostbyte.Enemies
         {
             Crystals = new List<Crystal>();
 
-            Crystal inner = new Crystal("crystal_center", Pos, crystalHealth, this);
+            Crystal inner = new Crystal("crystal_center", SpawnPoint, crystalHealth, this);
             Crystals.Add(inner);
             inner.HealthChanged += new HealthChangedHandler(updateHealth);
 
@@ -107,7 +107,7 @@ namespace Frostbyte.Enemies
         CrystalMan master;
 
         public Crystal(string name, Vector2 initialPosition, int health, CrystalMan master)
-            : base(name, new Actor(Animations), 0, health)
+            : base(name, new Actor(Animations), 1, health)
         {
             this.master = master;
             SpawnPoint = initialPosition;

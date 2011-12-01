@@ -225,7 +225,7 @@ namespace Frostbyte
             if (mAnimating == true)
             {
                 //used to update the animation. Occurs once the frame's pause * sprite's speed occurs.
-                if (mLastUpdate.TotalGameTime.TotalMilliseconds + frame.Pause * Speed < gameTime.TotalGameTime.TotalMilliseconds)
+                if (Speed>0 && mLastUpdate.TotalGameTime.TotalMilliseconds + frame.Pause * Speed < gameTime.TotalGameTime.TotalMilliseconds)
                 {
                     mActor.Frame = (mActor.Frame + 1) % mActor.Animations[mActor.CurrentAnimation].NumFrames;
                     //update frame so we don't need to worry

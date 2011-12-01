@@ -19,5 +19,4 @@
   <Frame SpriteSheet="crystalman-idle" FrameDelay="20" Width="244" Height="425" TLPos="976,850" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,340" Radius="15"/></Frame>
   <Frame SpriteSheet="crystalman-idle" FrameDelay="20" Width="244" Height="425" TLPos="1220,850" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,340" Radius="15"/></Frame>
   <Frame SpriteSheet="crystalman-idle" FrameDelay="20" Width="244" Height="425" TLPos="1464,850" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,340" Radius="15"/></Frame>
-  <Frame SpriteSheet="crystalman-idle" FrameDelay="20" Width="244" Height="425" TLPos="1708,850" AnimationPeg="0,0"><Collision Type="Circle" Pos="115,340" Radius="15"/></Frame>
 </Animation>
