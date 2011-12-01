@@ -28,9 +28,21 @@ namespace Frostbyte
                 Levels.Earth.Load, 
                 LevelFunctions.DoNothing, 
                 LevelFunctions.UnloadLevel));
-            mLevels.Add(new FrostbyteLevel("Lightning", 
-                Levels.Lightning.Load, 
-                LevelFunctions.DoNothing, 
+            mLevels.Add(new FrostbyteLevel("Lightning",
+                Levels.Lightning.Load,
+                LevelFunctions.DoNothing,
+                LevelFunctions.UnloadLevel));
+            mLevels.Add(new FrostbyteLevel("Water",
+                Levels.Water.Load,
+                LevelFunctions.DoNothing,
+                LevelFunctions.UnloadLevel));
+            mLevels.Add(new FrostbyteLevel("Fire",
+                Levels.Fire.Load,
+                LevelFunctions.DoNothing,
+                LevelFunctions.UnloadLevel));
+            mLevels.Add(new FrostbyteLevel("Final",
+                Levels.Final.Load,
+                LevelFunctions.DoNothing,
                 LevelFunctions.UnloadLevel));
         }
     }

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Frostbyte.Enemies
 {
-    internal partial class Yeti : Frostbyte.Enemy
+    internal partial class FrostOwl : Frostbyte.Enemy
     {
         #region Variables
         static List<String> Animations = new List<String>(){
@@ -16,7 +16,7 @@ namespace Frostbyte.Enemies
 
         #endregion Variables
 
-        public Yeti(string name, Vector2 initialPosition)
+        public FrostOwl(string name, Vector2 initialPosition)
             : base(name, new Actor(Animations), 20, 100)
         {
             SpawnPoint = initialPosition;

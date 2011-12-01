@@ -102,7 +102,7 @@ namespace Frostbyte.Characters
             {
                 controller = new GamePadController(input);
             }
-      
+
             else
             {
                 controller = new KeyboardController();
@@ -131,7 +131,7 @@ namespace Frostbyte.Characters
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T2");
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T3");
             This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
-            
+
 
             This.Cheats.AddCheat("SpeedUp_" + Name, new SpeedUpCheat(this, Speed * 2));
 
@@ -146,6 +146,10 @@ namespace Frostbyte.Characters
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
         private List<Element> attackCounter = new List<Element>();
+        /// <summary>
+        /// Which spells the player can cast
+        /// </summary>
+        internal static Spells UnlockedSpells = 0;
         #endregion
 
         #region Methods
@@ -203,7 +207,7 @@ namespace Frostbyte.Characters
                             case Element.Earth:
                                 if (attackCounter.Count == 1)
                                 {
-                                    if (Mana >= 10)
+                                    if (UnlockedSpells.HasFlag(Spells.EarthOne) && Mana >= 10)
                                     {
                                         #region Earth Tier 1
 
@@ -253,7 +257,7 @@ namespace Frostbyte.Characters
 
                                 else if (attackCounter.Count == 2)
                                 {
-                                    if (Mana >= 20)
+                                    if (UnlockedSpells.HasFlag(Spells.EarthTwo) && Mana >= 20)
                                     {
                                         #region Earth Tier 2
                                         mAttacks.Add(Attacks.Earthquake(this, this, 10, 10).GetEnumerator());
@@ -264,7 +268,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
+                                    if (UnlockedSpells.HasFlag(Spells.EarthThree) && Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Earth Tier 3
                                         mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 10).GetEnumerator());
@@ -278,7 +282,7 @@ namespace Frostbyte.Characters
                             case Element.Lightning:
                                 if (attackCounter.Count == 1)
                                 {
-                                    if (Mana >= 10)
+                                    if (UnlockedSpells.HasFlag(Spells.LightningOne) && Mana >= 10)
                                     {
                                         #region Lightning Tier 1
 
@@ -319,13 +323,13 @@ namespace Frostbyte.Characters
                                                                   Element.Lightning
                                                                   ).GetEnumerator());
                                         #endregion Lightning Tier 1
-                                        
+
                                         This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_T1", .1f);
                                         Mana -= 10;
                                     }
                                 }
 
-                                else if (attackCounter.Count == 2)
+                                else if (UnlockedSpells.HasFlag(Spells.LightningTwo) && attackCounter.Count == 2)
                                 {
                                     if (Mana >= 50)
                                     {
@@ -338,7 +342,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 50)
+                                    if (UnlockedSpells.HasFlag(Spells.LightningThree) && Mana >= 50)
                                     {
                                         #region Lightning Tier 3
                                         mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 10).GetEnumerator());
@@ -351,7 +355,7 @@ namespace Frostbyte.Characters
                             case Element.Water:
                                 if (attackCounter.Count == 1)
                                 {
-                                    if (Mana >= 10)
+                                    if (UnlockedSpells.HasFlag(Spells.WaterOne) && Mana >= 10)
                                     {
                                         #region Water Tier 1
 
@@ -399,7 +403,7 @@ namespace Frostbyte.Characters
                                     }
                                 }
 
-                                else if (attackCounter.Count == 2)
+                                else if (UnlockedSpells.HasFlag(Spells.WaterTwo) && attackCounter.Count == 2)
                                 {
                                     if (Mana >= 80)
                                     {
@@ -414,7 +418,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 30 && currentTarget != null && !(currentTarget is Player))
+                                    if (UnlockedSpells.HasFlag(Spells.WaterThree) && Mana >= 30 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Water Tier 3
                                         mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
@@ -428,7 +432,7 @@ namespace Frostbyte.Characters
                             case Element.Fire:
                                 if (attackCounter.Count == 1)
                                 {
-                                    if (Mana >= 10)
+                                    if (UnlockedSpells.HasFlag(Spells.FireOne) && Mana >= 10)
                                     {
                                         #region Fire Tier 1
 
@@ -480,7 +484,7 @@ namespace Frostbyte.Characters
 
                                 else if (attackCounter.Count == 2)
                                 {
-                                    if (Mana >= 50)
+                                    if (UnlockedSpells.HasFlag(Spells.FireTwo) && Mana >= 50)
                                     {
                                         #region Fire Tier 2
                                         mAttacks.Add(Attacks.FireRing(this, this, 1, 10).GetEnumerator());
@@ -492,7 +496,7 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (Mana >= 50 && currentTarget != null && !(currentTarget is Player))
+                                    if (UnlockedSpells.HasFlag(Spells.FireThree) && Mana >= 50 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Fire Tier 3
                                         mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 10).GetEnumerator());

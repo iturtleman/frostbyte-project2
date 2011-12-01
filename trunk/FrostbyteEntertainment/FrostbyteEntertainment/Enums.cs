@@ -54,4 +54,25 @@ namespace Frostbyte
             return list.ElementAt(random.Next(list.Count()));
         }
     }
+
+    /// <summary>
+    /// The spells a player can use
+    /// </summary>
+    [Flags]
+    internal enum Spells
+    {
+        None = 0,
+        EarthOne = 1,
+        EarthTwo,
+        EarthThree,
+        FireOne,
+        FireTwo,
+        FireThree,
+        WaterOne,
+        WaterTwo,
+        WaterThree,
+        LightningOne,
+        LightningTwo,
+        LightningThree
+    }
 }

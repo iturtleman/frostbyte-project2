@@ -49,6 +49,10 @@ namespace Frostbyte.Levels
             l.GetTexture("boulder");
             #endregion load textures
 
+            #region add applicable spells
+            Characters.Mage.UnlockedSpells = 0;
+            #endregion add applicable spells
+
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 2));
             Collision.Lists.Add(new KeyValuePair<int, int>(1, 3));
             Collision.Lists.Add(new KeyValuePair<int, int>(2, 3));

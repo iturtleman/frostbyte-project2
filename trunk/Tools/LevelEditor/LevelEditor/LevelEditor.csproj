@@ -122,9 +122,6 @@
     <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\Worm.cs">
       <Link>EnemyStuff\Worm.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\FrostbyteEntertainment\FrostbyteEntertainment\Shared\Yeti.cs">
-      <Link>EnemyStuff\Yeti.cs</Link>
-    </Compile>
     <Compile Include="EditFrame.xaml.cs">
       <DependentUpon>EditFrame.xaml</DependentUpon>
     </Compile>
