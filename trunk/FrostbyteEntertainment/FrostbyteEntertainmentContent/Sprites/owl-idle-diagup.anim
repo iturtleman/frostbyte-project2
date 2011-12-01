@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1602,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1691,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1780,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1869,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1958,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="0,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="89,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="178,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="267,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="356,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="445,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="534,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="623,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="712,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="801,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="890,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="979,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1068,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1157,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1246,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1335,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1424,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1513,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1602,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1691,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1780,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1869,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="1958,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="owl-idle" FrameDelay="20" Width="89" Height="89" TLPos="0,445" AnimationPeg="0,0" />
+</Animation>
