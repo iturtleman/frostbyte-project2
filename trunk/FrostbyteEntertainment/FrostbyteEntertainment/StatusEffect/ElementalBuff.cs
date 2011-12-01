@@ -25,7 +25,7 @@ namespace Frostbyte
                     element = This.Game.CurrentLevel.GetTexture("sparkball");
                     break;
                 case Frostbyte.Element.Water:
-                    element = This.Game.CurrentLevel.GetTexture("water");
+                    element = This.Game.CurrentLevel.GetTexture("waterParticle");
                     break;
                 case Frostbyte.Element.Fire:
                     element = This.Game.CurrentLevel.GetTexture("fire");

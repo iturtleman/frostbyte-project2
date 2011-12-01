@@ -86,7 +86,7 @@ namespace Frostbyte.Enemies
                                               new TimeSpan(0, 0, 0, 1, 750),
                                               attackRange,
                                               6f,
-                                              true,
+                                              false,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);

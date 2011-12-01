@@ -230,7 +230,7 @@ namespace Frostbyte.Characters
                                                                   new TimeSpan(0, 0, 0, 1, 150),
                                                                   attackRange,
                                                                   9f,
-                                                                  false,
+                                                                  true,
                                                                   delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                                                   {
                                                                       Random randPosition = new Random();
@@ -363,7 +363,7 @@ namespace Frostbyte.Characters
 
                                         //Create Earth Tier 1 Particle Emmiter
                                         Effect particleEffect = l.GetEffect("ParticleSystem");
-                                        Texture2D snowflake = l.GetTexture("water");
+                                        Texture2D snowflake = l.GetTexture("waterParticle");
                                         ParticleEmitter particleWaterTier1 = new ParticleEmitter(500, particleEffect, snowflake);
                                         particleWaterTier1.effectTechnique = "NoSpecialEffect";
                                         particleWaterTier1.blendState = BlendState.Additive;
@@ -378,7 +378,7 @@ namespace Frostbyte.Characters
                                                                   new TimeSpan(0, 0, 0, 1, 150),
                                                                   attackRange,
                                                                   9f,
-                                                                  false,
+                                                                  true,
                                                                   delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                                                   {
                                                                       Random randPosition = new Random();

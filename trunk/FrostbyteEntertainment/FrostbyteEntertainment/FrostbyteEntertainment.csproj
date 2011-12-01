@@ -356,6 +356,10 @@
       <Link>Content\Story\Water.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\WaterLevel.xml">
+      <Link>Content\WaterLevel.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Audio\Effects\Earth_T1.wav" />
     <Content Include="Content\Audio\Effects\Fire_T1.wav" />
     <Content Include="Content\Audio\Effects\Fire_T3.wav" />
@@ -1019,6 +1023,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Normal.spsh">
       <Link>Content\Textures\Normal.spsh</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Textures\Water.spsh">
+      <Link>Content\Textures\Water.spsh</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
