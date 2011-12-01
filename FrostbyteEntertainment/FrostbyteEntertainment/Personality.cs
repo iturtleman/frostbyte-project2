@@ -498,6 +498,7 @@ namespace Frostbyte
                 currentCrystal.SetAnimation(5);
                 yield return null;
             }
+            currentCrystal.Rewind();
             currentCrystal.SetAnimation(0);
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
@@ -509,13 +510,14 @@ namespace Frostbyte
         public IEnumerable TeleportOut()
         {
             master.attackWait = TimeSpan.MaxValue;
-            currentCrystal.SetAnimation(6);
             currentCrystal.Rewind();
+            currentCrystal.SetAnimation(6);
             while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
             {
                 currentCrystal.SetAnimation(6);
                 yield return null;
             }
+            currentCrystal.Rewind();
             currentCrystal.SetAnimation(EMPTY_CRYSTAL);
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
@@ -534,11 +536,12 @@ namespace Frostbyte
             }
             currentCrystal = master.Crystals[0];
 
-
-            while (!master.camp(targets, 100, float.PositiveInfinity) && !master.AtArms)
+            int initialWaitDistance = 300;
+            while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
             {
                 foreach (Enemies.Crystal crystal in master.Crystals)
                 {
+                    currentCrystal.Rewind();
                     crystal.SetAnimation(EMPTY_CRYSTAL);
                 }
                 yield return null;

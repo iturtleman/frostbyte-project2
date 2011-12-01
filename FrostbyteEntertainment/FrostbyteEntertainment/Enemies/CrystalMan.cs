@@ -10,11 +10,10 @@ namespace Frostbyte.Enemies
     internal partial class CrystalMan : Frostbyte.Boss
     {
         internal List<Crystal> Crystals;
-        internal float Width { get { return 128; } }
 
         float radius = 64 * 7;
         static int numOuterCrystals { get { return 5; } }
-        static int crystalHealth { get { return 100; } }
+        static int crystalHealth { get { return 500; } }
         internal TimeSpan attackWait = TimeSpan.MaxValue;
 
         public CrystalMan(string name, Vector2 initialPosition)
@@ -44,6 +43,9 @@ namespace Frostbyte.Enemies
             Crystals = new List<Crystal>();
 
             Crystal inner = new Crystal("crystal_center", SpawnPoint, crystalHealth, this);
+            SpriteFrame animation = GetAnimation();
+            animation.Height = inner.GetAnimation().Height;
+            animation.Width = inner.GetAnimation().Width;
             Crystals.Add(inner);
             inner.HealthChanged += new HealthChangedHandler(updateHealth);
 
@@ -72,7 +74,11 @@ namespace Frostbyte.Enemies
             if (isAttackAnimDone && attackWait < This.gameTime.TotalGameTime)
             {
                 attackWait = TimeSpan.MaxValue;
-                mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
+                foreach (Crystal c in Crystals)
+                {
+                    mAttacks.Add(Attacks.LightningRod(c, this, 1, 0).GetEnumerator());
+                }
+                //mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
             }
         }
     }
@@ -101,6 +107,7 @@ namespace Frostbyte.Enemies
            "crystalman-shatter-diagup.anim",
            "crystalman-shatter-up.anim",  // 18
            "crystalman-empty.anim",
+           "crystalman-empty-broken.anim",
         };
         #endregion Variables
 
@@ -110,8 +117,9 @@ namespace Frostbyte.Enemies
             : base(name, new Actor(Animations), 1, health)
         {
             this.master = master;
-            SpawnPoint = initialPosition;
+            SpawnPoint = CenteredOn(initialPosition);
             Pos = SpawnPoint;
+            Scale = 1.25f;
 
             HealthChanged += new HealthChangedHandler(delegate(object o, int value)
             {
@@ -121,8 +129,12 @@ namespace Frostbyte.Enemies
                 }
                 else if (Health <= MaxHealth * 0.5)
                 {
+                    for (int x = 0; x < 7; x++)
+                    {
+                        mActor.Animations[x] = mActor.Animations[x + 7];
+                    }
                     // REPLACE TO BROKEN ANIMATIONS HERE
-                    mActor.Animations[19] = mActor.Animations[18];
+                    mActor.Animations[19] = mActor.Animations[20];
                 }
             });
         }
