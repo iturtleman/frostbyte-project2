@@ -11,7 +11,21 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "antibody.anim"
+           "owl-idle-down.anim",
+           "owl-idle-diagdown.anim",
+           "owl-idle-right.anim",
+           "owl-idle-diagup.anim",
+           "owl-idle-up.anim",
+           "owl-idle-down.anim",
+           "owl-idle-diagdown.anim",
+           "owl-idle-right.anim",
+           "owl-idle-diagup.anim",
+           "owl-idle-up.anim",
+           "owl-idle-down.anim",
+           "owl-idle-diagdown.anim",
+           "owl-idle-right.anim",
+           "owl-idle-diagup.anim",
+           "owl-idle-up.anim",
         };
 
         #endregion Variables
@@ -26,12 +40,12 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
-            throw new NotImplementedException();
+
         }
 
         protected override void updateAttack()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

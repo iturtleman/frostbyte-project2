@@ -14,7 +14,21 @@ namespace Frostbyte.Enemies
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<String> Animations = new List<String>(){
-           "antibody.anim",
+           "wolf-idle-down.anim",
+           "wolf-idle-diagdown.anim",
+           "wolf-idle-right.anim",
+           "wolf-idle-diagup.anim",
+           "wolf-idle-up.anim",
+           "wolf-walk-down.anim",
+           "wolf-walk-diagdown.anim",
+           "wolf-walk-right.anim",
+           "wolf-walk-diagup.anim",
+           "wolf-walk-up.anim",
+           //"wolf-attack-down.anim",
+           //"wolf-attack-diagdown.anim",
+           //"wolf-attack-right.anim",
+           //"wolf-attack-diagup.anim",
+           //"wolf-attack-up.anim",
         };
 
         #endregion Variables
@@ -42,7 +56,9 @@ namespace Frostbyte.Enemies
             Sprite target = GetClosestTarget(targets, float.MaxValue);
             if (target != null)
             {
-                float attackRadius = ((target.GetCollision()[0] as Collision_BoundingCircle).Radius + (this.GetCollision()[0] as Collision_BoundingCircle).Radius) * .92f;
+                float theirRad = (target.GetCollision().FirstOrDefault() as Collision_BoundingCircle).Radius;
+                float rad = (target.GetCollision().FirstOrDefault() as Collision_BoundingCircle).Radius;
+                float attackRadius = (rad + theirRad) * .92f;
                 if (Vector2.DistanceSquared(target.GroundPos, this.GroundPos) > attackRadius * attackRadius)
                 {
                     Personality.Update();

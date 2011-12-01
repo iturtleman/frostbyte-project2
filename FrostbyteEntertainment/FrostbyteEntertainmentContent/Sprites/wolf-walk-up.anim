@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="178,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="267,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="356,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="445,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="534,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="623,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="712,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="801,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="890,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="979,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1068,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1157,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1246,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1335,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1424,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1513,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1602,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1691,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1780,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1869,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1958,534" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="0,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="89,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="178,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="267,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="356,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="445,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="534,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="623,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="712,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="801,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="890,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="979,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1068,623" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-walk" FrameDelay="20" Width="89" Height="89" TLPos="1157,623" AnimationPeg="0,0" />
+</Animation>

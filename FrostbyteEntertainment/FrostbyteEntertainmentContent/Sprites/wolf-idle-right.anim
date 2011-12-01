@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="801,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="890,267" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="0,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="89,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="178,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="267,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="356,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="445,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="534,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="623,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="712,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="801,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="890,356" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="0,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="89,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="178,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="267,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="356,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="445,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="534,445" AnimationPeg="0,0" />
+  <Frame SpriteSheet="wolf-idle" FrameDelay="20" Width="89" Height="89" TLPos="623,445" AnimationPeg="0,0" />
+</Animation>

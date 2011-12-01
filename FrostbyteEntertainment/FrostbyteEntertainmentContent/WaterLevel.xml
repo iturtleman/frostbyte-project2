@@ -4611,6 +4611,8 @@
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="115,77" />
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="116,77" />
   <Tile Type="BottomCorner" Collision="true" Theme="Water" Orientation="Right" GridCell="117,77" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Wolf" Pos="4896,7456" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Owl" Pos="4896,7456" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="9440,224" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="6112,544" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="2208,1824" />
