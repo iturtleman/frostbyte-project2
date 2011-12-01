@@ -72,7 +72,7 @@ namespace Frostbyte.Enemies
             if (isAttackAnimDone && attackWait < This.gameTime.TotalGameTime)
             {
                 attackWait = TimeSpan.MaxValue;
-                mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 10, 0).GetEnumerator());
+                mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
             }
         }
     }
