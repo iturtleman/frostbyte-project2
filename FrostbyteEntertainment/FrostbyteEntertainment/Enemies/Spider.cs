@@ -34,7 +34,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Spider(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 100)
+            : base(name, new Actor(Animations), 1, 50)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);

@@ -35,7 +35,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public ElectricBat(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 20, 100)
+            : base(name, new Actor(Animations), 20, 40)
         {
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
@@ -67,7 +67,7 @@ namespace Frostbyte.Enemies
                 {
                     attackStartTime = This.gameTime.TotalGameTime;
 
-                    int attackRange = 3;
+                    int attackRange = 12;
 
                     //Create Particle Emmiter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
