@@ -16,7 +16,8 @@ namespace Frostbyte
 
     internal class TriggerSingleTargetEventArgs : TriggerEventArgs
     {
-        internal TriggerSingleTargetEventArgs(Sprite target){
+        internal TriggerSingleTargetEventArgs(Sprite target)
+        {
             Target = target;
         }
         internal Sprite Target;
@@ -44,9 +45,10 @@ namespace Frostbyte
         internal TriggerCondition TriggerCondition = () => { return null; };
         internal event TriggerHandler TriggerEffect = (Object, TriggerSingleTargetEventArgs) => { };
         internal bool Enabled = true;
-        
 
-        private new void Update(){
+
+        private new void Update()
+        {
             if (Enabled)
             {
                 TriggerUpdate();
@@ -332,7 +334,7 @@ namespace Frostbyte
 
         private new TriggerMultipleTargetEventArgs TriggerCondition()
         {
-            if(SpritesInRange.Count != 0)
+            if (SpritesInRange.Count != 0)
             {
                 return new TriggerMultipleTargetEventArgs(party);
             }
@@ -345,6 +347,50 @@ namespace Frostbyte
             {
                 p.SpawnPoint = p.CenteredOn(this);
             }
+            this.Enabled = false;
+        }
+    }
+
+    internal class AcquireSpellTrigger : SimpleDistanceTrigger
+    {
+        internal AcquireSpellTrigger(string name, int radius, List<Sprite> party)
+            : base(name, radius)
+        {
+            this.party = party;
+            base.TriggerCondition += TriggerCondition;
+            base.TriggerEffect += TriggerEffect;
+        }
+
+        /// <summary>
+        /// Constructor for the Level Editor
+        /// </summary>
+        /// <param name="name">Sprite name of Trigger</param>
+        /// <param name="initialPos">Position of Trigger</param>
+        /// <param name="orientation">Trigger's orientation/direction</param>
+        public AcquireSpellTrigger(string name, Vector2 initialPosition)
+            : this(name, Tile.TileSize / 2, (This.Game.LoadingLevel as FrostbyteLevel).allies)
+        {
+            SpawnPoint = initialPosition;
+        }
+
+        private List<Sprite> party;
+
+        private new TriggerMultipleTargetEventArgs TriggerCondition()
+        {
+            if (SpritesInRange.Count != 0)
+            {
+                return new TriggerMultipleTargetEventArgs(party);
+            }
+            return null;
+        }
+
+        private new void TriggerEffect(object ths, TriggerEventArgs args)
+        {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            if (l.Name == "Lightning")
+                Characters.Mage.UnlockedSpells = Characters.Mage.UnlockedSpells | Spells.EarthTwo;
+            if (l.Name == "Fire")
+                Characters.Mage.UnlockedSpells = Characters.Mage.UnlockedSpells | Spells.EarthThree | Spells.LightningThree | Spells.WaterThree;
             this.Enabled = false;
         }
     }
@@ -390,7 +436,7 @@ namespace Frostbyte
                 particleEmitterTrigger,
                 Vector2.Zero).GetEnumerator());
 
-            collisionObjects.Add(new Collision_BoundingCircle(1,Vector2.Zero, radius));
+            collisionObjects.Add(new Collision_BoundingCircle(1, Vector2.Zero, radius));
             this.CollisionList = 2;
         }
 

@@ -5746,6 +5746,7 @@
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="4896,7456" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="4576,544" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="4576,3296" />
+  <Object Type="Frostbyte.AcquireSpellTrigger" Name="Acquire Level Two Trigger" Pos="6368,5792" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="4576,3424" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="4576,3616" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="1824,3808" />
