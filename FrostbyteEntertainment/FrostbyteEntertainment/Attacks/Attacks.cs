@@ -2032,7 +2032,8 @@ namespace Frostbyte
             Texture2D lightning = l.GetTexture("sparkball");
             ParticleEmitter particleEmitter = new ParticleEmitter(10000, particleEffect, lightning);
             particleEmitter.ZOrder = int.MaxValue;
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .5f;
             particleEmitter.blendState = BlendState.Additive;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -2094,7 +2095,7 @@ namespace Frostbyte
                 particleTopPosition = attacker.GroundPos;
 
                 // Lightning Strike
-                if (i % 2 == 0)
+                if (i % 13 == 0)
                 {
                     for (int j = 0; j < 200; j++)
                     {
@@ -2105,7 +2106,7 @@ namespace Frostbyte
 
                         particleTopPosition += directionToTarget * 2 + randDirection2 * 3;
 
-                        particleEmitter.createParticles(Vector2.Zero, Vector2.Zero, particleTopPosition, 8f, 85);
+                        particleEmitter.createParticles(randDirection2 * 10, -randDirection2 * 20, particleTopPosition, 8f, 600);
                     }
                 }
 
