@@ -769,7 +769,7 @@ namespace Frostbyte.Characters
 
                 if (controller.Start == ReleasableButtonState.Clicked)
                 {
-                    l.Paused = !l.Paused;
+                    l.Paused = true;
                     l.PauseSprite.Visible = true;
                 }
             }
