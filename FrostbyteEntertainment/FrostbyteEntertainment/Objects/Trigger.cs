@@ -388,9 +388,15 @@ namespace Frostbyte
         {
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             if (l.Name == "Lightning")
+            {
                 Characters.Mage.UnlockedSpells = Characters.Mage.UnlockedSpells | Spells.EarthTwo;
+                l.HUD.ScrollText("You feel a rush of power enter your body.\n\n\n\n\n\nYou can now cast level two spells by pressing the corresponding element two times");
+            }
             if (l.Name == "Fire")
+            {
                 Characters.Mage.UnlockedSpells = Characters.Mage.UnlockedSpells | Spells.EarthThree | Spells.LightningThree | Spells.WaterThree;
+                l.HUD.ScrollText("You feel a huge rush of power enter your body.\n\n\n\n\n\nYou can now cast level two spells by pressing the corresponding element three times. Remember to target your enemy first!");
+            }
             this.Enabled = false;
         }
     }

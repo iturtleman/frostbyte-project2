@@ -56,6 +56,7 @@ namespace Frostbyte.Enemies
             l.HUD.RemoveBossHealthBar(this);
             l.SpawnExitPortal();
             Personality = new DiePersonality(this, 19);
+            l.HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\n\n\n\n\n\nHold down the Left trigger and press A (gamepad) S (keyboard) ane then release the trigger to cast an earth spell!!!!");
             base.Die();
         }
 
