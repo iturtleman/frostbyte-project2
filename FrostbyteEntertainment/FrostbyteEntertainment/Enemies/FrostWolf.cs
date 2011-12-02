@@ -24,11 +24,11 @@ namespace Frostbyte.Enemies
            "wolf-walk-right.anim",
            "wolf-walk-diagup.anim",
            "wolf-walk-up.anim",
-           //"wolf-attack-down.anim",
-           //"wolf-attack-diagdown.anim",
-           //"wolf-attack-right.anim",
-           //"wolf-attack-diagup.anim",
-           //"wolf-attack-up.anim",
+           "wolf-attack-down.anim",
+           "wolf-attack-diagdown.anim",
+           "wolf-attack-right.anim",
+           "wolf-attack-diagup.anim",
+           "wolf-attack-up.anim",
         };
 
         #endregion Variables
@@ -40,7 +40,6 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new AmbushPersonality(this);
             ElementType = Element.Water;
-            //Scale = .4f;
 
             //This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
             //if (MovementAudioName == null)
