@@ -119,7 +119,7 @@ namespace Frostbyte
         public Tile TopAreaTile = null;
 
         //private Polygon viewportPolygon = null;
-        internal bool AutoZoom = false;
+        internal bool AutoZoom = true;
 
         /// <summary>
         /// The HUD manager for our display
