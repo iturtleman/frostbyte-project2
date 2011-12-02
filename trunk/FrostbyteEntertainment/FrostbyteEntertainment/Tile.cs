@@ -242,7 +242,7 @@ namespace Frostbyte
                                 file = "Normal";
                                 break;
                             case Element.DEFAULT:
-                                file = "Normal";
+                                file = "Blank";
                                 break;
                             case Element.None:
                                 return;
