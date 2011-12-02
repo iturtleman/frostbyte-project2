@@ -215,8 +215,8 @@ namespace Frostbyte
             Tuple<int, int> bottomRightMostTile = new Tuple<int, int>((int)Math.Floor((Math.Max(previousPosition.X, currentPosition.X) + collisionRadius) / This.CellSize), //bottom right most tile that could possible hit sprite
                                                                     (int)Math.Floor((Math.Max(previousPosition.Y, currentPosition.Y) + collisionRadius) / This.CellSize));
 
-            for (int x = topLeftMostTile.Item1 - 1; x <= bottomRightMostTile.Item1 + 1; x++)
-                for (int y = topLeftMostTile.Item2 - 1; y <= bottomRightMostTile.Item2 + 1; y++)
+            for (int x = topLeftMostTile.Item1; x <= bottomRightMostTile.Item1; x++)
+                for (int y = topLeftMostTile.Item2; y <= bottomRightMostTile.Item2; y++)
                 {
                     Tile tile;
                     tileMap.TryGetValue(x, y, out tile);
