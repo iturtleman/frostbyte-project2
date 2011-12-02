@@ -140,7 +140,13 @@ namespace Frostbyte
         /// </summary>
         protected Dictionary<string, Effect> mEffects = new Dictionary<string, Effect>();
 
+        /// <summary>
+        /// List of sprites that should be added this game loop
+        /// </summary>
         protected List<WorldObject> ToAdd = new List<WorldObject>();
+        /// <summary>
+        /// List of sprites that should die after this game loop
+        /// </summary>
         protected List<WorldObject> ToRemove = new List<WorldObject>();
 
         internal Camera Camera = new Camera();

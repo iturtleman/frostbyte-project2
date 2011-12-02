@@ -94,12 +94,21 @@ namespace Frostbyte
     {
         #region Variables
         /// <summary>
-        /// Target lists
+        /// List of Allies that may be targeted
         /// </summary>
         internal List<Sprite> allies = new List<Sprite>();
+        /// <summary>
+        /// List of Enemy targets
+        /// </summary>
         internal List<Sprite> enemies = new List<Sprite>();
+        /// <summary>
+        /// List of Obstacles that may be targeted
+        /// </summary>
         internal List<Sprite> obstacles = new List<Sprite>();
 
+        /// <summary>
+        /// List of Diary entry text
+        /// </summary>
         internal IEnumerator<string> DiaryEntries = null;
 
         internal TileList TileMap = new TileList();
@@ -112,6 +121,9 @@ namespace Frostbyte
         //private Polygon viewportPolygon = null;
         internal bool AutoZoom = true;
 
+        /// <summary>
+        /// The HUD manager for our display
+        /// </summary>
         internal HUD HUD = new HUD();
 
         /// <summary>

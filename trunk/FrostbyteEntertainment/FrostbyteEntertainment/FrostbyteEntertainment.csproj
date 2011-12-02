@@ -512,6 +512,10 @@
       <Link>Content\Sprites\chest.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\Controller.anim">
+      <Link>Content\Sprites\Controller.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalgolem-attack-diagdown.anim">
       <Link>Content\Sprites\crystalgolem-attack-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -974,6 +978,26 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wasp-idle-up.anim">
       <Link>Content\Sprites\wasp-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-diagdown.anim">
+      <Link>Content\Sprites\wolf-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-diagup.anim">
+      <Link>Content\Sprites\wolf-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-down.anim">
+      <Link>Content\Sprites\wolf-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-right.anim">
+      <Link>Content\Sprites\wolf-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-up.anim">
+      <Link>Content\Sprites\wolf-attack-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-idle-diagdown.anim">
