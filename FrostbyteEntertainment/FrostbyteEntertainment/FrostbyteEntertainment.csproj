@@ -299,6 +299,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\FinalLevel.xml">
+      <Link>Content\FinalLevel.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\FireLevel.xml">
+      <Link>Content\FireLevel.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Fonts\Default.bmp">
       <Link>Content\Fonts\Default.bmp</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1075,6 +1083,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Earth.spsh">
       <Link>Content\Textures\Earth.spsh</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Textures\Fire.spsh">
+      <Link>Content\Textures\Fire.spsh</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Textures\Lightning.spsh">

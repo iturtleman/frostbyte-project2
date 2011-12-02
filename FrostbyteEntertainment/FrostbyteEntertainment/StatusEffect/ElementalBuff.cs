@@ -28,7 +28,7 @@ namespace Frostbyte
                     element = This.Game.CurrentLevel.GetTexture("waterParticle");
                     break;
                 case Frostbyte.Element.Fire:
-                    element = This.Game.CurrentLevel.GetTexture("fire");
+                    element = This.Game.CurrentLevel.GetTexture("fireParticle");
                     break;
             }
             particleEmitter = new ParticleEmitter(800, particleEffect, element);

@@ -52,7 +52,7 @@ namespace Frostbyte.Enemies
 
                     //Create Particle Emmiter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                    Texture2D fire = This.Game.CurrentLevel.GetTexture("fire");
+                    Texture2D fire = This.Game.CurrentLevel.GetTexture("fireParticle");
                     ParticleEmitter particleEmitterFire = new ParticleEmitter(1000, particleEffect, fire);
                     particleEmitterFire.effectTechnique = "NoSpecialEffect";
                     particleEmitterFire.blendState = BlendState.Additive;

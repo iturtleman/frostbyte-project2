@@ -440,7 +440,7 @@ namespace Frostbyte.Characters
 
                                         //Create Fire Tier 1 Particle Emmiter
                                         Effect particleEffect = l.GetEffect("ParticleSystem");
-                                        Texture2D fire = l.GetTexture("fire");
+                                        Texture2D fire = l.GetTexture("fireParticle");
                                         ParticleEmitter particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
                                         particleFireTier1.effectTechnique = "NoSpecialEffect";
                                         particleFireTier1.blendState = BlendState.AlphaBlend;
