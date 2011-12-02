@@ -109,7 +109,8 @@ namespace Frostbyte
 
         internal void AddStatusEffect(ElementalBuff elementalBuff)
         {
-            StatusEffects.Add(elementalBuff);
+            if (StatusEffects.FindAll(delegate(StatusEffect se) { return se is ElementalBuff; }).Count == 0)
+                StatusEffects.Add(elementalBuff);
             //elementalBuff.Draw(this);
         }
     }
