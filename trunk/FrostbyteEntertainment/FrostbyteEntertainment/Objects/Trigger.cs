@@ -74,7 +74,7 @@ namespace Frostbyte
             triggerRect = new Rectangle(
                 0,
                 0,
-                (int)(GetAnimation().Width * triggerRectScale),
+                (int)(GetAnimation().Width / (1 - triggerRectScale)),
                 (int)(GetAnimation().Height * triggerRectScale));
         }
 
@@ -113,7 +113,7 @@ namespace Frostbyte
                 }
             }
 
-            triggerRect.X = (int)(Pos.X + GetAnimation().Width * (1 - triggerRectScale));
+            triggerRect.X = (int)(Pos.X - GetAnimation().Width * (1 - triggerRectScale));
             triggerRect.Y = (int)(Pos.Y + GetAnimation().Height * (1 - triggerRectScale));
             foreach (Sprite target in this.GetTargetsInRectangle(party, triggerRect))
             {

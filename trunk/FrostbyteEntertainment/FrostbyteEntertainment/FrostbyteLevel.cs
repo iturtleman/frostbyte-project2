@@ -22,14 +22,7 @@ namespace Frostbyte
         public FrostbyteGame()
             : base()
         {
-            if (GamePad.GetState(PlayerIndex.One).IsConnected)
-            {
-                GlobalController = new GamePadController(PlayerIndex.One);
-            }
-            else
-            {
-                GlobalController = new KeyboardController();
-            }
+            GlobalController = new KeyboardController();
             This.Cheats.AddCheat("DisableBackgroundCollision");
         }
 
@@ -51,6 +44,14 @@ namespace Frostbyte
             if (GlobalController.GetKeypress(Keys.PageUp) == ReleasableButtonState.Clicked)
             {
                 This.Cheats.GetCheat("DisableBackgroundCollision").Toggle();
+            }
+            if (GlobalController.GetKeypress(Keys.K) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
+            {
+                Player.ItemBag.Add(new Key("cheat"));
+            }
+            if (GlobalController.GetKeypress(Keys.End) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
+            {
+                Characters.Mage.UnlockedSpells = Spells.All;
             }
         }
     }
@@ -118,7 +119,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            /*"TitleScreen",
+            "TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",

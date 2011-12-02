@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework.Audio;
+using System.Collections;
 
 namespace Frostbyte
 {
@@ -40,8 +41,9 @@ namespace Frostbyte
             CollidesWithBackground = true;
 
             #region HealthBar
+            float alpha = 0.15f;
             healthBar = new ProgressBar("Health_" + Name, MaxHealth,
-                Color.DarkRed, Color.Firebrick, Color.Black, barSize);
+                Color.Black * 0, Color.Red * 0.5f, Color.Black * alpha, barSize);
             healthBar.Pos = Pos - l.Camera.Pos + new Vector2(0, -20);
             healthBar.Static = true;
             healthBar.Value = MaxHealth;
@@ -201,6 +203,10 @@ namespace Frostbyte
 
         protected override void Die()
         {
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
+            l.HUD.RemoveBossHealthBar(this);
+            l.SpawnExitPortal();
+            base.Die();
         }
 
         internal void setAtArms()
@@ -215,6 +221,35 @@ namespace Frostbyte
             {
                 base.Update();
             }
+        }
+    }
+
+    internal class BossDeath : OurSprite
+    {
+        internal BossDeath(string name, Actor actor)
+            : base(name, actor)
+        {
+            UpdateBehavior = update;
+            mStates = states().GetEnumerator();
+        }
+
+        private IEnumerator mStates;
+
+        internal void update()
+        {
+            if(!mStates.MoveNext())
+            {
+                Health = 0;
+            }
+        }
+
+        internal IEnumerable states()
+        {
+            while (Frame != FrameCount() - 1)
+            {
+                yield return null;
+            }
+            StopAnim();
         }
     }
 }

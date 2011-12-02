@@ -2017,7 +2017,7 @@ namespace Frostbyte
         }
 
         /// <summary>
-        /// Performs a Lightning strike between two sprites
+        /// Performs a Lightning strike between two sprites. Collides with the base of the target.
         /// </summary>
         /// <param name="_target">The target for the projectile to attack</param>
         /// <param name="_attacker">The sprite initiating the attack</param>
@@ -2029,7 +2029,6 @@ namespace Frostbyte
             #region Variables
             Level l = This.Game.CurrentLevel;
             Vector2 initialDirection = attacker.Direction;
-            attacker.State = SpriteState.Attacking;
             setAnimation(attacker);
             int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
@@ -2162,19 +2161,18 @@ namespace Frostbyte
         }
 
         /// <summary>
-        /// Performs a Lightning strike between two sprites
+        /// Performs a Lightning strike between two sprites. Collides with anything in the path of the bolt.
         /// </summary>
         /// <param name="_target">The target for the projectile to attack</param>
         /// <param name="_attacker">The sprite initiating the attack</param>
         /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
         /// <param name="_attackFrame">The frame that the attack begins on</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> LightningBall(Sprite target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
+        public static IEnumerable<bool> LightningSpan(Sprite target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
         {
             #region Variables
             Level l = This.Game.CurrentLevel;
             Vector2 initialDirection = attacker.Direction;
-            attacker.State = SpriteState.Attacking;
             setAnimation(attacker);
             int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
@@ -2183,10 +2181,19 @@ namespace Frostbyte
             Texture2D lightning = l.GetTexture("sparkball");
             ParticleEmitter particleEmitter = new ParticleEmitter(10000, particleEffect, lightning);
             particleEmitter.ZOrder = int.MaxValue;
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .5f;
             particleEmitter.blendState = BlendState.Additive;
-            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
-            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            //(particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            //(particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+            particleEmitter.collisionObjects.Clear();
+            int radius = 20;
+            Vector2 direction = attacker.CenterPos - target.CenterPos;
+            direction.Normalize();
+            for (int x = 0; x < Vector2.Distance(target.CenterPos, attacker.CenterPos); x += radius * 2)
+            {
+                particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * direction, radius));
+            }
 
             Vector2 particleTopPosition;
             #endregion Variables
@@ -2204,8 +2211,8 @@ namespace Frostbyte
             {
                 attacker.isAttackAnimDone = false;
 
-                if (target != null && target.GroundPos != attacker.GroundPos)
-                    attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
+                if (target != null && target.CenterPos != attacker.CenterPos)
+                    attacker.Direction = target.CenterPos - particleEmitter.CenterPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimation(attacker);
                 FrameCount = attacker.FrameCount();
@@ -2221,33 +2228,71 @@ namespace Frostbyte
 
             if (target != null)
             {
-                particleEmitter.GroundPos = target.GroundPos;
-                particleTopPosition = new Vector2(target.GroundPos.X, target.GroundPos.Y - 400);
+                particleEmitter.GroundPos = target.CenterPos;
+                particleTopPosition = new Vector2(target.CenterPos.X, target.CenterPos.Y - 400);
             }
             else
             {
-                particleEmitter.GroundPos = attacker.GroundPos + 300 * initialDirection;
-                particleTopPosition = new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
+                particleEmitter.GroundPos = attacker.CenterPos + 300 * initialDirection;
+                particleTopPosition = new Vector2(particleEmitter.CenterPos.X, particleEmitter.CenterPos.Y - 400);
             }
 
 
-            #region Generate Lightning Strike and Ground Spread and Deal Damage
+            #region Generate Lightning Strike and Deal Damage
 
             bool isAttackAnimDone = false;
 
-            for (int i = 0; i < 165; i++)
+            if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike", .8f))
             {
-                particleTopPosition = attacker.GroundPos + new Vector2(0, attacker.GetAnimation().Height);//new Vector2(particleEmitter.GroundPos.X, particleEmitter.GroundPos.Y - 400);
-                //Generate Start Position Ball
-                for (int j = 0; j < 2; j++)
-                {
-                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
-                    particleEmitter.createParticles(randDirection * 30, -randDirection * 3, particleTopPosition, 25f, This.Game.rand.Next(100, 1200));
-                }
+                yield return false;
             }
 
-            #endregion Generate Lightning Strike and Ground Spread and Deal Damage
+            for (int i = 0; i < 165; i++)
+            {
+                particleTopPosition = attacker.CenterPos;
+
+                // Lightning Strike
+                if (i % 13 == 0)
+                {
+                    for (int j = 0; j < 200; j++)
+                    {
+                        Vector2 directionToTarget = particleEmitter.GroundPos - particleTopPosition;
+                        directionToTarget.Normalize();
+                        double directionAngle2 = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection2 = new Vector2((float)Math.Cos(directionAngle2), (float)Math.Sin(directionAngle2));
+
+                        particleTopPosition += directionToTarget * 2 + randDirection2 * 3;
+
+                        particleEmitter.createParticles(randDirection2 * 10, -randDirection2 * 20, particleTopPosition, 8f, 600);
+                    }
+                }
+
+                //Deal Damage
+                if (i % 30 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        HashSet<WorldObject> hitObjects = new HashSet<WorldObject>();
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                hitObjects.Add(detectedCollision.Item2);
+                            }
+                        }
+                        foreach (WorldObject obj in hitObjects)
+                        {
+                            Damage(attacker, (obj as OurSprite), baseDamage);
+                        }
+                    }
+                }
+
+                yield return false;
+            }
+
+            #endregion Generate Lightning Strike and Deal Damage
             while (particleEmitter.ActiveParticleCount > 0)
             {
                 yield return false;
@@ -2268,6 +2313,166 @@ namespace Frostbyte
             attacker.particleEmitters.Remove(particleEmitter);
 
             attacker.isAttackAnimDone = true;
+
+            yield return true;
+        }
+
+        /// <summary>
+        /// Performs Magic Tier 1 Attack
+        /// </summary>
+        /// <param name="_target">The target for the projectile to attack</param>
+        /// <param name="_attacker">The sprite initiating the attack</param>
+        /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
+        /// <param name="_attackFrame">The frame that the attack begins on</param>
+        /// <param name="_attackEndTime">The time at which the magic attack should timeout</param>
+        /// <param name="_attackRange">The distance from the target that the projectile must come within to be considered a hit</param>
+        /// <param name="_projectileSpeed">The speed of the projectile</param>
+        /// <returns>Returns true when finished</returns>
+        public static IEnumerable<bool> LightningProjectile(Sprite _target, OurSprite attacker,
+            int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange,
+            float projectileSpeed, bool isHoming, CreateParticles createParticles,
+            ParticleEmitter _particleEmitter, Vector2 spawnOffset, Element elem = Element.Lightning)
+        {
+            #region Variables
+            Level l = This.Game.CurrentLevel;
+            OurSprite target = (OurSprite)_target;
+            Vector2 initialDirection = attacker.Direction;
+            int FrameCount = attacker.FrameCount();
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+            Vector2 direction = new Vector2();
+            Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(new Vector2(), new Vector2());
+            Vector2 closestIntersection = new Vector2();
+            ParticleEmitter particleEmitter = _particleEmitter;
+
+            bool damageDealt = false;
+            bool isLoopOne = true;
+            #endregion Variables
+
+            particleEmitter.GroundPos = attacker.GroundPos + spawnOffset;
+
+            attacker.Rewind();
+
+            attacker.isAttackAnimDone = false;
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 1;
+            }
+
+            #region Shoot Tier 1 at attackFrame
+            while (attacker.Frame < FrameCount)
+            {
+                attacker.isAttackAnimDone = false;
+
+                FrameCount = attacker.FrameCount();
+
+                if (attacker.Frame == attackFrame)
+                {
+                    if (target == null)
+                    {
+                        direction = initialDirection;
+                    }
+                    else
+                    {
+                        direction = attacker.Direction;
+                    }
+                    direction.Normalize();
+                    attackStartTime = This.gameTime.TotalGameTime;
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Tier 1 at attackFrame
+
+            #region Emit Particles until particle hits target or wall or time to live runs out
+
+            bool isAttackAnimDone = false;
+
+            while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
+            {
+
+                if (isHoming && target != null)
+                {
+                    direction = target.GroundPos - particleEmitter.GroundPos;
+                    direction.Normalize();
+                }
+
+                if (Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                damageDealt = true;
+                                break;
+                            }
+                            else if ((detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
+                            {
+                                Player p = (detectedCollision.Item2 as Player);
+                                p.AddStatusEffect(new ElementalBuff(elem));
+                                damageDealt = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (damageDealt)
+                {
+                    break;
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= FrameCount - 1)
+                {
+                    attacker.isAttackAnimDone = true;
+                    isLoopOne = false;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
+
+                //make sure magic cannot go through walls
+                Vector2 previousPosition = particleEmitter.GroundPos;
+                particleEmitter.GroundPos += direction * projectileSpeed;
+                attacker.detectBackgroundCollisions(particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
+                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, particleEmitter.GroundPos))
+                {
+                    break;
+                }
+
+                createParticles(attacker, direction, projectileSpeed, particleEmitter);
+
+                yield return false;
+            }
+            #endregion Emit Particles until particle hits target or wall or time to live runs out
+
+            //if the attack frame has passed then allow the attacker to move
+            while (attacker.Frame < FrameCount - 1 && isLoopOne)
+            {
+                attacker.isAttackAnimDone = false;
+                yield return false;
+            }
+
+            attacker.isAttackAnimDone = true;
+
+            #region Finish attacking after all particles are dead
+            while (particleEmitter.ActiveParticleCount > 0)
+            {
+                yield return false;
+            }
+            #endregion Finish attacking after all particles are dead
+
+            particleEmitter.Remove();
+            l.RemoveSprite(particleEmitter);
+            attacker.particleEmitters.Remove(particleEmitter);
 
             yield return true;
         }
