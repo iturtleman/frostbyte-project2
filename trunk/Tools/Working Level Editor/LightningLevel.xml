@@ -5755,4 +5755,5 @@
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="8736,3680" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6368,5792" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="4768,7328" />
+  <Object Type="Frostbyte.AcquireSpellTrigger" Name="Acquire Spells" Pos="6368,5792" />
 </Level>
