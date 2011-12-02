@@ -63,16 +63,17 @@ namespace Frostbyte
     {
         None = 0,
         EarthOne = 1,
-        EarthTwo,
-        EarthThree,
-        FireOne,
-        FireTwo,
-        FireThree,
-        WaterOne,
-        WaterTwo,
-        WaterThree,
-        LightningOne,
-        LightningTwo,
-        LightningThree
+        EarthTwo = 2,
+        EarthThree = 4,
+        FireOne = 8,
+        FireTwo = 16,
+        FireThree = 32,
+        WaterOne = 64,
+        WaterTwo = 128,
+        WaterThree = 256,
+        LightningOne = 512,
+        LightningTwo = 1024,
+        LightningThree = 2048,
+        All = 4095
     }
 }

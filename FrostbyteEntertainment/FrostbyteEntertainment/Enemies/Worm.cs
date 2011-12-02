@@ -40,7 +40,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public Worm(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 2000)
+            : base(name, new Actor(Animations), 1, 500)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -52,11 +52,10 @@ namespace Frostbyte.Enemies
         
         protected override void Die()
         {
-            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
-            l.HUD.RemoveBossHealthBar(this);
-            l.SpawnExitPortal();
-            Personality = new DiePersonality(this, 19);
-            l.HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\n\n\n\n\n\nHold down the Left trigger and press A (gamepad) S (keyboard) ane then release the trigger to cast an earth spell!!!!");
+            //BossDeath b = new BossDeath("die", new Actor(mActor.Animations[19]));
+            //b.GroundPos = GroundPos;
+            Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne;
+            (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\nHold down the Left trigger and press A (gamepad) S (keyboard) and then release the trigger to cast an earth spell!");
             base.Die();
         }
 

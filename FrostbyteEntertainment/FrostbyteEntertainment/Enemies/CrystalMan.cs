@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Enemies
 {
     internal partial class CrystalMan : Frostbyte.Boss
     {
         internal List<Crystal> Crystals;
+        internal Enemies.Crystal currentCrystal;
 
         float radius = 64 * 7;
         static int numOuterCrystals { get { return 5; } }
-        static int crystalHealth { get { return 500; } }
+        static int crystalHealth { get { return 100; } }
         internal TimeSpan attackWait = TimeSpan.MaxValue;
 
         public CrystalMan(string name, Vector2 initialPosition)
@@ -30,7 +32,8 @@ namespace Frostbyte.Enemies
         {
             FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             l.SpawnExitPortal();
-            l.HUD.ScrollText("You feel all the hairs on your body stand on end.\n\n\n\n\n\n\nHold down the Left trigger and press Y (gamepad) W (keyboard) ane then release the trigger to cast a Lightning spell!!!!");
+            Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne | Spells.LightningOne;
+            l.HUD.ScrollText("You feel all the hairs on your body stand on end.\n\nHold down the Left trigger and press Y (gamepad) W (keyboard) ane then release the trigger to cast a Lightning spell!");
             base.Die();
         }
 
@@ -44,7 +47,7 @@ namespace Frostbyte.Enemies
         {
             Crystals = new List<Crystal>();
 
-            Crystal inner = new Crystal("crystal_center", SpawnPoint, crystalHealth, this);
+            Crystal inner = new Crystal("crystal_center", GroundPos, crystalHealth, this);
             SpriteFrame animation = GetAnimation();
             animation.Height = inner.GetAnimation().Height;
             animation.Width = inner.GetAnimation().Width;
@@ -55,7 +58,7 @@ namespace Frostbyte.Enemies
             {
                 double angle = 2 * Math.PI * x / numOuterCrystals - Math.PI / 2;
                 Vector2 offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * radius;
-                Crystal outer = new Crystal("crystal_" + x, Pos + offset, crystalHealth, this);
+                Crystal outer = new Crystal("crystal_" + x, GroundPos + offset, crystalHealth, this);
                 Crystals.Add(outer);
                 outer.HealthChanged += new HealthChangedHandler(updateHealth);
                 outer.Direction = -offset;
@@ -75,12 +78,49 @@ namespace Frostbyte.Enemies
         {
             if (isAttackAnimDone && attackWait < This.gameTime.TotalGameTime)
             {
-                attackWait = TimeSpan.MaxValue;
-                foreach (Crystal c in Crystals)
+                attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(2, 5));
+                int AttackChoice = This.Game.rand.Next(5);
+                if (AttackChoice <= 0)
                 {
-                    mAttacks.Add(Attacks.LightningRod(c, this, 1, 0).GetEnumerator());
+                    foreach (Crystal c in Crystals)
+                    {
+                        mAttacks.Add(Attacks.LightningRod(c, this, 1, 0).GetEnumerator());
+                    }
                 }
-                //mAttacks.Add(Attacks.LightningRod(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
+                else if (AttackChoice <= 1)
+                {
+                    mAttacks.Add(Attacks.LightningSpan(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
+                }
+                else
+                {
+                    Sprite target = (This.Game.CurrentLevel as FrostbyteLevel).allies.GetRandomElement();
+                    attackStartTime = This.gameTime.TotalGameTime;
+
+                    Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+                    ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
+                    particleEmitterLightning.effectTechnique = "NoSpecialEffect";
+                    particleEmitterLightning.blendState = BlendState.Additive;
+                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = 10;
+                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleEmitterLightning);
+                    mAttacks.Add(Attacks.LightningProjectile(target, currentCrystal, 5, 0, new TimeSpan(0, 0, 0, 5),
+                        int.MaxValue, 2.5f, true,
+                        delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                        {
+                            Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                            for (int i = -5; i < 6; i++)
+                            {
+                                particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                    tangent * -i * 40,
+                                    particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - direction * (Math.Abs(i) * 7),
+                                    4,
+                                    300);
+                            }
+                        },
+                        particleEmitterLightning,
+                        Vector2.Zero).GetEnumerator());
+                }
             }
         }
     }
@@ -119,8 +159,8 @@ namespace Frostbyte.Enemies
             : base(name, new Actor(Animations), 1, health)
         {
             this.master = master;
-            SpawnPoint = CenteredOn(initialPosition);
-            Pos = SpawnPoint;
+            SpawnPoint = initialPosition;
+            GroundPos = SpawnPoint;
             Scale = 1.25f;
 
             HealthChanged += new HealthChangedHandler(delegate(object o, int value)

@@ -92,7 +92,7 @@ namespace Frostbyte
                     continue;
                 }
 
-                Vector2 center = target.Pos + target.Center;
+                Vector2 center = target.GroundPos;
                 if (rect.Left < center.X && rect.Right > center.X &&
                     rect.Top < center.Y && rect.Bottom > center.Y)
                 {

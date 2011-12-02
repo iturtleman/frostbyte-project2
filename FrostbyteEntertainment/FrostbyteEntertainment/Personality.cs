@@ -334,43 +334,6 @@ namespace Frostbyte
     }
 
     #region Bosses
-    internal class DiePersonality : IPersonality
-    {
-        public EnemyStatus Status { get; set; }
-
-        private Boss master;
-        private int deathAnimation;
-        private IEnumerator mStates;
-
-        internal DiePersonality(Boss master, int DeathAnimation)
-        {
-            this.master = master;
-            deathAnimation = DeathAnimation;
-            mStates = States().GetEnumerator();
-        }
-
-        public void Update()
-        {
-            mStates.MoveNext();
-        }
-
-        public IEnumerable States()
-        {
-            master.Rewind();
-            while (master.Frame != master.FrameCount() - 1)
-            {
-                master.SetAnimation(deathAnimation);
-                yield return null;
-            }
-            master.StopAnim();
-            while (true)
-            {
-                yield return null;
-            }
-        }
-    }
-
-
     internal class UndergroundAttackPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -472,7 +435,6 @@ namespace Frostbyte
     {
         public EnemyStatus Status { get; set; }
         private Enemies.CrystalMan master;
-        private Enemies.Crystal currentCrystal;
         private IEnumerator mStates;
         private static Random rng = new Random();
 
@@ -491,34 +453,34 @@ namespace Frostbyte
 
         public IEnumerable TeleportIn()
         {
-            currentCrystal.SetAnimation(5);
-            currentCrystal.Rewind();
-            while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
+            master.currentCrystal.SetAnimation(5);
+            master.currentCrystal.Rewind();
+            while (master.currentCrystal.Frame != master.currentCrystal.FrameCount() - 1)
             {
-                currentCrystal.SetAnimation(5);
+                master.currentCrystal.SetAnimation(5);
                 yield return null;
             }
-            currentCrystal.Rewind();
-            currentCrystal.SetAnimation(0);
+            master.currentCrystal.Rewind();
+            master.currentCrystal.SetAnimation(0);
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
             }
-            master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, rng.Next(5));
+            master.attackWait = This.gameTime.TotalGameTime;
         }
 
         public IEnumerable TeleportOut()
         {
             master.attackWait = TimeSpan.MaxValue;
-            currentCrystal.Rewind();
-            currentCrystal.SetAnimation(6);
-            while (currentCrystal.Frame != currentCrystal.FrameCount() - 1)
+            master.currentCrystal.Rewind();
+            master.currentCrystal.SetAnimation(6);
+            while (master.currentCrystal.Frame != master.currentCrystal.FrameCount() - 1)
             {
-                currentCrystal.SetAnimation(6);
+                master.currentCrystal.SetAnimation(6);
                 yield return null;
             }
-            currentCrystal.Rewind();
-            currentCrystal.SetAnimation(EMPTY_CRYSTAL);
+            master.currentCrystal.Rewind();
+            master.currentCrystal.SetAnimation(EMPTY_CRYSTAL);
             while (!master.freeze(new TimeSpan(0, 0, 1)))
             {
                 yield return null;
@@ -534,14 +496,14 @@ namespace Frostbyte
             {
                 yield return null;
             }
-            currentCrystal = master.Crystals[0];
+            master.currentCrystal = master.Crystals[0];
 
             int initialWaitDistance = 300;
             while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
             {
                 foreach (Enemies.Crystal crystal in master.Crystals)
                 {
-                    currentCrystal.Rewind();
+                    master.currentCrystal.Rewind();
                     crystal.SetAnimation(EMPTY_CRYSTAL);
                 }
                 yield return null;
@@ -554,7 +516,7 @@ namespace Frostbyte
             {
                 foreach (Object o in TeleportIn())
                 {
-                    if (currentCrystal.State == SpriteState.Dead)
+                    if (master.currentCrystal.State == SpriteState.Dead)
                     {
                         break;
                     }
@@ -563,7 +525,7 @@ namespace Frostbyte
 
                 while (!master.freeze(new TimeSpan(0, 0, 5)))
                 {
-                    if (currentCrystal.State == SpriteState.Dead)
+                    if (master.currentCrystal.State == SpriteState.Dead)
                     {
                         break;
                     }
@@ -572,16 +534,16 @@ namespace Frostbyte
 
                 foreach (Object o in TeleportOut())
                 {
-                    if (currentCrystal.State == SpriteState.Dead)
+                    if (master.currentCrystal.State == SpriteState.Dead)
                     {
                         break;
                     }
                     yield return null;
                 }
 
-                if (currentCrystal.State == SpriteState.Dead)
+                if (master.currentCrystal.State == SpriteState.Dead)
                 {
-                    master.Crystals.Remove(currentCrystal);
+                    master.Crystals.Remove(master.currentCrystal);
                 }
 
                 if (master.Crystals.Count == 0)
@@ -589,7 +551,7 @@ namespace Frostbyte
                     break;
                 }
 
-                currentCrystal = master.Crystals.GetRandomElement();//[rng.Next(master.Crystals.Count)];
+                master.currentCrystal = master.Crystals.GetRandomElement();
 
                 yield return null;
             }

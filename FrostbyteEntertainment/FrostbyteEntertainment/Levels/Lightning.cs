@@ -20,10 +20,11 @@ namespace Frostbyte.Levels
             l.HUD.LoadCommon();
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
+            l.ExitPortalSpawnPoint = new Vector2(4576, 3184);
 
             Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
-            mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
-            //mage.SpawnPoint = new Vector2(4576, 3184);
+            //mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
+            mage.SpawnPoint = new Vector2(4576, 3184);
             mage.Speed = 1;
             mage.Scale = 0.7f;
             l.HUD.AddPlayer(mage);

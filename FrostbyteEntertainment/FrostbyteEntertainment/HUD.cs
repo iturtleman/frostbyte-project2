@@ -367,8 +367,8 @@ namespace Frostbyte
                     toDisplay.Content = pendingText.Dequeue();
                     Vector2 displayPos = new Vector2();
 
-                    // X values
-                    switch(Anchor){
+                    #region X values
+                    switch (Anchor){
                         case Orientations.Right:
                             displayPos.X = Pos.X - toDisplay.GetAnimation().Width;
                             break;
@@ -386,8 +386,9 @@ namespace Frostbyte
                             displayPos.X = Pos.X;
                             break;
                     }
+                    #endregion
 
-                    // Y values
+                    #region Y values
                     switch (Anchor)
                     {
                         case Orientations.Down:
@@ -407,6 +408,7 @@ namespace Frostbyte
                             displayPos.Y = Pos.Y;
                             break;
                     }
+                    #endregion
                     toDisplay.Pos = displayPos;
                     toDisplay.Visible = true;
 
