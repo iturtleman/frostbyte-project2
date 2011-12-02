@@ -39,7 +39,7 @@ namespace Frostbyte
                 );
     }
 
-    internal class ParticleEmitter : Sprite
+    internal class ParticleEmitter : OurSprite
     {
         //Collision data
         internal List<CollisionObject> collisionObjects = new List<CollisionObject>();
