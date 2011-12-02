@@ -28,7 +28,9 @@ namespace Frostbyte.Enemies
 
         protected override void Die()
         {
-            (This.Game.CurrentLevel as FrostbyteLevel).SpawnExitPortal();
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
+            l.SpawnExitPortal();
+            l.HUD.ScrollText("You feel all the hairs on your body stand on end.\n\n\n\n\n\n\nHold down the Left trigger and press Y (gamepad) W (keyboard) ane then release the trigger to cast a Lightning spell!!!!");
             base.Die();
         }
 
