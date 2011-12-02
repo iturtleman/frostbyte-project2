@@ -1087,7 +1087,7 @@ namespace Frostbyte
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
 
             Effect particleEffect = l.GetEffect("ParticleSystem");
-            Texture2D fire = l.GetTexture("fire");
+            Texture2D fire = l.GetTexture("fireParticle");
             ParticleEmitter particleEmitterFire = new ParticleEmitter(4000, particleEffect, l.GetTexture("fire darker"));
             particleEmitterFire.effectTechnique = "FadeAtXPercent";
             particleEmitterFire.fadeStartPercent = .75f;
@@ -1372,7 +1372,7 @@ namespace Frostbyte
             List<CollisionObject> collisions = target.GetCollision();
 
             Effect particleEffect = l.GetEffect("ParticleSystem");
-            Texture2D fire = l.GetTexture("fire");
+            Texture2D fire = l.GetTexture("fireParticle");
             ParticleEmitter particleEmitterFire = new ParticleEmitter(3000, particleEffect, fire);
             particleEmitterFire.effectTechnique = "NoSpecialEffect";
             particleEmitterFire.blendState = BlendState.Additive;
