@@ -631,6 +631,9 @@ namespace Frostbyte.Characters
 
             if (controller.IsConnected)
             {
+                if (controller.CancelSpell == ReleasableButtonState.Clicked)
+                    attackCounter.Clear();
+
                 //necessary for collision
                 if (this.CollidesWithBackground)
                     previousFootPos = this.GroundPos;
