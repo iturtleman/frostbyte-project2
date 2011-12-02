@@ -541,6 +541,7 @@ namespace Frostbyte
 
                 //make sure magic cannot go through walls
                 Vector2 previousPosition = particleEmitter.GroundPos;
+                particleEmitter.previousFootPos = particleEmitter.GroundPos;
                 particleEmitter.GroundPos += direction * projectileSpeed;
                 particleEmitter.detectBackgroundCollisions(particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
                 if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, particleEmitter.GroundPos))
@@ -550,6 +551,7 @@ namespace Frostbyte
                     if ((tile.Type == TileTypes.Wall && direction.Y < 0) || (tile.Type != TileTypes.Wall && tile.Type != TileTypes.ConvexCorner)
                         || (tile.Type == TileTypes.ConvexCorner && direction.Y < 0 && closestObject.Item1.Y == closestObject.Item2.Y))
                     {
+                        particleEmitter.GroundPos = particleEmitter.GroundPos;
                         break;
                     }
                 }
