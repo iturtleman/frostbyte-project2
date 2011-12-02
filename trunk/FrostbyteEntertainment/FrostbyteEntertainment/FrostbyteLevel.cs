@@ -122,9 +122,9 @@ namespace Frostbyte
             "Intro",
             "WorldMap",
             "Earth",
-            "WorldMap",*/
-            "Lightning",
             "WorldMap",
+            "Lightning",
+            "WorldMap",//*/
             "Water",
             "WorldMap",
             "Fire",
@@ -311,22 +311,22 @@ namespace Frostbyte
                 {
                     if (topLeftCorner.X < viewport.X + BORDER_WIDTH / zoom)
                     {
-                        cameraPos.X += topLeftCorner.X - (viewport.X + BORDER_WIDTH) / zoom;
+                        cameraPos.X += (int)(topLeftCorner.X - (viewport.X + BORDER_WIDTH) / zoom);
                     }
                     else if (bottomRightCorner.X > viewport.X + (viewport.Width - BORDER_WIDTH) / zoom)
                     {
-                        cameraPos.X += bottomRightCorner.X - (viewport.X + (viewport.Width - BORDER_WIDTH) / zoom);
+                        cameraPos.X += (int)(bottomRightCorner.X - (viewport.X + (viewport.Width - BORDER_WIDTH) / zoom));
                     }
                 }
                 if (scaleY >= MIN_ZOOM)
                 {
                     if (topLeftCorner.Y < viewport.Y + BORDER_HEIGHT / zoom)
                     {
-                        cameraPos.Y += topLeftCorner.Y - (viewport.Y + BORDER_HEIGHT) / zoom;
+                        cameraPos.Y += (int)(topLeftCorner.Y - (viewport.Y + BORDER_HEIGHT) / zoom);
                     }
                     else if (bottomRightCorner.Y > viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom)
                     {
-                        cameraPos.Y += bottomRightCorner.Y - (viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom);
+                        cameraPos.Y +=(int)( bottomRightCorner.Y - (viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom));
                     }
                 }
                 #endregion

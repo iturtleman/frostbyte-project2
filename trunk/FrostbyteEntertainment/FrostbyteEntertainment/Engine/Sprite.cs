@@ -222,7 +222,7 @@ namespace Frostbyte
         {
             //Frame so we don't have to find it so often
             SpriteFrame frame = GetAnimation();
-            if (mAnimating == true)
+            if (mAnimating == true && !This.Game.CurrentLevel.Paused)
             {
                 //used to update the animation. Occurs once the frame's pause * sprite's speed occurs.
                 if (Speed>0 && mLastUpdate.TotalGameTime.TotalMilliseconds + frame.Pause * Speed < gameTime.TotalGameTime.TotalMilliseconds)
