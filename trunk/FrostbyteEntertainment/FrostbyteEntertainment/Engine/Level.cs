@@ -235,7 +235,7 @@ namespace Frostbyte
                     Game g = This.Game;
                     if (g.mLastPadState.Buttons.Start == ButtonState.Pressed && padState.Buttons.Start == ButtonState.Released || g.mLastKeyState.IsKeyDown(Keys.Enter) && keyState.IsKeyUp(Keys.Enter))
                     {
-                        Paused = !Paused;
+                        Paused = false;
                         PauseSprite.Visible = false;
                     }
                 }
