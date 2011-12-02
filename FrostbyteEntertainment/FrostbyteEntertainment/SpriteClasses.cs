@@ -215,8 +215,8 @@ namespace Frostbyte
             Tuple<int, int> bottomRightMostTile = new Tuple<int, int>((int)Math.Floor((Math.Max(previousPosition.X, currentPosition.X) + collisionRadius) / This.CellSize), //bottom right most tile that could possible hit sprite
                                                                     (int)Math.Floor((Math.Max(previousPosition.Y, currentPosition.Y) + collisionRadius) / This.CellSize));
 
-            for (int x = topLeftMostTile.Item1; x <= bottomRightMostTile.Item1; x++)
-                for (int y = topLeftMostTile.Item2; y <= bottomRightMostTile.Item2; y++)
+            for (int x = topLeftMostTile.Item1 - 1; x <= bottomRightMostTile.Item1 + 1; x++)
+                for (int y = topLeftMostTile.Item2 - 1; y <= bottomRightMostTile.Item2 + 1; y++)
                 {
                     Tile tile;
                     tileMap.TryGetValue(x, y, out tile);
@@ -285,6 +285,15 @@ namespace Frostbyte
                             {
                                 boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - collisionRadius, tileStartPosY + This.CellSize / 2), //add left side of tile
                                                                                      new Vector2(tileStartPosX - collisionRadius, tileStartPosY)));
+
+                                //boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2((tileStartPosX - collisionRadius) + 1, (tileStartPosY + This.CellSize / 2)), //add left side of tile
+                                //                                                     new Vector2((tileStartPosX - collisionRadius) + 1, tileStartPosY + 2)));
+
+                                //boundaryLineSegments.Add(new Tuple<Vector2, Vector2>(new Vector2((tileStartPosX - collisionRadius) + 2, tileStartPosY + This.CellSize / 2), //add left side of tile
+                                //                                                     new Vector2((tileStartPosX - collisionRadius) + 2, tileStartPosY + 4)));
+
+                                //boundaryCircles.Add(new Tuple<Vector2, Vector2>(new Vector2(tileStartPosX - 15, tileStartPosY + This.CellSize / 2 - 15 ), new Vector2(float.PositiveInfinity, float.PositiveInfinity))); //add bottom left point of tile
+
                             }
                             else //left bottom concave corner |_
                             {
