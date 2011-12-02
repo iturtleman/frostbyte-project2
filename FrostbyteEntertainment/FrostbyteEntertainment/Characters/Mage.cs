@@ -766,6 +766,12 @@ namespace Frostbyte.Characters
                 {
                     interact();
                 }
+
+                if (controller.Start == ReleasableButtonState.Clicked)
+                {
+                    l.Paused = !l.Paused;
+                    l.PauseSprite.Visible = true;
+                }
             }
         }
         #endregion

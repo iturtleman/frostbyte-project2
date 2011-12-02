@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework.Input;
 
 
 namespace Frostbyte
@@ -96,6 +97,11 @@ namespace Frostbyte
         /// Tells whether the current level is loaded or not
         /// </summary>
         internal bool Loaded { get; set; }
+
+        /// <summary>
+        /// Whether or not the game is paused
+        /// </summary>
+        public bool Paused { get; set; }
         #endregion Properties
 
         #region Variables
@@ -148,8 +154,14 @@ namespace Frostbyte
         /// List of particle emitters for level.
         /// </summary>
         //protected List<ParticleEmitter> mParticleEmitters = new List<ParticleEmitter>();
+
+        /// <summary>
+        /// The pause screen
+        /// </summary>
+        internal Sprite PauseSprite;
         #endregion Variables
 
+        #region Methods
 
         internal virtual void Load(Level context)
         {
@@ -159,48 +171,67 @@ namespace Frostbyte
             mActors.Clear();
             mAnims.Clear();
             LoadBehavior(context);
+            PauseSprite = new Sprite("Pause", new Actor(GetAnimation("Pause.anim")));
+            PauseSprite.ZOrder = int.MaxValue;
+            PauseSprite.Static = true;
+            PauseSprite.Visible = false;
             Loaded = true;
         }
 
         internal virtual void Update()
         {
+
             mWorldObjects.Sort();
             if (Loaded)
             {
-                UpdateBehavior();
-                if (WinCondition())
+                if (!Paused)
                 {
-                    Unload();
-                }
-                foreach (WorldObject sp in mWorldObjects)
-                {
-                    if (!WinCondition())
-                        sp.Update();
-                    else
+                    UpdateBehavior();
+                    if (WinCondition())
                     {
                         Unload();
-                        return;
                     }
-                }
-                foreach (var item in ToRemove)
-                {
-                    // Try to remove from mWorldObjects,
-                    // if failed see if it's currently pending add
-                    if (!mWorldObjects.Remove(item))
+                    foreach (WorldObject sp in mWorldObjects)
                     {
-                        ToAdd.Remove(item);
+                        if (!WinCondition())
+                            sp.Update();
+                        else
+                        {
+                            Unload();
+                            return;
+                        }
+                    }
+                    foreach (var item in ToRemove)
+                    {
+                        // Try to remove from mWorldObjects,
+                        // if failed see if it's currently pending add
+                        if (!mWorldObjects.Remove(item))
+                        {
+                            ToAdd.Remove(item);
+                        }
+                    }
+                    ToRemove.Clear();
+                    foreach (var item in ToAdd)
+                    {
+                        mWorldObjects.Add(item);
+                    }
+                    ToAdd.Clear();
+                    Collision.Update();
+                    foreach (WorldObject sp in mWorldObjects)
+                    {
+                        sp.DoCollisions();
                     }
                 }
-                ToRemove.Clear();
-                foreach (var item in ToAdd)
+                else
                 {
-                    mWorldObjects.Add(item);
-                }
-                ToAdd.Clear();
-                Collision.Update();
-                foreach (WorldObject sp in mWorldObjects)
-                {
-                    sp.DoCollisions();
+                    KeyboardState keyState = Keyboard.GetState();
+                    GamePadState padState = GamePad.GetState(PlayerIndex.One);
+                    Game g = This.Game;
+                    if (g.mLastPadState.Buttons.Start == ButtonState.Pressed && padState.Buttons.Start == ButtonState.Released || g.mLastKeyState.IsKeyDown(Keys.Enter) && keyState.IsKeyUp(Keys.Enter))
+                    {
+                        Paused = !Paused;
+                        PauseSprite.Visible = false;
+                    }
                 }
             }
             else
@@ -227,7 +258,6 @@ namespace Frostbyte
             EndBehavior();
         }
 
-        #region Methods
 
         #region Draw
         internal virtual void Draw(Microsoft.Xna.Framework.GameTime gameTime, bool drawLater = false)
@@ -253,9 +283,9 @@ namespace Frostbyte
                     staticSprites.Add(sprite);
                 }
             }
+            #endregion
 
             This.Game.spriteBatch.End();
-            #endregion
 
             #region Draw Static Sprites
             if (!drawLater)
@@ -274,6 +304,12 @@ namespace Frostbyte
 
             /** Draw Boundary Data */
             Collision.Draw(Camera.GetTransformation(This.Game.GraphicsDevice));
+
+            if (Paused)
+            {
+                //draw pause screen
+
+            }
         }
 
         #endregion Drawing
@@ -343,8 +379,8 @@ namespace Frostbyte
             {
                 //try
                 //{
-                    AddAnimation(new Animation(name));
-                    return GetAnimation(name);
+                AddAnimation(new Animation(name));
+                return GetAnimation(name);
                 //}
                 //catch
                 //{
