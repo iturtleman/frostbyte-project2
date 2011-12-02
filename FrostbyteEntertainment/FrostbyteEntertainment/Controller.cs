@@ -105,6 +105,7 @@ namespace Frostbyte
         Object GetRawState();
 
         ReleasableButtonState NextLevel { get; }
+        ReleasableButtonState CancelSpell { get; }
     }
 
     class GamePadController : IController
@@ -352,6 +353,25 @@ namespace Frostbyte
         {
             get
             {
+                if (CurrentButtons.LeftStick == ButtonState.Pressed)
+                {
+                    return ReleasableButtonState.Pressed;
+                }
+                else if (LastButtons.LeftStick == ButtonState.Pressed && CurrentButtons.LeftStick == ButtonState.Released)
+                {
+                    return ReleasableButtonState.Clicked;
+                }
+                else
+                {
+                    return ReleasableButtonState.Released;
+                }
+            }
+        }
+
+        public ReleasableButtonState CancelSpell
+        {
+            get
+            {
                 if (CurrentButtons.RightStick == ButtonState.Pressed)
                 {
                     return ReleasableButtonState.Pressed;
@@ -535,6 +555,14 @@ namespace Frostbyte
             get
             {
                 return GetKeypress(Keys.F12);
+            }
+        }
+
+        public ReleasableButtonState CancelSpell
+        {
+            get
+            {
+                return GetKeypress(Keys.X);
             }
         }
 
