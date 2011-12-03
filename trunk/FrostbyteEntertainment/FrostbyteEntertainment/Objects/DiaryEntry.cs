@@ -17,6 +17,7 @@ namespace Frostbyte.Obstacles
             : this(name)
         {
             SpawnPoint = initialPosition;
+            this.ZOrder = -1;
         }
     }
 }
