@@ -131,7 +131,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            /*"TitleScreen",
+            "TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
@@ -141,7 +141,7 @@ namespace Frostbyte
             "Water",
             "WorldMap",
             "Fire",
-            "WorldMap",*/
+            "WorldMap",
             "Final",
             "WorldMap",
             "Credits"
@@ -154,6 +154,7 @@ namespace Frostbyte
 
         internal Vector2? ExitPortalSpawnPoint = null;
         internal bool LevelCompleted = false;
+        internal bool isPauseEnabled = false;
         #endregion
 
         #region Properties

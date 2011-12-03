@@ -39,6 +39,8 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/WaterBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBG", 0.1f);
 
+            l.isPauseEnabled = true;
+
             l.HUD.FadeText("Water Temple");
 
             #region loadeffects etc

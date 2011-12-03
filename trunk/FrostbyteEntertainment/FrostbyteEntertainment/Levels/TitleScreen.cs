@@ -35,6 +35,15 @@ namespace Frostbyte.Levels
             context.GetTexture("regen");
             RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width);
             t.SpawnPoint = new Vector2(v.Width / 2, v.Height);
+
+            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
+            mage.Visible = false;
+            mage.SpawnPoint = new Vector2(v.Width / 2, v.Height);
+            mage.Speed = 0;
+            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
+            mage2.Visible = false;
+            mage2.Speed = 0;
+            mage2.SpawnPoint = new Vector2(v.Width / 2, v.Height);
         }
 
         internal static void Update()
@@ -46,7 +55,13 @@ namespace Frostbyte.Levels
                 
             }
 
-            if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
+            bool PlayerPressedStart = false;
+            foreach (Sprite sp in (This.Game.CurrentLevel as FrostbyteLevel).allies)
+                if ((sp as Frostbyte.Characters.Mage).controller.Start == ReleasableButtonState.Clicked)
+                    PlayerPressedStart = true;
+
+            if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked
+                || PlayerPressedStart)
             {
                 (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;
             }
