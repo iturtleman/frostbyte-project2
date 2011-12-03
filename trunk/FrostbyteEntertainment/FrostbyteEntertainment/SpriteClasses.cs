@@ -644,6 +644,16 @@ namespace Frostbyte
         internal virtual void Regen()
         {
             Health = MaxHealth;
+
+            foreach (Frostbyte.Characters.Mage mage in (This.Game.CurrentLevel as FrostbyteLevel).allies)
+            {
+                if (mage.State == SpriteState.Dead)
+                {
+                    mage.State = SpriteState.Idle;
+                    mage.GroundPos = this.GroundPos;
+                    mage.Health = 1;
+                }
+            }
         }
 
         /// <summary>

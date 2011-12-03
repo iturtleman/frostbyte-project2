@@ -327,7 +327,7 @@ namespace Frostbyte
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
             while (true)
             {
-                master.charge(targets, 500, 2.94f);
+                master.charge(targets, 500, 3.3f);
                 yield return null;
             }
         }
