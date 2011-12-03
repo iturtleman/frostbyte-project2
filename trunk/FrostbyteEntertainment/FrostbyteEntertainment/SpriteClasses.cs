@@ -111,7 +111,7 @@ namespace Frostbyte
         /// </summary>
         internal void checkBackgroundCollisions()
         {
-            if (Vector2.DistanceSquared(previousFootPos, GroundPos) <= 1f)
+            if (Vector2.DistanceSquared(previousFootPos, GroundPos) <= .2f)
             {
                 GroundPos = previousFootPos;
                 return;
@@ -124,7 +124,7 @@ namespace Frostbyte
             Vector2 originalFootPos = previousFootPos;
             bool isMoved = false;
 
-            while (Vector2.DistanceSquared(footPos,previousFootPos) > 1f)
+            while (Vector2.DistanceSquared(footPos,previousFootPos) > .2f)
             {
                 detectBackgroundCollisions(footPos, previousFootPos, out closestObject, out closestIntersection);
 
@@ -147,8 +147,6 @@ namespace Frostbyte
                         normal.Normalize();
                         previousFootPos = closestIntersection + 0.2f * normal;
                         footPos = newFootPos + 0.2f * normal;
-
-                        isMoved = true;
                     }
                     else
                     {
@@ -175,7 +173,6 @@ namespace Frostbyte
                         normal.Normalize();
                         previousFootPos = closestIntersection + .2f * normal;
                         footPos = newFootPos + .2f * normal;
-                        isMoved = true;
                     }
                     else
                     {
@@ -186,7 +183,7 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1f)
+            if (Vector2.DistanceSquared(footPos, originalFootPos) >= .2f)
             {
                 bool doNotMove = false;
 
@@ -223,7 +220,7 @@ namespace Frostbyte
                 else
                     GroundPos = footPos;
             }
-            else if (isMoved)
+            else
             {
                 this.GroundPos = originalFootPos;
             }
