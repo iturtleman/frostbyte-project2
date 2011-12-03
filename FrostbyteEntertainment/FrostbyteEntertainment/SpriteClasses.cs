@@ -122,7 +122,6 @@ namespace Frostbyte
             Vector2 closestIntersection = positiveInfinity;
             Vector2 footPos = this.GroundPos;
             Vector2 originalFootPos = previousFootPos;
-            bool isMoved = false;
 
             while (Vector2.DistanceSquared(footPos,previousFootPos) > .2f)
             {
