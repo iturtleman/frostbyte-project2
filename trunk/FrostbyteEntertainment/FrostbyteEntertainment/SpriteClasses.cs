@@ -186,17 +186,112 @@ namespace Frostbyte
 
 
             //This takes care of the sprite moving too slow and updates position
-            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 2.7f)
-                this.GroundPos = footPos;
+            if (isMoved && Vector2.DistanceSquared(footPos, originalFootPos) >= 1f)
+            {
+                bool doNotMove = false;
+
+                float collisionRadius = this.GroundPosRadius;
+                Tuple<int, int> topLeftMostTile = new Tuple<int, int>((int)Math.Floor(((footPos.X - collisionRadius) / This.CellSize)),   //top left most tile that could possible hit sprite
+                                                                (int)Math.Floor(((footPos.Y - collisionRadius)) / This.CellSize));
+                Tuple<int, int> bottomRightMostTile = new Tuple<int, int>((int)Math.Floor((footPos.X + collisionRadius) / This.CellSize), //bottom right most tile that could possible hit sprite
+                                                                        (int)Math.Floor((footPos.Y + collisionRadius) / This.CellSize));
+                TileList tileMap = (This.Game.CurrentLevel as FrostbyteLevel).TileMap;
+                for (int x = topLeftMostTile.Item1; x <= bottomRightMostTile.Item1; x++)
+                    for (int y = topLeftMostTile.Item2; y <= bottomRightMostTile.Item2; y++)
+                    {
+                        Tile tile;
+                        tileMap.TryGetValue(x, y, out tile);
+
+                        if (tile.Type == TileTypes.Floor || tile.Type == TileTypes.ConvexCorner || tile.Type == TileTypes.BottomConvexCorner)
+                            continue;
+
+                        if (tileCircleCollision(new Vector2(x * 64, y * 64), footPos, collisionRadius))
+                        {
+                            bool isAboveHalfWay = (footPos.Y + collisionRadius - y * 64) > 32;
+                            if (tile.Type == TileTypes.Bottom && !isAboveHalfWay)
+                            {
+                                continue;
+                            }
+                        }
+
+                        doNotMove = true;
+                    }
+                
+
+                if (doNotMove)
+                    GroundPos = originalFootPos;
+                else
+                    GroundPos = footPos;
+            }
             else if (isMoved)
             {
                 this.GroundPos = originalFootPos;
             }
         }
 
+        bool tileCircleCollision(Vector2 tileTopLeftPos, Vector2 circlePos, float circleRadius)
+        {
+            Vector2 centerPoint = circlePos;
+            Vector2 topLeftPoint = tileTopLeftPos;
+            Vector2 bottomRightPoint = new Vector2(tileTopLeftPos.X + 64, tileTopLeftPos.Y + 64);
+
+            int regionCode = 0;
+
+            if (centerPoint.X < topLeftPoint.X)
+                regionCode += 1; // 0001
+            if (centerPoint.X > bottomRightPoint.X)
+                regionCode += 2; // 0010
+            if (centerPoint.Y < topLeftPoint.Y)
+                regionCode += 4; // 0100
+            if (centerPoint.Y > bottomRightPoint.Y)
+                regionCode += 8;
+
+            float radius = circleRadius;
+            switch (regionCode)
+            {
+                case 0: //0000
+                    return true;
+                case 1: //0001
+                    if (Math.Abs(topLeftPoint.X - centerPoint.X) <= radius)
+                        return true;
+                    break;
+                case 2: //0010
+                    if (Math.Abs(centerPoint.X - bottomRightPoint.X) <= radius)
+                        return true;
+                    break;
+                case 4: //0100
+                    if (Math.Abs(centerPoint.Y - topLeftPoint.Y) <= radius)
+                        return true;
+                    break;
+                case 8: //1000
+                    if (Math.Abs(bottomRightPoint.Y - centerPoint.Y) <= radius)
+                        return true;
+                    break;
+                case 5: //0101
+                    if (Collision.DistanceSquared(centerPoint, topLeftPoint) <= radius * radius)
+                        return true;
+                    break;
+                case 9: //1001
+                    if (Collision.DistanceSquared(centerPoint, new Vector2(topLeftPoint.X, bottomRightPoint.Y)) <= radius * radius)
+                        return true;
+                    break;
+                case 6: //0110
+                    if (Collision.DistanceSquared(centerPoint, new Vector2(bottomRightPoint.X, topLeftPoint.Y)) <= radius * radius)
+                        return true;
+                    break;
+                case 10: //1010
+                    if (Collision.DistanceSquared(centerPoint, bottomRightPoint) <= radius * radius)
+                        return true;
+                    break;
+            }
+
+
+            return false;
+        }
+
         internal void detectBackgroundCollisions(Vector2 currentPosition, Vector2 previousPosition, out Tuple<Vector2, Vector2> closestObjectOut, out Vector2 closestIntersectionOut)
         {
-            float collisionRadius = this.GroundPosRadius;    //change this later to correct value***************************************************************************************
+            float collisionRadius = this.GroundPosRadius;
             List<Tuple<Vector2, Vector2>> boundaryLineSegments = new List<Tuple<Vector2, Vector2>>();   //line segments to check collision with sprite
             List<Tuple<Vector2, Vector2>> boundaryCircles = new List<Tuple<Vector2, Vector2>>();        //circles to check collision with sprite
 
