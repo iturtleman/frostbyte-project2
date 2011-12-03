@@ -251,6 +251,8 @@ namespace Frostbyte
             This.Game.Content.Unload();
             This.Game.AudioManager.Pause();
             This.Game.AudioManager.Clear();
+            (This.Game.CurrentLevel as FrostbyteLevel).allies.Clear();
+            (This.Game.CurrentLevel as FrostbyteLevel).enemies.Clear();
             mWorldObjects.Clear();
             mTextures.Clear();
             mDocs.Clear();

@@ -16,6 +16,7 @@ namespace Frostbyte.Levels
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
         private static int visited = 0;
+        private static List<IController> gamePads = new List<IController>();
 
         private static List<Vector2> LevelPositions = null;
 
@@ -56,14 +57,14 @@ namespace Frostbyte.Levels
             }
             visited++;
 
-            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
-            mage.Visible = false;
-            mage.Speed = 0;
-            mage.SpawnPoint = new Vector2(500,375);
-            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
-            mage2.Visible = false;
-            mage2.Speed = 0;
-            mage2.SpawnPoint = new Vector2(500, 375);
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+            {
+                gamePads.Add(new GamePadController(PlayerIndex.One));
+            }
+            if (GamePad.GetState(PlayerIndex.Two).IsConnected)
+            {
+                gamePads.Add(new GamePadController(PlayerIndex.Two));
+            }
         }
 
         internal static void Update()
@@ -75,9 +76,12 @@ namespace Frostbyte.Levels
             }
 
             bool PlayerPressedStart = false;
-            foreach (Sprite sp in (This.Game.CurrentLevel as FrostbyteLevel).allies)
-                if ((sp as Frostbyte.Characters.Mage).controller.Start == ReleasableButtonState.Clicked)
+            foreach (IController controller in gamePads)
+            {
+                controller.Update();
+                if (controller.Start == ReleasableButtonState.Clicked)
                     PlayerPressedStart = true;
+            }
 
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked ||
                 PlayerPressedStart)
