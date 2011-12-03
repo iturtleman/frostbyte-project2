@@ -39,6 +39,8 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.1f);
 
+            l.isPauseEnabled = true;
+
             l.HUD.FadeText("The Jungle");
 
             #region loadeffects etc

@@ -55,6 +55,15 @@ namespace Frostbyte.Levels
                 c.SpawnPoint = LevelPositions[visited];
             }
             visited++;
+
+            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
+            mage.Visible = false;
+            mage.Speed = 0;
+            mage.SpawnPoint = new Vector2(500,375);
+            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
+            mage2.Visible = false;
+            mage2.Speed = 0;
+            mage2.SpawnPoint = new Vector2(500, 375);
         }
 
         internal static void Update()
@@ -65,7 +74,13 @@ namespace Frostbyte.Levels
                 LevelInitTime = gameTime.TotalGameTime;
             }
 
-            if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked)
+            bool PlayerPressedStart = false;
+            foreach (Sprite sp in (This.Game.CurrentLevel as FrostbyteLevel).allies)
+                if ((sp as Frostbyte.Characters.Mage).controller.Start == ReleasableButtonState.Clicked)
+                    PlayerPressedStart = true;
+
+            if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked ||
+                PlayerPressedStart)
             {
                 // Go to next
                 (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;

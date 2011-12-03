@@ -38,6 +38,8 @@ namespace Frostbyte.Levels
 
             This.Game.AudioManager.PlayBackgroundMusic("Music/LightningBG", 0.3f);
 
+            l.isPauseEnabled = true;
+
             l.HUD.FadeText("The Caves");
 
             #region loadeffects etc
