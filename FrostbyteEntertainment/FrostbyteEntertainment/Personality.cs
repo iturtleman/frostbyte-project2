@@ -560,6 +560,50 @@ namespace Frostbyte
         }
     }
 
+    internal class DarkLinkPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemies.FinalBoss master;
+        private IEnumerator mStates;
+        private static Random rng = new Random();
+
+        internal DarkLinkPersonality(Enemies.FinalBoss master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+
+            int initialWaitDistance = 300;
+            while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
+            {
+                yield return null;
+            }
+            master.setAtArms();
+            master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
+            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            while (true)
+            {
+                while (!master.charge((This.Game.CurrentLevel as FrostbyteLevel).allies, int.MaxValue, 1))
+                {
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
+    }
+
     #endregion
 
     internal static class EnemyAI

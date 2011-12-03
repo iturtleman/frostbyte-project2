@@ -1970,14 +1970,6 @@ namespace Frostbyte
 
             for (int i = 0; i < 100; i++)
             {
-                // Ground Spread
-                for (int j = 0; j < 30; j++)
-                {
-                    double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
-                    particleEmitter.createParticles(randDirection * 170, -randDirection * 90, particleEmitter.GroundPos, 5f, This.Game.rand.Next(400, 1500));
-                }
-
                 //Deal Damage
                 if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
                 {

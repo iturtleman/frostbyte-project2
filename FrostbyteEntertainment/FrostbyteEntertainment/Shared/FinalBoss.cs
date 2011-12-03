@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Frostbyte.Enemies
 {
-    internal partial class FinalBoss : Frostbyte.Enemy
+    internal partial class FinalBoss : Frostbyte.Boss
     {
        
 
