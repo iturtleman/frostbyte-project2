@@ -280,6 +280,12 @@
       <Link>Content\Audio\Music\EarthBoss.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\FinalCastleBG.mp3">
+      <Link>Content\Audio\Music\FinalCastleBG.mp3</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\FireBG.mp3">
+      <Link>Content\Audio\Music\FireBG.mp3</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\FireBoss.mp3">
       <Link>Content\Audio\Music\FireBoss.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

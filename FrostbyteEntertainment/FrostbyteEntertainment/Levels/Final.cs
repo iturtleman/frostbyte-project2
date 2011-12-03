@@ -36,8 +36,8 @@ namespace Frostbyte.Levels
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
             
-            This.Game.AudioManager.AddBackgroundMusic("Music/FinalBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/FinalBG", 0.1f);
+            This.Game.AudioManager.AddBackgroundMusic("Music/FinalCastleBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/FinalCastleBG", 0.1f);
 
             l.HUD.FadeText("The Jungle");
 
