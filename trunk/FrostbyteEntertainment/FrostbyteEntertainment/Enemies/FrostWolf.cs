@@ -38,8 +38,9 @@ namespace Frostbyte.Enemies
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
-            Personality = new AmbushPersonality(this);
+            Personality = new ChargePersonality(this);
             ElementType = Element.Water;
+            Speed = 0.7f;
 
             //This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
             //if (MovementAudioName == null)
