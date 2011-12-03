@@ -196,7 +196,7 @@
   </tile>
   <tile id="24">
    <properties>
-    <property name=" Collision" value="false"/>
+    <property name="Collision" value="false"/>
     <property name="Orientation" value="Down"/>
     <property name="Theme" value="Lightning"/>
     <property name="Type" value="SideWall"/>

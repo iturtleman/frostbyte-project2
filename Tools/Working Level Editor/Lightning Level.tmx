@@ -420,7 +420,7 @@
   </tile>
   <tile id="52">
    <properties>
-    <property name=" Collision" value="false"/>
+    <property name="Collision" value="false"/>
     <property name="Orientation" value="Down"/>
     <property name="Theme" value="Water"/>
     <property name="Type" value="SideWall"/>
