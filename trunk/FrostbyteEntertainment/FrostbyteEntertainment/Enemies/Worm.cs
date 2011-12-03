@@ -76,7 +76,7 @@ namespace Frostbyte.Enemies
                     Sprite target = GetClosestTarget(targets, range);
                     if (target != null)
                     {
-                        int attackRange = 11;
+                        int attackRange = int.MaxValue;
 
                         //Create Particle Emitter
                         Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
