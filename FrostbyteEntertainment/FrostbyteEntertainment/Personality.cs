@@ -345,7 +345,7 @@ namespace Frostbyte
             this.master = master;
             mStates = States().GetEnumerator();
             This.Game.AudioManager.AddSoundEffect("Effects/Worm_Spawn");
-            This.Game.AudioManager.AddBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.AddBackgroundMusic("Music/EarthBoss");
         }
 
         public void Update()
@@ -397,7 +397,7 @@ namespace Frostbyte
                 yield return null;
             }
             master.setAtArms();
-            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/EarthBoss");
             This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
 
             foreach (Object o in Surface()) { yield return null; }
