@@ -209,6 +209,8 @@ namespace Frostbyte
                                 continue;
                             }
                         }
+                        else
+                            continue;
 
                         doNotMove = true;
                     }
