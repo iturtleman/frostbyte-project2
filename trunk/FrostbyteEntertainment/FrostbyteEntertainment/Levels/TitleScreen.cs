@@ -14,6 +14,7 @@ namespace Frostbyte.Levels
     {
         static readonly TimeSpan RequiredWaitTime = new TimeSpan(0, 0, 0, 0, 0);
         static TimeSpan LevelInitTime = TimeSpan.MinValue;
+        private static List<IController> gamePads = new List<IController>();
 
         internal static void Load(Level context)
         {
@@ -36,14 +37,14 @@ namespace Frostbyte.Levels
             RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width);
             t.SpawnPoint = new Vector2(v.Width / 2, v.Height);
 
-            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
-            mage.Visible = false;
-            mage.SpawnPoint = new Vector2(v.Width / 2, v.Height);
-            mage.Speed = 0;
-            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
-            mage2.Visible = false;
-            mage2.Speed = 0;
-            mage2.SpawnPoint = new Vector2(v.Width / 2, v.Height);
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+            {
+                gamePads.Add(new GamePadController(PlayerIndex.One));
+            }
+            if (GamePad.GetState(PlayerIndex.Two).IsConnected)
+            {
+                gamePads.Add(new GamePadController(PlayerIndex.Two));
+            }
         }
 
         internal static void Update()
@@ -56,9 +57,12 @@ namespace Frostbyte.Levels
             }
 
             bool PlayerPressedStart = false;
-            foreach (Sprite sp in (This.Game.CurrentLevel as FrostbyteLevel).allies)
-                if ((sp as Frostbyte.Characters.Mage).controller.Start == ReleasableButtonState.Clicked)
+            foreach (IController controller in gamePads)
+            {
+                controller.Update();
+                if (controller.Start == ReleasableButtonState.Clicked)
                     PlayerPressedStart = true;
+            }
 
             if ((This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked
                 || PlayerPressedStart)
