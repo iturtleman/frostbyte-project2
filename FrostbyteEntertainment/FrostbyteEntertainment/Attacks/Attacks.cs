@@ -406,6 +406,22 @@ namespace Frostbyte
                         }
                     }
                 }
+                else
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(attacker, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                attacker.Direction = detectedCollision.Item2.GroundPos - attacker.GroundPos;
+                                break;
+                            }
+                        }
+                    }
+                }
                 yield return false;
             }
 
