@@ -551,7 +551,6 @@ namespace Frostbyte
                     if ((tile.Type == TileTypes.Wall && direction.Y < 0) || (tile.Type != TileTypes.Wall && tile.Type != TileTypes.ConvexCorner)
                         || (tile.Type == TileTypes.ConvexCorner && direction.Y < 0 && closestObject.Item1.Y == closestObject.Item2.Y))
                     {
-                        particleEmitter.GroundPos = particleEmitter.GroundPos;
                         break;
                     }
                 }
