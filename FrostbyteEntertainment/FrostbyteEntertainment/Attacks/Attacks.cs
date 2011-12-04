@@ -384,13 +384,27 @@ namespace Frostbyte
 
                 attacker.isAttackAnimDone = false;
 
+                List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                Collision.CollisionData.TryGetValue(attacker, out collidedWith);
+                if (collidedWith != null)
+                {
+                    foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                    {
+                        if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                        {
+                            attacker.Direction = detectedCollision.Item2.GroundPos - attacker.GroundPos;
+                            break;
+                        }
+                    }
+                }
+
                 if (!hasAttacked && attacker.Frame == attackFrame && Collision.CollisionData.Count > 0)
                 {
-                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
-                    Collision.CollisionData.TryGetValue(attacker, out collidedWith);
-                    if (collidedWith != null)
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith2;
+                    Collision.CollisionData.TryGetValue(attacker, out collidedWith2);
+                    if (collidedWith2 != null)
                     {
-                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith2)
                         {
                             if (!hasAttacked && (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy))))
                             {
@@ -402,22 +416,6 @@ namespace Frostbyte
                                     hasAttacked = true;
                                     break;
                                 }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
-                    Collision.CollisionData.TryGetValue(attacker, out collidedWith);
-                    if (collidedWith != null)
-                    {
-                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
-                        {
-                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
-                            {
-                                attacker.Direction = detectedCollision.Item2.GroundPos - attacker.GroundPos;
-                                break;
                             }
                         }
                     }
