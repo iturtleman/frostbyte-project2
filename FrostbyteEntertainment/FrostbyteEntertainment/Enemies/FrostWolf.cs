@@ -34,13 +34,12 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public FrostWolf(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 100)
+            : base(name, new Actor(Animations), 1f, 75)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
             ElementType = Element.Water;
-            Speed = 0.7f;
 
             //This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
             //if (MovementAudioName == null)

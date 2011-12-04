@@ -998,6 +998,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-diagup.anim">
       <Link>Content\Sprites\wolf-attack-diagup.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-down.anim">
       <Link>Content\Sprites\wolf-attack-down.anim</Link>
