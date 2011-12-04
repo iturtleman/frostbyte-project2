@@ -41,7 +41,7 @@ namespace Frostbyte.Enemies
         {
             if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
             {
-                float range = 450.0f;
+                float range = 550.0f;
                 List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
                 Sprite target = GetClosestTarget(targets, range);
                 if (target != null)

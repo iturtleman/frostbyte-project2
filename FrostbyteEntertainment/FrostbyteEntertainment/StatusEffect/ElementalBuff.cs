@@ -19,7 +19,7 @@ namespace Frostbyte
             switch (e)
             {
                 case Frostbyte.Element.Earth:
-                    element = This.Game.CurrentLevel.GetTexture("boulder");
+                    element = This.Game.CurrentLevel.GetTexture("dirtParticle");
                     break;
                 case Frostbyte.Element.Lightning:
                     element = This.Game.CurrentLevel.GetTexture("sparkball");
@@ -32,8 +32,7 @@ namespace Frostbyte
                     break;
             }
             particleEmitter = new ParticleEmitter(800, particleEffect, element);
-            particleEmitter.effectTechnique = "FadeAtXPercent";
-            particleEmitter.fadeStartPercent = .98f;
+            particleEmitter.effectTechnique = "NoSpecialEffect";
             switch (Element)
             {
                 case Frostbyte.Element.Earth:
