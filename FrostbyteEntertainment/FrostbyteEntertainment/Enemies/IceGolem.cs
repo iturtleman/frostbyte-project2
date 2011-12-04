@@ -54,7 +54,8 @@ namespace Frostbyte.Enemies
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D water = This.Game.CurrentLevel.GetTexture("snowflake");
                     ParticleEmitter particleEmitterIce = new ParticleEmitter(1000, particleEffect, water);
-                    particleEmitterIce.effectTechnique = "NoSpecialEffect";
+                    particleEmitterIce.effectTechnique = "FadeAtXPercent";
+                    particleEmitterIce.fadeStartPercent = .98f;
                     particleEmitterIce.blendState = BlendState.Additive;
                     (particleEmitterIce.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitterIce.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();

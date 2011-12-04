@@ -32,8 +32,8 @@ namespace Frostbyte
                     break;
             }
             particleEmitter = new ParticleEmitter(800, particleEffect, element);
-            particleEmitter.effectTechnique = "NoSpecialEffect";
-            particleEmitter.fadeStartPercent = .6f;
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .98f;
             switch (Element)
             {
                 case Frostbyte.Element.Earth:

@@ -410,7 +410,8 @@ namespace Frostbyte
             Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
             Texture2D lightning = This.Game.CurrentLevel.GetTexture("evil");
             ParticleEmitter particleEmitterTrigger = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitterTrigger.effectTechnique = "NoSpecialEffect";
+            particleEmitterTrigger.effectTechnique = "FadeAtXPercent";
+            particleEmitterTrigger.fadeStartPercent = .98f;
             particleEmitterTrigger.blendState = BlendState.Additive;
             (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).Radius = GetAnimation().Height / 2;
             (particleEmitterTrigger.GetCollision()[0] as Collision_BoundingCircle).createDrawPoints();

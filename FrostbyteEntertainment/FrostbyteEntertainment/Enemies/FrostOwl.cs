@@ -63,7 +63,8 @@ namespace Frostbyte.Enemies
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
                     ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
-                    particleEmitterLightning.effectTechnique = "NoSpecialEffect";
+                    particleEmitterLightning.effectTechnique = "FadeAtXPercent";
+                    particleEmitterLightning.fadeStartPercent = .98f;
                     particleEmitterLightning.blendState = BlendState.Additive;
                     (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
