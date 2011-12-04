@@ -41,7 +41,7 @@ namespace Frostbyte.Levels
 
             l.isPauseEnabled = true;
 
-            l.HUD.FadeText("The Jungle");
+            l.HUD.FadeText("Chapter IV: Exuro's Volcano");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

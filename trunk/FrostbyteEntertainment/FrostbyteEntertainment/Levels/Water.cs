@@ -41,7 +41,7 @@ namespace Frostbyte.Levels
 
             l.isPauseEnabled = true;
 
-            l.HUD.FadeText("Water Temple");
+            l.HUD.FadeText("Chapter III: Mercutio's Temple of Ice");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

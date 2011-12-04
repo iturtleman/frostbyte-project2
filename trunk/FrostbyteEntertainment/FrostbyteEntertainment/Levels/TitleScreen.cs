@@ -28,7 +28,7 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG", 0.1f);
 
-            Text title = new Text("titletext", "Fonts/Title", "Welcome. Please Press Enter/Start.");
+            Text title = new Text("titletext", "Fonts/Title", "4Realms: Epic Subtitle");
             title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));
             title.Static = true;
             title.DisplayColor = Color.Chartreuse;

@@ -41,7 +41,7 @@ namespace Frostbyte.Levels
 
             l.isPauseEnabled = true;
 
-            l.HUD.FadeText("The Forest");
+            l.HUD.FadeText("Chapter I: Solum's Forest");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
