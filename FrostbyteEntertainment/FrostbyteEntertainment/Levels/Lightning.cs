@@ -24,7 +24,6 @@ namespace Frostbyte.Levels
 
             Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(70 * 64, 8 * 64);
-            mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(132 * 64, 72 * 64);
             //mage.SpawnPoint = new Vector2(4576, 3184);
             mage.Speed = 1;
             mage.Scale = 0.7f;
@@ -32,7 +31,6 @@ namespace Frostbyte.Levels
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(72 * 64, 8 * 64);
-            mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(132 * 64, 72 * 64);
             //mage2.SpawnPoint = new Vector2(4576, 3184);
             mage2.Speed = 1;
             mage2.Scale = 0.7f;
