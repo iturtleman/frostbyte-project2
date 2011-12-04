@@ -8869,7 +8869,7 @@
   <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="43,51" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="44,51" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="45,51" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="46,51" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="46,51" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="47,51" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="48,51" />
   <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="49,51" />
@@ -9026,14 +9026,14 @@
   <Tile Type="TopArea" Collision="true" Theme="Fire" Orientation="Right" GridCell="27,52" />
   <Tile Type="TopArea" Collision="true" Theme="Fire" Orientation="Right" GridCell="28,52" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="29,52" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="30,52" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="30,52" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="31,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="32,52" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="33,52" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="34,52" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="35,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="36,52" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="37,52" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="37,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="38,52" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="39,52" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="40,52" />
@@ -9044,7 +9044,7 @@
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="45,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="46,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="47,52" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="48,52" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="48,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="49,52" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="50,52" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="51,52" />
@@ -9208,7 +9208,7 @@
   <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="36,53" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="37,53" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="38,53" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="39,53" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="39,53" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="40,53" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="41,53" />
   <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="42,53" />
@@ -9218,7 +9218,7 @@
   <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="46,53" />
   <Tile Type="Floor" Collision="false" Theme="Earth" Orientation="Left" GridCell="47,53" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="48,53" />
-  <Tile Type="TopArea" Collision="true" Theme="Lightning" Orientation="Right" GridCell="49,53" />
+  <Tile Type="Floor" Collision="false" Theme="Lightning" Orientation="Left" GridCell="49,53" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="50,53" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="51,53" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="52,53" />
