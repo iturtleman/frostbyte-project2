@@ -136,6 +136,16 @@ namespace Frostbyte.Characters
             This.Cheats.AddCheat("SpeedUp_" + Name, new SpeedUpCheat(this, Speed * 2));
 
             CollisionList = 3;
+
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D bloodParticle = This.Game.CurrentLevel.GetTexture("blood");
+            Texture2D sparkball = This.Game.CurrentLevel.GetTexture("sparkball");
+            blood = new ParticleEmitter(200, particleEffect, bloodParticle);
+            blood.blendState = BlendState.AlphaBlend;
+            spellCast = new ParticleEmitter(1000, particleEffect, sparkball);
+            spellCast.effectTechnique = "FadeAtXPercent";
+            spellCast.fadeStartPercent = .75f;
+            spellCast.blendState = BlendState.Additive;
         }
         #endregion
 
@@ -150,6 +160,11 @@ namespace Frostbyte.Characters
         /// Which spells the player can cast
         /// </summary>
         internal static Spells UnlockedSpells = 0;
+        private int previousHealth = 100;
+
+        private ParticleEmitter blood;
+        private ParticleEmitter spellCast;
+
         #endregion
 
         #region Methods
@@ -196,6 +211,18 @@ namespace Frostbyte.Characters
             Level l = This.Game.CurrentLevel;
             if (isAttackAnimDone)
             {
+                //create spell cast particles
+                if (controller.LaunchAttack == ReleasableButtonState.Pressed && UnlockedSpells != Spells.None)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                    spellCast.createParticles(randDirection * 20,
+                                                           randDirection * 10 - new Vector2(0, 50),
+                                                           GroundPos + randDirection * This.Game.rand.Next(0, (int)(GroundPosRadius / 1.25f)) + new Vector2(0,8),
+                                                           This.Game.rand.Next(6, 9),
+                                                           300);
+                }
+
                 if (controller.LaunchAttack == ReleasableButtonState.Clicked)
                 {
                     #region Release Attacks
@@ -784,6 +811,21 @@ namespace Frostbyte.Characters
                     l.PauseSprite.Visible = true;
                 }
             }
+
+            if(previousHealth > Health)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    double directionAngle = This.Game.rand.NextDouble() * Math.PI;
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier, (float)Math.Sin(directionAngle));
+                    blood.createParticles(randDirection * 20,
+                                          randDirection * 10 - new Vector2(0, 50),
+                                          GroundPos + randDirection * This.Game.rand.Next(5, (int)(GroundPosRadius*2)) + new Vector2(0, -55),
+                                          This.Game.rand.Next(6, 9),
+                                          200);
+                }
+            }
+            previousHealth = Health;
         }
         #endregion
     }
