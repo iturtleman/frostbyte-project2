@@ -650,6 +650,7 @@ namespace Frostbyte.Characters
             {
                 State = SpriteState.Dead;
                 Pos = Vector2.Zero;
+                cancelTarget();
             }
             else
             {
