@@ -513,7 +513,9 @@ namespace Frostbyte.Characters
                     #endregion
                 }
 
-                else if (controller.Earth == ReleasableButtonState.Clicked)
+                else if (controller.Earth == ReleasableButtonState.Pressed &&
+                        ((controller is GamePadController) && ((controller as GamePadController).mLastControllerState.Buttons.A == ButtonState.Released) ||
+                        (controller is KeyboardController) && (controller as KeyboardController).mLastControllerState.IsKeyUp(Keys.S)))
                 {
                     if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Earth)
                     {
@@ -522,7 +524,9 @@ namespace Frostbyte.Characters
                     return;
                 }
 
-                else if (controller.Fire == ReleasableButtonState.Clicked)
+                else if (controller.Fire == ReleasableButtonState.Pressed &&
+                        ((controller is GamePadController) && ((controller as GamePadController).mLastControllerState.Buttons.B == ButtonState.Released) ||
+                        (controller is KeyboardController) && (controller as KeyboardController).mLastControllerState.IsKeyUp(Keys.D)))
                 {
                     if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Fire)
                     {
@@ -531,7 +535,9 @@ namespace Frostbyte.Characters
                     return;
                 }
 
-                else if (controller.Lightning == ReleasableButtonState.Clicked)
+                else if (controller.Lightning == ReleasableButtonState.Pressed &&
+                        ((controller is GamePadController) && ((controller as GamePadController).mLastControllerState.Buttons.Y == ButtonState.Released) ||
+                        (controller is KeyboardController) && (controller as KeyboardController).mLastControllerState.IsKeyUp(Keys.W)))
                 {
                     if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Lightning)
                     {
@@ -540,7 +546,9 @@ namespace Frostbyte.Characters
                     return;
                 }
 
-                else if (controller.Water == ReleasableButtonState.Clicked)
+                else if (controller.Water == ReleasableButtonState.Pressed &&
+                        ((controller is GamePadController) && ((controller as GamePadController).mLastControllerState.Buttons.X == ButtonState.Released) ||
+                        (controller is KeyboardController) && (controller as KeyboardController).mLastControllerState.IsKeyUp(Keys.A)))
                 {
                     if ((attackCounter.Count == 0 && attackCounter.Count < 3) || attackCounter.First() == Element.Water)
                     {
