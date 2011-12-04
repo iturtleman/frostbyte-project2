@@ -141,11 +141,7 @@ namespace Frostbyte.Characters
             Texture2D bloodParticle = This.Game.CurrentLevel.GetTexture("blood");
             Texture2D sparkball = This.Game.CurrentLevel.GetTexture("sparkball");
             blood = new ParticleEmitter(200, particleEffect, bloodParticle);
-            blood.blendState = BlendState.AlphaBlend;
             spellCast = new ParticleEmitter(1000, particleEffect, sparkball);
-            spellCast.effectTechnique = "FadeAtXPercent";
-            spellCast.fadeStartPercent = .75f;
-            spellCast.blendState = BlendState.Additive;
         }
         #endregion
 
