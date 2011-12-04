@@ -71,7 +71,9 @@ namespace Frostbyte
                 {
                     continue;
                 }
-                if (Vector2.DistanceSquared(target.GroundPos, GroundPos) <= aggroDistance * aggroDistance)
+                Vector2 correctTargetGroundPos = target.GroundPos;
+                correctTargetGroundPos.Y -= 32;
+                if (Vector2.DistanceSquared(correctTargetGroundPos, GroundPos) <= aggroDistance * aggroDistance)
                 {
                     range.Add(target);
                 }
