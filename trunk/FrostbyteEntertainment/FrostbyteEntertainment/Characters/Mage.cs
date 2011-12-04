@@ -561,7 +561,7 @@ namespace Frostbyte.Characters
         private void interact()
         {
             List<Sprite> obstacles = (This.Game.CurrentLevel as FrostbyteLevel).obstacles;
-            float distance = Math.Max(GetAnimation().Height, GetAnimation().Width) * 1.5f;
+            float distance = GroundPosRadius * 2f;
             if (obstacles != null)
             {
                 List<Sprite> targets = GetTargetsInRange(obstacles, distance);
