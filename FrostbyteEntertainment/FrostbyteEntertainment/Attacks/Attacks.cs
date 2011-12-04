@@ -350,6 +350,66 @@ namespace Frostbyte
 
         }
 
+        private static bool tileCircleCollision(Vector2 tileTopLeftPos, Vector2 tileBottomRightPos, Vector2 circlePos, float circleRadius)
+        {
+            Vector2 centerPoint = circlePos;
+            Vector2 topLeftPoint = tileTopLeftPos;
+            Vector2 bottomRightPoint = tileBottomRightPos;
+
+            int regionCode = 0;
+
+            if (centerPoint.X < topLeftPoint.X)
+                regionCode += 1; // 0001
+            if (centerPoint.X > bottomRightPoint.X)
+                regionCode += 2; // 0010
+            if (centerPoint.Y < topLeftPoint.Y)
+                regionCode += 4; // 0100
+            if (centerPoint.Y > bottomRightPoint.Y)
+                regionCode += 8;
+
+            float radius = circleRadius;
+            switch (regionCode)
+            {
+                case 0: //0000
+                    return true;
+                case 1: //0001
+                    if (Math.Abs(topLeftPoint.X - centerPoint.X) <= radius)
+                        return true;
+                    break;
+                case 2: //0010
+                    if (Math.Abs(centerPoint.X - bottomRightPoint.X) <= radius)
+                        return true;
+                    break;
+                case 4: //0100
+                    if (Math.Abs(centerPoint.Y - topLeftPoint.Y) <= radius)
+                        return true;
+                    break;
+                case 8: //1000
+                    if (Math.Abs(bottomRightPoint.Y - centerPoint.Y) <= radius)
+                        return true;
+                    break;
+                case 5: //0101
+                    if (Collision.DistanceSquared(centerPoint, topLeftPoint) <= radius * radius)
+                        return true;
+                    break;
+                case 9: //1001
+                    if (Collision.DistanceSquared(centerPoint, new Vector2(topLeftPoint.X, bottomRightPoint.Y)) <= radius * radius)
+                        return true;
+                    break;
+                case 6: //0110
+                    if (Collision.DistanceSquared(centerPoint, new Vector2(bottomRightPoint.X, topLeftPoint.Y)) <= radius * radius)
+                        return true;
+                    break;
+                case 10: //1010
+                    if (Collision.DistanceSquared(centerPoint, bottomRightPoint) <= radius * radius)
+                        return true;
+                    break;
+            }
+
+
+            return false;
+        }
+
         /// <summary>
         /// Performs Melee Attack
         /// </summary>
@@ -553,20 +613,52 @@ namespace Frostbyte
                 if (!isAttackAnimDone)
                     attacker.isAttackAnimDone = false;
 
-                //make sure magic cannot go through walls
+                //move particle
                 Vector2 previousPosition = particleEmitter.GroundPos;
-                particleEmitter.previousFootPos = particleEmitter.GroundPos;
                 particleEmitter.GroundPos += direction * projectileSpeed;
-                particleEmitter.detectBackgroundCollisions(particleEmitter.GroundPos, previousPosition, out closestObject, out closestIntersection);
-                if (Vector2.DistanceSquared(previousPosition, closestIntersection) <= Vector2.DistanceSquared(previousPosition, particleEmitter.GroundPos))
+
+                //make sure magic cannot go through walls
+                if (previousPosition != particleEmitter.GroundPos)
                 {
-                    Tile tile;
-                    (This.Game.CurrentLevel as FrostbyteLevel).TileMap.TryGetValue((int)(closestIntersection.X / 64), (int)((closestIntersection.Y - particleEmitter.GroundPosRadius - 64) / 64), out tile);
-                    if ((tile.Type == TileTypes.Wall && direction.Y < 0) || (tile.Type != TileTypes.Wall && tile.Type != TileTypes.ConvexCorner)
-                        || (tile.Type == TileTypes.ConvexCorner && direction.Y < 0 && closestObject.Item1.Y == closestObject.Item2.Y))
-                    {
+                    bool hasCollided = false;
+                    float collisionRadius = particleEmitter.GroundPosRadius;
+                    Tuple<int, int> topLeftMostTile = new Tuple<int, int>((int)Math.Floor(((particleEmitter.GroundPos.X - collisionRadius) / This.CellSize)),   //top left most tile that could possible hit sprite
+                                                                    (int)Math.Floor(((particleEmitter.GroundPos.Y - collisionRadius)) / This.CellSize));
+                    Tuple<int, int> bottomRightMostTile = new Tuple<int, int>((int)Math.Floor((particleEmitter.GroundPos.X + collisionRadius) / This.CellSize), //bottom right most tile that could possible hit sprite
+                                                                            (int)Math.Floor((particleEmitter.GroundPos.Y + collisionRadius) / This.CellSize));
+                    TileList tileMap = (This.Game.CurrentLevel as FrostbyteLevel).TileMap;
+                    for (int x = topLeftMostTile.Item1; x <= bottomRightMostTile.Item1; x++)
+                        for (int y = topLeftMostTile.Item2; y <= bottomRightMostTile.Item2; y++)
+                        {
+                            Tile tile;
+                            tileMap.TryGetValue(x, y, out tile);
+
+                            if (tile.Type == TileTypes.Floor)
+                                continue;
+
+                            if ((tile.Type == TileTypes.Bottom || tile.Type == TileTypes.BottomConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64 + 32), new Vector2(x * 64 + 64, y * 64 + 64), particleEmitter.GroundPos, collisionRadius))
+                            {
+                                continue;
+                            }
+                            else if ((tile.Type == TileTypes.Wall || tile.Type == TileTypes.ConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 32), particleEmitter.GroundPos, collisionRadius))
+                            {
+                                continue;
+                            }
+                            else if (!tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 64), particleEmitter.GroundPos, collisionRadius))
+                            {
+
+                                continue;
+                            }
+
+                            //bool isBelowHalfWay = (particleEmitter.GroundPos.Y - collisionRadius - y * 64) > 32;
+                            //if ((tile.Type == TileTypes.Wall && direction.Y < 0f && isBelowHalfWay) || (tile.Type != TileTypes.Wall && tile.Type != TileTypes.ConvexCorner)
+                            //|| (tile.Type == TileTypes.ConvexCorner && direction.Y < 0f && isBelowHalfWay && closestObject.Item1.Y == closestObject.Item2.Y))
+                            //{
+                                hasCollided = true;
+                            //}
+                        }
+                    if (hasCollided)
                         break;
-                    }
                 }
 
                 createParticles(attacker, direction, projectileSpeed, particleEmitter);
