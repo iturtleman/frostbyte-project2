@@ -233,7 +233,7 @@ namespace Frostbyte
                     KeyboardState keyState = Keyboard.GetState();
                     GamePadState padState = GamePad.GetState(PlayerIndex.One);
                     Game g = This.Game;
-                    if (g.mLastPadState.Buttons.Start == ButtonState.Pressed && padState.Buttons.Start == ButtonState.Released || g.mLastKeyState.IsKeyDown(Keys.Enter) && keyState.IsKeyUp(Keys.Enter))
+                    if (g.mLastPadStateP1.Buttons.Start == ButtonState.Pressed && padState.Buttons.Start == ButtonState.Released || g.mLastKeyState.IsKeyDown(Keys.Enter) && keyState.IsKeyUp(Keys.Enter) || g.mLastPadStateP2.Buttons.Start == ButtonState.Pressed && GamePad.GetState(PlayerIndex.Two).Buttons.Start == ButtonState.Released)
                     {
                         Paused = false;
                         PauseSprite.Visible = false;
