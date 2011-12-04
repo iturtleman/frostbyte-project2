@@ -5395,6 +5395,7 @@
   <Enemy Type="Frostbyte.Enemies.Wasp" Name="Wasp" Pos="6112,8224" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="8608,8544" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="7776,8608" />
+  <Enemy Type="Frostbyte.Enemies.Worm" Name="Worm Boss" Pos="7776,2080" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="5088,1120" />
   <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="7776,2784" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="7776,2848" />
