@@ -4611,14 +4611,112 @@
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="115,77" />
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="116,77" />
   <Tile Type="BottomCorner" Collision="true" Theme="Water" Orientation="Right" GridCell="117,77" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5920,416" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6368,416" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9376,416" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5920,672" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6368,672" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="8992,928" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5600,1120" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6688,1120" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="8032,1248" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9568,1312" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9888,1312" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6112,1376" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6176,1376" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9376,1376" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9696,1376" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10016,1376" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8288,1568" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2016,1696" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2464,1696" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8224,1824" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,1824" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10912,1888" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5856,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6112,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6432,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8672,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9056,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10400,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9632,2144" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2208,2208" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2272,2272" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10912,2272" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8224,2336" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,2336" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5856,2400" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6432,2400" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2080,2464" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2400,2464" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8288,2592" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9952,2656" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="11168,2720" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="11552,2720" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9120,2848" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9568,2848" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9888,2848" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="11360,2848" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="11296,2912" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="11424,2912" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="3680,3040" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="4256,3040" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5024,3040" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5536,3040" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9632,3104" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="1120,3168" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2848,3232" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="1824,3296" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4448,3296" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4896,3296" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5280,3296" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="7776,3360" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5600,3424" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="3104,3488" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="3744,3488" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6304,3488" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6368,3488" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6432,3488" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="7776,3552" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4448,3616" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4896,3616" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5280,3616" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="1376,3680" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2144,3680" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="7136,3680" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="7648,3680" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2848,3744" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="3680,3872" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="4256,3872" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5024,3872" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5536,3872" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6176,4064" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="7712,4128" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="4576,4256" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="4896,4256" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6176,4256" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5536,4320" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5856,4320" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6816,4320" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4576,4512" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4896,4512" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6496,4512" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5536,4640" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5856,4640" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6816,4640" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6176,4704" />
+  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6176,4896" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="9440,224" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="6112,544" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="2208,1824" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="7584,2528" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="11360,2912" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6688,3168" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="6688,3296" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="480,3488" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="8288,3488" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="10144,3552" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="4768,4384" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="5728,4448" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6688,3168" />
 </Level>
