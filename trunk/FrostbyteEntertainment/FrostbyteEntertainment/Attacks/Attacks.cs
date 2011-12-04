@@ -712,7 +712,8 @@ namespace Frostbyte
             Texture2D lightning = l.GetTexture("sparkball");
             ParticleEmitter particleEmitter = new ParticleEmitter(10000, particleEffect, lightning);
             particleEmitter.ZOrder = int.MaxValue;
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .98f;
             particleEmitter.blendState = BlendState.Additive;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -1223,7 +1224,8 @@ namespace Frostbyte
             c.createDrawPoints();
 
             ParticleEmitter particleEmitterDOT = new ParticleEmitter(1500, particleEffect, fire);
-            particleEmitterDOT.effectTechnique = "NoSpecialEffect";
+            particleEmitterDOT.effectTechnique = "FadeAtXPercent";
+            particleEmitterDOT.fadeStartPercent = .98f;
             particleEmitterDOT.blendState = BlendState.Additive;
             particleEmitterDOT.ZOrder = 4;
             c = (particleEmitterDOT.collisionObjects.First() as Collision_BoundingCircle);
@@ -1782,7 +1784,9 @@ namespace Frostbyte
             Texture2D water = l.GetTexture("ice");
             ParticleEmitter particleEmitter = new ParticleEmitter(5000, particleEffect, water);
             particleEmitter.ZOrder = 2;
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .98f;
             particleEmitter.blendState = BlendState.Additive;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 1;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -1930,7 +1934,8 @@ namespace Frostbyte
             Effect particleEffect = l.GetEffect("ParticleSystem");
             Texture2D ice = l.GetTexture("ice");
             ParticleEmitter particleEmitterIce = new ParticleEmitter(500, particleEffect, ice);
-            particleEmitterIce.effectTechnique = "NoSpecialEffect";
+            particleEmitterIce.effectTechnique = "FadeAtXPercent";
+            particleEmitterIce.fadeStartPercent = .98f;
             particleEmitterIce.blendState = BlendState.Additive;
             Collision_BoundingCircle c = (particleEmitterIce.collisionObjects.First() as Collision_BoundingCircle);
             c.Radius = collisions.Count > 0 ? (collisions[0] as Collision_BoundingCircle).Radius + 20 : 100;
@@ -2047,7 +2052,8 @@ namespace Frostbyte
             Texture2D poison = l.GetTexture("poison");
             ParticleEmitter particleEmitter = new ParticleEmitter(10000, particleEffect, poison);
             particleEmitter.ZOrder = attacker.ZOrder - 1;
-            particleEmitter.effectTechnique = "NoSpecialEffect";
+            particleEmitter.effectTechnique = "FadeAtXPercent";
+            particleEmitter.fadeStartPercent = .98f;
             particleEmitter.blendState = BlendState.Additive;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();

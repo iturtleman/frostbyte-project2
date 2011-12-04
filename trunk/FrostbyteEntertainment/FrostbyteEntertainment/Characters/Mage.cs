@@ -315,7 +315,8 @@ namespace Frostbyte.Characters
                                         Effect particleEffect = l.GetEffect("ParticleSystem");
                                         Texture2D lightning = l.GetTexture("sparkball");
                                         ParticleEmitter particleLightningTier1 = new ParticleEmitter(1000, particleEffect, lightning);
-                                        particleLightningTier1.effectTechnique = "NoSpecialEffect";
+                                        particleLightningTier1.effectTechnique = "FadeAtXPercent";
+                                        particleLightningTier1.fadeStartPercent = .98f;
                                         particleLightningTier1.blendState = BlendState.Additive;
                                         (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                                         (particleLightningTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -388,7 +389,8 @@ namespace Frostbyte.Characters
                                         Effect particleEffect = l.GetEffect("ParticleSystem");
                                         Texture2D snowflake = l.GetTexture("waterParticle");
                                         ParticleEmitter particleWaterTier1 = new ParticleEmitter(500, particleEffect, snowflake);
-                                        particleWaterTier1.effectTechnique = "NoSpecialEffect";
+                                        particleWaterTier1.effectTechnique = "FadeAtXPercent";
+                                        particleWaterTier1.fadeStartPercent = .98f;
                                         particleWaterTier1.blendState = BlendState.Additive;
                                         (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                                         (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
@@ -465,7 +467,6 @@ namespace Frostbyte.Characters
                                         Effect particleEffect = l.GetEffect("ParticleSystem");
                                         Texture2D fire = l.GetTexture("fireParticle");
                                         ParticleEmitter particleFireTier1 = new ParticleEmitter(3000, particleEffect, fire);
-                                        particleFireTier1.effectTechnique = "NoSpecialEffect";
                                         particleFireTier1.blendState = BlendState.AlphaBlend;
                                         (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                                         (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();

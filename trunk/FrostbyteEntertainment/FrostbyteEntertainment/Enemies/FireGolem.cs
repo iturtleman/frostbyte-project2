@@ -54,7 +54,8 @@ namespace Frostbyte.Enemies
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D fire = This.Game.CurrentLevel.GetTexture("fireParticle");
                     ParticleEmitter particleEmitterFire = new ParticleEmitter(1000, particleEffect, fire);
-                    particleEmitterFire.effectTechnique = "NoSpecialEffect";
+                    particleEmitterFire.effectTechnique = "FadeAtXPercent";
+                    particleEmitterFire.fadeStartPercent = .98f;
                     particleEmitterFire.blendState = BlendState.Additive;
                     (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
