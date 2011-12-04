@@ -16,7 +16,7 @@ namespace Frostbyte.Levels
             XDocument doc = XDocument.Load(@"Content/EarthLevel.xml");
             l.Load(doc);
 
-            l.HUD.LoadCommon();
+            l.HUD.LoadCommon(new EarthTheme());
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 

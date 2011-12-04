@@ -16,7 +16,7 @@ namespace Frostbyte.Levels
             XDocument doc = XDocument.Load(@"Content/WaterLevel.xml");
             l.Load(doc);
 
-            l.HUD.LoadCommon();
+            l.HUD.LoadCommon(new WaterTheme());
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 

@@ -49,6 +49,7 @@ namespace Frostbyte.Enemies
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.None;
+            Speed = 1.5f;
 
             Personality = new DarkLinkPersonality(this);
 
@@ -68,6 +69,14 @@ namespace Frostbyte.Enemies
 
         protected override void updateMovement()
         {
+            if (This.Cheats.GetCheat("FinalBossFun").Enabled)
+            {
+                Speed = 20;
+            }
+            else
+            {
+                Speed = 1.5f;
+            }
             Personality.Update();
         }
 
@@ -79,19 +88,38 @@ namespace Frostbyte.Enemies
                 if (attackWait < This.gameTime.TotalGameTime)
                 {
                     Sprite currentTarget = GetClosestTarget(l.allies);
-                    int randTier = rng.Next(10);
-                    int attackTier;
-                    if (randTier < 2)
+                    int randTier = rng.Next(30);
+                    int attackTier = 0;
+                    if (randTier < 7)
                     {
                         attackTier = 1;
                     }
-                    else if (randTier < 5)
+                    else if (randTier < 9)
                     {
-                        attackTier = 2;
+                        List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                        Collision.CollisionData.TryGetValue(this, out collidedWith);
+                        if (collidedWith != null)
+                        {
+                            foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                            {
+                                if (detectedCollision.Item2 is Player)
+                                {
+                                    attackTier = 2;
+                                    break;
+                                }
+                            }
+                        }
                     }
-                    else
+                    else if(randTier < 10)
                     {
-                        attackTier = 3;
+                        if (This.Cheats.GetCheat("FinalBossFun").Enabled)
+                        {
+                            attackTier = 3;
+                        }
+                        else
+                        {
+                            attackTier = 1;
+                        }
                     }
 
                     Element type = new Element[]{ 
@@ -120,31 +148,31 @@ namespace Frostbyte.Enemies
                                 particleEmitters.Add(particleEarthTier1);
 
                                 mAttacks.Add(Attacks.T1Projectile(currentTarget,
-                                                            this,
-                                                            20,
-                                                            10,
-                                                            new TimeSpan(0, 0, 0, 1, 150),
-                                                            attackRange,
-                                                            9f,
-                                                            true,
-                                                            delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                                                            {
-                                                                Random randPosition = new Random();
-                                                                particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
-                                                                Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                                                                for (int i = -5; i < 6; i++)
-                                                                {
-                                                                    particleEmitter.createParticles(-direction * projectileSpeed * .75f,
-                                                                                                            tangent * -i * 40,
-                                                                                                            particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
-                                                                                                            1.5f,
-                                                                                                            300);
-                                                                }
-                                                            },
-                                                            particleEarthTier1,
-                                                            new Vector2(0, -38),
-                                                            Element.Earth
-                                                            ).GetEnumerator());
+                                    this,
+                                    20,
+                                    10,
+                                    new TimeSpan(0, 0, 0, 1, 150),
+                                    attackRange,
+                                    9f,
+                                    true,
+                                    delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                    {
+                                        Random randPosition = new Random();
+                                        particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                        Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                        for (int i = -5; i < 6; i++)
+                                        {
+                                            particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                tangent * -i * 40,
+                                                particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                1.5f,
+                                                300);
+                                        }
+                                    },
+                                    particleEarthTier1,
+                                    new Vector2(0, -38),
+                                    Element.Earth
+                                    ).GetEnumerator());
                                 This.Game.AudioManager.PlaySoundEffect("Effects/Earth_T1", .1f);
                                 #endregion Earth Tier 1
                             }
@@ -344,6 +372,7 @@ namespace Frostbyte.Enemies
                                 #endregion Fire Tier 3
                             }
                             break;
+                        default: break;
                         }
                         #endregion
                     attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, rng.Next(3, 5));

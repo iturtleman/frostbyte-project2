@@ -24,6 +24,7 @@ namespace Frostbyte
         {
             GlobalController = new KeyboardController();
             This.Cheats.AddCheat("DisableBackgroundCollision");
+            This.Cheats.AddCheat("FinalBossFun");
         }
 
         protected override void LoadContent()
@@ -52,6 +53,10 @@ namespace Frostbyte
             if (GlobalController.GetKeypress(Keys.End) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
             {
                 Characters.Mage.UnlockedSpells = Spells.All;
+            }
+            if (GlobalController.GetKeypress(Keys.Delete) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
+            {
+                This.Cheats.GetCheat("FinalBossFun").Toggle();
             }
         }
     }
@@ -119,7 +124,7 @@ namespace Frostbyte
         public Tile TopAreaTile = null;
 
         //private Polygon viewportPolygon = null;
-        internal bool AutoZoom = true;
+        internal bool AutoZoom = false;
 
         /// <summary>
         /// The HUD manager for our display
@@ -356,7 +361,7 @@ namespace Frostbyte
 
             List<Sprite> livingPlayers = (This.Game.CurrentLevel as FrostbyteLevel).allies.
                 Where(x => x.State != SpriteState.Dead).ToList();
-            if (!(Theme == Element.Normal || Theme == Element.DEFAULT) && livingPlayers.Count == 0)
+            if (livingPlayers.Count == 0)
             {
                 foreach (WorldObject sprites in mWorldObjects)
                 {
