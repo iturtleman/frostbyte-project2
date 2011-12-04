@@ -551,7 +551,7 @@ namespace Frostbyte.Characters
                 {
                     #region Start Melee Attack
                     mAttacks.Add(Attacks.Melee(this, 25, 11).GetEnumerator());
-                    This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack");
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Sword_Attack", .1f);
                     #endregion Start Melee Attack
                     return;
                 }
