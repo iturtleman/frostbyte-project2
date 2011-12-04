@@ -198,7 +198,7 @@ namespace Frostbyte
                         Tile tile;
                         tileMap.TryGetValue(x, y, out tile);
 
-                        if (tile.Type == TileTypes.Floor)// || tile.Type == TileTypes.BottomConvexCorner)
+                        if (tile.Type == TileTypes.Floor)
                             continue;
 
                         if ((tile.Type == TileTypes.Bottom || tile.Type == TileTypes.BottomConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64 + 32), new Vector2(x * 64 + 64, y * 64 + 64), footPos, collisionRadius))
@@ -207,7 +207,6 @@ namespace Frostbyte
                         }
                         else if (!tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 64), footPos, collisionRadius))
                         {
-
                             continue;
                         }
 
