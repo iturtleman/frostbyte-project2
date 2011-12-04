@@ -138,7 +138,8 @@ namespace Frostbyte
         /// <summary>
         /// Used to detect gamepad State (down-up)
         /// </summary>
-        internal GamePadState mLastPadState;
+        internal GamePadState mLastPadStateP1;
+        internal GamePadState mLastPadStateP2;
         #endregion Variables
 
         #region premade things
@@ -249,7 +250,8 @@ namespace Frostbyte
             #endregion FPS
 
             //store key and pad state
-            mLastPadState = padState;
+            mLastPadStateP1 = padState;
+            mLastPadStateP2 = GamePad.GetState(PlayerIndex.Two);
             mLastKeyState = keyState;
             base.Update(gameTime);
         }

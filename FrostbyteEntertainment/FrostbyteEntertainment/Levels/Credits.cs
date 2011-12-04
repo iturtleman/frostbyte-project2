@@ -27,7 +27,7 @@ namespace Forstbyte.Levels
             GamePadState currentState = GamePad.GetState(PlayerIndex.One);
             if (currentState.IsConnected)
             {
-                if (This.Game.mLastPadState.Buttons.Start == ButtonState.Released &&
+                if (This.Game.mLastPadStateP1.Buttons.Start == ButtonState.Released &&
                     currentState.Buttons.Start == ButtonState.Pressed)
                 {
                     // Go to next
