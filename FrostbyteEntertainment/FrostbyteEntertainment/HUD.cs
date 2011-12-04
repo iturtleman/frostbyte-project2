@@ -57,7 +57,7 @@ namespace Frostbyte
 
     internal class WaterTheme : GenericTheme
     {
-        public override Color TextColor { get { return Color.LightSkyBlue; } }
+        public override Color TextColor { get { return Color.DarkSlateGray; } }
         public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Water"); } }
     }
 
@@ -89,7 +89,7 @@ namespace Frostbyte
         #endregion
 
         #region Variables
-        private IHUDTheme theme;
+        internal IHUDTheme theme;
         private TextScroller scroller;
         private TextFader fader;
         private List<ProgressBar> bossHealthBars = new List<ProgressBar>();
@@ -100,8 +100,13 @@ namespace Frostbyte
         #endregion
 
         #region Methods
-        internal void LoadCommon()
+        internal void LoadCommon(IHUDTheme Theme=null)
         {
+            if (Theme != null)
+            {
+                theme = Theme;
+            }
+
             Viewport v = This.Game.GraphicsDevice.Viewport;
             scroller = new TextScroller("scroller", theme);
             scroller.Pos = new Vector2(FrostbyteLevel.BORDER_WIDTH / 2,

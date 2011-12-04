@@ -16,7 +16,7 @@ namespace Frostbyte.Levels
             XDocument doc = XDocument.Load(@"Content/FireLevel.xml");
             l.Load(doc);
 
-            l.HUD.LoadCommon();
+            l.HUD.LoadCommon(new FireTheme());
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 
