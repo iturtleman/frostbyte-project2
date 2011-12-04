@@ -46,7 +46,7 @@ namespace Frostbyte.Enemies
             if (MovementAudioName == null)
             {
                 MovementAudioName = "Effects/Spider_Move";
-                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName, .04f);
             }
         }
 
