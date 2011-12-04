@@ -593,7 +593,7 @@ namespace Frostbyte.Characters
         private void interact()
         {
             List<Sprite> obstacles = (This.Game.CurrentLevel as FrostbyteLevel).obstacles;
-            float distance = GroundPosRadius * 2f;
+            float distance = GroundPosRadius + 65;
             if (obstacles != null)
             {
                 List<Sprite> targets = GetTargetsInRange(obstacles, distance);
