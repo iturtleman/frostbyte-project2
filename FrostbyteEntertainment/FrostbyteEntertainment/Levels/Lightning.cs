@@ -40,7 +40,7 @@ namespace Frostbyte.Levels
 
             l.isPauseEnabled = true;
 
-            l.HUD.FadeText("The Caves");
+            l.HUD.FadeText("Chapter II: Percutio's Caverns");
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");

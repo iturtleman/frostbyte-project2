@@ -22,12 +22,15 @@ namespace Frostbyte.Levels
 
         internal static void Load(Level context)
         {
+            
+            This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WorldMapBG", 0.1f);
+
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.None;
             LevelInitTime = TimeSpan.MinValue;
 
-            This.Game.AudioManager.AddBackgroundMusic("Music/WorldMapBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/WorldMapBG", 0.1f);
+            
 
             if (visited == 0)
             {

@@ -47,7 +47,7 @@ namespace Frostbyte.Enemies
             if (MovementAudioName == null)
             {
                 MovementAudioName = "Effects/Bat_Move";
-                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName, .05f);
             }
         }
 
