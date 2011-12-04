@@ -812,10 +812,10 @@ namespace Frostbyte.Characters
 
             if(previousHealth > Health)
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 40; i++)
                 {
                     double directionAngle = This.Game.rand.NextDouble() * Math.PI;
-                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier, (float)Math.Sin(directionAngle));
+                    Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle) / 2.3f, (float)Math.Sin(directionAngle));
                     blood.createParticles(randDirection * 20,
                                           randDirection * 10 - new Vector2(0, 50),
                                           GroundPos + randDirection * This.Game.rand.Next(5, (int)(GroundPosRadius*2)) + new Vector2(0, -55),
