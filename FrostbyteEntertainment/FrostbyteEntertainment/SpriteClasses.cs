@@ -37,7 +37,7 @@ namespace Frostbyte
         /// Returns a sprite in targets that is closest to the sprite's current position
         /// and within aggroDistance distance from the current position.
         /// </summary>
-        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance=float.PositiveInfinity)
+        internal Sprite GetClosestTarget(List<Sprite> targets, float aggroDistance = float.PositiveInfinity)
         {
             Sprite min = null;
             foreach (Sprite target in targets)
@@ -123,7 +123,7 @@ namespace Frostbyte
             Vector2 footPos = this.GroundPos;
             Vector2 originalFootPos = previousFootPos;
 
-            while (Vector2.DistanceSquared(footPos,previousFootPos) > .2f)
+            while (Vector2.DistanceSquared(footPos, previousFootPos) > .2f)
             {
                 detectBackgroundCollisions(footPos, previousFootPos, out closestObject, out closestIntersection);
 
@@ -198,23 +198,22 @@ namespace Frostbyte
                         Tile tile;
                         tileMap.TryGetValue(x, y, out tile);
 
-                        if (tile.Type == TileTypes.Floor || tile.Type == TileTypes.ConvexCorner || tile.Type == TileTypes.BottomConvexCorner)
+                        if (tile.Type == TileTypes.Floor)// || tile.Type == TileTypes.BottomConvexCorner)
                             continue;
 
-                        if (tileCircleCollision(new Vector2(x * 64, y * 64), footPos, collisionRadius))
+                        if ((tile.Type == TileTypes.Bottom || tile.Type == TileTypes.BottomConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64 + 32), new Vector2(x * 64 + 64, y * 64 + 64), footPos, collisionRadius))
                         {
-                            bool isAboveHalfWay = (footPos.Y + collisionRadius - y * 64) > 32;
-                            if (tile.Type == TileTypes.Bottom && !isAboveHalfWay)
-                            {
-                                continue;
-                            }
-                        }
-                        else
                             continue;
+                        }
+                        else if (!tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 64), footPos, collisionRadius))
+                        {
+
+                            continue;
+                        }
 
                         doNotMove = true;
                     }
-                
+
 
                 if (doNotMove)
                     GroundPos = originalFootPos;
@@ -227,11 +226,11 @@ namespace Frostbyte
             }
         }
 
-        bool tileCircleCollision(Vector2 tileTopLeftPos, Vector2 circlePos, float circleRadius)
+        bool tileCircleCollision(Vector2 tileTopLeftPos, Vector2 tileBottomRightPos, Vector2 circlePos, float circleRadius)
         {
             Vector2 centerPoint = circlePos;
             Vector2 topLeftPoint = tileTopLeftPos;
-            Vector2 bottomRightPoint = new Vector2(tileTopLeftPos.X + 64, tileTopLeftPos.Y + 64);
+            Vector2 bottomRightPoint = tileBottomRightPos;
 
             int regionCode = 0;
 
@@ -607,9 +606,9 @@ namespace Frostbyte
                     case Orientations.Up_Right:
                         mDirection = new Vector2(1, -1); break;
                     default:
-                        throw new Exception("Need to add Orientation to switch statement, "+
+                        throw new Exception("Need to add Orientation to switch statement, " +
                             "otherwise Direction will not be set.");
-                    
+
                 }
                 if (mDirection != Vector2.Zero)
                     mDirection.Normalize();
@@ -705,7 +704,7 @@ namespace Frostbyte
             foreach (IEnumerator<bool> attack in mAttacks)
             {
                 attack.MoveNext();
-                if(attack.Current)
+                if (attack.Current)
                     removeTheseAttacks.Add(attack);
             }
             foreach (IEnumerator<bool> attack in removeTheseAttacks)
@@ -714,7 +713,7 @@ namespace Frostbyte
                 mAttacks.Remove(attack);
             }
 
-            if (isSlowed && This.gameTime.TotalGameTime >= slowStart + slowDuration )
+            if (isSlowed && This.gameTime.TotalGameTime >= slowStart + slowDuration)
             {
                 isSlowed = false;
                 Speed = originalSpeed;
