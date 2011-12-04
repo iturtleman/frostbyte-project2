@@ -105,6 +105,42 @@ namespace Frostbyte
         }
     }
 
+    internal class SwoopingPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal SwoopingPersonality(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            float[] transitionDistances = new float[1] { 0f };
+            while (true)
+            {
+                Sprite closestTarget = master.GetClosestTarget(targets, 500.0f);
+
+                if (closestTarget != null && Vector2.DistanceSquared(master.GroundPos, closestTarget.GroundPos) <= 500 * 500)
+                {
+                    EnemyAI.wideRangeWander(master, targets, TimeSpan.MaxValue, (float)Math.PI / 4, 400f);
+                }
+
+                yield return null;
+            }
+        }
+    }
+
+
     internal class AmbushPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -981,6 +1017,34 @@ namespace Frostbyte
             return false;
         }
 
+        /// <summary>
+        /// Wander around within a certain range from closest enemy ( For Owls)
+        /// </summary>
+        internal static bool wideRangeWander(this Enemy ths, List<Sprite> targets, TimeSpan duration, float arcAngle, float wanderRadius)
+        {
+            Sprite target = ths.GetClosestTarget(targets);
+            if (target == null) return false;
+
+            if (Vector2.DistanceSquared(ths.GroundPos, target.GroundPos) >= wanderRadius * wanderRadius)
+            {
+                ths.Direction = target.GroundPos - ths.GroundPos;
+                ths.Direction.Normalize();
+                ths.GroundPos += ths.Direction * ths.Speed;
+            }
+
+
+            if (RNG.NextDouble() < 0.2)
+            {
+                double angle = Math.Atan2(ths.Direction.Y, ths.Direction.X) + (2 * RNG.NextDouble() - 1) * arcAngle;
+                ths.Direction = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+
+                //ths.GroundPos += ths.Direction * ths.Speed / 4;  // Wandering should be *slow*
+            }
+
+            ths.GroundPos += ths.Direction * ths.Speed;  // Wandering should be *slow*
+
+            return false;
+        }
 
         /// <summary>
         ///  Go quickly to a new location within 100 pixels from the target

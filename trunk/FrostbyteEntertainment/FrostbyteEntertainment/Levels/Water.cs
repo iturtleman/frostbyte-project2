@@ -37,7 +37,7 @@ namespace Frostbyte.Levels
             l.HUD.AddPlayer(mage2);
             
             This.Game.AudioManager.AddBackgroundMusic("Music/WaterBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBG", 0.1f);
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBG", 0.3f);
 
             l.isPauseEnabled = true;
 

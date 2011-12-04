@@ -33,11 +33,12 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public FrostOwl(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 100)
+            : base(name, new Actor(Animations), 5, 40)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
-            Personality = new PseudoWanderPersonality(this);
+            Personality = new SwoopingPersonality(this);
+            //Personality = new ChargePersonality(this);
             ElementType = Element.Water;
         }
 
@@ -48,7 +49,7 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 2) && isAttackAnimDone)
+            if (This.gameTime.TotalGameTime >= attackStartTime + new TimeSpan(0, 0, 1) && isAttackAnimDone)
             {
                 float range = 450.0f;
                 List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
@@ -59,39 +60,46 @@ namespace Frostbyte.Enemies
 
                     int attackRange = 12;
 
-                    //Create Particle Emmiter
+                    #region Water Tier 1
+
+                    //Create Earth Tier 1 Particle Emmiter
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-                    Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-                    ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
-                    particleEmitterLightning.effectTechnique = "FadeAtXPercent";
-                    particleEmitterLightning.fadeStartPercent = .98f;
-                    particleEmitterLightning.blendState = BlendState.Additive;
-                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
-                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                    particleEmitters.Add(particleEmitterLightning);
+                    Texture2D snowflake = This.Game.CurrentLevel.GetTexture("waterParticle");
+                    ParticleEmitter particleWaterTier1 = new ParticleEmitter(500, particleEffect, snowflake);
+                    particleWaterTier1.effectTechnique = "FadeAtXPercent";
+                    particleWaterTier1.fadeStartPercent = .98f;
+                    particleWaterTier1.blendState = BlendState.Additive;
+                    (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                    (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                    particleEmitters.Add(particleWaterTier1);
 
                     mAttacks.Add(Attacks.T1Projectile(target,
                                               this,
                                               5,
-                                              10,
-                                              new TimeSpan(0, 0, 0, 1, 750),
+                                              0,
+                                              new TimeSpan(0, 0, 0, 1, 150),
                                               attackRange,
                                               6f,
                                               false,
                                               delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                                               {
+                                                  Random randPosition = new Random();
+                                                  particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
                                                   Vector2 tangent = new Vector2(-direction.Y, direction.X);
                                                   for (int i = -5; i < 6; i++)
                                                   {
-                                                      particleEmitter.createParticles(-direction * projectileSpeed * 5,
-                                                                                                  tangent * -i * 40,
-                                                                                                  particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - direction * (Math.Abs(i) * 7),
-                                                                                                  4,
-                                                                                                  300);
+                                                      particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                                               tangent * -i * 40,
+                                                                                               particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                               10.0f,
+                                                                                               This.Game.rand.Next(10, 300));
                                                   }
                                               },
-                                              particleEmitterLightning,
-                                              Vector2.Zero).GetEnumerator());
+                                              particleWaterTier1,
+                                              new Vector2(0, -38),
+                                              Element.Water
+                                              ).GetEnumerator());
+                    #endregion Water Tier 1
                 }
             }
         }

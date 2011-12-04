@@ -564,6 +564,8 @@ namespace Frostbyte
 
             while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
             {
+                if (target != null && !((This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(target) || (This.Game.CurrentLevel as FrostbyteLevel).allies.Contains(target)))
+                    target = null;
 
                 if (isHoming && target != null)
                 {
