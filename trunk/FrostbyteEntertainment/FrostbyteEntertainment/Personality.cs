@@ -594,8 +594,16 @@ namespace Frostbyte
 
             while (true)
             {
-                while (!master.charge((This.Game.CurrentLevel as FrostbyteLevel).allies, int.MaxValue, 1))
+                while (!master.charge(targets, int.MaxValue, 1))
                 {
+                    int n = rng.Next(100);
+                    if (n == 0)
+                    {
+                        while (!master.retreat(targets, new TimeSpan(0, 0, 3), 350, 2))
+                        {
+                            yield return null;
+                        }
+                    }
                     yield return null;
                 }
 
@@ -613,6 +621,23 @@ namespace Frostbyte
         private static Random RNG = new Random();
         private static Vector2 nextHoverPoint = Vector2.Zero;
         private static TimeSpan dartTimeout = new TimeSpan();
+
+        /// <summary>
+        /// Update enemy position directly toward target for given duration - complete
+        /// </summary>
+        internal static bool charge(this Enemy ths, List<Sprite> targets, float stopDistance, float aggroDistance, float speedMultiplier)
+        {
+            Sprite min = ths.GetClosestTarget(targets, aggroDistance);
+
+            if (min == null || Vector2.DistanceSquared(min.GroundPos, ths.GroundPos) < stopDistance * stopDistance)  // No targets, so just continue on
+            {
+                return true;
+            }
+
+            charge(ths, min.GroundPos, speedMultiplier);
+
+            return false;
+        }
 
         /// <summary>
         /// Update enemy position directly toward target for given duration - complete
@@ -795,7 +820,7 @@ namespace Frostbyte
 
             if (ths.Personality.Status == EnemyStatus.Charge)
             {
-                if (This.gameTime.TotalGameTime <= ths.movementStartTime + duration)
+                if (duration == TimeSpan.MaxValue || This.gameTime.TotalGameTime <= ths.movementStartTime + duration)
                 {
                     ths.Direction = target.GroundPos - ths.GroundPos;
                     ths.GroundPos -= ths.Direction * fleeSpeed;
@@ -831,56 +856,16 @@ namespace Frostbyte
         /// <summary>
         /// Move away when x distance from target until z distance from player
         /// </summary>
-        internal static bool teaseRetreat(this Enemy ths, Vector2 P1Coord, Vector2 P2Coord, float aggroDistance, float safeDistance, float speedMultiplier)
+        internal static bool teaseRetreat(this Enemy ths, List<Sprite> targets, float aggroDistance, float safeDistance, float speedMultiplier)
         {
-            double distToP1 = Vector2.DistanceSquared(P1Coord, ths.GroundPos);
-            double distToP2 = Vector2.DistanceSquared(P2Coord, ths.GroundPos);
-            float fleeSpeed = ths.Speed * speedMultiplier;
-            int playerToFlee = 0;
-
-            // choose which player to run from
-            if ((distToP1 <= distToP2) && (distToP1 <= aggroDistance * aggroDistance) || (ths.Personality.Status == EnemyStatus.Charge && (distToP1 < safeDistance * safeDistance)))
+            if (ths.GetClosestTarget(targets, aggroDistance) != null)
             {
-                // charge P1
-                playerToFlee = 1;
-                ths.Personality.Status = EnemyStatus.Charge;
-
+                return retreat(ths, targets, safeDistance, speedMultiplier);
             }
-
-            else if ((distToP2 < distToP1) && (distToP2 <= aggroDistance * aggroDistance) || (ths.Personality.Status == EnemyStatus.Charge && (distToP1 < safeDistance * safeDistance)))
-            {
-                // charge P2
-                playerToFlee = 2;
-                ths.Personality.Status = EnemyStatus.Charge;
-            }
-
-            else if (Math.Min(distToP1, distToP2) >= safeDistance * safeDistance)
-            {
-                // isCharging = false;
-                // return true;
-            }
-
-            if (ths.Personality.Status == EnemyStatus.Charge)
-            {
-
-                if ((playerToFlee == 1) && (distToP1 < safeDistance * safeDistance))
-                {
-                    ths.Direction = P1Coord - ths.GroundPos;
-                    ths.GroundPos -= ths.Direction * fleeSpeed;
-                }
-                else if ((playerToFlee == 2) && (distToP2 < safeDistance * safeDistance))
-                {
-                    ths.Direction = P2Coord - ths.GroundPos;
-                    ths.GroundPos -= ths.Direction * fleeSpeed;
-                }
-
-            }
-
             else
             {
-                ths.movementStartTime = This.gameTime.TotalGameTime;
+                return true;
             }
-            return false;
         }
 
         /// <summary>

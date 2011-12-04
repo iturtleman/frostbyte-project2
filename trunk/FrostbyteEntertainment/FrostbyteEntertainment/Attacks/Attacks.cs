@@ -511,7 +511,6 @@ namespace Frostbyte
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             Vector2 direction = new Vector2();
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(new Vector2(), new Vector2());
-            Vector2 closestIntersection = new Vector2();
             ParticleEmitter particleEmitter = _particleEmitter;
 
             bool damageDealt = false;
