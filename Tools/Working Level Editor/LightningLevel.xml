@@ -5654,7 +5654,7 @@
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="3104,2656" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1504,2720" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="2464,2784" />
-  <Enemy Type="Frostbyte.Enemies.CrystalMan" Name="Crystal Man Boss" Pos="4576,2784" />
+  <Enemy Type="Frostbyte.Enemies.CrystalMan" Name="Crystal Man Boss" Pos="4576,2848" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="1248,2912" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="3040,2912" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="608,3040" />
