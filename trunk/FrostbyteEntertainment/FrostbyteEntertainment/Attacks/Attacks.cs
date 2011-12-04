@@ -809,6 +809,7 @@ namespace Frostbyte
                 }
 
                 //Deal Damage
+                int count = 0;
                 if (5 - i % 15 == 0 && Collision.CollisionData.Count > 0)
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
@@ -819,8 +820,11 @@ namespace Frostbyte
                         {
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
+                                count++;
                                 Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
                             }
+                            if (count >= 4)
+                                break;
                         }
                     }
                 }

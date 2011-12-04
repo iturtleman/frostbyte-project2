@@ -358,7 +358,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Lightning Tier 2
-                                        mAttacks.Add(Attacks.LightningStrike(this, this, 10, 10).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(this, this, 2, 10).GetEnumerator());
                                         #endregion Lightning Tier 2
                                         Mana -= 50;
                                     }
