@@ -56,7 +56,7 @@ namespace Frostbyte.Enemies
             BossDeath b = new BossDeath("die", new Actor(mActor.Animations[19]));
             b.GroundPos = GroundPos;
             Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne;
-            (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\nHold down the Left trigger and press A (gamepad) S (keyboard) and then release the trigger to cast an earth spell!");
+            (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\nHold down the Left trigger and press A (gamepad) S (keyboard) and then release the trigger to cast an earth spell!\n\nUse RB (gamepad) or E (keyboard) or to target an enemy and LB or Q to target an ally.");
             base.Die();
         }
 

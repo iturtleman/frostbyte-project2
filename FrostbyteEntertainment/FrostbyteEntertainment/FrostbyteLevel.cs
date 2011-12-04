@@ -136,7 +136,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            /*"TitleScreen",
+            "TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
@@ -146,7 +146,7 @@ namespace Frostbyte
             "Water",
             "WorldMap",
             "Fire",
-            "WorldMap",*/
+            "WorldMap",
             "Final",
             "WorldMap",
             "Credits"
