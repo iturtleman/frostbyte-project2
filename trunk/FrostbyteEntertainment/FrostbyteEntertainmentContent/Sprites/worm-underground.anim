@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animation>
-  <Frame SpriteSheet="worm-submerge-down" FrameDelay="20" Width="255" Height="435" TLPos="1275,870" AnimationPeg="0,0" />
+  <Frame SpriteSheet="worm-submerge-down" FrameDelay="30" Width="255" Height="435" TLPos="1275,870" AnimationPeg="0,0" />
 </Animation>
