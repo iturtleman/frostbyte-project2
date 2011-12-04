@@ -390,7 +390,7 @@ namespace Frostbyte
             if (l.Name == "Lightning")
             {
                 Characters.Mage.UnlockedSpells = Characters.Mage.UnlockedSpells | Spells.EarthTwo;
-                l.HUD.ScrollTesxt("You feel a rush of power enter your body.\n\n\n\n\n\nYou can now cast level two spells by pressing the corresponding element two times.\n\n\n\n\n\n Try it on those spiders up ahead!");
+                l.HUD.ScrollText("You feel a rush of power enter your body.\n\n\n\n\n\nYou can now cast level two spells by pressing the corresponding element two times.\n\n\n\n\n\n Try it on those spiders up ahead!");
             }
             if (l.Name == "Fire")
             {
