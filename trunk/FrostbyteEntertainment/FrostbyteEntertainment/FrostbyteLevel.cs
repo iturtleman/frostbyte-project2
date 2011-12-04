@@ -306,7 +306,6 @@ namespace Frostbyte
                 float zoom = This.Game.CurrentLevel.Camera.Zoom;
                 float scaleX = float.PositiveInfinity;
                 float scaleY = float.PositiveInfinity;
-
                 if (AutoZoom)
                 {
                     #region Calculate Zoom Factor
@@ -328,24 +327,28 @@ namespace Frostbyte
                 Vector2 bottomRightCorner = max - cameraPos;
                 if (scaleX >= MIN_ZOOM)
                 {
-                    if (topLeftCorner.X < viewport.X + BORDER_WIDTH / zoom)
+                    if (topLeftCorner.X <= viewport.X + BORDER_WIDTH / zoom)
                     {
                         cameraPos.X += (int)(topLeftCorner.X - (viewport.X + BORDER_WIDTH) / zoom);
                     }
                     else if (bottomRightCorner.X > viewport.X + (viewport.Width - BORDER_WIDTH) / zoom)
                     {
-                        cameraPos.X += (int)(bottomRightCorner.X - (viewport.X + (viewport.Width - BORDER_WIDTH) / zoom));
+                        cameraPos.X += (int)Math.Min(
+                            topLeftCorner.X - (viewport.X + BORDER_WIDTH) / zoom, 
+                            bottomRightCorner.X - (viewport.X + (viewport.Width - BORDER_WIDTH) / zoom));
                     }
                 }
                 if (scaleY >= MIN_ZOOM)
                 {
-                    if (topLeftCorner.Y < viewport.Y + BORDER_HEIGHT / zoom)
+                    if (topLeftCorner.Y <= viewport.Y + BORDER_HEIGHT / zoom)
                     {
                         cameraPos.Y += (int)(topLeftCorner.Y - (viewport.Y + BORDER_HEIGHT) / zoom);
                     }
                     else if (bottomRightCorner.Y > viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom)
                     {
-                        cameraPos.Y +=(int)( bottomRightCorner.Y - (viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom));
+                        cameraPos.Y += (int)Math.Min(
+                            bottomRightCorner.Y - (viewport.Y + (viewport.Height - BORDER_HEIGHT) / zoom),
+                            topLeftCorner.Y - (viewport.Y + BORDER_WIDTH) / zoom);
                     }
                 }
                 #endregion
