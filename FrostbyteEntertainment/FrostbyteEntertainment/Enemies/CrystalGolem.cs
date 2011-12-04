@@ -34,7 +34,7 @@ namespace Frostbyte.Enemies
             : base(name, initialPos, 200, Animations)
         {
             ElementType = Element.Lightning;
-            Personality = new StrictSentinelPersonality(this);
+            Personality = new WalkingSentinelPersonality(this);
         }
 
         protected override void updateAttack()

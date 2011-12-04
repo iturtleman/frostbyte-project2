@@ -5676,11 +5676,17 @@
   <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="1312,3488" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="2080,3552" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="2528,3552" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4320,3552" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4448,3552" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="480,3616" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1888,3616" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4320,3616" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4448,3616" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1888,3680" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="2336,3680" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="3104,3680" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4320,3680" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4448,3680" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7264,3680" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1888,3744" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="8416,3744" />
@@ -5709,16 +5715,16 @@
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="672,4256" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1056,4256" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1952,4256" />
-  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="7712,4256" />
-  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="7904,4256" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="9056,4256" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="9184,4256" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="3104,4320" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="6240,4384" />
+  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="7712,4384" />
+  <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="7904,4384" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="9120,4384" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="2848,4512" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5728,4512" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5856,4576" />
-  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="6048,4576" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="6240,4576" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1824,4640" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="1312,4704" />
@@ -5730,13 +5736,18 @@
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="1696,4960" />
   <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="4960,4960" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="2080,5088" />
-  <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7776,5344" />
-  <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7840,5344" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5344,5472" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7648,5472" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7968,5472" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="4896,5600" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5216,5600" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="3744,5664" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5152,5728" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5152,5792" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5152,5856" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="3680,5984" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5216,5984" />
+  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5344,6112" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5408,6304" />
   <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="3936,6432" />
   <Enemy Type="Frostbyte.Enemies.CrystalGolem" Name="CrystalGolem" Pos="4192,7008" />

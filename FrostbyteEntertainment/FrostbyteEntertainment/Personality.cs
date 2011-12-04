@@ -227,6 +227,50 @@ namespace Frostbyte
         }
     }
 
+    internal class WalkingSentinelPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal WalkingSentinelPersonality(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            Vector2 guardPosition = master.GroundPos;
+            while (true)
+            {
+                Sprite closestTarget = master.GetClosestTarget(targets, 550.0f);
+
+
+                if (closestTarget != null && Vector2.DistanceSquared(closestTarget.GroundPos, master.GroundPos) > 100 * 100)
+                {
+                    master.charge(closestTarget.GroundPos, 1.3f);
+                }
+                else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) > 20 * 20)
+                {
+                    master.charge(guardPosition, 3.0f);
+                }
+                else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
+                {
+                    master.State = SpriteState.Idle;
+                }
+
+                yield return null;
+            }
+        }
+    }
+
     internal class DartPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
