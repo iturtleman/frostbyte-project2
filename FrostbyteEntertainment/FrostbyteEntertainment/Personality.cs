@@ -222,7 +222,10 @@ namespace Frostbyte
                 }
                 else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
                 {
+                    Sprite closestTarget2 = master.GetClosestTarget(targets, 800.0f);
                     master.State = SpriteState.Idle;
+                    if (closestTarget2 != null)
+                        master.Direction = closestTarget2.GroundPos - master.GroundPos;
                 }
 
                 yield return null;
@@ -255,7 +258,10 @@ namespace Frostbyte
             {
                 if (Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
                 {
+                    Sprite closestTarget2 = master.GetClosestTarget(targets, 800.0f);
                     master.State = SpriteState.Idle;
+                    if (closestTarget2 != null)
+                        master.Direction = closestTarget2.GroundPos - master.GroundPos;
                 }
 
                 yield return null;
@@ -299,7 +305,10 @@ namespace Frostbyte
                 }
                 else if (closestTarget == null && Vector2.DistanceSquared(guardPosition, master.GroundPos) <= 20 * 20)
                 {
+                    Sprite closestTarget2 = master.GetClosestTarget(targets, 800.0f);
                     master.State = SpriteState.Idle;
+                    if (closestTarget2 != null)
+                        master.Direction = closestTarget2.GroundPos - master.GroundPos;
                 }
 
                 yield return null;
