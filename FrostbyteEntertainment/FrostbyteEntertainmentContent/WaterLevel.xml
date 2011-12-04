@@ -3636,8 +3636,8 @@
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="115,58" />
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="116,58" />
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="117,58" />
-  <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="118,58" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Water" Orientation="Left" GridCell="119,58" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Water" Orientation="Left" GridCell="118,58" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,58" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,58" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,58" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,58" />
@@ -3728,7 +3728,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="89,59" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="90,59" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="91,59" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,59" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,59" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,59" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,59" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,59" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,59" />
@@ -3819,7 +3820,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="89,60" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="90,60" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="91,60" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,60" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,60" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,60" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,60" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,60" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,60" />
@@ -3910,7 +3912,8 @@
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="89,61" />
   <Tile Type="Bottom" Collision="false" Theme="Water" Orientation="Right" GridCell="90,61" />
   <Tile Type="BottomCorner" Collision="true" Theme="Water" Orientation="Right" GridCell="91,61" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,61" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,61" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,61" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,61" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,61" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,61" />
@@ -3956,7 +3959,8 @@
   <Tile Type="Wall" Collision="true" Theme="Water" Orientation="Left" GridCell="115,62" />
   <Tile Type="Wall" Collision="true" Theme="Water" Orientation="Left" GridCell="116,62" />
   <Tile Type="Corner" Collision="true" Theme="Water" Orientation="Right" GridCell="117,62" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,62" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,62" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,62" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,62" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,62" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,62" />
@@ -4002,7 +4006,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,63" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,63" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="117,63" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,63" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,63" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,63" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,63" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,63" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,63" />
@@ -4048,7 +4053,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,64" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,64" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="117,64" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,64" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,64" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,64" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,64" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,64" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,64" />
@@ -4098,7 +4104,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,65" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,65" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="117,65" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,65" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,65" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,65" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,65" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,65" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,65" />
@@ -4148,7 +4155,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,66" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,66" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="117,66" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,66" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,66" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,66" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,66" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,66" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,66" />
@@ -4204,7 +4212,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,67" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,67" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="117,67" />
-  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="119,67" />
+  <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Down" GridCell="118,67" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,67" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,67" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,67" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,67" />
@@ -4264,8 +4273,8 @@
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="115,68" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="116,68" />
   <Tile Type="ConvexCorner" Collision="true" Theme="Water" Orientation="Right" GridCell="117,68" />
-  <Tile Type="Wall" Collision="true" Theme="Water" Orientation="Left" GridCell="118,68" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Water" Orientation="Down" GridCell="119,68" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Water" Orientation="Down" GridCell="118,68" />
+  <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="119,68" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="120,68" />
   <Tile Type="Floor" Collision="false" Theme="Water" Orientation="Left" GridCell="121,68" />
   <Tile Type="SideWall" Collision="false" Theme="Water" Orientation="Up_Left" GridCell="122,68" />
@@ -4627,30 +4636,31 @@
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9376,1376" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9696,1376" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10016,1376" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8288,1568" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7968,1440" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8352,1504" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,1632" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2016,1696" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2464,1696" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8224,1824" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,1824" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8864,1824" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10912,1888" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5856,2080" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6112,2080" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="6432,2080" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8672,2080" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9056,2080" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="9312,2080" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10400,2080" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9632,2144" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2208,2208" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2272,2272" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10912,2272" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8224,2336" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,2336" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8864,2336" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5856,2400" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6432,2400" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2080,2464" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2400,2464" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8288,2592" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,2528" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8352,2656" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9952,2656" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7968,2720" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="11168,2720" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="11552,2720" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9120,2848" />
@@ -4700,7 +4710,7 @@
   <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6816,4320" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4576,4512" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="4896,4512" />
-  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6496,4512" />
+  <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6624,4512" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5536,4640" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="5856,4640" />
   <Enemy Type="Frostbyte.Enemies.IceGolem" Name="Ice Golem" Pos="6816,4640" />
@@ -4715,7 +4725,10 @@
   <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="6688,3296" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="480,3488" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="8288,3488" />
-  <Object Type="Frostbyte.Obstacles.Door" Name="Bottom_Door" Orientation="Down" Pos="10144,3552" />
+  <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="10144,3552" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="10144,3616" />
+  <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="10144,3680" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="10144,3744" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="4768,4384" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="5728,4448" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6688,3168" />
