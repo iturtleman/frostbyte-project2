@@ -48,12 +48,13 @@ namespace Frostbyte.Enemies
             Personality = new UndergroundAttackPersonality(this);
             SetAnimation(15);
             IsSubmerged = true;
+            Speed = .65f;
         }
         
         protected override void Die()
         {
-            //BossDeath b = new BossDeath("die", new Actor(mActor.Animations[19]));
-            //b.GroundPos = GroundPos;
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[19]));
+            b.GroundPos = GroundPos;
             Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne;
             (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText("You feel the strength of the earth rush in through your feet.\n\nHold down the Left trigger and press A (gamepad) S (keyboard) and then release the trigger to cast an earth spell!");
             base.Die();
@@ -71,12 +72,11 @@ namespace Frostbyte.Enemies
                 if (HasVomited || This.Game.rand.Next(4) != 0)
                 {
                     #region Spew
-                    float range = 450.0f;
                     List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
-                    Sprite target = GetClosestTarget(targets, range);
+                    Sprite target = GetClosestTarget(targets);
                     if (target != null)
                     {
-                        int attackRange = int.MaxValue;
+                        int attackRange = 11;
 
                         //Create Particle Emitter
                         Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
@@ -95,7 +95,7 @@ namespace Frostbyte.Enemies
                             mAttacks.Add(Attacks.T1Projectile(target,
                                                       this,
                                                       5,
-                                                      41,
+                                                      20,
                                                       new TimeSpan(0, 0, 0, 1, 750),
                                                       attackRange,
                                                       6f,
@@ -123,7 +123,7 @@ namespace Frostbyte.Enemies
                 else
                 {
                     SetAnimation(18);
-                    mAttacks.Add(Attacks.WormVomit(this, 18, 1, 48).GetEnumerator());
+                    mAttacks.Add(Attacks.WormVomit(this, 18, 1, 24).GetEnumerator());
                     HasVomited = true;
                 }
             }
