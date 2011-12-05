@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Frostbyte.Enemies
 {
-    internal partial class WaterBlobBoss : Frostbyte.Enemy
+    internal partial class WaterBlobBoss : Frostbyte.Boss
     {
                 internal override XElement ToXML()
         {

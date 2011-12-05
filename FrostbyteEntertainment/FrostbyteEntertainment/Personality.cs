@@ -341,7 +341,7 @@ namespace Frostbyte
                 TimeSpan snapshot = This.gameTime.TotalGameTime;
                 //master.Personality.Status = EnemyStatus.Wander;
                 Sprite closestTarget = this.master.GetClosestTarget(targets);
-                while (!master.dart(targets, 5.0f, 400) && closestTarget != null &&
+                while (!master.dart(targets, 5.0f, 400, new TimeSpan(0, 0, 0, 0, 300)) && closestTarget != null &&
                     Vector2.Distance(this.master.GroundPos, closestTarget.GroundPos) < 500)
                 {
                     yield return null;
@@ -649,6 +649,55 @@ namespace Frostbyte
         }
     }
 
+    internal class LiquidPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemies.WaterBlobBoss master;
+        private IEnumerator mStates;
+        private static Random rng = new Random();
+
+        internal LiquidPersonality(Enemies.WaterBlobBoss master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+
+            int initialWaitDistance = 300;
+            while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
+            {
+                yield return null;
+            }
+            master.setAtArms();
+            master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
+            //This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            //This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            while (true)
+            {
+                while (!master.dart(targets, 15, 50, new TimeSpan(0, 0, 0, 0, 500)))
+                {
+                    yield return null;
+                }
+                while (!master.freeze(new TimeSpan(0, 0, 2)))
+                {
+                    yield return null;
+                }
+                
+
+                yield return null;
+            }
+        }
+    }
+
     internal class DarkLinkPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -709,7 +758,6 @@ namespace Frostbyte
 
         private static Random RNG = new Random();
         private static Vector2 nextHoverPoint = Vector2.Zero;
-        private static TimeSpan dartTimeout = new TimeSpan();
 
         /// <summary>
         /// Update enemy position directly toward target for given duration - complete
@@ -1056,44 +1104,10 @@ namespace Frostbyte
         }
 
         /// <summary>
-        ///  Go quickly to a new location within 100 pixels from the target
+        ///  Go quickly to a new location within flyRadius pixels from the target
         /// </summary
-        internal static bool dart(this Enemy ths, List<Sprite> targets, float dartSpeedMultiplier, int flyRadius)
+        internal static bool dart(this Enemy ths, List<Sprite> targets, float dartSpeedMultiplier, int flyRadius, TimeSpan dartTimeout)
         {
-            #region crap!
-            //Sprite target = ths.GetClosestTarget(targets);
-            //Vector2 nextHoverPoint = Vector2.Zero;
-
-            //float dartSpeed = ths.Speed * dartSpeedMultiplier;
-
-
-            //if (ths.Personality.Status == EnemyStatus.Wander)
-            //{
-            //    if (ths.movementStartTime < This.gameTime.TotalGameTime + new TimeSpan(0, 0, 5))
-            //        ths.Personality.Status = EnemyStatus.Charge;
-
-            //    nextHoverPoint = new Vector2(
-            //           RNG.Next(0, (int)(target.Pos.X)),
-            //           RNG.Next(0, (int)(target.Pos.Y))
-            //    );
-
-            //    ths.Direction = nextHoverPoint - ths.GroundPos;
-            //}
-
-
-
-            //if (ths.Personality.Status == EnemyStatus.Charge)
-            //{
-            //    if (ths.Pos != nextHoverPoint && nextHoverPoint != Vector2.Zero)
-            //    {
-            //        ths.Pos += ths.Direction * dartSpeed;
-            //    }
-
-            //    else return true;
-            //}
-
-            #endregion crap!
-
             Sprite target = ths.GetClosestTarget(targets);
 
             if (target == null) return false;
@@ -1132,7 +1146,7 @@ namespace Frostbyte
 
                 ths.Direction = (ths.GroundPos - nextHoverPoint);// -ths.GroundPos;
                 ths.Direction.Normalize();
-                dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
+                //dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
                 ths.movementStartTime = This.gameTime.TotalGameTime;
                 return true;
             }
