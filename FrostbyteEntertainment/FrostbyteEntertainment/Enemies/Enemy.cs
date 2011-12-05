@@ -64,6 +64,17 @@ namespace Frostbyte
 
         protected virtual void Die()
         {
+            //Create Particle Emmiter for DeathEffect
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
+            ParticleEmitter particleEmitterDeath = new ParticleEmitter(1000, particleEffect, lightning);
+            particleEmitterDeath.effectTechnique = "FadeAtXPercent";
+            particleEmitterDeath.fadeStartPercent = .98f;
+            particleEmitterDeath.blendState = BlendState.Additive;
+
+            //Start Death Effect
+            new DeathEffect(this, particleEmitterDeath, 1000);
+
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             // Remove Sprite
             l.RemoveSprite(this);

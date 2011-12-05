@@ -115,6 +115,7 @@
     <Compile Include="Attacks\Attacks.cs" />
     <Compile Include="Characters\Mage.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="DeathEffect.cs" />
     <Compile Include="Enemies\Beetle.cs" />
     <Compile Include="Enemies\ElectricBat.cs" />
     <Compile Include="Enemies\CrystalGolem.cs" />
