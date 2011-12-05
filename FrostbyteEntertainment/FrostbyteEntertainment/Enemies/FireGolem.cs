@@ -34,7 +34,7 @@ namespace Frostbyte.Enemies
             : base(name, initialPos, 200, Animations)
         {
             ElementType = Element.Fire;
-            Personality = new StrictSentinelPersonality(this);
+            Personality = new WalkingSentinelPersonality(this);
         }
 
         protected override void updateAttack()
@@ -56,7 +56,7 @@ namespace Frostbyte.Enemies
                     ParticleEmitter particleEmitterFire = new ParticleEmitter(1000, particleEffect, fire);
                     particleEmitterFire.effectTechnique = "FadeAtXPercent";
                     particleEmitterFire.fadeStartPercent = .98f;
-                    particleEmitterFire.blendState = BlendState.Additive;
+                    particleEmitterFire.blendState = BlendState.AlphaBlend;
                     (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
                     (particleEmitterFire.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
 
@@ -80,7 +80,7 @@ namespace Frostbyte.Enemies
                                                                               direction * accelSpeed * 15,
                                                                               particleEmitter.GroundPos,
                                                                               rand.Next(20, 50),
-                                                                              rand.Next(500, 1000));
+                                                                              rand.Next(400, 700));
                                                   }
                                               },
                                               particleEmitterFire,
