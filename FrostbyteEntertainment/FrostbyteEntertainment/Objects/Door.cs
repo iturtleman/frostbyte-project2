@@ -8,9 +8,9 @@ namespace Frostbyte.Obstacles
 {
     internal class Door : Obstacle
     {
-        static List<Animation> Animations = new List<Animation>(){
-            This.Game.CurrentLevel.GetAnimation("door-closed.anim"),
-            This.Game.CurrentLevel.GetAnimation("door.anim"),
+        static List<String> Animations = new List<String>(){
+            "door-closed.anim",
+            "door.anim",
         };
 
         public Door(string name)
