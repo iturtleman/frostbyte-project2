@@ -16,12 +16,26 @@ namespace Frostbyte.Enemies
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<String> Animations = new List<String>(){
-           "antibody.anim",
+           "wolf-idle-down.anim",
+           "wolf-idle-diagdown.anim",
+           "wolf-idle-right.anim",
+           "wolf-idle-diagup.anim",
+           "wolf-idle-up.anim",
+           "wolf-walk-down.anim",
+           "wolf-walk-diagdown.anim",
+           "wolf-walk-right.anim",
+           "wolf-walk-diagup.anim",
+           "wolf-walk-up.anim",
+           "wolf-attack-down.anim",
+           "wolf-attack-diagdown.anim",
+           "wolf-attack-right.anim",
+           "wolf-attack-diagup.anim",
+           "wolf-attack-up.anim",
         };
         #endregion Variables
 
         public FireAnt(string name, Vector2 initialPos)
-            : base(name, new Actor(Animations), 1, 100)
+            : base(name, new Actor(Animations), 0.8f, 60)
         {
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);

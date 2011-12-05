@@ -360,6 +360,51 @@ namespace Frostbyte
         }
     }
 
+    internal class DartWanderPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemy master;
+        private IEnumerator mStates;
+
+        internal DartWanderPersonality(Enemy master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+            while (true)
+            {
+                TimeSpan snapshot = This.gameTime.TotalGameTime;
+                //master.Personality.Status = EnemyStatus.Wander;
+                Sprite closestTarget = this.master.GetClosestTarget(targets);
+                while (!master.dartingBat(targets, 5.0f, 400, new TimeSpan(0, 0, 0, 0, 900)) && closestTarget != null &&
+                    Vector2.Distance(this.master.GroundPos, closestTarget.GroundPos) < 500)
+                {
+                    yield return null;
+                    closestTarget = this.master.GetClosestTarget(targets);
+                }
+
+                // Freeze for five seconds
+                while (!master.wander(targets, new TimeSpan(0, 0, 0, 0, 300), float.MaxValue, (float)Math.PI/8))
+                {
+                    yield return null;
+                }
+
+                yield return null;
+            }
+
+            //}
+        }
+    }
+
     internal class PulseChargePersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }
@@ -464,7 +509,8 @@ namespace Frostbyte
         private IEnumerable Submerge()
         {
             master.IsSubmerged = true;
-            master.StopAttacks();
+            if (master.HasVomited)
+                master.StopAttacks();
             master.SetAnimation(16);
             master.Rewind();
             while (master.Frame != master.FrameCount() - 1)
@@ -1148,6 +1194,63 @@ namespace Frostbyte
                 //dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
                 ths.movementStartTime = This.gameTime.TotalGameTime;
                 return true;
+            }
+
+            return false;
+        }
+
+
+        internal static bool dartingBat(this Enemy ths, List<Sprite> targets, float dartSpeedMultiplier, int flyRadius, TimeSpan dartTimeout)
+        {
+            Sprite target = ths.GetClosestTarget(targets);
+
+            if (target == null) return false;
+
+            float dartSpeed = ths.Speed * dartSpeedMultiplier;
+
+
+            if (ths.Personality.Status != EnemyStatus.Charge)
+            {
+                nextHoverPoint = new Vector2(
+                        RNG.Next((int)target.GroundPos.X - flyRadius, (int)target.GroundPos.X + flyRadius),  //(int)(ths.Pos.X + Vector2.Distance(target.Pos, ths.Pos))),
+                        RNG.Next((int)target.GroundPos.Y - flyRadius, (int)target.GroundPos.Y + flyRadius)  //(int)(ths.Pos.Y + Vector2.Distance(target.Pos, ths.Pos)))
+                );
+
+                ths.Direction = -(ths.GroundPos - nextHoverPoint);// -ths.GroundPos;
+                ths.Direction.Normalize();
+                ths.Personality.Status = EnemyStatus.Charge;
+                dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
+                ths.movementStartTime = This.gameTime.TotalGameTime;
+            }
+
+
+            //if we choose a nextHoverPoint thats beyond a wall, we get stuck...
+            else if (Vector2.Distance(ths.GroundPos, nextHoverPoint) > 3f && nextHoverPoint != Vector2.Zero && This.gameTime.TotalGameTime < ths.movementStartTime + dartTimeout)
+            {
+                ths.GroundPos += ths.Direction * dartSpeed;
+            }
+
+            else
+            {
+                ths.Personality.Status = EnemyStatus.Wander;
+                nextHoverPoint = new Vector2(
+                        RNG.Next((int)target.GroundPos.X - flyRadius, (int)target.GroundPos.X + flyRadius),  //(int)(ths.Pos.X + Vector2.Distance(target.Pos, ths.Pos))),
+                        RNG.Next((int)target.GroundPos.Y - flyRadius, (int)target.GroundPos.Y + flyRadius)
+                );
+
+                ths.Direction = (ths.GroundPos - nextHoverPoint);// -ths.GroundPos;
+                ths.Direction.Normalize();
+                //dartTimeout = new TimeSpan(0, 0, 0, 0, 300);
+                ths.movementStartTime = This.gameTime.TotalGameTime;
+                return true;
+            }
+
+            if (RNG.NextDouble() < 0.9)
+            {
+                double angle = Math.Atan2(ths.Direction.Y, ths.Direction.X) + (2 * RNG.NextDouble() - 1) * Math.PI / 8;
+                ths.Direction = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+
+                ths.GroundPos += ths.Direction * ths.Speed / 4;  // Wandering should be *slow*
             }
 
             return false;

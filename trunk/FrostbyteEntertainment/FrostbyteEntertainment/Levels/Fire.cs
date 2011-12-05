@@ -37,7 +37,7 @@ namespace Frostbyte.Levels
             l.HUD.AddPlayer(mage2);
             
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBG");
-            This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.1f);
+            This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.03f);
 
             l.isPauseEnabled = true;
 

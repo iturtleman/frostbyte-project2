@@ -998,7 +998,7 @@ namespace Frostbyte
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
                                 //Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
-                                Slow((detectedCollision.Item2 as OurSprite), 0.5f, new TimeSpan(0, 0, 5));
+                                Slow((detectedCollision.Item2 as OurSprite), 0.5f, new TimeSpan(0, 0, 0, 1, 500));
                             }
                         }
                     }
@@ -1866,6 +1866,7 @@ namespace Frostbyte
                 }
 
                 //Deal Damage
+                int count = 0;
                 if (Collision.CollisionData.Count > 0)
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
@@ -1876,7 +1877,10 @@ namespace Frostbyte
                         {
                             if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
                             {
+                                count++;
                                 Slow((detectedCollision.Item2 as OurSprite), 0.0f, new TimeSpan(0, 0, 1));
+                                if (count >= 4)
+                                    break;
                             }
                         }
                     }
@@ -2061,7 +2065,7 @@ namespace Frostbyte
             particleEmitter.effectTechnique = "FadeAtXPercent";
             particleEmitter.fadeStartPercent = .98f;
             particleEmitter.blendState = BlendState.Additive;
-            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
+            (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 105;
             (particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             #endregion Variables
 
@@ -2076,7 +2080,7 @@ namespace Frostbyte
                 yield return false;
             }
 
-            particleEmitter.GroundPos = attacker.GroundPos;
+            particleEmitter.GroundPos = attacker.GroundPos + new Vector2(7, -30);
 
             #region Generate Lightning Strike and Ground Spread and Deal Damage
 

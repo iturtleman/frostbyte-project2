@@ -26,6 +26,7 @@ namespace Frostbyte.Enemies
             ElementType = Element.Lightning;
 
             Personality = new ShiningPersonality(this);
+            CollidesWithBackground = false;
         }
 
         protected override void Die()
