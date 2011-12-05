@@ -265,7 +265,7 @@ namespace Frostbyte
         {
             internal ItemArea(string name, IHUDTheme theme)
                 : base(name, new Actor(new DummyAnimation(name,
-                    (int)HUD.barSize.X, (int)HUD.barSize.Y * 2)))
+                    (int)HUD.barSize.X, (int)HUD.barSize.Y)))
             {
                 ZOrder = 100;
                 this.theme = theme;

@@ -692,7 +692,7 @@ namespace Frostbyte.Characters
                         }
                     }
                 }
-                else if (controller.TargetAllies)
+                else if (controller.TargetAllies && This.Cheats.GetCheat("ElementalBuffs").Enabled)
                 {
                     if (currentTargetAlignment == TargetAlignment.Enemy)
                     {
