@@ -140,7 +140,6 @@ namespace Frostbyte
         }
     }
 
-
     internal class AmbushPersonality : IPersonality
     {
         public EnemyStatus Status { get; set; }

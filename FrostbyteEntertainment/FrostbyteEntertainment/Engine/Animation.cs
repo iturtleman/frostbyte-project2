@@ -98,7 +98,7 @@ namespace Frostbyte
                 //Image's width and height
                 sf.Width = int.Parse(frame.Attribute("Width").Value);
                 sf.Height = int.Parse(frame.Attribute("Height").Value);
-                
+
                 /** Set the animation Peg*/
                 sf.AnimationPeg = Index2D.Parse(frame.Attribute("AnimationPeg").Value).Vector;
 
@@ -106,6 +106,11 @@ namespace Frostbyte
                 if (frame.Attribute("MirrorOffset") != null)
                 {
                     sf.MirrorOffset = Index2D.Parse(frame.Attribute("MirrorOffset").Value).Vector;
+                }
+
+                foreach (var hotspot in frame.Descendants("HotSpot"))
+                {
+                    sf.HotSpots.Add(Index2D.Parse(hotspot.Value).Vector);
                 }
 
                 int idCount = 0;
