@@ -431,6 +431,7 @@ namespace Frostbyte
                                     FloorType = TileTypes.Floor,
                                     Orientation = Orientations.Down,
                                     GridCell = toDraw.GridCell,
+                                    Theme=toDraw.Theme,
                                 };
                                 t.Draw();
                             }
