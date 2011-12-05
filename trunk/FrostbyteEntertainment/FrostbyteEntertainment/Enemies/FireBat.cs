@@ -15,21 +15,21 @@ namespace Frostbyte.Enemies
 
         #region Variables
         static List<String> Animations = new List<String>(){
-           "bat-down.anim",
-           "bat-diagdown.anim",
-           "bat-right.anim",
-           "bat-diagup.anim",
-           "bat-up.anim",
-           "bat-down.anim",
-           "bat-diagdown.anim",
-           "bat-right.anim",
-           "bat-diagup.anim",
-           "bat-up.anim",
-           "bat-down.anim",
-           "bat-diagdown.anim",
-           "bat-right.anim",
-           "bat-diagup.anim",
-           "bat-up.anim",
+           "firebat-down.anim",
+           "firebat-diagdown.anim",
+           "firebat-right.anim",
+           "firebat-diagup.anim",
+           "firebat-up.anim",
+           "firebat-down.anim",
+           "firebat-diagdown.anim",
+           "firebat-right.anim",
+           "firebat-diagup.anim",
+           "firebat-up.anim",
+           "firebat-down.anim",
+           "firebat-diagdown.anim",
+           "firebat-right.anim",
+           "firebat-diagup.anim",
+           "firebat-up.anim",
         };
 
         #endregion Variables
