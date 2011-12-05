@@ -17,26 +17,24 @@ namespace Frostbyte.Enemies
            "waterboss-idle-right.anim",
            "waterboss-idle-diagup.anim",
            "waterboss-idle-up.anim",
+           "waterboss-charge-down.anim",
+           "waterboss-charge-diagdown.anim",
+           "waterboss-charge-right.anim",
+           "waterboss-charge-diagup.anim",
+           "waterboss-charge-up.anim",
            "waterboss-idle-down.anim",
            "waterboss-idle-diagdown.anim",
            "waterboss-idle-right.anim",
            "waterboss-idle-diagup.anim",
            "waterboss-idle-up.anim",
-           "waterboss-idle-down.anim",
-           "waterboss-idle-diagdown.anim",
-           "waterboss-idle-right.anim",
-           "waterboss-idle-diagup.anim",
-           "waterboss-idle-up.anim",
-           //"waterboss-walk-down.anim",
-           //"waterboss-walk-diagdown.anim",
-           //"waterboss-walk-right.anim",
-           //"waterboss-walk-diagup.anim",
-           //"waterboss-walk-up.anim",
            //"waterboss-attack-down.anim",
            //"waterboss-attack-diagdown.anim",
            //"waterboss-attack-right.anim",
            //"waterboss-attack-diagup.anim",
            //"waterboss-attack-up.anim",
+           "waterboss-surface.anim",
+           "waterboss-submerge.anim",
+           "waterboss-die.anim",
         };
 
         internal TimeSpan attackWait = TimeSpan.MaxValue;
@@ -50,6 +48,13 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Water;
             Personality = new LiquidPersonality(this);
+        }
+
+        protected override void Die()
+        {
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[17]));
+            b.GroundPos = GroundPos;
+            base.Die();
         }
 
         protected override void updateMovement()

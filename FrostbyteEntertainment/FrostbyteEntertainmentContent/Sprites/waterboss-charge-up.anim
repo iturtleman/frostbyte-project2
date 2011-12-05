@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="0,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="112,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="224,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="336,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="448,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="560,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="672,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="784,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="896,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="0,132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-up" FrameDelay="20" Width="112" Height="132" TLPos="112,132" AnimationPeg="0,0" />
+</Animation>

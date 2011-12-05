@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="0,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="154,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="308,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="462,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="616,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="770,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="0,125" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="154,125" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="308,125" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="462,125" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagdown" FrameDelay="20" Width="154" Height="125" TLPos="616,125" AnimationPeg="0,0" />
+</Animation>
