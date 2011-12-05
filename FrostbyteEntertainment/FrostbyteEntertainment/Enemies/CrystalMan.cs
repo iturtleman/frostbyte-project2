@@ -183,6 +183,14 @@ namespace Frostbyte.Enemies
             });
         }
 
+        protected override void Die()
+        {
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[14]));
+            b.GroundPos = GroundPos;
+            b.Scale = 1.25f;
+            base.Die();
+        }
+
         protected override void updateAttack()
         {
         }

@@ -138,6 +138,8 @@ namespace Frostbyte
         /// </summary>
         internal SpriteFrame GetAnimation()
         {
+            //continue on same frame uncomment to start anim from beginning
+            mActor.Frame = mActor.Frame % mActor.Animations[mActor.CurrentAnimation].Frames.Count;
             return mActor.Animations[mActor.CurrentAnimation].Frames[mActor.Frame];
         }
 

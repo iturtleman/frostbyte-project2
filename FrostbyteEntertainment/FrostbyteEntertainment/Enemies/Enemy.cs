@@ -205,7 +205,7 @@ namespace Frostbyte
         {
             FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             l.HUD.RemoveBossHealthBar(this);
-            l.SpawnExitPortal();
+            l.SpawnExitPortal(SpawnPoint);
             base.Die();
         }
 

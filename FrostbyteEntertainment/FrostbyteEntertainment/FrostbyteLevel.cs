@@ -141,13 +141,13 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            "TitleScreen",
+            /*"TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
             "WorldMap",
             "Lightning",
-            "WorldMap",
+            "WorldMap",*/
             "Water",
             "WorldMap",
             "Fire",
@@ -207,8 +207,13 @@ namespace Frostbyte
         #endregion
 
         #region Methods
-        internal void SpawnExitPortal()
+        internal void SpawnExitPortal(Vector2? spawnPosition=null)
         {
+            if (spawnPosition.HasValue)
+            {
+                ExitPortalSpawnPoint = spawnPosition.Value;
+            }
+
             if (ExitPortalSpawnPoint.HasValue)
             {
 

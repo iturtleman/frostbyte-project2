@@ -41,6 +41,8 @@ namespace Frostbyte.Obstacles
             if (l != null)
             {
                 l.obstacles.Remove(this);
+                BossDeath b = new BossDeath("door_die", new Actor(l.GetAnimation("door.anim")));
+                b.GroundPos = GroundPos;
             }
         }
     }

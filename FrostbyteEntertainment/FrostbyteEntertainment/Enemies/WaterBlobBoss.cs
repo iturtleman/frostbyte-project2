@@ -16,22 +16,17 @@ namespace Frostbyte.Enemies
            "waterboss-idle-diagdown.anim",
            "waterboss-idle-right.anim",
            "waterboss-idle-diagup.anim",
-           "waterboss-idle-up.anim",
+           "waterboss-idle-up.anim",  // 4
            "waterboss-charge-down.anim",
            "waterboss-charge-diagdown.anim",
            "waterboss-charge-right.anim",
            "waterboss-charge-diagup.anim",
-           "waterboss-charge-up.anim",
+           "waterboss-charge-up.anim",  // 9
            "waterboss-idle-down.anim",
            "waterboss-idle-diagdown.anim",
            "waterboss-idle-right.anim",
            "waterboss-idle-diagup.anim",
-           "waterboss-idle-up.anim",
-           //"waterboss-attack-down.anim",
-           //"waterboss-attack-diagdown.anim",
-           //"waterboss-attack-right.anim",
-           //"waterboss-attack-diagup.anim",
-           //"waterboss-attack-up.anim",
+           "waterboss-idle-up.anim",  // 14
            "waterboss-surface.anim",
            "waterboss-submerge.anim",
            "waterboss-die.anim",
@@ -48,6 +43,8 @@ namespace Frostbyte.Enemies
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Water;
             Personality = new LiquidPersonality(this);
+
+            This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
         }
 
         protected override void Die()
@@ -69,11 +66,11 @@ namespace Frostbyte.Enemies
                 FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
                 if (attackWait < This.gameTime.TotalGameTime)
                 {
-                    int randAttack = This.Game.rand.Next(10);
                     Sprite currentTarget = GetClosestTarget(l.allies);
                     int attackFrame = 0;
 
-                    if (randAttack < 8)
+                    int randAttack = This.Game.rand.Next(11);
+                    if (randAttack < 10)
                     {
                         #region Water Tier 1
 
@@ -120,13 +117,6 @@ namespace Frostbyte.Enemies
                         This.Game.AudioManager.PlaySoundEffect("Effects/Water_T1");
                         #endregion Water Tier 1
                     }
-                    else if (randAttack < 10)
-                    {
-                        #region Water Tier 2
-                        mAttacks.Add(Attacks.WaterPush(this, attackFrame).GetEnumerator());
-                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T2", .1f);
-                        #endregion Water Tier 2
-                    }
                     else if (randAttack < 11)
                     {
                         #region Water Tier 3
@@ -134,7 +124,7 @@ namespace Frostbyte.Enemies
                         This.Game.AudioManager.PlaySoundEffect("Effects/Water_T3");
                         #endregion Water Tier 3
                     }
-                    attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(3, 5));
+                    attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(2, 4));
                 }
             }
         }
