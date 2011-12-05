@@ -505,7 +505,7 @@ namespace Frostbyte
                     {
                         yield return null;
                     }
-
+                    master.PreviousPos = master.Pos;
                     foreach (Object o in Surface()) { yield return null; }
                 }
                 else
