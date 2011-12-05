@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="3600,240" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="0,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="300,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="600,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="900,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1200,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1500,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1800,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2100,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2400,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2700,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="3000,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="3300,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="3600,480" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="0,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="300,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="600,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="900,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1200,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1500,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="1800,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2100,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2400,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="2700,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+  <Frame SpriteSheet="firebat" FrameDelay="1" Width="300" Height="240" TLPos="3000,720" AnimationPeg="0,0"><Collision Type="Circle" Pos="149,130" Radius="20"/></Frame>
+</Animation>
