@@ -716,15 +716,36 @@ namespace Frostbyte
         {
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
 
-            int initialWaitDistance = 300;
+            master.SetAnimation(4);
+            master.StopAnim();
+            master.Visible = false;
+
+            int initialWaitDistance = 150;
             while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
             {
                 yield return null;
             }
             master.setAtArms();
             master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
-            //This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
-            //This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            Sprite spawn = new Sprite("spawn",
+                new Actor(This.Game.CurrentLevel.GetAnimation("waterboss-surface.anim")));
+            spawn.GroundPos = master.GroundPos + new Vector2(0, 100);
+
+            while (spawn.Frame < spawn.FrameCount() - 1)
+            {
+                if (spawn.Frame == 16)
+                {
+                    master.Visible = true;
+                }
+                yield return null;
+            }
+            This.Game.CurrentLevel.RemoveSprite(spawn);
+            master.Visible = true;
+            master.StartAnim();
 
             while (true)
             {
@@ -789,6 +810,76 @@ namespace Frostbyte
                     }
                     yield return null;
                 }
+
+                yield return null;
+            }
+        }
+    }
+
+    internal class LumberingPersonality : IPersonality
+    {
+        public EnemyStatus Status { get; set; }
+        private Enemies.FireMan master;
+        private IEnumerator mStates;
+        private static Random rng = new Random();
+
+        internal LumberingPersonality(Enemies.FireMan master)
+        {
+            this.master = master;
+            mStates = States().GetEnumerator();
+        }
+
+        public void Update()
+        {
+            mStates.MoveNext();
+        }
+
+        public IEnumerable States()
+        {
+            List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
+
+            master.SetAnimation(4);
+            master.StopAnim();
+            master.Visible = false;
+
+            int initialWaitDistance = 150;
+            while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
+            {
+                yield return null;
+            }
+            master.setAtArms();
+            master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
+
+            This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBoss");
+            This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
+
+            Sprite spawn = new Sprite("spawn",
+                new Actor(This.Game.CurrentLevel.GetAnimation("waterboss-surface.anim")));
+            spawn.GroundPos = master.GroundPos + new Vector2(0, 100);
+
+            while (spawn.Frame < spawn.FrameCount() - 1)
+            {
+                if (spawn.Frame == 16)
+                {
+                    master.Visible = true;
+                }
+                yield return null;
+            }
+            This.Game.CurrentLevel.RemoveSprite(spawn);
+            master.Visible = true;
+            master.StartAnim();
+
+            while (true)
+            {
+                while (!master.dart(targets, 15, 50, new TimeSpan(0, 0, 0, 0, 500)))
+                {
+                    yield return null;
+                }
+                while (!master.freeze(new TimeSpan(0, 0, 2)))
+                {
+                    yield return null;
+                }
+
 
                 yield return null;
             }

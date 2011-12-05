@@ -156,6 +156,7 @@
     <Compile Include="Objects\Chest.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Rock.cs" />
+    <Compile Include="Objects\WaterObstacle.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Shared\Beetle.cs" />

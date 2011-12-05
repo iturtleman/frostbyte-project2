@@ -2110,10 +2110,6 @@ namespace Frostbyte
                     }
                 }
 
-                //if the attack frame has passed then allow the attacker to move
-                if (attacker.Frame >= FrameCount - 1)
-                    attacker.isAttackAnimDone = true;
-
                 yield return false;
             }
 
