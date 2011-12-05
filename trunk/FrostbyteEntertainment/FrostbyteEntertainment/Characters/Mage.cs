@@ -807,6 +807,7 @@ namespace Frostbyte.Characters
                 {
                     l.Paused = true;
                     l.PauseSprite.Visible = true;
+                    This.Game.AudioManager.BackgroundMusicVolume = This.Game.AudioManager.BackgroundMusicVolume / 2;
                 }
             }
 
