@@ -684,6 +684,66 @@
       <Link>Content\Sprites\door.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-diagdown.anim">
+      <Link>Content\Sprites\frostgolem-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-diagup.anim">
+      <Link>Content\Sprites\frostgolem-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-down.anim">
+      <Link>Content\Sprites\frostgolem-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-right.anim">
+      <Link>Content\Sprites\frostgolem-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-up.anim">
+      <Link>Content\Sprites\frostgolem-attack-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-idle-diagdown.anim">
+      <Link>Content\Sprites\frostgolem-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-idle-diagup.anim">
+      <Link>Content\Sprites\frostgolem-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-idle-down.anim">
+      <Link>Content\Sprites\frostgolem-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-idle-right.anim">
+      <Link>Content\Sprites\frostgolem-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-idle-up.anim">
+      <Link>Content\Sprites\frostgolem-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-walk-diagdown.anim">
+      <Link>Content\Sprites\frostgolem-walk-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-walk-diagup.anim">
+      <Link>Content\Sprites\frostgolem-walk-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-walk-down.anim">
+      <Link>Content\Sprites\frostgolem-walk-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-walk-right.anim">
+      <Link>Content\Sprites\frostgolem-walk-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-walk-up.anim">
+      <Link>Content\Sprites\frostgolem-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\golem-attack-diagdown.anim">
       <Link>Content\Sprites\golem-attack-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -989,6 +1049,30 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wasp-idle-up.anim">
       <Link>Content\Sprites\wasp-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-diagdown.anim">
+      <Link>Content\Sprites\waterboss-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-diagup.anim">
+      <Link>Content\Sprites\waterboss-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-down.anim">
+      <Link>Content\Sprites\waterboss-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-right.anim">
+      <Link>Content\Sprites\waterboss-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-up.anim">
+      <Link>Content\Sprites\waterboss-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-surface.anim">
+      <Link>Content\Sprites\waterboss-surface.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-diagdown.anim">

@@ -12,7 +12,31 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "antibody.anim",
+           "waterboss-idle-down.anim",
+           "waterboss-idle-diagdown.anim",
+           "waterboss-idle-right.anim",
+           "waterboss-idle-diagup.anim",
+           "waterboss-idle-up.anim",
+           "waterboss-idle-down.anim",
+           "waterboss-idle-diagdown.anim",
+           "waterboss-idle-right.anim",
+           "waterboss-idle-diagup.anim",
+           "waterboss-idle-up.anim",
+           "waterboss-idle-down.anim",
+           "waterboss-idle-diagdown.anim",
+           "waterboss-idle-right.anim",
+           "waterboss-idle-diagup.anim",
+           "waterboss-idle-up.anim",
+           //"waterboss-walk-down.anim",
+           //"waterboss-walk-diagdown.anim",
+           //"waterboss-walk-right.anim",
+           //"waterboss-walk-diagup.anim",
+           //"waterboss-walk-up.anim",
+           //"waterboss-attack-down.anim",
+           //"waterboss-attack-diagdown.anim",
+           //"waterboss-attack-right.anim",
+           //"waterboss-attack-diagup.anim",
+           //"waterboss-attack-up.anim",
         };
 
         internal TimeSpan attackWait = TimeSpan.MaxValue;
