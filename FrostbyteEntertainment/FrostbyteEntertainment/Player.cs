@@ -35,8 +35,11 @@ namespace Frostbyte
         #region Mana
         internal int MaxMana { get { return 100; } }
         internal TimeSpan ManaRegenRate = new TimeSpan(0, 0, 2);
-        internal float ManaRegenScale = 0.1f;
+        internal float ManaRegenScale = 0.08f;
         private TimeSpan ElapsedManaRegenTime;
+
+        internal TimeSpan HealthRegenRate = new TimeSpan(0, 0, 5);
+        private TimeSpan ElapsedHealthRegenTime;
 
         /// <summary>
         /// Player's Mana value
@@ -100,10 +103,17 @@ namespace Frostbyte
         {
             base.Update();
             ElapsedManaRegenTime += This.gameTime.ElapsedGameTime;
-            if (ElapsedManaRegenTime > ManaRegenRate)
+            if (ElapsedManaRegenTime > ManaRegenRate && State != SpriteState.Dead)
             {
                 Mana += (int)(ManaRegenScale * MaxMana);
                 ElapsedManaRegenTime = new TimeSpan();
+            }
+
+            ElapsedHealthRegenTime += This.gameTime.ElapsedGameTime;
+            if (ElapsedHealthRegenTime > HealthRegenRate && State != SpriteState.Dead)
+            {
+                Health += 1;
+                ElapsedHealthRegenTime = new TimeSpan();
             }
         }
 

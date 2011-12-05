@@ -40,12 +40,12 @@ namespace Frostbyte.Enemies
             SpawnPoint = initialPos;
             movementStartTime = new TimeSpan(0, 0, 1);
             Personality = new ChargePersonality(this);
-            //This.Game.AudioManager.AddSoundEffect("Effects/FireAnt_Move");
-            //if (MovementAudioName == null)
-            //{
-                //MovementAudioName = "Effects/FireAnt_Move";
-                //This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
-            //}
+            This.Game.AudioManager.AddSoundEffect("Effects/Spider_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Spider_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
         }
 
         protected override void updateMovement()
@@ -74,7 +74,7 @@ namespace Frostbyte.Enemies
                     {
                         if (detectedCollision.Item2 is Player)
                         {
-                            mAttacks.Add(Attacks.Melee(this, 5, 18).GetEnumerator());
+                            mAttacks.Add(Attacks.Melee(this, 5, 10).GetEnumerator());
                             attackStartTime = This.gameTime.TotalGameTime;
                             break;
                         }
