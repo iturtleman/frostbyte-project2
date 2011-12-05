@@ -20,21 +20,24 @@ namespace Frostbyte.Levels
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 
-            l.ExitPortalSpawnPoint = new Vector2(7776, 2700);
+            l.ExitPortalSpawnPoint = new Vector2(10123, 3771);
 
             Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(6 * Tile.TileSize, 52 * Tile.TileSize);
-            //mage.SpawnPoint = new Vector2(7776, 2684);
+            mage.SpawnPoint = new Vector2(10123, 3771);
             mage.Speed = 1;
             mage.Scale = 0.7f;
             l.HUD.AddPlayer(mage);
 
             Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(6 * Tile.TileSize, 53 * Tile.TileSize);
-            //mage2.SpawnPoint = new Vector2(7756, 2684);
+            mage2.SpawnPoint = new Vector2(10123, 3771);
             mage2.Speed = 1;
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
+
+            Enemies.WaterBlobBoss b = new Enemies.WaterBlobBoss("boss", new Vector2(10123, 4171));
+            b.Speed = 1;
             
             This.Game.AudioManager.AddBackgroundMusic("Music/WaterBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBG", 0.3f);
