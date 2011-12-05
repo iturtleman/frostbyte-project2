@@ -710,6 +710,7 @@
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-right.anim">
       <Link>Content\Sprites\crystalman-shatter-right.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-shatter-up.anim">
       <Link>Content\Sprites\crystalman-shatter-up.anim</Link>
