@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="445,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="534,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="623,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="712,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="801,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="890,89" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="0,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="89,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="178,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="267,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="356,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="445,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="534,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="623,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="712,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-attack" FrameDelay="20" Width="89" Height="89" TLPos="801,178" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+</Animation>

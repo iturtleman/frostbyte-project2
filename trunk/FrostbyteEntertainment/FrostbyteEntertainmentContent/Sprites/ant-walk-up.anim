@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1335,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1424,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1513,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1602,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1691,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1780,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1869,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1958,623" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="0,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="89,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="178,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="267,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="356,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="445,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="534,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="623,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="712,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="801,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="890,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="979,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1068,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1157,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1246,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1335,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1424,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1513,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1602,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1691,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1780,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1869,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1958,712" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="0,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="89,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="178,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="267,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="356,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="445,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="534,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="623,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="712,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="801,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="890,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="979,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+  <Frame SpriteSheet="ant-walk" FrameDelay="20" Width="89" Height="89" TLPos="1068,801" AnimationPeg="0,0"><Collision Type="Circle" Pos="45,45" Radius="20"/></Frame>
+</Animation>

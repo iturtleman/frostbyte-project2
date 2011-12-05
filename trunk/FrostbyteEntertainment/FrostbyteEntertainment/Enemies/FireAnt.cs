@@ -16,21 +16,21 @@ namespace Frostbyte.Enemies
         TimeSpan idleTime = new TimeSpan(0, 0, 2);
 
         static List<String> Animations = new List<String>(){
-           "wolf-idle-down.anim",
-           "wolf-idle-diagdown.anim",
-           "wolf-idle-right.anim",
-           "wolf-idle-diagup.anim",
-           "wolf-idle-up.anim",
-           "wolf-walk-down.anim",
-           "wolf-walk-diagdown.anim",
-           "wolf-walk-right.anim",
-           "wolf-walk-diagup.anim",
-           "wolf-walk-up.anim",
-           "wolf-attack-down.anim",
-           "wolf-attack-diagdown.anim",
-           "wolf-attack-right.anim",
-           "wolf-attack-diagup.anim",
-           "wolf-attack-up.anim",
+           "ant-idle-down.anim",
+           "ant-idle-diagdown.anim",
+           "ant-idle-right.anim",
+           "ant-idle-diagup.anim",
+           "ant-idle-up.anim",
+           "ant-walk-down.anim",
+           "ant-walk-diagdown.anim",
+           "ant-walk-right.anim",
+           "ant-walk-diagup.anim",
+           "ant-walk-up.anim",
+           "ant-attack-down.anim",
+           "ant-attack-diagdown.anim",
+           "ant-attack-right.anim",
+           "ant-attack-diagup.anim",
+           "ant-attack-up.anim",
         };
         #endregion Variables
 
