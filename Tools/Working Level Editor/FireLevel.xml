@@ -8714,10 +8714,11 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="66,147" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="67,147" />
   <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="68,147" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6432,1056" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,1248" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5536,1312" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6752,1312" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6880,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6624,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7008,1312" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7584,1312" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3744,1376" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4000,1376" />
@@ -8725,6 +8726,7 @@
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5024,1376" />
   <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="6112,1376" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7008,1376" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3168,1440" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9184,1440" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,1440" />
@@ -8738,45 +8740,45 @@
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6624,1632" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6880,1632" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7520,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,1696" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8288,1696" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6624,1760" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4064,1888" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5408,1888" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7264,1888" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3552,1952" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,1952" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6688,1952" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7200,1952" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3168,2016" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6304,2016" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8352,2016" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5920,2080" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2144" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5408,2208" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2208" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1952,2272" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2016,2272" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,2272" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4064,2272" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5728,2272" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1888,2336" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1952,2336" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,2336" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3744,2336" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2336" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1952,2400" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2016,2400" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,2400" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="4576,2400" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5088,2400" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2400" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8608,2528" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8672,2528" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2528" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8800,2528" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8864,2528" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2656" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2976,2720" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4768,2720" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2720" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,2976" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8928,2720" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8416,2976" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2656,3040" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2400,3104" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1440,3168" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,3232" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,3232" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7200,3232" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7264,3232" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8096,3296" />
@@ -8789,18 +8791,22 @@
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8992,3360" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1696,3424" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,3424" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7520,3424" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7584,3424" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8160,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5216,3488" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5280,3488" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7584,3488" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1376,3552" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3232,3616" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4512,3616" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,3552" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3488,3616" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4256,3616" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1376,3680" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1696,3808" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,3808" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,4000" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,4064" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,4064" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1440,4128" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2400,4128" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2656,4192" />
@@ -8848,59 +8854,60 @@
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6816,6048" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6944,6048" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5472,6624" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5728,6624" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6048,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5600,6624" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6304,6624" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6496,6624" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,6752" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,6944" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,6944" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7200" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7200" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7264" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7264" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7264,6944" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="7264,7008" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7328,7008" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7264,7072" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6176,7264" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7264" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7392" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7392" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5344,7520" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7520" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7520" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7520" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7584" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7584" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6176,7648" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5344,7776" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7776" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7776" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7776" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7776" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7776" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5472,7904" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5536,7904" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,7904" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6432,7904" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="4960,7840" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5024,7840" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5344,7840" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5536,7840" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,8032" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6880,8032" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8096" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7072,8096" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5920,8160" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6496,8160" />
   <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="4192,8224" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8224" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6752,8224" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5280,8224" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8288" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,8416" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,8416" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="3744,8352" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8352" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7264,8352" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="3808,8416" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="3872,8416" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="4512,8544" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8544" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5088,8544" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,8544" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5472,8544" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6240,8608" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8608" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8736" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6112,8800" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,8800" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6176,8544" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5728,8608" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7328,8608" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="4384,8672" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6560,8736" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,8864" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7264,8864" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5088,8928" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,8928" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5920,8928" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6176,8928" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8928" />
   <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5472,8992" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5984,8992" />
-  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6240,8992" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7072,9056" />
   <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="4064,9120" />
   <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="7072,9120" />
   <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="7264,9120" />
@@ -8908,6 +8915,7 @@
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5088,3104" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6560,3360" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5088,3488" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="3872,3616" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="1504,5600" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="1696,5600" />
   <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="5536,5856" />
