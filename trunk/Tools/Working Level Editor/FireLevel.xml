@@ -443,11 +443,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,23" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,23" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,23" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="125,23" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,23" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,23" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,23" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,23" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,23" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,23" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,23" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,23" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,23" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,23" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,23" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,23" />
@@ -532,11 +532,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,24" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,24" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,24" />
-  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,24" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,24" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,24" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,24" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="129,24" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="125,24" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,24" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,24" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,24" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,24" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,24" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,24" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,24" />
@@ -620,11 +620,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,25" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,25" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,25" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,25" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,25" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,25" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,25" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,25" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,25" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,25" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,25" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,25" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="129,25" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,25" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,25" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,25" />
@@ -716,12 +716,12 @@
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,26" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,26" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,26" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="127,26" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,26" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,26" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,26" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,26" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,26" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,26" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,26" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,26" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="135,26" />
@@ -810,8 +810,12 @@
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,27" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,27" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,27" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="127,27" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="132,27" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="127,27" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,27" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,27" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,27" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,27" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,27" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,27" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,27" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="135,27" />
@@ -967,12 +971,8 @@
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,29" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,29" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,29" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="127,29" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,29" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,29" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,29" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,29" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="132,29" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="127,29" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="132,29" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,29" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,29" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="135,29" />
@@ -1054,12 +1054,12 @@
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="119,30" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="125,30" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,30" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,30" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="127,30" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,30" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,30" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,30" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,30" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="132,30" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,30" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,30" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="135,30" />
@@ -1138,8 +1138,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,31" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,31" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,31" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="129,31" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,31" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,31" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,31" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,31" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,31" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,31" />
@@ -1221,8 +1221,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,32" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,32" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,32" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="129,32" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="130,32" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="129,32" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,32" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,32" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,32" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,32" />
@@ -1300,8 +1300,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,33" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,33" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,33" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,33" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,33" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="129,33" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="130,33" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,33" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,33" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,33" />
@@ -1417,8 +1417,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,34" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,34" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,34" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,34" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,34" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,34" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,34" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,34" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,34" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,34" />
@@ -1538,8 +1538,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,35" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,35" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,35" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,35" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="133,35" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,35" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,35" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,35" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,35" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,35" />
@@ -1669,8 +1669,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,36" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,36" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,36" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,36" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,36" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,36" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="133,36" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,36" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,36" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,36" />
@@ -4199,28 +4199,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,66" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,66" />
-  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="93,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="94,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="95,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="96,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="97,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="98,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="99,66" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="100,66" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,66" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="105,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="106,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="107,66" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="108,66" />
-  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,66" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,66" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,66" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,66" />
@@ -4237,28 +4220,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,67" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,67" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,67" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,67" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,67" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,67" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,67" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,67" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,67" />
@@ -4284,60 +4250,12 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,68" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,68" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,68" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,68" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,68" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="110,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="111,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="112,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="113,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="114,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="115,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="116,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="117,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="118,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="119,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="120,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="121,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="122,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="123,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="124,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="134,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="135,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="136,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="137,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="138,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="139,68" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="140,68" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="141,68" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,68" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,68" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,68" />
@@ -4362,60 +4280,12 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,69" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,69" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,69" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,69" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,69" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,69" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,69" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,69" />
@@ -4440,60 +4310,12 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,70" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,70" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,70" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,70" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,70" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,70" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,70" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,70" />
@@ -4518,60 +4340,12 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,71" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,71" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,71" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,71" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="100,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,71" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="105,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="106,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="107,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="108,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="109,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="110,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="111,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="112,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="113,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="114,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="115,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="116,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="117,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="118,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="119,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="120,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="121,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="132,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="133,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="134,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="135,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="136,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="137,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="138,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="139,71" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="140,71" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="141,71" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,71" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,71" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,71" />
@@ -4596,34 +4370,39 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="74,72" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="75,72" />
   <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="76,72" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="88,72" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,72" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,72" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,72" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,72" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,72" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="93,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="94,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="95,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="96,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="97,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="98,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="99,72" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="100,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,72" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,72" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="105,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="106,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="107,72" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="108,72" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,72" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,72" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,72" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,72" />
-  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,73" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="92,73" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,73" />
@@ -4635,44 +4414,13 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,73" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="105,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="106,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="107,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="108,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="109,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="110,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="111,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="112,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="113,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="114,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="115,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="116,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="117,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="118,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="119,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="120,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="121,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="122,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="123,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="124,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="134,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="135,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="136,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="137,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="138,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="139,73" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="140,73" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="141,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,73" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,73" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,73" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,73" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,73" />
@@ -4699,39 +4447,39 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,74" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,74" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,74" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,74" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="110,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="111,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="112,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="113,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="114,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="115,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="116,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="117,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="118,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="119,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="120,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="121,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="122,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="123,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="124,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="134,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="135,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="136,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="137,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="138,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="139,74" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="140,74" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="141,74" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,74" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,74" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,74" />
@@ -4799,10 +4547,10 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,76" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="91,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="92,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="93,76" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="94,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,76" />
@@ -4817,49 +4565,51 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,76" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,76" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="110,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="111,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="112,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="113,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="114,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="115,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="116,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="117,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="118,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="119,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="120,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="121,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="132,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="133,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="134,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="135,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="136,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="137,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="138,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="139,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="140,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="141,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="142,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="143,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="144,76" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="145,76" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="146,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,76" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,76" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,76" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,77" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,77" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,77" />
@@ -4869,17 +4619,56 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,77" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,77" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,77" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,77" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,77" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,77" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,77" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,77" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,78" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,78" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,78" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="105,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="106,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="107,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="108,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="109,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="110,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="111,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="112,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="113,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="114,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="115,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="116,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="117,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="118,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="119,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="120,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="121,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="132,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="133,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="134,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="135,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="136,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="137,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="138,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="139,77" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="140,77" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="141,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,77" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,77" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,77" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="88,78" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,78" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,78" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,78" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,78" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,78" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,78" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,78" />
@@ -4889,17 +4678,20 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,78" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,78" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,78" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,78" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,78" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,79" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,79" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,79" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="104,78" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="141,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,78" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,78" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,78" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,79" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="92,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,79" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,79" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,79" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,79" />
@@ -4909,12 +4701,49 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,79" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,79" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,79" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,79" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,79" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="104,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="105,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="106,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="107,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="108,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="109,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="110,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="111,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="112,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="113,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="114,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="115,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="116,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="117,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="118,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="119,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="120,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="121,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="122,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="123,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="124,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="130,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="131,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="132,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="133,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="134,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="135,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="136,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="137,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="138,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="139,79" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="140,79" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="141,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,79" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,79" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,79" />
   <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="36,80" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="37,80" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="38,80" />
@@ -4960,8 +4789,10 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,80" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,80" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,80" />
@@ -4976,7 +4807,44 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,80" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,80" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,80" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,80" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,80" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="36,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="37,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="38,81" />
@@ -5022,10 +4890,10 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,81" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="91,81" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,81" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="93,81" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="94,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,81" />
@@ -5040,7 +4908,44 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,81" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,81" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="109,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="110,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="111,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="112,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="113,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="114,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="115,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="116,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="117,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="118,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="119,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="120,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="132,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="133,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="134,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="135,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="136,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="137,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="140,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="141,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="142,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="143,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="144,81" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="145,81" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="146,81" />
   <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="21,82" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="22,82" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="23,82" />
@@ -5097,10 +5002,10 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,82" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,82" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,82" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,82" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,82" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="91,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="92,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="93,82" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="94,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,82" />
@@ -5115,7 +5020,44 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,82" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,82" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,82" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="110,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="111,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="112,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="113,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="114,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="115,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="116,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="117,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="118,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="119,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="120,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="121,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="132,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="133,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="134,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="135,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="136,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="137,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="138,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="139,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="140,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="141,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="142,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="143,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="144,82" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="145,82" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="146,82" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="21,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="22,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="23,83" />
@@ -5172,10 +5114,8 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,83" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,83" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,83" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,83" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,83" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,83" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,83" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,83" />
@@ -5244,13 +5184,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,84" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,84" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="88,84" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,84" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,84" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,84" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,84" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,84" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,84" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,84" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,84" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,84" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,84" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,84" />
@@ -5258,8 +5196,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,84" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="102,84" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="103,84" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,84" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,84" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,84" />
@@ -5332,14 +5270,12 @@
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="84,85" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="85,85" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="86,85" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="87,85" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,85" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,85" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,85" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,85" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="92,85" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,85" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,85" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Right" GridCell="87,85" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,85" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,85" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,85" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,85" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,85" />
@@ -5347,8 +5283,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,85" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,85" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,85" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,85" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,85" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,85" />
@@ -5421,14 +5357,12 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,86" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="87,86" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,86" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,86" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="91,86" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="94,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,86" />
@@ -5436,8 +5370,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,86" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,86" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,86" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,86" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,86" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,86" />
@@ -5497,14 +5431,14 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,87" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="87,87" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,87" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,87" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="91,87" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,87" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="93,87" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="94,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,87" />
@@ -5512,8 +5446,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,87" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,87" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,87" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,87" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,87" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,87" />
@@ -5607,8 +5541,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,88" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,88" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,88" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="87,88" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,88" />
@@ -5622,8 +5556,8 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,88" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,88" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,88" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,88" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,88" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,88" />
@@ -5713,33 +5647,33 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="80,89" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="81,89" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="82,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="83,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="84,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="85,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="86,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="87,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="88,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="92,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="93,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="94,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="95,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="96,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="97,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="98,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="99,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="100,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="101,89" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="102,89" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="103,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="104,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="105,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="106,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="107,89" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="108,89" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,89" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="83,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,89" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="87,89" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="88,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="103,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,89" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,89" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,89" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,89" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,89" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,89" />
@@ -5814,6 +5748,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,90" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,90" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,90" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="83,90" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="84,90" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="85,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,90" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="87,90" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="88,90" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,90" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,90" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,90" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="92,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,90" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="102,90" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="103,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,90" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,90" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,90" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,90" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,90" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,90" />
@@ -5888,6 +5849,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,91" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,91" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,91" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="83,91" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="84,91" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="85,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,91" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="87,91" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="88,91" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="89,91" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="90,91" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="91,91" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="92,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,91" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,91" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,91" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,91" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,91" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,91" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,91" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,91" />
@@ -5962,6 +5950,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,92" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,92" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,92" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="83,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,92" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,92" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,92" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,92" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,92" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,92" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,92" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,92" />
@@ -6025,6 +6040,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,93" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,93" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,93" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="83,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,93" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,93" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,93" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,93" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,93" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,93" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,93" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,93" />
@@ -6088,6 +6130,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,94" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,94" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,94" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="83,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="85,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="86,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="87,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="88,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="89,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="90,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="91,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="92,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="93,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="94,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="95,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="96,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="97,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="98,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="99,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="100,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,94" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="102,94" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="103,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="104,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="105,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="106,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="107,94" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="108,94" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="109,94" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,94" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,94" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,94" />
@@ -6114,6 +6183,33 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,95" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,95" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,95" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="83,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="84,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="85,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="86,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="87,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="88,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="89,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="90,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="91,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="92,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="93,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="94,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="95,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="96,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="97,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="98,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="99,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="100,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="101,95" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="102,95" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="103,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="104,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="105,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="106,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="107,95" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="108,95" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="109,95" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,95" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,95" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,95" />
@@ -6265,11 +6361,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,100" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,100" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="140,100" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,101" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,101" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="73,101" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="74,101" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,101" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,101" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,101" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="76,101" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="77,101" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="120,101" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="121,101" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,101" />
@@ -6291,11 +6387,9 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,101" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,101" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="140,101" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,102" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,102" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="74,102" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,102" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,102" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,102" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="76,102" />
   <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="82,102" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="83,102" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="84,102" />
@@ -6339,11 +6433,11 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="138,102" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="139,102" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="140,102" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,103" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,103" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="73,103" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="74,103" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,103" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="76,103" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="77,103" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="76,103" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Right" GridCell="77,103" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,103" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,103" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,103" />
@@ -6468,11 +6562,11 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,105" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,105" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,105" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,105" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,105" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,105" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,105" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,105" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,105" />
-  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,105" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="131,105" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="132,105" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="133,105" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="134,105" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="135,105" />
@@ -6508,11 +6602,9 @@
   <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="101,106" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,106" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,106" />
-  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="128,106" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,106" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="129,106" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,106" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,106" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="132,106" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,106" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,107" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,107" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,107" />
@@ -6565,14 +6657,13 @@
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="122,107" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="123,107" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="124,107" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="125,107" />
-  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,107" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Right" GridCell="125,107" />
+  <Tile Type="Corner" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,107" />
   <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,107" />
-  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="128,107" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,107" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,107" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="129,107" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,107" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,107" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="132,107" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,107" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,108" />
@@ -6623,14 +6714,13 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,108" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,108" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,108" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="125,108" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="126,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,108" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,108" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,108" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="132,108" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,108" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,109" />
@@ -6683,14 +6773,13 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,109" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,109" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,109" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="125,109" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="126,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,109" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,109" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,109" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="132,109" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,109" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="73,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="74,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="75,110" />
@@ -6743,14 +6832,13 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,110" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,110" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,110" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="125,110" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="126,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,110" />
-  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="131,110" />
-  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="132,110" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,110" />
   <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="73,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="74,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="75,111" />
@@ -6799,18 +6887,17 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="118,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="119,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="120,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="121,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,111" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="121,111" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,111" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,111" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,111" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="125,111" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="126,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,111" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,111" />
-  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="131,111" />
-  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="132,111" />
+  <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="129,111" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,111" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,111" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,112" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,112" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="84,112" />
@@ -6831,6 +6918,17 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="101,112" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,112" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,112" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="121,112" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,112" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,112" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,112" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="125,112" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="126,112" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="127,112" />
+  <Tile Type="Wall" Collision="true" Theme="Fire" Orientation="Left" GridCell="128,112" />
+  <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="129,112" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,112" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,112" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,113" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,113" />
   <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="84,113" />
@@ -6853,6 +6951,17 @@
   <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="101,113" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,113" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,113" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="121,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,113" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,113" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,113" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,114" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,114" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="84,114" />
@@ -6875,6 +6984,17 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="101,114" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,114" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,114" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="121,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,114" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,114" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,114" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,115" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,115" />
   <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="84,115" />
@@ -6897,6 +7017,17 @@
   <Tile Type="BottomConvexCorner" Collision="true" Theme="Fire" Orientation="Left" GridCell="101,115" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,115" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,115" />
+  <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="121,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="122,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="123,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="124,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="125,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="126,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="127,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="128,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,115" />
+  <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,115" />
+  <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,115" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,116" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,116" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="84,116" />
@@ -6917,6 +7048,17 @@
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="101,116" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="102,116" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="103,116" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Down" GridCell="121,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="122,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="123,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="124,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="125,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="126,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="127,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="128,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="129,116" />
+  <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="130,116" />
+  <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="131,116" />
   <Tile Type="SideWall" Collision="false" Theme="Fire" Orientation="Down" GridCell="82,117" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="83,117" />
   <Tile Type="ConvexCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="84,117" />
@@ -8572,4 +8714,210 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="66,147" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="67,147" />
   <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="68,147" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,1248" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5536,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6752,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6880,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7584,1312" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3744,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4000,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4256,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5024,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="6112,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,1376" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3168,1440" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9184,1440" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,1440" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8736,1504" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4384,1568" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="8416,1568" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3552,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5472,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5664,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="6112,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6624,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6880,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7520,1632" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8288,1696" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6624,1760" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4064,1888" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5408,1888" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3552,1952" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,1952" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6688,1952" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3168,2016" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6304,2016" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5920,2080" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5408,2208" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2208" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2016,2272" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,2272" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4064,2272" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5728,2272" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1952,2336" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,2336" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3744,2336" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2336" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2016,2400" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,2400" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="4576,2400" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5088,2400" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2400" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8608,2528" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8672,2528" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2528" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8800,2528" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8864,2528" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9376,2656" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2976,2720" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4768,2720" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8736,2720" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,2976" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2656,3040" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2400,3104" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1440,3168" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,3232" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7200,3232" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7264,3232" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8096,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8160,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8416,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8608,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8864,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9056,3296" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8544,3360" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8992,3360" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1696,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7520,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7584,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8160,3424" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="7584,3488" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1376,3552" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3232,3616" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4512,3616" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1376,3680" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="1696,3808" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2144,3808" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2080,4064" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,4064" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="1440,4128" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2400,4128" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="2656,4192" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9184,4384" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9312,4384" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,4448" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,4512" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4768,4512" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9120,4640" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9248,4640" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5728,4704" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5728,4832" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7840,4832" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8224,4832" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="7776,4896" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="8160,4896" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5728,4960" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9184,4960" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="9312,4960" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8160,5152" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8224,5152" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5984,5216" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8160,5216" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="8224,5216" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5792,5344" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2656,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3040,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3424,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3808,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4192,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4576,5472" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5792,5536" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="2016,5600" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5984,5664" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="2720,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3104,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3488,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="3872,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4256,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,5728" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6752,5920" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6880,5920" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="5920,5984" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6688,6048" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6816,6048" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6944,6048" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5472,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5728,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6048,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6304,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6496,6624" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,6752" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,6944" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,6944" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7200" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7200" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7264" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7264" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7264" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7392" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7392" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5344,7520" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7520" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7520" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7520" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7584" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7584" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5344,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5536,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5792,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6112,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6368,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="6560,7776" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5472,7904" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5536,7904" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,7904" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6432,7904" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,8032" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6880,8032" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8096" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="4192,8224" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8224" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6752,8224" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8288" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,8416" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6624,8416" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8544" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5088,8544" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,8544" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5472,8544" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6240,8608" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6496,8608" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="4640,8736" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6112,8800" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6368,8800" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5088,8928" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5280,8928" />
+  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5472,8992" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="5984,8992" />
+  <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="6240,8992" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="4064,9120" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="7072,9120" />
+  <Enemy Type="Frostbyte.Enemies.FireGolem" Name="Fire Golem" Pos="7264,9120" />
+  <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="8096,1440" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5088,3104" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6560,3360" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5088,3488" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="1504,5600" />
+  <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="1696,5600" />
+  <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="5536,5856" />
+  <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="4832,6560" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="8352,6688" />
+  <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="8352,6752" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="8224,7008" />
+  <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="8352,7200" />
+  <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="8160,7840" />
+  <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="3744,9312" />
+  <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6560,3360" />
+  <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="1504,5600" />
 </Level>
