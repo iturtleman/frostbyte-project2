@@ -562,8 +562,10 @@ namespace Frostbyte
 
             bool isAttackAnimDone = false;
 
-            while ((This.gameTime.TotalGameTime - attackStartTime) < attackEndTime)
+            while (attackEndTime > TimeSpan.Zero)
             {
+                attackEndTime -= This.gameTime.ElapsedGameTime;
+
                 if (target != null && !((This.Game.CurrentLevel as FrostbyteLevel).enemies.Contains(target) || (This.Game.CurrentLevel as FrostbyteLevel).allies.Contains(target)))
                     target = null;
 

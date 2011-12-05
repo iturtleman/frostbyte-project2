@@ -237,6 +237,7 @@ namespace Frostbyte
                     {
                         Paused = false;
                         PauseSprite.Visible = false;
+                        This.Game.AudioManager.BackgroundMusicVolume *= 2f;
                     }
                 }
             }
