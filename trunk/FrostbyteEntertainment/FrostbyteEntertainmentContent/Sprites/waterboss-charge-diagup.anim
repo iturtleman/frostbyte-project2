@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="0,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="190,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="380,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="570,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="760,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="0,157" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="190,157" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="380,157" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="570,157" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="760,157" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-charge-diagup" FrameDelay="20" Width="190" Height="157" TLPos="0,314" AnimationPeg="0,0" />
+</Animation>

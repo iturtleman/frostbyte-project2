@@ -32,7 +32,7 @@ namespace Frostbyte.Enemies
         {
             FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             l.SpawnExitPortal();
-            Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne | Spells.LightningOne;
+            Frostbyte.Characters.Mage.UnlockedSpells = Spells.EarthOne | Spells.EarthTwo | Spells.LightningOne | Spells.LightningTwo;
             l.HUD.ScrollText("You feel all the hairs on your body stand on end.\n\nHold down the Left trigger and press Y (gamepad) W (keyboard) ane then release the trigger to cast a Lightning spell!");
             base.Die();
         }

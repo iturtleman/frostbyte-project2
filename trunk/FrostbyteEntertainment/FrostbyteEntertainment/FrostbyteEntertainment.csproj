@@ -1051,6 +1051,30 @@
       <Link>Content\Sprites\wasp-idle-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-charge-diagdown.anim">
+      <Link>Content\Sprites\waterboss-charge-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-charge-diagup.anim">
+      <Link>Content\Sprites\waterboss-charge-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-charge-down.anim">
+      <Link>Content\Sprites\waterboss-charge-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-charge-right.anim">
+      <Link>Content\Sprites\waterboss-charge-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-charge-up.anim">
+      <Link>Content\Sprites\waterboss-charge-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-die.anim">
+      <Link>Content\Sprites\waterboss-die.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-diagdown.anim">
       <Link>Content\Sprites\waterboss-idle-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1069,6 +1093,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-idle-up.anim">
       <Link>Content\Sprites\waterboss-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-submerge.anim">
+      <Link>Content\Sprites\waterboss-submerge.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-surface.anim">

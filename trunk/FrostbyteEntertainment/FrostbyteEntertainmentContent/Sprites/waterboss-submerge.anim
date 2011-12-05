@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1048,1132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="786,1132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="524,1132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="262,1132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="0,1132" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1572,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1310,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1048,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="786,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="524,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="262,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="0,849" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1572,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1310,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1048,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="786,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="524,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="262,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="0,566" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1572,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1310,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1048,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="786,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="524,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="262,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="0,283" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1572,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1310,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="1048,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="786,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="524,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="262,0" AnimationPeg="0,0" />
+  <Frame SpriteSheet="waterboss-surface" FrameDelay="20" Width="262" Height="283" TLPos="0,0" AnimationPeg="0,0" />
+</Animation>
