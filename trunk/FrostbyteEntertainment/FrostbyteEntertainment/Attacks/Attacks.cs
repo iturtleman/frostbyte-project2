@@ -587,7 +587,7 @@ namespace Frostbyte
                                 damageDealt = true;
                                 break;
                             }
-                            else if ((detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
+                            else if (This.Cheats.GetCheat("ElementalBuffs").Enabled && (detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
                             {
                                 Player p = (detectedCollision.Item2 as Player);
                                 p.AddStatusEffect(new ElementalBuff(elem));

@@ -25,6 +25,7 @@ namespace Frostbyte
             GlobalController = new KeyboardController();
             This.Cheats.AddCheat("DisableBackgroundCollision");
             This.Cheats.AddCheat("FinalBossFun");
+            This.Cheats.AddCheat("ElementalBuffs");
         }
 
         protected override void LoadContent()
@@ -57,6 +58,10 @@ namespace Frostbyte
             if (GlobalController.GetKeypress(Keys.Delete) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
             {
                 This.Cheats.GetCheat("FinalBossFun").Toggle();
+            }
+            if (GlobalController.GetKeypress(Keys.B) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
+            {
+                This.Cheats.GetCheat("ElementalBuffs").Toggle();
             }
         }
     }
@@ -136,13 +141,13 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            /*"TitleScreen",
+            "TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
             "WorldMap",
             "Lightning",
-            "WorldMap",*/
+            "WorldMap",
             "Water",
             "WorldMap",
             "Fire",

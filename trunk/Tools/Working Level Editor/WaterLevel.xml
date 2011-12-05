@@ -4637,7 +4637,7 @@
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9696,1376" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="10016,1376" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7968,1440" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8352,1504" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8416,1632" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,1632" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2016,1696" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="2464,1696" />
@@ -4657,8 +4657,8 @@
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="6432,2400" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2080,2464" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="2400,2464" />
+  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8416,2528" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8608,2528" />
-  <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8352,2656" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="9952,2656" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7968,2720" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="11168,2720" />
