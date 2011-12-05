@@ -47,7 +47,32 @@ namespace Frostbyte.Levels
             #endregion loadeffects etc
 
             #region load textures
+            l.GetTexture("Blank");
+            l.GetTexture("blood");
             l.GetTexture("boulder");
+            l.GetTexture("dirtParticle");
+            l.GetTexture("Earth");
+            l.GetTexture("Earthquake Rock");
+            l.GetTexture("earthquake");
+            l.GetTexture("evil");
+            l.GetTexture("fire darker");
+            l.GetTexture("fire");
+            l.GetTexture("fireParticle");
+            l.GetTexture("ice");
+            l.GetTexture("lava");
+            l.GetTexture("Lightning");
+            l.GetTexture("maroon fire");
+            l.GetTexture("Normal");
+            l.GetTexture("poison");
+            l.GetTexture("red fire");
+            l.GetTexture("regen");
+            l.GetTexture("smoke");
+            l.GetTexture("snowflake");
+            l.GetTexture("sparkball");
+            l.GetTexture("water stream");
+            l.GetTexture("water");
+            l.GetTexture("waterParticle");
+            l.GetTexture("WaterTexture");
             #endregion load textures
 
             #region add applicable spells
