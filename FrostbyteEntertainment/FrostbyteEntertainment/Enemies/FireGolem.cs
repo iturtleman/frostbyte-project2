@@ -12,21 +12,21 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "crystalgolem-idle-down.anim",
-           "crystalgolem-idle-diagdown.anim",
-           "crystalgolem-idle-right.anim",
-           "crystalgolem-idle-diagup.anim",
-           "crystalgolem-idle-up.anim",
-           "crystalgolem-walk-down.anim",
-           "crystalgolem-walk-diagdown.anim",
-           "crystalgolem-walk-right.anim",
-           "crystalgolem-walk-diagup.anim",
-           "crystalgolem-walk-up.anim",
-           "crystalgolem-attack-down.anim",
-           "crystalgolem-attack-diagdown.anim",
-           "crystalgolem-attack-right.anim",
-           "crystalgolem-attack-diagup.anim",
-           "crystalgolem-attack-up.anim",
+           "firegolem-idle-down.anim",
+           "firegolem-idle-diagdown.anim",
+           "firegolem-idle-right.anim",
+           "firegolem-idle-diagup.anim",
+           "firegolem-idle-up.anim",
+           "firegolem-walk-down.anim",
+           "firegolem-walk-diagdown.anim",
+           "firegolem-walk-right.anim",
+           "firegolem-walk-diagup.anim",
+           "firegolem-walk-up.anim",
+           "firegolem-attack-down.anim",
+           "firegolem-attack-diagdown.anim",
+           "firegolem-attack-right.anim",
+           "firegolem-attack-diagup.anim",
+           "firegolem-attack-up.anim",
         };
         #endregion Variables
 
