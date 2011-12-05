@@ -498,10 +498,10 @@ namespace Frostbyte
                     Viewport v = This.Game.GraphicsDevice.Viewport;
                     while (!master.delayedTeleport(new TimeSpan(0, 0, 2),
                         new Rectangle(
-                            (int)(cam.Pos.X * cam.Zoom),
-                            (int)(cam.Pos.Y * cam.Zoom),
-                            (int)(v.Width * cam.Zoom),
-                            (int)(v.Height * cam.Zoom))))
+                            (int)(6792),
+                            (int)(2076),
+                            (int)(1739),
+                            (int)(574))))
                     {
                         yield return null;
                     }
