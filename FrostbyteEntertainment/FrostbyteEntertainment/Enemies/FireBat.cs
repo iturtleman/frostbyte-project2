@@ -87,7 +87,7 @@ namespace Frostbyte.Enemies
                     mAttacks.Add(Attacks.T1Projectile(target,
                                                 this,
                                                 8,
-                                                10,
+                                                3,
                                                 new TimeSpan(0, 0, 0, 0, 750),
                                                 attackRange,
                                                 6f,
