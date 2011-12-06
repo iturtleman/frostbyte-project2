@@ -137,7 +137,8 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            /*"TitleScreen",
+            /*
+            "TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
@@ -145,7 +146,7 @@ namespace Frostbyte
             "Lightning",
             "WorldMap",
             "Water",
-            "WorldMap",*/
+            "WorldMap",//*/
             "Fire",
             "WorldMap",
             "Final",
@@ -478,7 +479,8 @@ namespace Frostbyte
         internal override void Unload()
         {
             TileMap.Clear();
-            
+            allies.Clear();
+            enemies.Clear();
             base.Unload();
         }
 

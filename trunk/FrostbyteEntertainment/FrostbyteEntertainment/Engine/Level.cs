@@ -249,11 +249,15 @@ namespace Frostbyte
 
         internal virtual void Unload()
         {
+            Clear();
+            EndBehavior();
+        }
+
+        internal void Clear()
+        {
             This.Game.Content.Unload();
             This.Game.AudioManager.Pause();
             This.Game.AudioManager.Clear();
-            (This.Game.CurrentLevel as FrostbyteLevel).allies.Clear();
-            (This.Game.CurrentLevel as FrostbyteLevel).enemies.Clear();
             mWorldObjects.Clear();
             mTextures.Clear();
             mDocs.Clear();
@@ -264,7 +268,6 @@ namespace Frostbyte
             Collision.Buckets.Clear();
             Collision.CollisionData.Clear();
             GC.Collect();
-            EndBehavior();
         }
 
 
