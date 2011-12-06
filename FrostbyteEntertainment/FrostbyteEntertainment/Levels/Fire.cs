@@ -36,9 +36,6 @@ namespace Frostbyte.Levels
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
 
-            Enemies.FireMan b = new Enemies.FireMan("fire", new Vector2(8264, 6274));
-            b.Speed = 1;
-            
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.03f);
 

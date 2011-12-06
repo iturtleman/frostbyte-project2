@@ -12,21 +12,21 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "firegolem-idle-down.anim",
-           "firegolem-idle-diagdown.anim",
-           "firegolem-idle-right.anim",
-           "firegolem-idle-diagup.anim",
-           "firegolem-idle-up.anim",
-           "firegolem-walk-down.anim",
-           "firegolem-walk-diagdown.anim",
-           "firegolem-walk-right.anim",
-           "firegolem-walk-diagup.anim",
-           "firegolem-walk-up.anim",
-           "firegolem-attack-down.anim",
-           "firegolem-attack-diagdown.anim",
-           "firegolem-attack-right.anim",
-           "firegolem-attack-diagup.anim",
-           "firegolem-attack-up.anim",
+           "fireman-idle-down.anim",
+           "fireman-idle-diagdown.anim",
+           "fireman-idle-right.anim",
+           "fireman-idle-diagup.anim",
+           "fireman-idle-up.anim",
+           "fireman-walk-down.anim",
+           "fireman-walk-diagdown.anim",
+           "fireman-walk-right.anim",
+           "fireman-walk-diagup.anim",
+           "fireman-walk-up.anim",
+           "fireman-attack-down.anim",
+           "fireman-attack-diagdown.anim",
+           "fireman-attack-right.anim",
+           "fireman-attack-diagup.anim",
+           "fireman-attack-up.anim",
         };
 
         internal TimeSpan attackWait = TimeSpan.MaxValue;
