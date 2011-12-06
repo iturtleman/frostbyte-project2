@@ -162,7 +162,7 @@ namespace Frostbyte.Characters
         private Sprite target;
         BasicEffect basicEffect = new BasicEffect(This.Game.GraphicsDevice);
         private IComparer<Sprite> sortType;
-        private List<Element> attackCounter = new List<Element>();
+        internal List<Element> attackCounter = new List<Element>();
         /// <summary>
         /// Which spells the player can cast
         /// </summary>

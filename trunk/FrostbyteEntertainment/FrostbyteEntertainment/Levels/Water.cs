@@ -24,6 +24,7 @@ namespace Frostbyte.Levels
 
             Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(6 * Tile.TileSize, 52 * Tile.TileSize);
+            mage.SpawnPoint = new Vector2(10143, 3771);
             mage.SpawnPoint = new Vector2(147*64+32, 68*64+32);
             mage.Speed = 1;
             mage.Scale = 0.7f;

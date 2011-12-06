@@ -16,7 +16,7 @@ namespace Frostbyte.Levels
             XDocument doc = XDocument.Load(@"Content/FinalLevel.xml");
             l.Load(doc);
 
-            l.HUD.LoadCommon(new FinalTheme());
+            l.HUD.LoadCommon(new GenericTheme());
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
 

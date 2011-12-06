@@ -57,8 +57,17 @@ namespace Frostbyte
 
     internal class WaterTheme : GenericTheme
     {
-        public override Color TextColor { get { return Color.DarkSlateGray; } }
-        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Water"); } }
+        public override Color TextColor { get { return new Color(0.45f, 0.68f, 0.45f); } }
+        public override SpriteFont TextFont { get { return This.Game.Content.Load<SpriteFont>("Fonts/Default"); } }
+        public override Color TransparentBackgroundColor
+        {
+            get
+            {
+                Color transp = Color.Black;
+                transp.A = 10;
+                return transp;
+            }
+        }
     }
 
     internal class FireTheme : GenericTheme
@@ -100,7 +109,7 @@ namespace Frostbyte
         #endregion
 
         #region Methods
-        internal void LoadCommon(IHUDTheme Theme=null)
+        internal void LoadCommon(IHUDTheme Theme = null)
         {
             if (Theme != null)
             {
@@ -114,13 +123,13 @@ namespace Frostbyte
             scroller.Static = true;
 
             fader = new TextFader("fader", theme);
-            fader.Pos = new Vector2(v.Width - 10, v.Height -10 - 30);
+            fader.Pos = new Vector2(v.Width - 10, v.Height - 10 - 30);
             fader.Anchor = Orientations.Up_Right;
             fader.Static = true;
 
             #region ItemBag
             items = new ItemArea("Items", theme);
-            items.Pos = new Vector2(890,10);
+            items.Pos = new Vector2(890, 10);
             items.Static = true;
             #endregion
         }
@@ -135,7 +144,7 @@ namespace Frostbyte
         {
             ProgressBar lastPlayerHealth = playerHUDS.Last().healthBar;
             Vector2 size = new Vector2(This.Game.GraphicsDevice.Viewport.Width * 0.8f, barSize.Y * 1.5f);
-            ProgressBar healthBar = new ProgressBar(b.Name + "_health", b.MaxHealth, 
+            ProgressBar healthBar = new ProgressBar(b.Name + "_health", b.MaxHealth,
                     Color.DarkRed, Color.Firebrick, Color.Black, size);
             healthBar.Pos = new Vector2(
                 (This.Game.GraphicsDevice.Viewport.Width - size.X) / 2,
@@ -222,7 +231,15 @@ namespace Frostbyte
                 };
                 #endregion
 
-                
+                #region Spell Queue
+                spellQueue = new SpellQueue("Queue", theme, p);
+                spellQueue.Pos = new Vector2(xOffset,
+                    healthBar.Pos.Y + barSize.Y + 2 * barSpacing.Y + barSize.Y);
+                spellQueue.Static = true;
+
+                #endregion
+
+
             }
 
             ~PlayerHUD()
@@ -234,6 +251,7 @@ namespace Frostbyte
             #region Variables
             internal ProgressBar healthBar;
             internal ProgressBar manaBar;
+            internal SpellQueue spellQueue;
 
 
             internal int Health
@@ -282,7 +300,7 @@ namespace Frostbyte
             internal override void Draw(GameTime gameTime)
             {
                 base.Draw(gameTime);
-                
+
                 This.Game.spriteBatch.Draw(background, new Rectangle(
                         (int)Pos.X,
                         (int)Pos.Y,
@@ -301,6 +319,103 @@ namespace Frostbyte
                         icon.Visible = true;
                         icon.Draw(gameTime);
                     }
+                }
+            }
+        }
+
+        private class SpellQueue : Sprite
+        {
+            internal SpellQueue(string name, IHUDTheme theme, Player player)
+                : base(name, new Actor(new DummyAnimation(name,
+                    (int)HUD.barSize.X, (int)HUD.barSize.Y)))
+            {
+                ZOrder = 100;
+                this.theme = theme;
+                background = new Texture2D(This.Game.GraphicsDevice, 1, 1);
+                background.SetData(new Color[] { theme.TransparentBackgroundColor });
+                this.player = player;
+            }
+
+            private IHUDTheme theme;
+            private Texture2D background;
+            private Player player;
+
+            private static Vector2 itemSpacing = new Vector2(12, 2);
+            private static int itemsPerRow = 3;
+
+            internal override void Draw(GameTime gameTime)
+            {
+                base.Draw(gameTime);
+
+                This.Game.spriteBatch.Draw(background, new Rectangle(
+                        (int)Pos.X,
+                        (int)Pos.Y,
+                        (int)GetAnimation().Width,
+                        (int)GetAnimation().Height), Color.White);
+
+                int limit = 0;
+                if (Characters.Mage.UnlockedSpells.HasFlag(Spells.EarthThree))
+                    limit = 3;
+                else if (Characters.Mage.UnlockedSpells.HasFlag(Spells.EarthTwo))
+                    limit = 2;
+                else
+                    limit = 1;
+
+                for (int x = 0; x < (player as Frostbyte.Characters.Mage).attackCounter.Count && x < limit; x++)
+                {
+
+                    if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Earth && Characters.Mage.UnlockedSpells.HasFlag(Spells.EarthOne))
+                    {
+                        Sprite icon = new Item("earth", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("earthIcon.anim"))).Icon;
+                        icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
+                        (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
+                        icon.Pos.Y = Pos.Y + itemSpacing.Y +
+                            (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
+                        icon.Visible = true;
+                        icon.Draw(gameTime);
+                    }
+
+                    else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Lightning && Characters.Mage.UnlockedSpells.HasFlag(Spells.LightningOne))
+                    {
+                        Sprite icon = new Item("lightning", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("lightningIcon.anim"))).Icon;
+                        icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
+                        (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
+                        icon.Pos.Y = Pos.Y + itemSpacing.Y +
+                            (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
+                        icon.Visible = true;
+                        icon.Draw(gameTime);
+                    }
+
+                    else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Water && Characters.Mage.UnlockedSpells.HasFlag(Spells.WaterOne))
+                    {
+                        Sprite icon = new Item("water", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("waterIcon.anim"))).Icon;
+                        icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
+                        (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
+                        icon.Pos.Y = Pos.Y + itemSpacing.Y +
+                            (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
+                        icon.Visible = true;
+                        icon.Draw(gameTime);
+                    }
+
+                    else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Fire && Characters.Mage.UnlockedSpells.HasFlag(Spells.FireOne))
+                    {
+                        Sprite icon = new Item("fire", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("fireIcon.anim"))).Icon;
+                        icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
+                        (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
+                        icon.Pos.Y = Pos.Y + itemSpacing.Y +
+                            (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
+                        icon.Visible = true;
+                        icon.Draw(gameTime);
+                    }
+
+                    //Sprite icon = Player.ItemBag[x].Icon;
+                    //icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
+                    //    (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
+                    //icon.Pos.Y = Pos.Y + itemSpacing.Y +
+                    //    (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
+                    //icon.Visible = true;
+                    //icon.Draw(gameTime);
+
                 }
             }
         }
@@ -373,7 +488,8 @@ namespace Frostbyte
                     Vector2 displayPos = new Vector2();
 
                     #region X values
-                    switch (Anchor){
+                    switch (Anchor)
+                    {
                         case Orientations.Right:
                             displayPos.X = Pos.X - toDisplay.GetAnimation().Width;
                             break;
@@ -419,7 +535,7 @@ namespace Frostbyte
 
                     mAlpha = 0;
                     toDisplay.DisplayColor = (theme.TextColor * mAlpha);
-                    
+
                     foreach (string type in new string[] { "in", "out" })
                     {
                         // Leave faded in (or out) for mFadeDelay time
@@ -461,7 +577,7 @@ namespace Frostbyte
         }
 
         internal TextScroller(string name, IHUDTheme theme, int width, int height)
-            : base(name, new Actor(new DummyAnimation(name,width, height)))
+            : base(name, new Actor(new DummyAnimation(name, width, height)))
         {
             ZOrder = 100;
             UpdateBehavior = update;
