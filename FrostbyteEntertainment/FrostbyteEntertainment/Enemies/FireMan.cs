@@ -27,21 +27,34 @@ namespace Frostbyte.Enemies
            "fireman-attack-right.anim",
            "fireman-attack-diagup.anim",
            "fireman-attack-up.anim",
+           "fireman-stomp-down.anim",
+           "fireman-stomp-diagdown.anim",
+           "fireman-stomp-right.anim",
+           "fireman-stomp-diagup.anim",
+           "fireman-stomp-up.anim",
+           "fireman-die.anim",
         };
 
         internal TimeSpan attackWait = TimeSpan.MaxValue;
         #endregion Variables
 
         public FireMan(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 1000)
+            : base(name, new Actor(Animations), 20, 10)
         {
+            Speed = 1f;
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Fire;
-
             Personality = new LumberingPersonality(this);
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBoss");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
+        }
+
+        protected override void Die()
+        {
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[20]));
+            b.GroundPos = GroundPos;
+            base.Die();
         }
 
         protected override void updateMovement()
