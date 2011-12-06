@@ -892,6 +892,26 @@
       <Link>Content\Sprites\fireman-idle-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-stomp-diagdown.anim">
+      <Link>Content\Sprites\fireman-stomp-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-stomp-diagup.anim">
+      <Link>Content\Sprites\fireman-stomp-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-stomp-down.anim">
+      <Link>Content\Sprites\fireman-stomp-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-stomp-right.anim">
+      <Link>Content\Sprites\fireman-stomp-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-stomp-up.anim">
+      <Link>Content\Sprites\fireman-stomp-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\fireman-walk-diagdown.anim">
       <Link>Content\Sprites\fireman-walk-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
