@@ -838,11 +838,7 @@ namespace Frostbyte
         {
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
 
-            master.SetAnimation(4);
-            master.StopAnim();
-            master.Visible = false;
-
-            int initialWaitDistance = 150;
+            int initialWaitDistance = 200;
             while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
             {
                 yield return null;
@@ -850,36 +846,22 @@ namespace Frostbyte
             master.setAtArms();
             master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
 
-            This.Game.AudioManager.PlayBackgroundMusic("Music/WaterBoss");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/FireBoss");
             This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
-
-            Sprite spawn = new Sprite("spawn",
-                new Actor(This.Game.CurrentLevel.GetAnimation("waterboss-surface.anim")));
-            spawn.GroundPos = master.GroundPos + new Vector2(0, 100);
-
-            while (spawn.Frame < spawn.FrameCount() - 1)
-            {
-                if (spawn.Frame == 16)
-                {
-                    master.Visible = true;
-                }
-                yield return null;
-            }
-            This.Game.CurrentLevel.RemoveSprite(spawn);
-            master.Visible = true;
-            master.StartAnim();
 
             while (true)
             {
-                while (!master.dart(targets, 15, 50, new TimeSpan(0, 0, 0, 0, 500)))
+                while (!master.ram(targets, new TimeSpan(0, 0, 3), float.PositiveInfinity, 1))
                 {
                     yield return null;
                 }
-                while (!master.freeze(new TimeSpan(0, 0, 2)))
+                if (rng.Next(5) == 0)
                 {
-                    yield return null;
+                    while (!master.freeze(new TimeSpan(0, 0, rng.Next(3))))
+                    {
+                        yield return null;
+                    }
                 }
-
 
                 yield return null;
             }

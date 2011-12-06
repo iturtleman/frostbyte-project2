@@ -1469,7 +1469,7 @@ namespace Frostbyte
         /// <summary>
         /// Performs Fire Pillar Attack
         /// </summary>
-        public static IEnumerable<bool> FirePillar(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Earth)
+        public static IEnumerable<bool> FirePillar(Sprite _target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Fire)
         {
             if (_target == null)
             {
@@ -2050,7 +2050,7 @@ namespace Frostbyte
         /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
         /// <param name="_attackFrame">The frame that the attack begins on</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> WormVomit(OurSprite attacker, int animation, int baseDamage, int attackFrame, Element elem = Element.Lightning)
+        public static IEnumerable<bool> WormVomit(OurSprite attacker, int animation, int baseDamage, int attackFrame, Element elem = Element.Earth)
         {
             #region Variables
             Level l = This.Game.CurrentLevel;
@@ -2125,6 +2125,52 @@ namespace Frostbyte
 
             attacker.isAttackAnimDone = true;
 
+            yield return true;
+        }
+
+        public static IEnumerable<bool> RammingAttack(Sprite target, Enemy attacker, int baseDamage, TimeSpan duration, Element elem = Element.None)
+        {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            attacker.State = SpriteState.Attacking;
+
+            attacker.isAttackAnimDone = false;
+            List<Sprite> targets = new List<Sprite>();
+            targets.Add(target);
+
+
+            int dmgcount = 0;
+            attacker.Personality.Status = EnemyStatus.Wander;
+
+            while (true)
+            {
+
+                attacker.previousFootPos = attacker.GroundPos;
+                if (attacker.ram(targets, duration, float.PositiveInfinity, 20))
+                {
+                    break;
+                }
+
+                attacker.checkBackgroundCollisions();
+
+                if (dmgcount++ % 10 == 0 && Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(attacker, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (detectedCollision.Item2 is Player && attacker is Enemy)
+                            {
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                            }
+                        }
+                    }
+                }
+                yield return false;
+            }
+
+            attacker.isAttackAnimDone = true;
             yield return true;
         }
 

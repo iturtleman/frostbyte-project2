@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Collections;
 
 namespace Frostbyte
 {
@@ -83,6 +84,19 @@ namespace Frostbyte
             while (true)
             {
                 yield return errorNotes[rand.Next(errorNotes.Length)];
+            }
+        }
+
+        internal static IEnumerable<T> DelayEnumerable<T>(IEnumerable<T> toRun, TimeSpan delay)
+        {
+            TimeSpan endTime = This.gameTime.TotalGameTime + delay;
+            while (This.gameTime.TotalGameTime < endTime)
+            {
+                yield return default(T);
+            }
+            foreach (T obj in toRun)
+            {
+                yield return obj;
             }
         }
 
