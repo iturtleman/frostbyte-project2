@@ -169,7 +169,7 @@ namespace Frostbyte
         {
             Obstacles.Obstacle rock = new Obstacles.Rock("rock");
             rock.SpawnOn(this);
-            rock.SpawnPoint += new Vector2(0, Tile.TileSize * Math.Sign(-Direction.Y));
+            rock.SpawnPoint += new Vector2(0, Tile.TileSize * Math.Sign(-Direction.Y) + 32);
             rock.Respawn();
 
             this.Enabled = false;
