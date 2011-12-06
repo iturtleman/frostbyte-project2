@@ -55,10 +55,6 @@ namespace Frostbyte
             {
                 Characters.Mage.UnlockedSpells = Spells.All;
             }
-            if (GlobalController.GetKeypress(Keys.Delete) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
-            {
-                This.Cheats.GetCheat("FinalBossFun").Toggle();
-            }
             if (GlobalController.GetKeypress(Keys.B) == ReleasableButtonState.Clicked && This.Cheats.Enabled)
             {
                 This.Cheats.GetCheat("ElementalBuffs").Toggle();
@@ -141,7 +137,7 @@ namespace Frostbyte
         /// </summary>
         internal static List<string> LevelProgression = new List<string>()
         {
-            "TitleScreen",
+            /*"TitleScreen",
             "Intro",
             "WorldMap",
             "Earth",
@@ -149,7 +145,7 @@ namespace Frostbyte
             "Lightning",
             "WorldMap",
             "Water",
-            "WorldMap",
+            "WorldMap",*/
             "Fire",
             "WorldMap",
             "Final",

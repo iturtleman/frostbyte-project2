@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Frostbyte.Enemies
 {
@@ -39,6 +40,8 @@ namespace Frostbyte.Enemies
             ElementType = Element.Fire;
 
             Personality = new LumberingPersonality(this);
+            This.Game.AudioManager.AddBackgroundMusic("Music/FireBoss");
+            This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
         }
 
         protected override void updateMovement()
@@ -48,7 +51,77 @@ namespace Frostbyte.Enemies
 
         protected override void updateAttack()
         {
-            throw new NotImplementedException();
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
+            Sprite currentTarget = GetClosestTarget(l.allies);
+            int attackFrame = 0;
+
+            if (attackWait < This.gameTime.TotalGameTime)
+            {
+                int randAttack = This.Game.rand.Next(14);
+                if (randAttack < 10)
+                {
+                    #region Fire Tier 1
+                    int attackRange = 11;
+
+                    //Create Earth Tier 1 Particle Emmiter
+                    Effect particleEffect = l.GetEffect("ParticleSystem");
+                    Texture2D snowflake = l.GetTexture("fireParticle");
+
+                    foreach (TimeSpan delay in new TimeSpan[]{
+                        TimeSpan.Zero, new TimeSpan(0, 0, 0, 0, 500), new TimeSpan(0, 0, 1),
+                    })
+                    {
+                        ParticleEmitter particleFireTier1 = new ParticleEmitter(500, particleEffect, snowflake);
+                        particleFireTier1.effectTechnique = "FadeAtXPercent";
+                        particleFireTier1.fadeStartPercent = .98f;
+                        particleFireTier1.blendState = BlendState.Additive;
+                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                        (particleFireTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                        particleEmitters.Add(particleFireTier1);
+                        mAttacks.Add(LevelFunctions.DelayEnumerable<bool>(Attacks.T1Projectile(currentTarget,
+                            this,
+                            20,
+                            attackFrame,
+                            new TimeSpan(0, 0, 0, 1, 150),
+                            attackRange,
+                            9f,
+                            false,
+                            delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                            {
+                                Random randPosition = new Random();
+                                particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                for (int i = -5; i < 6; i++)
+                                {
+                                    particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                            tangent * -i * 40,
+                                                                            particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                                            10.0f,
+                                                                            This.Game.rand.Next(10, 300));
+                                }
+                            },
+                            particleFireTier1,
+                            new Vector2(0, -38),
+                            Element.Fire
+                            ), delay).GetEnumerator());
+                    }
+
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T1");
+                    #endregion Fire Tier 1
+                }
+                else if (randAttack < 11)
+                {
+                    #region Fire Tier 3
+                    mAttacks.Add(Attacks.FirePillar(currentTarget, this, 30, attackFrame, Element.Fire).GetEnumerator());
+                    This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T3");
+                    #endregion Fire Tier 3
+                }
+                else if (randAttack < 14)
+                {
+                    mAttacks.Add(Attacks.RammingAttack(currentTarget, this, 5, new TimeSpan(0, 0, 0, 0, 500)).GetEnumerator());
+                }
+                attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(5, 8));
+            }
         }
     }
 }
