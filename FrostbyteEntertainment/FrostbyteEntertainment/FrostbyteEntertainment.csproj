@@ -272,6 +272,10 @@
       <Link>Content\Audio\Effects\Wasp_Move.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Wolf_Move.wav">
+      <Link>Content\Audio\Effects\Wolf_Move.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Worm_Spawn.wav">
       <Link>Content\Audio\Effects\Worm_Spawn.wav</Link>
     </Content>
@@ -393,6 +397,7 @@
     <Content Include="Content\Audio\Effects\Water_T1.wav" />
     <Content Include="Content\Audio\Effects\Water_T2.wav" />
     <Content Include="Content\Audio\Effects\Water_T3.wav" />
+    <Content Include="Content\Audio\Music\WaterBoss.mp3" />
     <Content Include="Content\Audio\Music\WorldMapBG.mp3" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
@@ -750,6 +755,10 @@
       <Link>Content\Sprites\door.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\earthIcon.anim">
+      <Link>Content\Sprites\earthIcon.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\firebat-diagdown.anim">
       <Link>Content\Sprites\firebat-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -828,6 +837,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\firegolem-walk-up.anim">
       <Link>Content\Sprites\firegolem-walk-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\fireIcon.anim">
+      <Link>Content\Sprites\fireIcon.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\frostgolem-attack-diagdown.anim">
@@ -954,6 +967,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\key.anim">
       <Link>Content\Sprites\key.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\lightningIcon.anim">
+      <Link>Content\Sprites\lightningIcon.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\owl-idle-diagdown.anim">
@@ -1247,6 +1264,10 @@
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\waterboss-surface.anim">
       <Link>Content\Sprites\waterboss-surface.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\waterIcon.anim">
+      <Link>Content\Sprites\waterIcon.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\wolf-attack-diagdown.anim">

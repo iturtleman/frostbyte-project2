@@ -17,7 +17,7 @@ namespace Frostbyte.Levels
             XDocument doc = XDocument.Load(@"Content/LightningLevel.xml");
             l.Load(doc);
 
-            l.HUD.LoadCommon(new LightningTheme());
+            l.HUD.LoadCommon(new GenericTheme());
 
             l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name).GetEnumerator();
             l.ExitPortalSpawnPoint = new Vector2(4576, 3184);

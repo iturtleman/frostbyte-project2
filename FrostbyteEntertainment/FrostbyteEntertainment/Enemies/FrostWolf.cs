@@ -41,12 +41,12 @@ namespace Frostbyte.Enemies
             Personality = new ChargePersonality(this);
             ElementType = Element.Water;
 
-            //This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
-            //if (MovementAudioName == null)
-            //{
-            //MovementAudioName = "Effects/Wolf_Move";
-            //This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
-            //}
+            This.Game.AudioManager.AddSoundEffect("Effects/Wolf_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Wolf_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+            }
 
             isDieEffectEnabled = true;
         }

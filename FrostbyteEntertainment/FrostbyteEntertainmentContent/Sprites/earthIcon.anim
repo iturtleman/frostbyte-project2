@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animation>
+  <Frame SpriteSheet="earthIcon" FrameDelay="20" Width="16" Height="16" TLPos="0,0" AnimationPeg="0,0" >
+  </Frame>
+</Animation>

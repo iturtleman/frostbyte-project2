@@ -44,7 +44,7 @@ namespace Frostbyte.Enemies
             ElementType = Element.Water;
             Personality = new LiquidPersonality(this);
 
-            This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
+            //This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
         }
 
         protected override void Die()
