@@ -44,6 +44,8 @@ namespace Frostbyte.Enemies
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
             MovementAudioName = "Effects/Golem_Move";
             This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
+
+            isDieEffectEnabled = true;
         }
 
 

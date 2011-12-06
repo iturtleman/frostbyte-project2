@@ -20,6 +20,13 @@ namespace Frostbyte
         internal bool isSlowed = false;
         #endregion Attacking Variables
 
+        #region Death Variables
+        protected bool isDieEffectEnabled = false;
+        protected float sampleWidthPercent = 0.015f;
+        protected float sampleHeightPercent = 0.015f;
+        protected ParticleEmitter particleEmitterDeath;
+        #endregion Death Variables
+
         internal OurSprite(string name, Actor actor)
             : base(name, actor)
         {

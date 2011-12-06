@@ -17,13 +17,17 @@ namespace Frostbyte
         SpriteFrame frame;
         private float scale;
         private Vector2 topLeftPosition;
+        int frameWidth;
+        int frameHeight;
         #endregion Variables
 
-        internal DeathEffect(Sprite _deadSprite, ParticleEmitter _particleEmitter, int MilliSecondsToLive)
+        internal DeathEffect(Sprite _deadSprite, ParticleEmitter _particleEmitter, float sampleWidthPercent, float sampleHeightPercent)
             : base("DeathEffect", new Actor(new DummyAnimation()))
         {
             deadSprite = _deadSprite;
             particleEmitter = _particleEmitter;
+            
+            particleEmitter.ZOrder = deadSprite.ZOrder;
 
             //Scale of Sprite
             scale = deadSprite.Scale;
@@ -31,40 +35,46 @@ namespace Frostbyte
             //Sprite Frame
             frame = deadSprite.GetAnimation();
 
+            //Store frame width and height
+            frameWidth = (int)((float)frame.Width);
+            frameHeight = (int)((float)frame.Height);
+
             //Region of Texture that the current frame is in
-            imageRegion = new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frame.Width, frame.Height);
+            imageRegion = new Rectangle((int)frame.StartPos.X, (int)frame.StartPos.Y, frameWidth, frameHeight);
 
             //Sprite Color Data as Array from Texture2D
-            image = new Color[frame.Width * frame.Height];
-            frame.Image.GetData<Color>(0, imageRegion, image, 0, frame.Height * frame.Width);
+            image = new Color[frameWidth * frameHeight];
+            frame.Image.GetData<Color>(0, imageRegion, image, 0, frameHeight * frameWidth);
 
             //Top left position of image (copied from Sprite Draw Function)
             topLeftPosition = deadSprite.Pos - deadSprite.GetAnimation().AnimationPeg +
-                            deadSprite.Center - deadSprite.Center /*scale*/ + //this places scaling in the correct spot (i think)
+                            deadSprite.Center - deadSprite.Center * scale + //this places scaling in the correct spot (i think)
                             (deadSprite.Hflip ? frame.MirrorOffset * 2 : -frame.MirrorOffset);
 
-            createParticles(.02f, .02f);
+            createParticles(sampleWidthPercent, sampleHeightPercent);
         }
 
         private void createParticles(float sampleWidthPercent, float sampleHeightPercent)
         {
-            for (float y = 0; y < frame.Height; y += sampleHeightPercent * (float)(frame.Height))
+            for (float y = 0; y < frameHeight; y += sampleHeightPercent * (float)(frameHeight))
             {
-                for (float x = 0; x < frame.Width; x += sampleWidthPercent * (float)(frame.Width))
+                for (float x = 0; x < frameWidth; x += sampleWidthPercent * (float)(frameWidth))
                 {
                     int floorX = (int)Math.Floor(x);
                     int floorY = (int)Math.Floor(y);
 
-                    bool isGray = (Math.Abs((float)(image[floorX + floorY * frame.Height].B - image[floorX + floorY * frame.Height].R)) < 5 &&
-                                   Math.Abs((float)(image[floorX + floorY * frame.Height].B - image[floorX + floorY * frame.Height].G)) < 5f);
+                    bool isGray = (Math.Abs((float)(image[floorX + floorY * frameWidth].B - image[floorX + floorY * frameWidth].R)) < 5 &&
+                                   Math.Abs((float)(image[floorX + floorY * frameWidth].B - image[floorX + floorY * frameWidth].G)) < 5f);
 
-                    if (image[floorX + floorY * frame.Height].A > 245 || (image[floorX + floorY * frame.Height].A <= 245f && !isGray))
+                    if (image[floorX + floorY * frameWidth].A > 245 || (image[floorX + floorY * frameWidth].A <= 245f && !isGray))
                     {
-                        particleEmitter.createParticles(Vector2.Zero,
-                                                        Vector2.Zero,
-                                                        topLeftPosition + new Vector2((deadSprite.Hflip ? frame.Width - floorX : floorX) * scale, floorY * scale),
-                                                        3,
-                                                        100000);
+                        double directionAngle = This.Game.rand.NextDouble() * 2 * Math.PI;
+                        Vector2 randDirection = new Vector2((float)Math.Cos(directionAngle), (float)Math.Sin(directionAngle) / ParticleEmitter.EllipsePerspectiveModifier);
+                        particleEmitter.createParticles(new Vector2(randDirection.X*25,105),
+                                                        new Vector2(-randDirection.X*15,-155),
+                                                        topLeftPosition + new Vector2((deadSprite.Hflip ? frameWidth - floorX : floorX) * scale, floorY * scale),
+                                                        5,
+                                                        This.Game.rand.Next(600,800));
                     }
                 }
             }

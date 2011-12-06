@@ -60,20 +60,24 @@ namespace Frostbyte
                 }
             };
             #endregion
+
+            #region Default DeathEffect Particle Emitter
+            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
+            particleEmitterDeath = new ParticleEmitter(5000, particleEffect, lightning);
+            particleEmitterDeath.effectTechnique = "NoSpecialEffect";
+            particleEmitterDeath.fadeStartPercent = .8f;
+            particleEmitterDeath.blendState = BlendState.AlphaBlend;
+            particleEmitterDeath.Static = false;
+            #endregion Default DeathEffect Particle Emitter
         }
 
         protected virtual void Die()
         {
-            //Create Particle Emmiter for DeathEffect
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-            ParticleEmitter particleEmitterDeath = new ParticleEmitter(1000, particleEffect, lightning);
-            particleEmitterDeath.effectTechnique = "FadeAtXPercent";
-            particleEmitterDeath.fadeStartPercent = .98f;
-            particleEmitterDeath.blendState = BlendState.Additive;
-
-            //Start Death Effect
-            new DeathEffect(this, particleEmitterDeath, 1000);
+            if (isDieEffectEnabled)
+            {
+                new DeathEffect(this, particleEmitterDeath, sampleWidthPercent, sampleHeightPercent);
+            }
 
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
             // Remove Sprite
