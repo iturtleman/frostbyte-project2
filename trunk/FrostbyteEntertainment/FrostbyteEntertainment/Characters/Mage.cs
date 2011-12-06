@@ -142,6 +142,17 @@ namespace Frostbyte.Characters
             Texture2D sparkball = This.Game.CurrentLevel.GetTexture("sparkball");
             blood = new ParticleEmitter(200, particleEffect, bloodParticle);
             spellCast = new ParticleEmitter(1000, particleEffect, sparkball);
+
+            isDieEffectEnabled = true;
+
+            #region Default DeathEffect Particle Emitter
+            Effect particleEffectDeath = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+            Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
+            particleEmitterDeath = new ParticleEmitter(2500, particleEffect, lightning);
+            particleEmitterDeath.effectTechnique = "NoSpecialEffect";
+            particleEmitterDeath.fadeStartPercent = .1f;
+            particleEmitterDeath.blendState = BlendState.AlphaBlend;
+            #endregion Default DeathEffect Particle Emitter
         }
         #endregion
 
@@ -648,9 +659,15 @@ namespace Frostbyte.Characters
 
             if (Health == 0)
             {
+                if (isDieEffectEnabled) //must be before pos is set to zero
+                {
+                    new DeathEffect(this, particleEmitterDeath, sampleWidthPercent, sampleHeightPercent);
+                }
+
                 State = SpriteState.Dead;
                 Pos = Vector2.Zero;
                 cancelTarget();
+
             }
             else
             {

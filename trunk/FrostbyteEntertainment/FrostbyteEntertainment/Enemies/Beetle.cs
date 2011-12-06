@@ -47,6 +47,8 @@ namespace Frostbyte.Enemies
                 MovementAudioName = "Effects/Beetle_Move";
                 This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName);
             }
+
+            isDieEffectEnabled = true;
         }
 
         protected override void updateMovement()

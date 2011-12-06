@@ -40,6 +40,8 @@ namespace Frostbyte.Enemies
             Personality = new SwoopingPersonality(this);
             //Personality = new ChargePersonality(this);
             ElementType = Element.Water;
+
+            isDieEffectEnabled = true;
         }
 
         protected override void updateMovement()

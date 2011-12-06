@@ -49,6 +49,8 @@ namespace Frostbyte.Enemies
                 MovementAudioName = "Effects/Bat_Move";
                 This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName, .05f);
             }
+
+            isDieEffectEnabled = true;
         }
 
         protected override void updateMovement()
