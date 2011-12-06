@@ -1145,8 +1145,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\fireman-idle.png">
-      <Name>fireman-idle</Name>
+    <Compile Include="Sprites\fireman-idle-diagup-up.png">
+      <Name>fireman-idle-diagup-up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\fireman-idle-down-right.png">
+      <Name>fireman-idle-down-right</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -147,7 +147,8 @@ namespace Frostbyte
             "WorldMap",
             "Water",
             "WorldMap",//*/
-            "Fire",
+            //"Fire",
+            "FireBoss",
             "WorldMap",
             "Final",
             "WorldMap",
