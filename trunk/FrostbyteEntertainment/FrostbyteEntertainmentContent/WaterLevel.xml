@@ -4825,5 +4825,5 @@
   <Object Type="Frostbyte.Obstacles.Door" Name="Top_Door" Orientation="Up" Pos="9440,4512" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="9440,4640" />
   <Object Type="Frostbyte.SetRespawnTrigger" Name="Set Respawn Trigger" Pos="6688,3168" />
-  <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Down" Pos="9440,4320" />
+  <Object Type="Frostbyte.PartyCrossTrigger" Name="PartyCross Trigger" Orientation="Up" Pos="9440,4320" />
 </Level>
