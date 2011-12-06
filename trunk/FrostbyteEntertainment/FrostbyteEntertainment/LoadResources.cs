@@ -40,6 +40,10 @@ namespace Frostbyte
                 Levels.Fire.Load,
                 LevelFunctions.DoNothing,
                 LevelFunctions.UnloadLevel));
+            mLevels.Add(new FrostbyteLevel("FireBoss",
+               Levels.FireBoss.Load,
+               LevelFunctions.DoNothing,
+               LevelFunctions.UnloadLevel));
             mLevels.Add(new FrostbyteLevel("Final",
                 Levels.Final.Load,
                 LevelFunctions.DoNothing,

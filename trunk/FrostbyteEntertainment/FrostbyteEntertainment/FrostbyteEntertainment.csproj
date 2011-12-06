@@ -146,6 +146,7 @@
     <Compile Include="Levels\Earth.cs" />
     <Compile Include="Levels\Final.cs" />
     <Compile Include="Levels\Fire.cs" />
+    <Compile Include="Levels\FireBoss.cs" />
     <Compile Include="Levels\Intro.cs" />
     <Compile Include="Levels\Lightning.cs" />
     <Compile Include="Levels\TitleScreen.cs" />
@@ -326,6 +327,7 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\FireLevel-BossRoom.xml">
       <Link>Content\FireLevel-BossRoom.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\FireLevel.xml">
       <Link>Content\FireLevel.xml</Link>

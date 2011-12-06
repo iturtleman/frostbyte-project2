@@ -8781,6 +8781,7 @@
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="66,147" />
   <Tile Type="Bottom" Collision="false" Theme="Fire" Orientation="Right" GridCell="67,147" />
   <Tile Type="BottomCorner" Collision="true" Theme="Fire" Orientation="Right" GridCell="68,147" />
+  <Enemy Type="Frostbyte.Enemies.FireMan" Name="Boss" Pos="8264,6274" />
   <Object Type="Frostbyte.Obstacles.Chest" Name="Chest" Pos="8096,1440" />
   <Object Type="Frostbyte.Obstacles.DiaryEntry" Name="Diary Entry" Pos="5088,3104" />
   <Object Type="Frostbyte.RestorePlayerHealthTrigger" Name="Restore Player Health Trigger" Pos="6560,3360" />
