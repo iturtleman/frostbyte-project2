@@ -685,6 +685,12 @@ namespace Frostbyte
             mAttacks.Clear();
         }
 
+        #region Death Effect
+
+
+
+        #endregion Death Effect
+
         #region Update
         internal override void Update()
         {
