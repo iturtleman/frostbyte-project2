@@ -363,6 +363,7 @@ namespace Frostbyte
             m_effectTechnique = null;
             m_fadeStartPercent = 0;
             m_changePicPercent = 0;
+            This.Game.CurrentLevel.RemoveSprite(this);
         }
     }
 }

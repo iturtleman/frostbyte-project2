@@ -84,6 +84,7 @@ namespace Frostbyte
         {
             if (particleEmitter.ActiveParticleCount <= 0)
             {
+                particleEmitter.Remove();
                 This.Game.CurrentLevel.RemoveSprite(this);
             }
         }

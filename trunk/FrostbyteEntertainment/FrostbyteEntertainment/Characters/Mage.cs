@@ -174,15 +174,6 @@ namespace Frostbyte.Characters
             spellCast = new ParticleEmitter(1000, particleEffect, sparkball);
 
             isDieEffectEnabled = true;
-
-            #region Default DeathEffect Particle Emitter
-            Effect particleEffectDeath = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
-            particleEmitterDeath = new ParticleEmitter(2500, particleEffect, lightning);
-            particleEmitterDeath.effectTechnique = "NoSpecialEffect";
-            particleEmitterDeath.fadeStartPercent = .1f;
-            particleEmitterDeath.blendState = BlendState.AlphaBlend;
-            #endregion Default DeathEffect Particle Emitter
         }
         #endregion
 
@@ -342,13 +333,13 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (UnlockedSpells.HasFlag(Spells.EarthThree) && Mana >= 50 && currentTarget != null && !(currentTarget is Player))
+                                    if (UnlockedSpells.HasFlag(Spells.EarthThree) && Mana >= 25 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Earth Tier 3
                                         mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 10).GetEnumerator());
                                         #endregion Earth Tier 3
                                         This.Game.AudioManager.PlaySoundEffect("Effects/RockShower");
-                                        Mana -= 50;
+                                        Mana -= 25;
                                     }
                                 }
                                 break;
@@ -409,7 +400,7 @@ namespace Frostbyte.Characters
                                     if (Mana >= 50)
                                     {
                                         #region Lightning Tier 2
-                                        mAttacks.Add(Attacks.LightningStrike(this, this, 2, 10).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(this, this, 4, 10).GetEnumerator());
                                         #endregion Lightning Tier 2
                                         Mana -= 50;
                                     }
@@ -420,7 +411,7 @@ namespace Frostbyte.Characters
                                     if (UnlockedSpells.HasFlag(Spells.LightningThree) && Mana >= 50)
                                     {
                                         #region Lightning Tier 3
-                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 10, 10).GetEnumerator());
+                                        mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 4, 10).GetEnumerator());
                                         #endregion Lightning Tier 3
                                         Mana -= 50;
                                     }
@@ -481,26 +472,25 @@ namespace Frostbyte.Characters
 
                                 else if (UnlockedSpells.HasFlag(Spells.WaterTwo) && attackCounter.Count == 2)
                                 {
-                                    if (Mana >= 80)
+                                    if (Mana >= 20 && currentTarget != null && !(currentTarget is Player))
+                                    {
+                                        #region Water Tier 3
+                                        mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
+                                        #endregion Water Tier 3
+                                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T3");
+                                        Mana -= 20;
+                                    }
+                                }
+
+                                else
+                                {
+                                    if (UnlockedSpells.HasFlag(Spells.WaterThree) && Mana >= 80)
                                     {
                                         #region Water Tier 2
                                         mAttacks.Add(Attacks.WaterPush(this, 10).GetEnumerator());
                                         #endregion Water Tier 2
                                         This.Game.AudioManager.PlaySoundEffect("Effects/Water_T2", .1f);
                                         Mana -= 80;
-                                    }
-
-                                }
-
-                                else
-                                {
-                                    if (UnlockedSpells.HasFlag(Spells.WaterThree) && Mana >= 30 && currentTarget != null && !(currentTarget is Player))
-                                    {
-                                        #region Water Tier 3
-                                        mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
-                                        #endregion Water Tier 3
-                                        This.Game.AudioManager.PlaySoundEffect("Effects/Water_T3");
-                                        Mana -= 30;
                                     }
                                 }
                                 break;
@@ -562,7 +552,7 @@ namespace Frostbyte.Characters
                                     if (UnlockedSpells.HasFlag(Spells.FireTwo) && Mana >= 50)
                                     {
                                         #region Fire Tier 2
-                                        mAttacks.Add(Attacks.FireRing(this, this, 1, 10).GetEnumerator());
+                                        mAttacks.Add(Attacks.FireRing(this, this, 2, 10).GetEnumerator());
                                         #endregion Fire Tier 2
                                         This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T2", .05f);
                                         Mana -= 50;
@@ -571,13 +561,13 @@ namespace Frostbyte.Characters
 
                                 else
                                 {
-                                    if (UnlockedSpells.HasFlag(Spells.FireThree) && Mana >= 50 && currentTarget != null && !(currentTarget is Player))
+                                    if (UnlockedSpells.HasFlag(Spells.FireThree) && Mana >= 25 && currentTarget != null && !(currentTarget is Player))
                                     {
                                         #region Fire Tier 3
                                         mAttacks.Add(Attacks.FirePillar(currentTarget, this, 100, 10).GetEnumerator());
                                         #endregion Fire Tier 3
                                         This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T3");
-                                        Mana -= 50;
+                                        Mana -= 25;
                                     }
                                 }
                                 break;
@@ -656,6 +646,7 @@ namespace Frostbyte.Characters
                         {
                             if (ItemBag[x] is Key)
                             {
+                                This.Game.CurrentLevel.RemoveSprite(ItemBag[x]);
                                 ItemBag.RemoveAt(x);
                                 (target as Obstacles.Door).Open();
                                 return;
@@ -709,6 +700,15 @@ namespace Frostbyte.Characters
                 cancelTarget();
                 if (isDieEffectEnabled) //must be before pos is set to zero
                 {
+                    #region Default DeathEffect Particle Emitter
+                    Effect particleEffectDeath = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                    Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
+                    ParticleEmitter particleEmitterDeath = new ParticleEmitter(2500, particleEffectDeath, lightning);
+                    particleEmitterDeath.effectTechnique = "NoSpecialEffect";
+                    particleEmitterDeath.fadeStartPercent = .1f;
+                    particleEmitterDeath.blendState = BlendState.AlphaBlend;
+                    #endregion Default DeathEffect Particle Emitter
+
                     new DeathEffect(this, particleEmitterDeath, sampleWidthPercent, sampleHeightPercent);
                 }
                 return;

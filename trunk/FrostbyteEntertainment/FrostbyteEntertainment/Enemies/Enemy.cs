@@ -60,22 +60,22 @@ namespace Frostbyte
                 }
             };
             #endregion
-
-            #region Default DeathEffect Particle Emitter
-            Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
-            Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
-            particleEmitterDeath = new ParticleEmitter(5000, particleEffect, lightning);
-            particleEmitterDeath.effectTechnique = "NoSpecialEffect";
-            particleEmitterDeath.fadeStartPercent = .8f;
-            particleEmitterDeath.blendState = BlendState.AlphaBlend;
-            particleEmitterDeath.Static = false;
-            #endregion Default DeathEffect Particle Emitter
         }
 
         protected override void Die()
         {
             if (isDieEffectEnabled)
             {
+                #region Default DeathEffect Particle Emitter
+                Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
+                Texture2D lightning = This.Game.CurrentLevel.GetTexture("light blood");
+                ParticleEmitter particleEmitterDeath = new ParticleEmitter(5000, particleEffect, lightning);
+                particleEmitterDeath.effectTechnique = "NoSpecialEffect";
+                particleEmitterDeath.fadeStartPercent = .8f;
+                particleEmitterDeath.blendState = BlendState.AlphaBlend;
+                particleEmitterDeath.Static = false;
+                #endregion Default DeathEffect Particle Emitter
+
                 new DeathEffect(this, particleEmitterDeath, sampleWidthPercent, sampleHeightPercent);
             }
 
