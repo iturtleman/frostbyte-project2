@@ -68,7 +68,7 @@ namespace Frostbyte.Characters
            "player2-swordcast-right.anim",
            "player2-swordcast-diagup.anim",
            "player2-swordcast-up.anim",
-           "player2-death.anim",
+           //"player2-death.anim",
         };
         #endregion
 
@@ -125,7 +125,7 @@ namespace Frostbyte.Characters
         }
 
         internal Mage(string name, PlayerIndex input, Color targetColor, Color tint)
-            : base(name, new Actor(Animations) /*new Actor(name.Contains("1")?Animations:Animations2)*/)
+            : base(name, new Actor(name.Contains("1")?Animations:Animations2))
         {
 
             if (GamePad.GetState(input).IsConnected)
