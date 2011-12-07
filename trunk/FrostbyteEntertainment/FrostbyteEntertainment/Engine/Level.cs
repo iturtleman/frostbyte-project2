@@ -171,7 +171,7 @@ namespace Frostbyte
 
         internal virtual void Load(Level context)
         {
-            This.Game.AudioManager.Pause();
+            This.Game.AudioManager.PlayPause();
             This.Game.AudioManager.BackgroundMusicVolume = 1;
             mWorldObjects.Clear();
             mActors.Clear();
@@ -196,6 +196,7 @@ namespace Frostbyte
                     if (WinCondition())
                     {
                         Unload();
+                        return;
                     }
                     foreach (WorldObject sp in mWorldObjects)
                     {
@@ -256,9 +257,13 @@ namespace Frostbyte
         internal void Clear()
         {
             This.Game.Content.Unload();
-            This.Game.AudioManager.Pause();
+            This.Game.AudioManager.Stop();
             This.Game.AudioManager.Clear();
             mWorldObjects.Clear();
+            foreach (Texture2D t in mTextures.Values)
+            {
+                t.Dispose();
+            }
             mTextures.Clear();
             mDocs.Clear();
             mActors.Clear();

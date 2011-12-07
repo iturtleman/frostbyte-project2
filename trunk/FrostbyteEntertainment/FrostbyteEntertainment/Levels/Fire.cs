@@ -36,6 +36,25 @@ namespace Frostbyte.Levels
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);
 
+            SimpleDistanceTrigger trigger = new SimpleDistanceTrigger("Boss Room", 32);
+            trigger.SpawnPoint = new Vector2(130 * 64 + 32 , 105 * 64);
+            trigger.TriggerCondition = delegate()
+            {
+                if (trigger.SpritesInRange.Count > 0)
+                {
+                    return new TriggerMultipleTargetEventArgs(trigger.SpritesInRange);
+                }
+
+                return null;
+            };
+
+            trigger.TriggerEffect += delegate(object ob, TriggerEventArgs ta)
+            {
+                (This.Game.CurrentLevel as FrostbyteLevel).LevelCompleted = true;
+                //This.Game.CurrentLevel.Unload();
+                //LevelFunctions.LoadNextLevel();
+            };
+
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.03f);
 

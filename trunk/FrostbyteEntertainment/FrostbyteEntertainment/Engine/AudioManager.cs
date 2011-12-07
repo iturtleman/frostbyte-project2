@@ -160,8 +160,20 @@ namespace Frostbyte
 
         internal void Clear()
         {
+            foreach (SoundEffect e in soundEffects.Values)
+            {
+                e.Dispose();
+            }
             soundEffects.Clear();
+            foreach (SoundEffectInstance i in loopingSoundEffects.Values)
+            {
+                i.Dispose();
+            }
             loopingSoundEffects.Clear();
+            foreach (Song s in backgroundMusic.Values)
+            {
+                s.Dispose();
+            }
             backgroundMusic.Clear();
         }
     }
