@@ -11,11 +11,12 @@ namespace Frostbyte.Enemies
     internal partial class CrystalMan : Frostbyte.Boss
     {
         internal List<Crystal> Crystals;
+        internal List<Crystal> OuterCrystals;
         internal Enemies.Crystal currentCrystal;
 
         float radius = 64 * 7;
         static int numOuterCrystals { get { return 5; } }
-        static int crystalHealth { get { return 100; } }
+        static int crystalHealth { get { return 1000; } }
         internal TimeSpan attackWait = TimeSpan.MaxValue;
 
         public CrystalMan(string name, Vector2 initialPosition)
@@ -46,6 +47,7 @@ namespace Frostbyte.Enemies
         private void init()
         {
             Crystals = new List<Crystal>();
+            OuterCrystals = new List<Crystal>();
 
             Crystal inner = new Crystal("crystal_center", GroundPos, crystalHealth, this);
             SpriteFrame animation = GetAnimation();
@@ -60,6 +62,7 @@ namespace Frostbyte.Enemies
                 Vector2 offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * radius;
                 Crystal outer = new Crystal("crystal_" + x, GroundPos + offset, crystalHealth, this);
                 Crystals.Add(outer);
+                OuterCrystals.Add(outer);
                 outer.HealthChanged += new HealthChangedHandler(updateHealth);
                 outer.Direction = -offset;
             }
@@ -79,17 +82,33 @@ namespace Frostbyte.Enemies
             if (isAttackAnimDone && attackWait < This.gameTime.TotalGameTime)
             {
                 attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(2, 5));
-                int AttackChoice = This.Game.rand.Next(5);
+                int AttackChoice = This.Game.rand.Next(7);
                 if (AttackChoice <= 0)
                 {
-                    foreach (Crystal c in Crystals)
+                    foreach (Crystal c in OuterCrystals)
                     {
                         mAttacks.Add(Attacks.LightningRod(c, this, 1, 0).GetEnumerator());
                     }
                 }
                 else if (AttackChoice <= 1)
                 {
-                    mAttacks.Add(Attacks.LightningSpan(Crystals.GetRandomElement(), this, 5, 0).GetEnumerator());
+                    mAttacks.Add(Attacks.LightningSpan(OuterCrystals.GetRandomElement(), this, 7, 0).GetEnumerator());
+                }
+                else if (AttackChoice <= 2)
+                {
+                    AttackRotation rot;
+                    if (This.Game.rand.Next(2) == 0)
+                    {
+                        rot = AttackRotation.Clockwise;
+                    }
+                    else
+                    {
+                        rot = AttackRotation.CounterClockwise;
+                    }
+                    foreach (Crystal c in OuterCrystals)
+                    {
+                        mAttacks.Add(Attacks.LightningSpan(c, this, 7, 0, rotation: rot).GetEnumerator());
+                    }
                 }
                 else
                 {
@@ -105,7 +124,7 @@ namespace Frostbyte.Enemies
                     (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = 10;
                     (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
                     particleEmitters.Add(particleEmitterLightning);
-                    mAttacks.Add(Attacks.LightningProjectile(target, currentCrystal, 5, 0, new TimeSpan(0, 0, 0, 5),
+                    mAttacks.Add(Attacks.LightningProjectile(target, currentCrystal, 10, 0, new TimeSpan(0, 0, 0, 5),
                         int.MaxValue, 2.5f, true,
                         delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                         {

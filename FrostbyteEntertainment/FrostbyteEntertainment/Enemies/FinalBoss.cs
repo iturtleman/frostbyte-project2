@@ -44,15 +44,16 @@ namespace Frostbyte.Enemies
         internal static Random rng = new Random();
 
         public FinalBoss(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 1000)
+            : base(name, new Actor(Animations), 20, 3000)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.None;
-            Speed = 2f;
+            Speed = 2.5f;
 
             Personality = new DarkLinkPersonality(this);
 
+            #region Audio
             This.Game.AudioManager.AddSoundEffect("Effects/Sword_Attack");
             This.Game.AudioManager.AddSoundEffect("Effects/Lightning_Strike");
             This.Game.AudioManager.AddSoundEffect("Effects/Earthquake");
@@ -65,18 +66,11 @@ namespace Frostbyte.Enemies
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T2");
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T3");
             This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
+            #endregion Audio
         }
 
         protected override void updateMovement()
         {
-            if (This.Cheats.GetCheat("FinalBossFun").Enabled)
-            {
-                Speed = 20;
-            }
-            else
-            {
-                Speed = 2f;
-            }
             Personality.Update();
         }
 
@@ -89,20 +83,17 @@ namespace Frostbyte.Enemies
                 Sprite currentTarget = GetClosestTarget(l.allies);
                 if (attackWait < This.gameTime.TotalGameTime){
                     int randTier = rng.Next(20);
-                    if (randTier < 6 && GetTargetsInRange(l.allies, 125).Count != 0)
+                    if (randTier < 2)
+                    {
+                        attackTier = 3;
+                    }
+                    else if (randTier < 7 && GetTargetsInRange(l.allies, 125).Count != 0)
                     {
                         attackTier = 2;
                     }
-                    else if (GetClosestTarget(l.allies, 200) == null)
+                    else
                     {
-                        if (randTier < 3)
-                        {
-                            attackTier = 3;
-                        }
-                        else
-                        {
-                            attackTier = 1;
-                        }
+                        attackTier = 1;
                     }
                     
                     attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, rng.Next(3, 5));
@@ -172,7 +163,8 @@ namespace Frostbyte.Enemies
                         else if (attackTier == 3)
                         {
                             #region Earth Tier 3
-                            mAttacks.Add(Attacks.RockShower(currentTarget, this, 10, 10).GetEnumerator());
+                            mAttacks.Add(Attacks.RetreatingAttack(currentTarget, this, 400, new TimeSpan(0, 0, 2),
+                                Attacks.RockShower(currentTarget, this, 1, 10)).GetEnumerator());
                             This.Game.AudioManager.PlaySoundEffect("Effects/RockShower");
                             #endregion Earth Tier 3
                         }
@@ -231,7 +223,8 @@ namespace Frostbyte.Enemies
                         else if (attackTier == 3)
                         {
                             #region Lightning Tier 3
-                            mAttacks.Add(Attacks.LightningStrike(currentTarget, this, 1, 10).GetEnumerator());
+                            mAttacks.Add(Attacks.RetreatingAttack(currentTarget, this, 400, new TimeSpan(0, 0, 2),
+                                Attacks.LightningStrike(currentTarget, this, 1, 10)).GetEnumerator());
                             #endregion Lightning Tier 3
                         }
                         break;
@@ -293,7 +286,8 @@ namespace Frostbyte.Enemies
                         else if (attackTier == 3)
                         {
                             #region Water Tier 3
-                            mAttacks.Add(Attacks.Freeze(currentTarget, this, 10).GetEnumerator());
+                            mAttacks.Add(Attacks.RetreatingAttack(currentTarget, this, 400, new TimeSpan(0, 0, 2),
+                                Attacks.Freeze(currentTarget, this, 10)).GetEnumerator());
                             This.Game.AudioManager.PlaySoundEffect("Effects/Water_T3");
                             #endregion Water Tier 3
                         }
@@ -356,7 +350,8 @@ namespace Frostbyte.Enemies
                         else if (attackTier == 3)
                         {
                             #region Fire Tier 3
-                            mAttacks.Add(Attacks.FirePillar(currentTarget, this, 10, 10).GetEnumerator());
+                            mAttacks.Add(Attacks.RetreatingAttack(currentTarget, this, 400, new TimeSpan(0, 0, 2),
+                                Attacks.FirePillar(currentTarget, this, 10, 10)).GetEnumerator());
                             This.Game.AudioManager.PlaySoundEffect("Effects/Fire_T3");
                             #endregion Fire Tier 3
                         }

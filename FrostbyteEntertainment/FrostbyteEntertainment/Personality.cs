@@ -679,6 +679,7 @@ namespace Frostbyte
                 if (master.currentCrystal.State == SpriteState.Dead)
                 {
                     master.Crystals.Remove(master.currentCrystal);
+                    master.OuterCrystals.Remove(master.currentCrystal);
                 }
 
                 if (master.Crystals.Count == 0)
@@ -802,10 +803,10 @@ namespace Frostbyte
             {
                 while (!master.charge(targets, int.MaxValue, 1))
                 {
-                    int n = rng.Next(100);
+                    int n = rng.Next(500);
                     if (n == 0)
                     {
-                        while (!master.retreat(targets, new TimeSpan(0, 0, 3), 350, 2))
+                        while (!master.freeze(new TimeSpan(0, 0, rng.Next(1, 4))))
                         {
                             yield return null;
                         }

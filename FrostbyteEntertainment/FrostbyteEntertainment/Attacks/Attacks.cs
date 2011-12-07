@@ -8,6 +8,13 @@ using System.Collections;
 
 namespace Frostbyte
 {
+    internal enum AttackRotation
+    {
+        None,
+        Clockwise,
+        CounterClockwise,
+    }
+
     internal static class Attacks
     {
         internal delegate void CreateParticles(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter);
@@ -507,7 +514,6 @@ namespace Frostbyte
             Vector2 initialDirection = attacker.Direction;
             attacker.State = SpriteState.Attacking;
             setAnimation(attacker);
-            int FrameCount = attacker.FrameCount();
             TimeSpan attackStartTime = This.gameTime.TotalGameTime;
             Vector2 direction = new Vector2();
             Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(new Vector2(), new Vector2());
@@ -529,7 +535,7 @@ namespace Frostbyte
             }
 
             #region Shoot Tier 1 at attackFrame
-            while (attacker.Frame < FrameCount)
+            while (attacker.Frame < attacker.FrameCount())
             {
                 attacker.isAttackAnimDone = false;
 
@@ -537,7 +543,6 @@ namespace Frostbyte
                     attacker.Direction = target.GroundPos - particleEmitter.GroundPos;
                 attacker.State = SpriteState.Attacking;
                 setAnimation(attacker);
-                FrameCount = attacker.FrameCount();
 
                 if (attacker.Frame == attackFrame)
                 {
@@ -606,7 +611,7 @@ namespace Frostbyte
                 }
 
                 //if the attack frame has passed then allow the attacker to move
-                if (attacker.Frame >= FrameCount - 1)
+                if (attacker.Frame >= attacker.FrameCount() - 1)
                 {
                     attacker.isAttackAnimDone = true;
                     isLoopOne = false;
@@ -671,7 +676,7 @@ namespace Frostbyte
             #endregion Emit Particles until particle hits target or wall or time to live runs out
 
             //if the attack frame has passed then allow the attacker to move
-            while (attacker.Frame < FrameCount - 1 && isLoopOne)
+            while (attacker.Frame < attacker.FrameCount() - 1 && isLoopOne)
             {
                 attacker.isAttackAnimDone = false;
                 yield return false;
@@ -2128,6 +2133,41 @@ namespace Frostbyte
             yield return true;
         }
 
+        public static IEnumerable<bool> RetreatingAttack(Sprite target, Enemy attacker, float distance, TimeSpan duration, IEnumerable<bool> attack)
+        {
+            FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
+            attacker.State = SpriteState.Attacking;
+
+            attacker.isAttackAnimDone = false;
+            List<Sprite> targets = new List<Sprite>();
+            targets.Add(target);
+
+            TimeSpan endRetreat = This.gameTime.TotalGameTime + duration;
+
+            attacker.Personality.Status = EnemyStatus.Wander;
+
+            while (true)
+            {
+
+                attacker.previousFootPos = attacker.GroundPos;
+                if (attacker.retreat(targets, distance, 5) || endRetreat < This.gameTime.TotalGameTime)
+                {
+                    break;
+                }
+
+                attacker.checkBackgroundCollisions();
+                yield return false;
+            }
+
+            foreach(bool o in attack)
+            {
+                yield return false;
+            }
+
+            attacker.isAttackAnimDone = true;
+            yield return true;
+        }
+
         public static IEnumerable<bool> RammingAttack(Sprite target, Enemy attacker, int baseDamage, TimeSpan duration, Element elem = Element.None)
         {
             FrostbyteLevel l = This.Game.CurrentLevel as FrostbyteLevel;
@@ -2258,7 +2298,7 @@ namespace Frostbyte
                 particleTopPosition = attacker.GroundPos;
 
                 // Lightning Strike
-                if (i % 13 == 0)
+                if (i % 5 == 0)
                 {
                     for (int j = 0; j < 200; j++)
                     {
@@ -2326,7 +2366,9 @@ namespace Frostbyte
         /// <param name="_baseDamage">The amount of damage to inflict before constant multiplier for weakness</param>
         /// <param name="_attackFrame">The frame that the attack begins on</param>
         /// <returns>Returns true when finished</returns>
-        public static IEnumerable<bool> LightningSpan(Sprite target, OurSprite attacker, int baseDamage, int attackFrame, Element elem = Element.Lightning)
+        public static IEnumerable<bool> LightningSpan(Sprite target, OurSprite attacker,
+            int baseDamage, int attackFrame, Element elem=Element.Lightning,
+            AttackRotation rotation=AttackRotation.None)
         {
             #region Variables
             Level l = This.Game.CurrentLevel;
@@ -2342,16 +2384,18 @@ namespace Frostbyte
             particleEmitter.effectTechnique = "FadeAtXPercent";
             particleEmitter.fadeStartPercent = .5f;
             particleEmitter.blendState = BlendState.Additive;
-            //(particleEmitter.collisionObjects.First() as Collision_BoundingCircle).Radius = 125;
-            //(particleEmitter.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
             particleEmitter.collisionObjects.Clear();
-            int radius = 20;
-            Vector2 direction = attacker.CenterPos - target.CenterPos;
-            direction.Normalize();
-            for (int x = 0; x < Vector2.Distance(target.CenterPos, attacker.CenterPos); x += radius * 2)
+            particleEmitter.GroundPos = target.CenterPos;
+
+            #region Create Lightning Collision Objects
+            int collisionRadius = 20;
+            Vector2 spanDirection = attacker.CenterPos - particleEmitter.GroundPos;
+            spanDirection.Normalize();
+            for (int x = 0; x < Vector2.Distance(particleEmitter.GroundPos, attacker.CenterPos); x += collisionRadius * 2)
             {
-                particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * direction, radius));
+                particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * spanDirection, collisionRadius));
             }
+            #endregion
 
             Vector2 particleTopPosition;
             #endregion Variables
@@ -2399,7 +2443,6 @@ namespace Frostbyte
             #region Generate Lightning Strike and Deal Damage
 
             bool isAttackAnimDone = false;
-
             if (This.Game.AudioManager.PlaySoundEffect("Effects/Lightning_Strike", .8f))
             {
                 yield return false;
@@ -2408,6 +2451,36 @@ namespace Frostbyte
             for (int i = 0; i < 165; i++)
             {
                 particleTopPosition = attacker.CenterPos;
+
+                if (rotation != AttackRotation.None)
+                {
+                    #region Rotate Span
+                    float rotateRadius = Vector2.Distance(particleEmitter.GroundPos, particleTopPosition);
+
+                    double angle = Math.Atan2(spanDirection.Y, spanDirection.X);
+                    double angleOffset = Math.PI / 2 / 165;
+                    if (rotation == AttackRotation.Clockwise)
+                    {
+                        angle += angleOffset;
+                    }
+                    else if (rotation == AttackRotation.CounterClockwise)
+                    {
+                        angle -= angleOffset;
+                    }
+
+                    angle = ((angle + 2 * Math.PI) % (2 * Math.PI)) - Math.PI;  // Ensure it's between 0 and 2PI
+
+                    particleEmitter.collisionObjects.Clear();
+                    particleEmitter.GroundPos = attacker.CenterPos + 
+                        rotateRadius * new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+                    spanDirection = attacker.CenterPos - particleEmitter.GroundPos;
+                    spanDirection.Normalize();
+                    for (int x = 0; x < rotateRadius; x += collisionRadius * 2)
+                    {
+                        particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * spanDirection, 1.5f * collisionRadius));
+                    }
+                    #endregion Rotate Span
+                }
 
                 // Lightning Strike
                 if (i % 13 == 0)
@@ -2426,7 +2499,7 @@ namespace Frostbyte
                 }
 
                 //Deal Damage
-                if (i % 30 == 0 && Collision.CollisionData.Count > 0)
+                if (i % 20 == 0 && Collision.CollisionData.Count > 0)
                 {
                     List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
                     Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
@@ -2453,6 +2526,32 @@ namespace Frostbyte
             #endregion Generate Lightning Strike and Deal Damage
             while (particleEmitter.ActiveParticleCount > 0)
             {
+                #region Rotate Span
+                float rotateRadius = Vector2.Distance(particleEmitter.GroundPos, particleTopPosition);
+
+                double angle = Math.Atan2(spanDirection.Y, spanDirection.X);
+                double angleOffset = Math.PI / 2 / 165;
+                if (rotation == AttackRotation.Clockwise)
+                {
+                    angle += angleOffset;
+                }
+                else if (rotation == AttackRotation.CounterClockwise)
+                {
+                    angle -= angleOffset;
+                }
+
+                angle = ((angle + 2 * Math.PI) % (2 * Math.PI)) - Math.PI;  // Ensure it's between 0 and 2PI
+
+                particleEmitter.collisionObjects.Clear();
+                particleEmitter.GroundPos = attacker.CenterPos +
+                    rotateRadius * new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+                spanDirection = attacker.CenterPos - particleEmitter.GroundPos;
+                spanDirection.Normalize();
+                for (int x = 0; x < rotateRadius; x += collisionRadius * 2)
+                {
+                    particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * spanDirection, 1.5f * collisionRadius));
+                }
+                #endregion Rotate Span
                 yield return false;
             }
 
