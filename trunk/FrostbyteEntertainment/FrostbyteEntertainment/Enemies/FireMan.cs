@@ -12,11 +12,11 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "fireman-stomp-down.anim",
-           "fireman-stomp-diagdown.anim",
-           "fireman-stomp-right.anim",
-           "fireman-stomp-diagup.anim",
-           "fireman-stomp-up.anim",
+           "fireman-idle-down.anim",
+           "fireman-idle-diagdown.anim",
+           "fireman-idle-right.anim",
+           "fireman-idle-diagup.anim",
+           "fireman-idle-up.anim",
            "fireman-walk-down.anim",
            "fireman-walk-diagdown.anim",
            "fireman-walk-right.anim",
