@@ -34,7 +34,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public FireMan(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 1000)
+            : base(name, new Actor(Animations), 20, 1500)
         {
             Speed = 1f;
             SpawnPoint = initialPosition;

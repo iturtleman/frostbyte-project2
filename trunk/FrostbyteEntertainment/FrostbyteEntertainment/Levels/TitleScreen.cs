@@ -28,14 +28,14 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/TitleScreenBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/TitleScreenBG", 0.1f);
 
-            Text title = new Text("titletext", "Fonts/Title", "4Realms: Epic Subtitle");
+            Text title = new Text("titletext", "Fonts/Title", "4Realms");
             title.CenterOn(new Vector2(v.Width / 2, v.Height / 2));
             title.Static = true;
-            title.DisplayColor = Color.Chartreuse;
+            title.DisplayColor = Color.DodgerBlue;
 
             context.GetTexture("regen");
             RestorePlayerHealthTrigger t = new RestorePlayerHealthTrigger("trigger", v.Width);
-            t.SpawnPoint = new Vector2(v.Width / 2, v.Height);
+            t.SpawnPoint = new Vector2(v.Width / 2, v.Height / 1.2f);
 
             if (GamePad.GetState(PlayerIndex.One).IsConnected)
             {
