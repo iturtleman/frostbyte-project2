@@ -22145,19 +22145,13 @@
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7328,3680" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="7392,3680" />
   <Enemy Type="Frostbyte.Enemies.FireBat" Name="Fire Bat" Pos="11488,3680" />
-  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5472,3744" />
-  <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="5536,3744" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="7328,3744" />
   <Enemy Type="Frostbyte.Enemies.Spider" Name="Spider" Pos="7392,3744" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5408,3808" />
   <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5472,3808" />
-  <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="5408,3872" />
-  <Enemy Type="Frostbyte.Enemies.FrostWolf" Name="Frost Wolf" Pos="5472,3872" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7712,3872" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8480,3872" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="10848,3872" />
   <Enemy Type="Frostbyte.Enemies.ElectricBat" Name="ElectricBat" Pos="10912,3872" />
-  <Enemy Type="Frostbyte.Enemies.FireAnt" Name="Fire Ant" Pos="5408,3936" />
   <Enemy Type="Frostbyte.Enemies.Beetle" Name="Beetle" Pos="5472,3936" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="7712,3936" />
   <Enemy Type="Frostbyte.Enemies.FrostOwl" Name="Frost Owl" Pos="8480,3936" />
