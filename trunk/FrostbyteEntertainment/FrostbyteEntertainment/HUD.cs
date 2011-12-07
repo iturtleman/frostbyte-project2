@@ -452,7 +452,7 @@ namespace Frostbyte
             toDisplay.ZOrder = 101;
         }
 
-        private int MaxCharacters = 30;
+        private int MaxCharacters = 100;
         private IHUDTheme theme;
         private IEnumerator mStates;
         private Queue<string> pendingText;

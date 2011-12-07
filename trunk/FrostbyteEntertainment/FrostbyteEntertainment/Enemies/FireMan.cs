@@ -16,22 +16,22 @@ namespace Frostbyte.Enemies
            "fireman-idle-diagdown.anim",
            "fireman-idle-right.anim",
            "fireman-idle-diagup.anim",
-           "fireman-idle-up.anim",
+           "fireman-idle-up.anim",  // 4
            "fireman-walk-down.anim",
            "fireman-walk-diagdown.anim",
            "fireman-walk-right.anim",
            "fireman-walk-diagup.anim",
-           "fireman-walk-up.anim",
+           "fireman-walk-up.anim",  // 9
            "fireman-attack-down.anim",
            "fireman-attack-diagdown.anim",
            "fireman-attack-right.anim",
            "fireman-attack-diagup.anim",
-           "fireman-attack-up.anim",
+           "fireman-attack-up.anim",  // 14
            "fireman-stomp-down.anim",
            "fireman-stomp-diagdown.anim",
            "fireman-stomp-right.anim",
            "fireman-stomp-diagup.anim",
-           "fireman-stomp-up.anim",
+           "fireman-stomp-up.anim",  // 19
            "fireman-die.anim",
         };
 
