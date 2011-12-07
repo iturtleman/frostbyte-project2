@@ -41,6 +41,48 @@ namespace Frostbyte.Characters
            "player1-swordcast-diagup.anim",
            "player1-swordcast-up.anim",
         };
+        static List<String> Animations2 = new List<String>(){
+           "player2-idle-down.anim",
+           "player2-idle-diagdown.anim",
+           "player2-idle-right.anim",
+           "player2-idle-diagup.anim",
+           "player2-idle-up.anim",
+           "player2-idle-down.anim",
+           "player2-idle-diagdown.anim",
+           "player2-idle-right.anim",
+           "player2-idle-diagup.anim",
+           "player2-idle-up.anim",
+           //"player2-walk-down.anim",
+           //"player2-walk-diagdown.anim",
+           //"player2-walk-right.anim",
+           //"player2-walk-diagup.anim",
+           //"player2-walk-up.anim",
+           "player2-attack-down.anim",
+           "player2-attack-diagdown.anim",
+           "player2-attack-right.anim",
+           "player2-attack-diagup.anim",
+           "player2-attack-up.anim",
+           "player2-attack-down.anim",
+           "player2-attack-diagdown.anim",
+           "player2-attack-right.anim",
+           "player2-attack-diagup.anim",
+           "player2-attack-up.anim",
+           "player2-attack-down.anim",
+           "player2-attack-diagdown.anim",
+           "player2-attack-right.anim",
+           "player2-attack-diagup.anim",
+           "player2-attack-up.anim",
+           //"player2-spellcast-down.anim",
+           //"player2-spellcast-diagdown.anim",
+           //"player2-spellcast-right.anim",
+           //"player2-spellcast-diagup.anim",
+           //"player2-spellcast-up.anim",
+           //"player2-swordcast-down.anim",
+           //"player2-swordcast-diagdown.anim",
+           //"player2-swordcast-right.anim",
+           //"player2-swordcast-diagup.anim",
+           //"player2-swordcast-up.anim",
+        };
         #endregion
 
         #region Cheats
@@ -96,8 +138,9 @@ namespace Frostbyte.Characters
         }
 
         internal Mage(string name, PlayerIndex input, Color targetColor)
-            : base(name, new Actor(Animations))
+            : base(name, new Actor(name.Contains("1")?Animations:Animations2))
         {
+
             if (GamePad.GetState(input).IsConnected)
             {
                 controller = new GamePadController(input);
