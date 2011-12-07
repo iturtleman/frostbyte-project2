@@ -222,9 +222,11 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Beetle_Move.mp3">
       <Link>Content\Audio\Effects\Beetle_Move.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Chest_Open.wav">
       <Link>Content\Audio\Effects\Chest_Open.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Door_Open.wav">
       <Link>Content\Audio\Effects\Door_Open.wav</Link>
@@ -232,6 +234,19 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Earthquake.wav">
       <Link>Content\Audio\Effects\Earthquake.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Fire_T1.wav">
+      <Link>Content\Audio\Effects\Fire_T1.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Fire_T2.wav">
+      <Link>Content\Audio\Effects\Fire_T2.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Fire_T3.wav">
+      <Link>Content\Audio\Effects\Fire_T3.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Golem_Attack.mp3">
       <Link>Content\Audio\Effects\Golem_Attack.mp3</Link>
@@ -243,6 +258,7 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\LevelAwaits.wav">
       <Link>Content\Audio\Effects\LevelAwaits.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Circle.mp3">
       <Link>Content\Audio\Effects\Lightning_Circle.mp3</Link>
@@ -250,18 +266,25 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Loop.wav">
       <Link>Content\Audio\Effects\Lightning_Loop.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Strike.wav">
       <Link>Content\Audio\Effects\Lightning_Strike.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Owl_Move.wav">
       <Link>Content\Audio\Effects\Owl_Move.wav</Link>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Regen.wav">
       <Link>Content\Audio\Effects\Regen.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Spider_Move.mp3">
       <Link>Content\Audio\Effects\Spider_Move.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\splash.wav">
+      <Link>Content\Audio\Effects\splash.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Sword_Attack.wav">
@@ -282,6 +305,7 @@
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Worm_Spawn.wav">
       <Link>Content\Audio\Effects\Worm_Spawn.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\CreditsBG.mp3">
       <Link>Content\Audio\Music\CreditsBG.mp3</Link>
@@ -408,15 +432,24 @@
       <Link>Content\WaterLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Audio\Effects\Earth_T1.wav" />
-    <Content Include="Content\Audio\Effects\Fire_T1.wav" />
-    <Content Include="Content\Audio\Effects\Fire_T3.wav" />
-    <Content Include="Content\Audio\Effects\Lightning_T1.wav" />
-    <Content Include="Content\Audio\Effects\RockShower.wav" />
-    <Content Include="Content\Audio\Effects\Water_T1.wav" />
-    <Content Include="Content\Audio\Effects\Water_T2.wav" />
-    <Content Include="Content\Audio\Effects\Water_T3.wav" />
-    <Content Include="Content\Audio\Music\WaterBoss.mp3" />
+    <Content Include="Content\Audio\Effects\Earth_T1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Effects\Lightning_T1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Effects\RockShower.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Effects\Water_T1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Effects\Water_T2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\Effects\Water_T3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Audio\Music\WorldMapBG.mp3" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />

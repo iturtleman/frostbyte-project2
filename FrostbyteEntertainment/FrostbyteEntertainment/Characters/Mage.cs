@@ -703,14 +703,13 @@ namespace Frostbyte.Characters
 
             if (Health == 0)
             {
+                State = SpriteState.Dead;
+                Pos = Vector2.Zero;
+                cancelTarget();
                 if (isDieEffectEnabled) //must be before pos is set to zero
                 {
                     new DeathEffect(this, particleEmitterDeath, sampleWidthPercent, sampleHeightPercent);
                 }
-
-                State = SpriteState.Dead;
-                Pos = Vector2.Zero;
-                cancelTarget();
                 return;
             }
             else

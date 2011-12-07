@@ -110,7 +110,7 @@ namespace Frostbyte
             }
 
             ElapsedHealthRegenTime += This.gameTime.ElapsedGameTime;
-            if (ElapsedHealthRegenTime > HealthRegenRate && State != SpriteState.Dead)
+            if (ElapsedHealthRegenTime > HealthRegenRate && State != SpriteState.Dead && Health > 0)
             {
                 Health += 1;
                 ElapsedHealthRegenTime = new TimeSpan();

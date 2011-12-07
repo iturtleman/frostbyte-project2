@@ -2393,7 +2393,7 @@ namespace Frostbyte
             spanDirection.Normalize();
             for (int x = 0; x < Vector2.Distance(particleEmitter.GroundPos, attacker.CenterPos); x += collisionRadius * 2)
             {
-                particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * spanDirection, collisionRadius));
+                particleEmitter.collisionObjects.Add(new Collision_BoundingCircle(x, x * spanDirection, 1.5f * collisionRadius));
             }
             #endregion
 
@@ -2713,6 +2713,176 @@ namespace Frostbyte
 
             //if the attack frame has passed then allow the attacker to move
             while (attacker.Frame < FrameCount - 1 && isLoopOne)
+            {
+                attacker.isAttackAnimDone = false;
+                yield return false;
+            }
+
+            attacker.isAttackAnimDone = true;
+
+            #region Finish attacking after all particles are dead
+            while (particleEmitter.ActiveParticleCount > 0)
+            {
+                yield return false;
+            }
+            #endregion Finish attacking after all particles are dead
+
+            particleEmitter.Remove();
+            l.RemoveSprite(particleEmitter);
+            attacker.particleEmitters.Remove(particleEmitter);
+
+            yield return true;
+        }
+
+        public static IEnumerable<bool> WorthlessCodeDuplication(Vector2 direction, OurSprite attacker, int baseDamage, int attackFrame, TimeSpan attackEndTime, int attackRange, float projectileSpeed, bool isHoming, CreateParticles createParticles, ParticleEmitter _particleEmitter, Vector2 spawnOffset, Element elem = Element.Normal)
+        {
+            #region Variables
+            Level l = This.Game.CurrentLevel;
+            Vector2 initialDirection = direction;
+            attacker.State = SpriteState.Attacking;
+            setAnimation(attacker);
+            TimeSpan attackStartTime = This.gameTime.TotalGameTime;
+            Tuple<Vector2, Vector2> closestObject = new Tuple<Vector2, Vector2>(new Vector2(), new Vector2());
+            ParticleEmitter particleEmitter = _particleEmitter;
+
+            bool damageDealt = false;
+            bool isLoopOne = true;
+            #endregion Variables
+
+            particleEmitter.GroundPos = attacker.GroundPos + spawnOffset;
+
+            attacker.Rewind();
+
+            attacker.isAttackAnimDone = false;
+
+            if (attacker is Frostbyte.Characters.Mage)
+            {
+                (attacker as Frostbyte.Characters.Mage).attackTier = 1;
+            }
+
+            #region Shoot Tier 1 at attackFrame
+            while (attacker.Frame < attacker.FrameCount())
+            {
+                attacker.isAttackAnimDone = false;
+                attacker.Direction = direction;
+                attacker.State = SpriteState.Attacking;
+                setAnimation(attacker);
+
+                if (attacker.Frame == attackFrame)
+                {
+                    attackStartTime = This.gameTime.TotalGameTime;
+                    break;
+                }
+
+                yield return false;
+            }
+            #endregion Shoot Tier 1 at attackFrame
+
+            #region Emit Particles until particle hits target or wall or time to live runs out
+
+            bool isAttackAnimDone = false;
+
+            while (attackEndTime > TimeSpan.Zero)
+            {
+                attackEndTime -= This.gameTime.ElapsedGameTime;
+
+                if (Collision.CollisionData.Count > 0)
+                {
+                    List<Tuple<CollisionObject, WorldObject, CollisionObject>> collidedWith;
+                    Collision.CollisionData.TryGetValue(particleEmitter, out collidedWith);
+                    if (collidedWith != null)
+                    {
+                        foreach (Tuple<CollisionObject, WorldObject, CollisionObject> detectedCollision in collidedWith)
+                        {
+                            if (((detectedCollision.Item2 is Enemy) && (attacker is Player)) || ((detectedCollision.Item2 is Player) && (attacker is Enemy)))
+                            {
+                                Damage(attacker, (detectedCollision.Item2 as OurSprite), baseDamage);
+                                damageDealt = true;
+                                break;
+                            }
+                            else if (This.Cheats.GetCheat("ElementalBuffs").Enabled && (detectedCollision.Item2 is Player) && (attacker is Player) && (attacker as Player).currentTarget == detectedCollision.Item2)
+                            {
+                                Player p = (detectedCollision.Item2 as Player);
+                                p.AddStatusEffect(new ElementalBuff(elem));
+                                damageDealt = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (damageDealt)
+                {
+                    break;
+                }
+
+                //if the attack frame has passed then allow the attacker to move
+                if (attacker.Frame >= attacker.FrameCount() - 1)
+                {
+                    attacker.isAttackAnimDone = true;
+                    isLoopOne = false;
+                    isAttackAnimDone = true;
+                }
+
+                if (!isAttackAnimDone)
+                    attacker.isAttackAnimDone = false;
+
+                //move particle
+                Vector2 previousPosition = particleEmitter.GroundPos;
+                particleEmitter.GroundPos += direction * projectileSpeed;
+
+                //make sure magic cannot go through walls
+                if (previousPosition != particleEmitter.GroundPos)
+                {
+                    bool hasCollided = false;
+                    float collisionRadius = particleEmitter.GroundPosRadius;
+                    Tuple<int, int> topLeftMostTile = new Tuple<int, int>((int)Math.Floor(((particleEmitter.GroundPos.X - collisionRadius) / This.CellSize)),   //top left most tile that could possible hit sprite
+                                                                    (int)Math.Floor(((particleEmitter.GroundPos.Y - collisionRadius)) / This.CellSize));
+                    Tuple<int, int> bottomRightMostTile = new Tuple<int, int>((int)Math.Floor((particleEmitter.GroundPos.X + collisionRadius) / This.CellSize), //bottom right most tile that could possible hit sprite
+                                                                            (int)Math.Floor((particleEmitter.GroundPos.Y + collisionRadius) / This.CellSize));
+                    TileList tileMap = (This.Game.CurrentLevel as FrostbyteLevel).TileMap;
+                    for (int x = topLeftMostTile.Item1; x <= bottomRightMostTile.Item1; x++)
+                        for (int y = topLeftMostTile.Item2; y <= bottomRightMostTile.Item2; y++)
+                        {
+                            Tile tile;
+                            tileMap.TryGetValue(x, y, out tile);
+
+                            if (tile.Type == TileTypes.Floor)
+                                continue;
+
+                            if ((tile.Type == TileTypes.Bottom || tile.Type == TileTypes.BottomConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64 + 32), new Vector2(x * 64 + 64, y * 64 + 64), particleEmitter.GroundPos, collisionRadius))
+                            {
+                                continue;
+                            }
+                            else if ((tile.Type == TileTypes.Wall || tile.Type == TileTypes.ConvexCorner) && !tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 32), particleEmitter.GroundPos, collisionRadius))
+                            {
+                                continue;
+                            }
+                            else if (!tileCircleCollision(new Vector2(x * 64, y * 64), new Vector2(x * 64 + 64, y * 64 + 64), particleEmitter.GroundPos, collisionRadius))
+                            {
+
+                                continue;
+                            }
+
+                            //bool isBelowHalfWay = (particleEmitter.GroundPos.Y - collisionRadius - y * 64) > 32;
+                            //if ((tile.Type == TileTypes.Wall && direction.Y < 0f && isBelowHalfWay) || (tile.Type != TileTypes.Wall && tile.Type != TileTypes.ConvexCorner)
+                            //|| (tile.Type == TileTypes.ConvexCorner && direction.Y < 0f && isBelowHalfWay && closestObject.Item1.Y == closestObject.Item2.Y))
+                            //{
+                            hasCollided = true;
+                            //}
+                        }
+                    if (hasCollided)
+                        break;
+                }
+
+                createParticles(attacker, direction, projectileSpeed, particleEmitter);
+
+                yield return false;
+            }
+            #endregion Emit Particles until particle hits target or wall or time to live runs out
+
+            //if the attack frame has passed then allow the attacker to move
+            while (attacker.Frame < attacker.FrameCount() - 1 && isLoopOne)
             {
                 attacker.isAttackAnimDone = false;
                 yield return false;

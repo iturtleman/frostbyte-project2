@@ -44,7 +44,7 @@ namespace Frostbyte.Enemies
             ElementType = Element.Water;
             Personality = new LiquidPersonality(this);
 
-            //This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
+            This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
             This.Game.AudioManager.AddSoundEffect("Effects/Splash");
         }
 
@@ -70,8 +70,8 @@ namespace Frostbyte.Enemies
                     Sprite currentTarget = GetClosestTarget(l.allies);
                     int attackFrame = 0;
 
-                    int randAttack = This.Game.rand.Next(11);
-                    if (randAttack < 10)
+                    int randAttack = This.Game.rand.Next(9,10);
+                    if (randAttack < 8)
                     {
                         #region Water Tier 1
 
@@ -117,6 +117,59 @@ namespace Frostbyte.Enemies
 
                         This.Game.AudioManager.PlaySoundEffect("Effects/Water_T1");
                         #endregion Water Tier 1
+                    }
+                    else if (randAttack < 10)
+                    {
+                        for(int x=-1;x<2;x++){
+                            int attackRange = 11;
+
+                            //Create Earth Tier 1 Particle Emmiter
+                            Effect particleEffect = l.GetEffect("ParticleSystem");
+                            Texture2D snowflake = l.GetTexture("waterParticle");
+                            ParticleEmitter particleWaterTier1 = new ParticleEmitter(500, particleEffect, snowflake);
+                            particleWaterTier1.effectTechnique = "FadeAtXPercent";
+                            particleWaterTier1.fadeStartPercent = .98f;
+                            particleWaterTier1.blendState = BlendState.Additive;
+                            (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).Radius = attackRange;
+                            (particleWaterTier1.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                            particleEmitters.Add(particleWaterTier1);
+
+                            double angle = Math.Atan2(Direction.Y, Direction.X);
+                            angle += x * Math.PI / 8;
+
+                            angle = ((angle + 2 * Math.PI) % (2 * Math.PI)) - Math.PI;  // Ensure it's between 0 and 2PI
+                            Vector2 dir = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+                            dir.Normalize();
+
+                            mAttacks.Add(Attacks.WorthlessCodeDuplication(dir,
+                                this,
+                                20,
+                                attackFrame,
+                                new TimeSpan(0, 0, 0, 1, 150),
+                                attackRange,
+                                9f,
+                                false,
+                                delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
+                                {
+                                    Random randPosition = new Random();
+                                    particleEmitter.createParticles(direction * projectileSpeed, Vector2.Zero, particleEmitter.GroundPos, 10, 10);
+                                    Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                    for (int i = -5; i < 6; i++)
+                                    {
+                                        particleEmitter.createParticles(-direction * projectileSpeed * .75f,
+                                                                                tangent * -i * 40,
+                                                                                particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier + (float)randPosition.NextDouble() * direction * 8f,
+                                                                                10.0f,
+                                                                                This.Game.rand.Next(10, 300));
+                                    }
+                                },
+                                particleWaterTier1,
+                                new Vector2(0, -38),
+                                Element.Water
+                                ).GetEnumerator());
+
+                            This.Game.AudioManager.PlaySoundEffect("Effects/Water_T1");
+                        }
                     }
                     else if (randAttack < 11)
                     {
