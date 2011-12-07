@@ -686,9 +686,9 @@ namespace Frostbyte
         }
 
         #region Death Effect
-
-
-
+        protected virtual void Die()
+        {
+        }
         #endregion Death Effect
 
         #region Update

@@ -1118,6 +1118,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-death.anim">
+      <Link>Content\Sprites\player1-death.anim</Link>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\player1-idle-diagdown.anim">
       <Link>Content\Sprites\player1-idle-diagdown.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

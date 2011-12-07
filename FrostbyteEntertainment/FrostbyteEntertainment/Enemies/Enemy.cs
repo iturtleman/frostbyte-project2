@@ -72,7 +72,7 @@ namespace Frostbyte
             #endregion Default DeathEffect Particle Emitter
         }
 
-        protected virtual void Die()
+        protected override void Die()
         {
             if (isDieEffectEnabled)
             {
@@ -89,7 +89,7 @@ namespace Frostbyte
 
             // Remove enemy from target list so that we don't target blank space where an enemy died
             l.enemies.Remove(this);
-
+            base.Die();
         }
 
         public void update()
