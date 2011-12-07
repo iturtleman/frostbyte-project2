@@ -254,6 +254,9 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Lightning_Strike.wav">
       <Link>Content\Audio\Effects\Lightning_Strike.wav</Link>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Owl_Move.wav">
+      <Link>Content\Audio\Effects\Owl_Move.wav</Link>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Regen.wav">
       <Link>Content\Audio\Effects\Regen.wav</Link>
     </Content>
