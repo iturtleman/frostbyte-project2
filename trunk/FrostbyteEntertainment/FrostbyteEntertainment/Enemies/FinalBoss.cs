@@ -44,7 +44,7 @@ namespace Frostbyte.Enemies
         internal static Random rng = new Random();
 
         public FinalBoss(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 3000)
+            : base(name, new Actor(Animations), 20, 2000)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -67,6 +67,13 @@ namespace Frostbyte.Enemies
             This.Game.AudioManager.AddSoundEffect("Effects/Fire_T3");
             This.Game.AudioManager.AddSoundEffect("Effects/Earth_T1");
             #endregion Audio
+        }
+
+        protected void Die()
+        {
+            (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText(
+                "Congratulations, you've stopped Caelestis! You are awesome! Also...\n\nYou've made the gods proud.");
+            base.Die();
         }
 
         protected override void updateMovement()
