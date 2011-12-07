@@ -657,6 +657,11 @@ namespace Frostbyte.Characters
                 cancelTarget();
             }
 
+            if (State == SpriteState.Dead)
+            {
+                return;
+            }
+
             if (Health == 0)
             {
                 if (isDieEffectEnabled) //must be before pos is set to zero
@@ -667,16 +672,11 @@ namespace Frostbyte.Characters
                 State = SpriteState.Dead;
                 Pos = Vector2.Zero;
                 cancelTarget();
-
+                return;
             }
             else
             {
                 State = SpriteState.Idle;
-            }
-
-            if (State == SpriteState.Dead)
-            {
-                return;
             }
 
             if (controller.IsConnected)
