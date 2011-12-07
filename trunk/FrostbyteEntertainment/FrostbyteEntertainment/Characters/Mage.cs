@@ -40,6 +40,7 @@ namespace Frostbyte.Characters
            "player1-swordcast-right.anim",
            "player1-swordcast-diagup.anim",
            "player1-swordcast-up.anim",
+           "player1-death.anim",
         };
         static List<String> Animations2 = new List<String>(){
            "player2-idle-down.anim",
@@ -67,6 +68,7 @@ namespace Frostbyte.Characters
            "player1-swordcast-right.anim",
            "player1-swordcast-diagup.anim",
            "player1-swordcast-up.anim",
+           "player1-death.anim",
         };
         #endregion
 
@@ -202,6 +204,16 @@ namespace Frostbyte.Characters
         #endregion
 
         #region Methods
+        /// <summary>
+        /// dies
+        /// </summary>
+        protected override void Die()
+        {
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[25]));
+            b.GroundPos = GroundPos;
+            base.Die();
+        }
+
         /// <summary>
         /// Finds the closest enemy sprite to the player that's further than the current target
         /// </summary>
