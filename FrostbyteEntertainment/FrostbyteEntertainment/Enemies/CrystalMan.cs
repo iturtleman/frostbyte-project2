@@ -16,7 +16,7 @@ namespace Frostbyte.Enemies
 
         float radius = 64 * 7;
         static int numOuterCrystals { get { return 5; } }
-        static int crystalHealth { get { return 1000; } }
+        static int crystalHealth { get { return 200; } }
         internal TimeSpan attackWait = TimeSpan.MaxValue;
 
         public CrystalMan(string name, Vector2 initialPosition)
@@ -87,7 +87,7 @@ namespace Frostbyte.Enemies
                 {
                     foreach (Crystal c in OuterCrystals)
                     {
-                        mAttacks.Add(Attacks.LightningRod(c, this, 1, 0).GetEnumerator());
+                        mAttacks.Add(Attacks.LightningSpan(c, this, 5, 0).GetEnumerator());
                     }
                 }
                 else if (AttackChoice <= 1)
@@ -112,34 +112,42 @@ namespace Frostbyte.Enemies
                 }
                 else
                 {
-                    Sprite target = (This.Game.CurrentLevel as FrostbyteLevel).allies.GetRandomElement();
+                    
                     attackStartTime = This.gameTime.TotalGameTime;
 
                     Effect particleEffect = This.Game.CurrentLevel.GetEffect("ParticleSystem");
                     Texture2D lightning = This.Game.CurrentLevel.GetTexture("sparkball");
-                    ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
-                    particleEmitterLightning.effectTechnique = "FadeAtXPercent";
-                    particleEmitterLightning.fadeStartPercent = .98f;
-                    particleEmitterLightning.blendState = BlendState.Additive;
-                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = 10;
-                    (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
-                    particleEmitters.Add(particleEmitterLightning);
-                    mAttacks.Add(Attacks.LightningProjectile(target, currentCrystal, 10, 0, new TimeSpan(0, 0, 0, 5),
-                        int.MaxValue, 2.5f, true,
-                        delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
-                        {
-                            Vector2 tangent = new Vector2(-direction.Y, direction.X);
-                            for (int i = -5; i < 6; i++)
+                    
+                    foreach (TimeSpan delay in new TimeSpan[]{
+                        TimeSpan.Zero, new TimeSpan(0, 0, 0, 0, 500), new TimeSpan(0, 0, 1),
+                    })
+                    {
+                        Sprite target = (This.Game.CurrentLevel as FrostbyteLevel).allies.Where(x => x.State != SpriteState.Dead).GetRandomElement();
+                        ParticleEmitter particleEmitterLightning = new ParticleEmitter(1000, particleEffect, lightning);
+                        particleEmitterLightning.effectTechnique = "FadeAtXPercent";
+                        particleEmitterLightning.fadeStartPercent = .98f;
+                        particleEmitterLightning.blendState = BlendState.Additive;
+                        (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).Radius = 10;
+                        (particleEmitterLightning.collisionObjects.First() as Collision_BoundingCircle).createDrawPoints();
+                        particleEmitters.Add(particleEmitterLightning);
+
+                        mAttacks.Add(LevelFunctions.DelayEnumerable<bool>(Attacks.LightningProjectile(target, currentCrystal, 5, 0, new TimeSpan(0, 0, 0, 5),
+                            int.MaxValue, 2.5f, true,
+                            delegate(OurSprite attacker, Vector2 direction, float projectileSpeed, ParticleEmitter particleEmitter)
                             {
-                                particleEmitter.createParticles(-direction * projectileSpeed * 5,
-                                    tangent * -i * 40,
-                                    particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - direction * (Math.Abs(i) * 7),
-                                    4,
-                                    300);
-                            }
-                        },
-                        particleEmitterLightning,
-                        Vector2.Zero).GetEnumerator());
+                                Vector2 tangent = new Vector2(-direction.Y, direction.X);
+                                for (int i = -5; i < 6; i++)
+                                {
+                                    particleEmitter.createParticles(-direction * projectileSpeed * 5,
+                                        tangent * -i * 40,
+                                        particleEmitter.GroundPos + tangent * i * ParticleEmitter.EllipsePerspectiveModifier - direction * (Math.Abs(i) * 7),
+                                        4,
+                                        300);
+                                }
+                            },
+                            particleEmitterLightning,
+                            Vector2.Zero), delay).GetEnumerator());
+                    }
                 }
             }
         }

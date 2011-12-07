@@ -39,8 +39,8 @@ namespace Frostbyte.Characters
            "player1-swordcast-diagdown.anim",
            "player1-swordcast-right.anim",
            "player1-swordcast-diagup.anim",
-           "player1-swordcast-up.anim",
-           "player1-death.anim",
+           "player1-swordcast-up.anim"
+//           "player1-death.anim",
         };
         static List<String> Animations2 = new List<String>(){
            "player2-idle-down.anim",
@@ -125,7 +125,7 @@ namespace Frostbyte.Characters
         }
 
         internal Mage(string name, PlayerIndex input, Color targetColor)
-            : base(name, new Actor(name.Contains("1")?Animations:Animations2))
+            : base(name, new Actor(Animations) /*new Actor(name.Contains("1")?Animations:Animations2)*/)
         {
 
             if (GamePad.GetState(input).IsConnected)

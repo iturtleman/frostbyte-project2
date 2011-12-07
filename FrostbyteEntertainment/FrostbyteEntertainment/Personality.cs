@@ -728,6 +728,8 @@ namespace Frostbyte
             {
                 yield return null;
             }
+            //This.Game.AudioManager.AddSoundEffect("Effects/Splash");
+            This.Game.AudioManager.PlaySoundEffect("Effects/Splash");
             master.setAtArms();
             master.attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, 3);
 
@@ -856,6 +858,7 @@ namespace Frostbyte
             {
                 while (!master.ram(targets, new TimeSpan(0, 0, 3), float.PositiveInfinity, 1))
                 {
+                    This.Game.AudioManager.InitializeLoopingSoundEffect("Effects/Golem_Walk");
                     yield return null;
                 }
                 if (rng.Next(5) == 0)
