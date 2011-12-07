@@ -709,6 +709,10 @@
       <Link>Content\Sprites\crystalgolem-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-die.anim">
+      <Link>Content\Sprites\crystalman-die.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\crystalman-empty-broken.anim">
       <Link>Content\Sprites\crystalman-empty-broken.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
