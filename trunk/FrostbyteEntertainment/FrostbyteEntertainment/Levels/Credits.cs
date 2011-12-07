@@ -22,9 +22,6 @@ namespace Frostbyte.Levels
             FrostbyteLevel l = context as FrostbyteLevel;
             l.Theme = Element.None;
 
-            l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name, true).GetEnumerator();
-            l.DiaryEntries.MoveNext();
-
             This.Game.AudioManager.AddBackgroundMusic("Music/CreditsBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/CreditsBG", 0.1f);
 
@@ -40,7 +37,6 @@ namespace Frostbyte.Levels
             streamReader.Close();
 
             scroller.ScrollText(credits);
-            l.DiaryEntries.MoveNext();
 
 
 

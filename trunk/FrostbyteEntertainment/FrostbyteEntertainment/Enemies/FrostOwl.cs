@@ -41,6 +41,13 @@ namespace Frostbyte.Enemies
             //Personality = new ChargePersonality(this);
             ElementType = Element.Water;
 
+            This.Game.AudioManager.AddSoundEffect("Effects/Owl_Move");
+            if (MovementAudioName == null)
+            {
+                MovementAudioName = "Effects/Owl_Move";
+                This.Game.AudioManager.InitializeLoopingSoundEffect(MovementAudioName, .03f);
+            }
+
             isDieEffectEnabled = true;
         }
 

@@ -37,7 +37,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public WaterBlobBoss(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 1000)
+            : base(name, new Actor(Animations), 1, 1000)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
@@ -45,6 +45,7 @@ namespace Frostbyte.Enemies
             Personality = new LiquidPersonality(this);
 
             //This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
+            This.Game.AudioManager.AddSoundEffect("Effects/Splash");
         }
 
         protected override void Die()

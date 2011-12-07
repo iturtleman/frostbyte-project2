@@ -48,6 +48,7 @@ namespace Frostbyte.Enemies
             Personality = new LumberingPersonality(this);
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBoss");
             This.Game.AudioManager.AddSoundEffect("Effects/Golem_Attack");
+            This.Game.AudioManager.AddSoundEffect("Effects/Golem_Move");
         }
 
         protected override void Die()
