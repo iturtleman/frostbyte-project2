@@ -9,7 +9,7 @@ namespace Frostbyte
 {
     internal class Item : Sprite
     {
-        internal Item(string name, Actor actor, Actor iconActor=null)
+        internal Item(string name, Actor actor, Actor iconActor = null)
             : base(name, actor)
         {
             if (iconActor != null)
@@ -20,15 +20,17 @@ namespace Frostbyte
 
         internal Sprite Icon = null;
 
-        private class ItemIcon : Sprite
+
+    }
+
+    internal class ItemIcon : Sprite
+    {
+        internal ItemIcon(string name, Actor actor)
+            : base(name, actor)
         {
-            internal ItemIcon(string name, Actor actor)
-                : base(name, actor)
-            {
-                Visible = false;
-                ZOrder = int.MaxValue;
-                This.Game.LoadingLevel.RemoveSprite(this);
-            }
+            Visible = false;
+            ZOrder = int.MaxValue;
+            This.Game.LoadingLevel.RemoveSprite(this);
         }
     }
 

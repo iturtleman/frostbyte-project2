@@ -366,46 +366,50 @@ namespace Frostbyte
 
                     if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Earth && Characters.Mage.UnlockedSpells.HasFlag(Spells.EarthOne))
                     {
-                        Sprite icon = new Item("earth", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("earthIcon.anim"))).Icon;
+                        Sprite icon = new ItemIcon("earth", new Actor(This.Game.CurrentLevel.GetAnimation("earthIcon.anim")));
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
                         (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
                             (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
                         icon.Visible = true;
                         icon.Draw(gameTime);
+                        This.Game.CurrentLevel.RemoveSprite(icon);
                     }
 
                     else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Lightning && Characters.Mage.UnlockedSpells.HasFlag(Spells.LightningOne))
                     {
-                        Sprite icon = new Item("lightning", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("lightningIcon.anim"))).Icon;
+                        Sprite icon = new ItemIcon("lightning", new Actor(This.Game.CurrentLevel.GetAnimation("lightningIcon.anim")));
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
                         (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
                             (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
                         icon.Visible = true;
                         icon.Draw(gameTime);
+                        This.Game.CurrentLevel.RemoveSprite(icon);
                     }
 
                     else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Water && Characters.Mage.UnlockedSpells.HasFlag(Spells.WaterOne))
                     {
-                        Sprite icon = new Item("water", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("waterIcon.anim"))).Icon;
+                        Sprite icon = new ItemIcon("water", new Actor(This.Game.CurrentLevel.GetAnimation("waterIcon.anim")));
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
                         (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
                             (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
                         icon.Visible = true;
                         icon.Draw(gameTime);
+                        This.Game.CurrentLevel.RemoveSprite(icon);
                     }
 
                     else if ((player as Frostbyte.Characters.Mage).attackCounter[x] == Element.Fire && Characters.Mage.UnlockedSpells.HasFlag(Spells.FireOne))
                     {
-                        Sprite icon = new Item("fire", new Actor(new DummyAnimation()), new Actor(This.Game.CurrentLevel.GetAnimation("fireIcon.anim"))).Icon;
+                        Sprite icon = new ItemIcon("fire", new Actor(This.Game.CurrentLevel.GetAnimation("fireIcon.anim")));
                         icon.Pos.X = Pos.X + itemSpacing.X + 1 +  // Initial alignment of 1px
                         (x % itemsPerRow) * (icon.GetAnimation().Width + itemSpacing.X);
                         icon.Pos.Y = Pos.Y + itemSpacing.Y +
                             (x / itemsPerRow) * (icon.GetAnimation().Height + itemSpacing.Y);
                         icon.Visible = true;
                         icon.Draw(gameTime);
+                        This.Game.CurrentLevel.RemoveSprite(icon);
                     }
 
                     //Sprite icon = Player.ItemBag[x].Icon;
