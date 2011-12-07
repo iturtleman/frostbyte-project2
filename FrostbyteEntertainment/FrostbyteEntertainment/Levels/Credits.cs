@@ -2,60 +2,77 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
+using System.IO;
 using Frostbyte;
 
-namespace Forstbyte.Levels
+namespace Frostbyte.Levels
 {
     internal static class Credits
     {
-        static bool levelCompleted = false;
+        private static TextScroller scroller;
+        private static List<IController> gamePads = new List<IController>();
 
         internal static void Load(Level context)
         {
-            levelCompleted = false;
             FrostbyteLevel l = context as FrostbyteLevel;
-            l.Theme = Element.DEFAULT;
-        }
+            l.Theme = Element.None;
 
-        internal static void Update()
-        {
-            GameTime gameTime = This.gameTime;
-            Level l = This.Game.CurrentLevel;
+            l.DiaryEntries = LevelFunctions.LoadLevelNotes(l.Name, true).GetEnumerator();
+            l.DiaryEntries.MoveNext();
 
-            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
-            if (currentState.IsConnected)
+            This.Game.AudioManager.AddBackgroundMusic("Music/CreditsBG");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/CreditsBG", 0.1f);
+
+            Viewport v = This.Game.GraphicsDevice.Viewport;
+            scroller = new TextScroller("intro_text", v.Width * 3 / 4, v.Height * 3 / 4);
+            scroller.Pos.X = v.Width / 2.5f;
+            scroller.Pos.Y = v.Height / 8;
+            scroller.Static = true;
+
+
+            StreamReader streamReader = new StreamReader("Content/Story/Credits.txt");
+            string credits = streamReader.ReadToEnd();
+            streamReader.Close();
+
+            scroller.ScrollText(credits);
+            l.DiaryEntries.MoveNext();
+
+
+
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
             {
-                if (This.Game.mLastPadStateP1.Buttons.Start == ButtonState.Released &&
-                    currentState.Buttons.Start == ButtonState.Pressed)
-                {
-                    // Go to next
-                    // Make awesome sound
-                    levelCompleted = true;
-                }
+                gamePads.Add(new GamePadController(PlayerIndex.One));
             }
-            else /* Move with arrow keys */
+            if (GamePad.GetState(PlayerIndex.Two).IsConnected)
             {
-                KeyboardState keys = Keyboard.GetState();
-
-                if (keys.IsKeyDown(Keys.Enter))
-                {
-                    // Go to next
-                    // Make awesome sound
-                    levelCompleted = true;
-                }
+                gamePads.Add(new GamePadController(PlayerIndex.Two));
             }
-        }
-
-        internal static void Unload()
-        {
-            This.Game.SetCurrentLevel("TitleScreen");
         }
 
         internal static bool CompletionCondition()
         {
-            return levelCompleted;
+            bool PlayerPressedStart = false;
+            foreach (IController controller in gamePads)
+            {
+                controller.Update();
+                if (controller.Start == ReleasableButtonState.Clicked)
+                    PlayerPressedStart = true;
+            }
+
+            return !scroller.Scrolling ||
+                (This.Game as FrostbyteGame).GlobalController.Start == ReleasableButtonState.Clicked ||
+                PlayerPressedStart;
+        }
+
+        internal static void Unload()
+        {
+            string nextlevel = LevelFunctions.LoadNextLevel();
+            This.Game.SetCurrentLevel(nextlevel);
         }
     }
 }
