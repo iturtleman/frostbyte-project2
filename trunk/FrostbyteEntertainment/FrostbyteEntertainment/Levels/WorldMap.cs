@@ -35,11 +35,11 @@ namespace Frostbyte.Levels
             if (visited == 0)
             {
                 LevelPositions = new List<Vector2>(new Vector2[]{
-                    new Vector2(530, 170),
-                    new Vector2(815, 238),
-                    new Vector2(525, 570),
-                    new Vector2(170, 445),
-                    new Vector2(525, 406)
+                    new Vector2(265, 350),
+                    new Vector2(540, 190),
+                    new Vector2(695, 335),
+                    new Vector2(530, 650),
+                    new Vector2(500, 375)
                 });
             }
 
