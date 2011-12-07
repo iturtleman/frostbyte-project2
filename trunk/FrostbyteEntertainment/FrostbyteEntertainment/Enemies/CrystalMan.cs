@@ -22,6 +22,7 @@ namespace Frostbyte.Enemies
         public CrystalMan(string name, Vector2 initialPosition)
             : base(name, new Actor(new DummyAnimation()), 20, crystalHealth * (numOuterCrystals + 1))
         {
+            (This.Game.LoadingLevel as FrostbyteLevel).enemies.Remove(this);
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
             ElementType = Element.Lightning;
@@ -211,7 +212,36 @@ namespace Frostbyte.Enemies
 
         protected override void Die()
         {
-            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[14]));
+            int ix = 14;
+            switch (Orientation)
+            {
+                case Orientations.Down:
+                    ix = 14;
+                    break;
+                case Orientations.Down_Left:
+                    ix = 15;
+                    break;
+                case Orientations.Down_Right:
+                    ix = 15;
+                    break;
+                case Orientations.Left:
+                    ix = 16;
+                    break;
+                case Orientations.Right:
+                    ix = 16;
+                    break;
+                case Orientations.Up_Left:
+                    ix = 17;
+                    break;
+                case Orientations.Up_Right:
+                    ix = 17;
+                    break;
+                case Orientations.Up:
+                    ix = 18;
+                    break;
+            }
+
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[ix]));
             b.GroundPos = GroundPos;
             b.Scale = 1.25f;
             base.Die();
