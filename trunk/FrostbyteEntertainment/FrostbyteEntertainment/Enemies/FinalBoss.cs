@@ -69,7 +69,7 @@ namespace Frostbyte.Enemies
             #endregion Audio
         }
 
-        protected void Die()
+        protected override void Die()
         {
             (This.Game.CurrentLevel as FrostbyteLevel).HUD.ScrollText(
                 "Congratulations, you've stopped Caelestis! You are awesome! Also...\n\nYou've made the gods proud.");
