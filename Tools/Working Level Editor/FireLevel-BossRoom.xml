@@ -499,4 +499,5 @@
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="129,110" />
   <Tile Type="Floor" Collision="false" Theme="Fire" Orientation="Left" GridCell="130,110" />
   <Tile Type="SideWall" Collision="true" Theme="Fire" Orientation="Up_Left" GridCell="131,110" />
+  <Enemy Type="Frostbyte.Enemies.FireMan" Name="Fire Man" Pos="8352,6112" />
 </Level>
