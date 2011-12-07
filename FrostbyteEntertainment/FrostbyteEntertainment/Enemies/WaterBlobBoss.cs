@@ -30,6 +30,7 @@ namespace Frostbyte.Enemies
            "waterboss-surface.anim",
            "waterboss-submerge.anim",
            "waterboss-die.anim",
+           "puddle.anim"
         };
 
         internal TimeSpan attackWait = TimeSpan.MaxValue;
@@ -72,7 +73,7 @@ namespace Frostbyte.Enemies
                     Sprite currentTarget = GetClosestTarget(l.allies);
                     int attackFrame = 0;
 
-                    int randAttack = This.Game.rand.Next(9,10);
+                    int randAttack = This.Game.rand.Next(11);
                     if (randAttack < 8)
                     {
                         #region Water Tier 1
@@ -122,6 +123,7 @@ namespace Frostbyte.Enemies
                     }
                     else if (randAttack < 10)
                     {
+                        Direction = GroundPos - currentTarget.GroundPos;
                         for(int x=-1;x<2;x++){
                             int attackRange = 11;
 

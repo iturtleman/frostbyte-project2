@@ -22,17 +22,17 @@ namespace Frostbyte.Levels
 
             l.ExitPortalSpawnPoint = new Vector2(10123, 3771);
 
-            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0));
+            Characters.Mage mage = new Characters.Mage("Player 1", PlayerIndex.One, new Color(255, 0, 0), Color.White);
             mage.SpawnPoint = new Microsoft.Xna.Framework.Vector2(6 * Tile.TileSize, 52 * Tile.TileSize);
             //mage.SpawnPoint = new Vector2(10143, 3771);
-            //mage.SpawnPoint = new Vector2(147*64+32, 68*64+32);
+            mage.SpawnPoint = new Vector2(147*64+32, 67*64+32);
             mage.Speed = 1;
             mage.Scale = 0.7f;
             l.HUD.AddPlayer(mage);
 
-            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255));
+            Characters.Mage mage2 = new Characters.Mage("Player 2", PlayerIndex.Two, new Color(114, 255, 255), new Color(150, 150, 150));
             mage2.SpawnPoint = new Microsoft.Xna.Framework.Vector2(6 * Tile.TileSize, 53 * Tile.TileSize);
-            //mage2.SpawnPoint = new Vector2(147*64+32, 68*64+32);
+            mage2.SpawnPoint = new Vector2(147*64+32, 68*64+32);
             mage2.Speed = 1;
             mage2.Scale = 0.7f;
             l.HUD.AddPlayer(mage2);

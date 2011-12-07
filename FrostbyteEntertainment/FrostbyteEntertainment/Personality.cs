@@ -719,9 +719,7 @@ namespace Frostbyte
         {
             List<Sprite> targets = (This.Game.CurrentLevel as FrostbyteLevel).allies;
 
-            master.SetAnimation(4);
-            master.StopAnim();
-            master.Visible = false;
+            master.SetAnimation(18);
 
             int initialWaitDistance = 150;
             while (!master.camp(targets, initialWaitDistance, float.PositiveInfinity) && !master.AtArms)
@@ -744,12 +742,11 @@ namespace Frostbyte
             {
                 if (spawn.Frame == 16)
                 {
-                    master.Visible = true;
+                    master.SetAnimation(4);
                 }
                 yield return null;
             }
             This.Game.CurrentLevel.RemoveSprite(spawn);
-            master.Visible = true;
             master.StartAnim();
 
             while (true)

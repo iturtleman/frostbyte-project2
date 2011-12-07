@@ -120,11 +120,11 @@ namespace Frostbyte.Characters
 
         #region Constructors
         public Mage(string name, Actor actor, Color targetColor)
-            : this(name, PlayerIndex.One, targetColor)
+            : this(name, PlayerIndex.One, targetColor, Color.White)
         {
         }
 
-        internal Mage(string name, PlayerIndex input, Color targetColor)
+        internal Mage(string name, PlayerIndex input, Color targetColor, Color tint)
             : base(name, new Actor(Animations) /*new Actor(name.Contains("1")?Animations:Animations2)*/)
         {
 
@@ -142,6 +142,7 @@ namespace Frostbyte.Characters
             target.Visible = false;
             target.Static = true;
             target.mColor = targetColor;
+            mColor = tint;
             target.Scale = 1.5f;
             sortType = new DistanceSort(this);
 
