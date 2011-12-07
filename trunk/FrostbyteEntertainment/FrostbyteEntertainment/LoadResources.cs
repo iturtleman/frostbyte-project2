@@ -48,6 +48,12 @@ namespace Frostbyte
                 Levels.Final.Load,
                 LevelFunctions.DoNothing,
                 LevelFunctions.UnloadLevel));
+            mLevels.Add(new FrostbyteLevel("Credits",
+                Levels.Credits.Load,
+                LevelFunctions.DoNothing,
+                LevelFunctions.UnloadLevel,
+                Levels.Credits.CompletionCondition));
+                
         }
     }
 }

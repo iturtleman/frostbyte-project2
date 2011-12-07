@@ -280,6 +280,13 @@
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Effects\Worm_Spawn.wav">
       <Link>Content\Audio\Effects\Worm_Spawn.wav</Link>
     </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\CreditsBG.mp3">
+      <Link>Content\Audio\Music\CreditsBG.mp3</Link>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\CrystalBossBG.mp3">
+      <Link>Content\Audio\Music\CrystalBossBG.mp3</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Audio\Music\EarthBG.mp3">
       <Link>Content\Audio\Music\EarthBG.mp3</Link>
     </Content>
@@ -365,6 +372,10 @@
       <Link>Content\LightningLevel.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\FrostbyteEntertainmentContent\Story\Credits.txt">
+      <Link>Content\Story\Credits.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\FrostbyteEntertainmentContent\Story\Earth.txt">
       <Link>Content\Story\Earth.txt</Link>

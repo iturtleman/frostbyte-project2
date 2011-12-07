@@ -578,6 +578,7 @@ namespace Frostbyte
         {
             this.master = master;
             mStates = States().GetEnumerator();
+            This.Game.AudioManager.AddBackgroundMusic("Music/CrystalBossBG");
         }
 
         public void Update()
@@ -643,7 +644,7 @@ namespace Frostbyte
                 yield return null;
             }
             master.setAtArms();
-            This.Game.AudioManager.PlayBackgroundMusic("Music/OldEarthBoss");
+            This.Game.AudioManager.PlayBackgroundMusic("Music/CrystalBossBG");
             This.Game.AudioManager.BackgroundMusicVolume = 0.05f;
 
             while (true)
@@ -705,6 +706,7 @@ namespace Frostbyte
         {
             this.master = master;
             mStates = States().GetEnumerator();
+            This.Game.AudioManager.AddBackgroundMusic("Music/WaterBoss");
         }
 
         public void Update()

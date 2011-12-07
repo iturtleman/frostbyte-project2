@@ -1,0 +1,96 @@
+       4Realms
+
+
+
+
+
+
+
+
+
+
+       Concept
+-----------------------
+Frostbyte Entertainment
+
+
+     Level Design
+-----------------------
+   Bruce Bevilacqua
+    Vincent Garcia
+
+
+    UI Programming
+-----------------------
+      Dan Nemec
+    Vincent Garcia
+
+
+   Particle Effects
+-----------------------
+   Bruce Bevilacqua
+
+
+       Enemy AI
+-----------------------
+    Vincent Garcia
+
+
+       Boss AI
+-----------------------
+      Dan Nemec
+
+
+        Audio
+-----------------------
+      Dan Nemec
+    Vincent Garcia
+    Kevin McLeod
+     Darren Korb
+
+
+     Art Direction
+-----------------------
+     Eric Gonzalez
+
+
+      3D Modeling
+-----------------------
+     Eric Gonzalez
+
+
+      Animations
+-----------------------
+     Eric Gonzalez
+     Ivan Hernandez
+
+
+        Story
+-----------------------
+    Vincent Garcia
+
+
+     Game Engine
+-----------------------
+    Ivan Hernandez
+   Bruce Bevilacqua
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Thanks for Playing!!
+
