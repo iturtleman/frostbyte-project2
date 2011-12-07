@@ -55,7 +55,7 @@ namespace Frostbyte
             This.Game.AudioManager.Stop();
         }
 
-        internal static IEnumerable<string> LoadLevelNotes(string levelName)
+        internal static IEnumerable<string> LoadLevelNotes(string levelName, bool terminateOnEOF=false)
         {
             string entrySeparator = @"(?:\r?\n){3,}";  // At least three newlines separate each entry.
 
@@ -81,9 +81,12 @@ namespace Frostbyte
                 yield return note;
             }
 
-            while (true)
+            if (!terminateOnEOF)
             {
-                yield return errorNotes[rand.Next(errorNotes.Length)];
+                while (true)
+                {
+                    yield return errorNotes[rand.Next(errorNotes.Length)];
+                }
             }
         }
 
