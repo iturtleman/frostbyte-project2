@@ -27,11 +27,6 @@ namespace Frostbyte.Enemies
            "fireman-attack-right.anim",
            "fireman-attack-diagup.anim",
            "fireman-attack-up.anim",  // 14
-           "fireman-stomp-down.anim",
-           "fireman-stomp-diagdown.anim",
-           "fireman-stomp-right.anim",
-           "fireman-stomp-diagup.anim",
-           "fireman-stomp-up.anim",  // 19
            "fireman-die.anim",
         };
 
@@ -53,8 +48,10 @@ namespace Frostbyte.Enemies
 
         protected override void Die()
         {
-            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[20]));
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
+            BossDeath b = new BossDeath("die", new Actor(mActor.Animations[15]));
             b.GroundPos = GroundPos;
+            l.HUD.ScrollText("You feel a strong wave of heat flow throughout your body.\n\nHold down the Left trigger and press B, then release the trigger to cast a Fire spell! \n\n Try casting Tier 3 spells!");
             base.Die();
         }
 

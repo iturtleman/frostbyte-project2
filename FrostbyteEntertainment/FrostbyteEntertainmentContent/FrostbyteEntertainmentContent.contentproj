@@ -1027,6 +1027,7 @@
       <Name>firegolem-attack</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
     </Compile>
     <Compile Include="Sprites\firegolem-idle.png">
       <Name>firegolem-idle</Name>

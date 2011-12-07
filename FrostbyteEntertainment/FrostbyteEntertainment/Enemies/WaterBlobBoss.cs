@@ -50,8 +50,10 @@ namespace Frostbyte.Enemies
 
         protected override void Die()
         {
+            FrostbyteLevel l = (This.Game.CurrentLevel as FrostbyteLevel);
             BossDeath b = new BossDeath("die", new Actor(mActor.Animations[17]));
             b.GroundPos = GroundPos;
+            l.HUD.ScrollText("A cool, refreshing feeling washes over you.\n\nHold down the Left trigger and press X, then release the trigger to cast a Water spell!");
             base.Die();
         }
 
