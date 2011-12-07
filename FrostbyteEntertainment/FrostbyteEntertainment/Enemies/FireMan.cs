@@ -12,11 +12,11 @@ namespace Frostbyte.Enemies
     {
         #region Variables
         static List<String> Animations = new List<String>(){
-           "fireman-idle-down.anim",
-           "fireman-idle-diagdown.anim",
-           "fireman-idle-right.anim",
-           "fireman-idle-diagup.anim",
-           "fireman-idle-up.anim",
+           "fireman-stomp-down.anim",
+           "fireman-stomp-diagdown.anim",
+           "fireman-stomp-right.anim",
+           "fireman-stomp-diagup.anim",
+           "fireman-stomp-up.anim",
            "fireman-walk-down.anim",
            "fireman-walk-diagdown.anim",
            "fireman-walk-right.anim",
@@ -39,7 +39,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public FireMan(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 20, 10)
+            : base(name, new Actor(Animations), 20, 1000)
         {
             Speed = 1f;
             SpawnPoint = initialPosition;
