@@ -1199,6 +1199,46 @@
       <Link>Content\Sprites\player1-walk-up.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-attack-diagdown.anim">
+      <Link>Content\Sprites\player2-attack-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-attack-diagup.anim">
+      <Link>Content\Sprites\player2-attack-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-attack-down.anim">
+      <Link>Content\Sprites\player2-attack-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-attack-right.anim">
+      <Link>Content\Sprites\player2-attack-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-attack-up.anim">
+      <Link>Content\Sprites\player2-attack-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-idle-diagdown.anim">
+      <Link>Content\Sprites\player2-idle-diagdown.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-idle-diagup.anim">
+      <Link>Content\Sprites\player2-idle-diagup.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-idle-down.anim">
+      <Link>Content\Sprites\player2-idle-down.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-idle-right.anim">
+      <Link>Content\Sprites\player2-idle-right.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\FrostbyteEntertainmentContent\Sprites\player2-idle-up.anim">
+      <Link>Content\Sprites\player2-idle-up.anim</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\FrostbyteEntertainmentContent\Sprites\rock.anim">
       <Link>Content\Sprites\rock.anim</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
