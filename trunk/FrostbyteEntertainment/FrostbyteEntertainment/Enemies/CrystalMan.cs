@@ -84,16 +84,20 @@ namespace Frostbyte.Enemies
             {
                 attackWait = This.gameTime.TotalGameTime + new TimeSpan(0, 0, This.Game.rand.Next(2, 5));
                 int AttackChoice = This.Game.rand.Next(7);
-                if (AttackChoice <= 0)
+                if (AttackChoice <= 0 && OuterCrystals.Count > 0)
                 {
                     foreach (Crystal c in OuterCrystals)
                     {
                         mAttacks.Add(Attacks.LightningSpan(c, this, 5, 0).GetEnumerator());
                     }
                 }
-                else if (AttackChoice <= 1)
+                else if (AttackChoice <= 1 && OuterCrystals.Count > 0)
                 {
-                    mAttacks.Add(Attacks.LightningSpan(OuterCrystals.GetRandomElement(), this, 7, 0).GetEnumerator());
+                    Crystal target = OuterCrystals.GetRandomElement();
+                    if (target != null)
+                    {
+                        mAttacks.Add(Attacks.LightningSpan(target, this, 7, 0).GetEnumerator());
+                    }
                 }
                 else if (AttackChoice <= 2)
                 {
