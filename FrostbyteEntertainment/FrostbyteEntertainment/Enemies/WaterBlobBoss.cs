@@ -38,7 +38,7 @@ namespace Frostbyte.Enemies
         #endregion Variables
 
         public WaterBlobBoss(string name, Vector2 initialPosition)
-            : base(name, new Actor(Animations), 1, 1000)
+            : base(name, new Actor(Animations), 1, 800)
         {
             SpawnPoint = initialPosition;
             movementStartTime = new TimeSpan(0, 0, 1);
