@@ -39,9 +39,11 @@ namespace Frostbyte.Levels
             This.Game.AudioManager.AddBackgroundMusic("Music/FireBG");
             This.Game.AudioManager.PlayBackgroundMusic("Music/FireBG", 0.03f);
 
-            l.isPauseEnabled = true;
+            Obstacles.Obstacle rock = new Obstacles.Rock("rock");
+            rock.SpawnPoint += new Vector2(130*64+32, 106*64+32);
+            rock.Respawn();
 
-            l.HUD.FadeText("Chapter IV: Exuro's Volcano - Battle");
+            l.isPauseEnabled = true;
 
             #region loadeffects etc
             l.GetEffect("ParticleSystem");
